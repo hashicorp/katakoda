@@ -6,8 +6,7 @@
       { "title": "Title", "text": "step1.md" }
     ],
     "intro": {
-      "text": "intro.md",
-      "courseData": "env-init.sh"
+      "text": "intro.md"
     },
     "finish": {
       "text": "finish.md"
