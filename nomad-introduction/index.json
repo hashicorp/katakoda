@@ -20,6 +20,10 @@
         {
           "file": "httpecho.hcl",
           "target": "~/"
+        },
+        {
+          "file": "httpexec.hcl",
+          "target": "~/"
         }
       ]
     }
