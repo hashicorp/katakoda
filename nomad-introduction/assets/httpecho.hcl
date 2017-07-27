@@ -1,4 +1,4 @@
-job "http_test" {
+job "http-echo" {
   datacenters = ["dc1"]
   type        = "service"
 
