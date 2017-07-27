@@ -8,15 +8,15 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "httpecho.hcl",
+          "target": "~/"
+        }
+      ]
     }
-  },
-  "assets": {
-    "client": [
-      {
-        "file": "httpecho.hcl",
-        "target": "~/"
-      }
-    ]
   },
   "environment": {
     "uilayout": "terminal"
