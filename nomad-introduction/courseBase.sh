@@ -6,5 +6,7 @@ unzip -d ~/.bin ~/.bin/consul.zip && chmod +x ~/.bin/consul
 curl -L -o ~/.bin/nomad.zip https://releases.hashicorp.com/nomad/0.6.0/nomad_0.6.0_linux_amd64.zip
 unzip -d ~/.bin ~/.bin/nomad.zip && chmod +x ~/.bin/nomad
 
-`nohup ~/.bin/consul agent -dev >/var/log/consul.log 2>&1 &`
-`nohup ~/.bin/nomad agent -dev >/dev/log/nomad.log 2>&1 &`
+mkdir ~/log
+
+`nohup ~/.bin/consul agent -dev >~/log/consul.log 2>&1 &`
+`nohup ~/.bin/nomad agent -dev >~/log/nomad.log 2>&1 &`
