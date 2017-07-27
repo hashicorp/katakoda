@@ -2,7 +2,9 @@
   "title": "Introduction to Nomad",
   "description": "A brief introduction to operating and interacting with HashiCorp Nomad",
   "details": {
-    "steps": [],
+    "steps": [
+      { "title": "Title", "text": "step1.md" }
+    ],
     "intro": {
       "text": "intro.md",
       "courseData": "env-init.sh"
