@@ -6,6 +6,12 @@
       "text": "intro.md",
       "courseData": "courseBase.sh"
     },
+    "steps": [
+      {
+        "title": "Interacting with Nomad",
+        "text": "step1.md"
+      }
+    ],
     "finish": {
       "text": "finish.md"
     },
