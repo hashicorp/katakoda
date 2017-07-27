@@ -10,6 +10,14 @@
       "text": "finish.md"
     }
   },
+  "assets": {
+    "client": [
+      {
+        "file": "httpecho.hcl",
+        "target": "~/"
+      }
+    ]
+  },
   "environment": {
     "uilayout": "terminal"
   },
