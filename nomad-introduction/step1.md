@@ -17,3 +17,8 @@ To check the status of a job use the `nomad status [job name]` command, you can 
 just started with the following command:
 
 `nomad status http-echo`{{execute}}
+
+## Test the running application
+To test the running application we can curl the endpoint with the following command:
+
+`curl http://localhost:8080/`{{execute}}
