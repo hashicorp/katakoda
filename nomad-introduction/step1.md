@@ -5,6 +5,8 @@ the following command in the terminal window.
 
 `nomad server-members`{{execute}}
 
+_Note:_ Nomad may still be starting in the background. If you are unable to connect, please retry.
+
 ## Running a job
 Jobs can be started in nomad using the `nomad run` command, why not try this now with the example job.
 
