@@ -26,6 +26,9 @@
           "target": "~/"
         }
       ]
+    },
+    "files": {
+      "redis.nomad"
     }
   },
   "environment": {
