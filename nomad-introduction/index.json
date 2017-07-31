@@ -10,12 +10,12 @@
       {
         "title": "Creating and Running Jobs",
         "text": "1_jobs.md",
-        "courseData": "terminal.sh"
+        "code": "terminal.sh"
       },
       {
         "title": "Modifying Jobs",
         "text": "2_modifying.md",
-        "courseData": "terminal.sh"
+        "code": "terminal.sh"
       }
     ],
     "finish": {
