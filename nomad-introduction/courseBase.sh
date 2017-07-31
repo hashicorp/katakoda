@@ -11,7 +11,7 @@ chmod +x  ~/.bin/nomad
 
 rm ~/nomad.zip ~/consul.zip
 
-echo "export NOMAD_ADDR=http://host01:4646" >> ~/.profile
+echo "export NOMAD_ADDR=http://host01:4646" >> ~/.bashrc
 
 
 ssh root@host01 "curl -L http://assets.joinscrapbook.com/unzip -o /usr/bin/unzip && chmod +x /usr/bin/unzip && curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/0.9.0/consul_0.9.0_linux_amd64.zip && unzip -d  /usr/bin/ ~/consul.zip && chmod +x /usr/bin/consul && curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/0.6.0/nomad_0.6.0_linux_amd64.zip && unzip -d  /usr/bin/ ~/nomad.zip && chmod +x  /usr/bin/nomad && rm ~/nomad.zip ~/consul.zip"
