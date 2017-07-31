@@ -29,7 +29,7 @@
     }
   },
   "files": [
-      "redis.nomad"
+      "~/redis.nomad"
   ],
   "environment": {
     "uilayout": "editor-terminal",
