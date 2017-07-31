@@ -10,8 +10,9 @@ be running under this group. This value must be non-negative and defaults
 
 Once you have finished modifying the job specification, use the plan command to invoke a dry-run of the scheduler to see what would happen if you ran the updated job:
 
+`nomad plan example.nomad`{{execute}}
+
 ```bash
-$ nomad plan example.nomad
 +/- Job: "example"
 +/- Task Group: "cache" (2 create, 1 in-place update)
   +/- Count: "1" => "3" (forces create)
@@ -59,8 +60,9 @@ config {
 
 We can run plan again to see what will happen if we submit this change:
 
+`nomad plan example.nomad`{{execute}}
+
 ```bash
-$ nomad plan example.nomad
 +/- Job: "example"
 +/- Task Group: "cache" (1 create/destroy update, 2 ignore)
   +/- Task: "redis" (forces create/destroy update)

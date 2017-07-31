@@ -1,0 +1,1 @@
+This is just a simple introduction to operating jobs with Nomad, why not take a look at the documentation and create your own job files [https://www.nomadproject.io/docs/job-specification/index.html](https://www.nomadproject.io/docs/job-specification/index.html).  The playground environment has only a single node but is fully featured for you to experiment with.

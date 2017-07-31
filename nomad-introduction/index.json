@@ -16,6 +16,11 @@
         "title": "Modifying Jobs",
         "text": "2_modifying.md",
         "code": "terminal.sh"
+      },
+      {
+        "title": "Stopping Jobs",
+        "text": "3_stopping.md",
+        "code": "terminal.sh"
       }
     ],
     "finish": {
@@ -24,11 +29,16 @@
     "assets": {
       "client": [
         {
-          "file": "redis.nomad",
+          "file": "example.nomad",
           "target": "~/"
         }
       ]
     }
+  },
+  {
+    "files": [
+      "example.nomad"
+    ]
   },
   "environment": {
     "uilayout": "editor-terminal",
