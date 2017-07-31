@@ -8,8 +8,8 @@
     },
     "steps": [
       {
-        "title": "Interacting with Nomad",
-        "text": "step1.md"
+        "title": "Jobs",
+        "text": "1_jobs.md"
       }
     ],
     "finish": {
