@@ -12,9 +12,7 @@
 #     https://www.nomadproject.io/docs/job-specification/job.html
 #
 job "example" {
-  # The "region" parameter specifies the region in which to execute the job. If
-  # omitted, this inherits the default region name of "global".
-  # region = "global"
+  # The "region" parameter specifies the region in which to execute the job. If  # omitted, this inherits the default region name of "global".  # region = "global"
 
   # The "datacenters" parameter specifies the list of datacenters which should
   # be considered when placing this task. This must be provided.
@@ -62,24 +60,24 @@ job "example" {
     # perform in parallel. In this case, this specifies to update a single task
     # at a time.
     max_parallel = 1
-    
+
     # The "min_healthy_time" parameter specifies the minimum time the allocation
     # must be in the healthy state before it is marked as healthy and unblocks
     # further allocations from being updated.
     min_healthy_time = "10s"
-    
+
     # The "healthy_deadline" parameter specifies the deadline in which the
     # allocation must be marked as healthy after which the allocation is
     # automatically transitioned to unhealthy. Transitioning to unhealthy will
     # fail the deployment and potentially roll back the job if "auto_revert" is
     # set to true.
     healthy_deadline = "3m"
-    
+
     # The "auto_revert" parameter specifies if the job should auto-revert to the
     # last stable job on deployment failure. A job is marked as stable if all the
     # allocations as part of its deployment were marked healthy.
     auto_revert = false
-    
+
     # The "canary" parameter specifies that changes to the job that would result
     # in destructive updates should create the specified number of canaries
     # without stopping any previous allocations. Once the operator determines the
@@ -91,7 +89,6 @@ job "example" {
     # version is deployed and upon promotion the old version is stopped.
     canary = 0
   }
-
   # The "group" stanza defines a series of tasks that should be co-located on
   # the same Nomad client. Any task within a group will be placed on the same
   # client.
@@ -124,10 +121,10 @@ job "example" {
       # a task after it has failed.
       delay = "25s"
 
-     # The "mode" parameter controls what happens when a task has restarted
-     # "attempts" times within the interval. "delay" mode delays the next
-     # restart until the next interval. "fail" mode does not restart the task
-     # if "attempts" has been hit within the interval.
+      # The "mode" parameter controls what happens when a task has restarted
+      # "attempts" times within the interval. "delay" mode delays the next
+      # restart until the next interval. "fail" mode does not restart the task
+      # if "attempts" has been hit within the interval.
       mode = "delay"
     }
 
@@ -142,19 +139,11 @@ job "example" {
     #     https://www.nomadproject.io/docs/job-specification/ephemeral_disk.html
     #
     ephemeral_disk {
-      # When sticky is true and the task group is updated, the scheduler
-      # will prefer to place the updated allocation on the same node and
-      # will migrate the data. This is useful for tasks that store data
-      # that should persist across allocation updates.
-      # sticky = true
-      # 
-      # Setting migrate to true results in the allocation directory of a
-      # sticky allocation directory to be migrated.
-      # migrate = true
+      # When sticky is true and the task group is updated, the scheduler  # will prefer to place the updated allocation on the same node and  # will migrate the data. This is useful for tasks that store data  # that should persist across allocation updates.  # sticky = true  #   # Setting migrate to true results in the allocation directory of a  # sticky allocation directory to be migrated.  # migrate = true
 
       # The "size" parameter specifies the size in MB of shared ephemeral disk
       # between tasks in the group.
-      size = 300
+      size = 100
     }
 
     # The "task" stanza creates an individual unit of work, such as a Docker
@@ -176,6 +165,7 @@ job "example" {
       # documentation for more information.
       config {
         image = "redis:3.2"
+
         port_map {
           db = 6379
         }
@@ -198,6 +188,7 @@ job "example" {
       #     checksum = "md5:c4aa853ad2215426eb7d70a21922e794"
       #   }
       # }
+
 
       # The "logs" stana instructs the Nomad client on how many log files and
       # the maximum size of those logs files to retain. Logging is enabled by
@@ -227,12 +218,12 @@ job "example" {
       resources {
         cpu    = 500 # 500 MHz
         memory = 256 # 256MB
+
         network {
           mbits = 10
-          port "db" {}
+          port  "db"  {}
         }
       }
-
       # The "service" stanza instructs Nomad to register this task as a service
       # in the service discovery engine, which is currently Consul. This will
       # make the service addressable after Nomad has placed it on a host and
@@ -247,6 +238,7 @@ job "example" {
         name = "global-redis-check"
         tags = ["global", "cache"]
         port = "db"
+
         check {
           name     = "alive"
           type     = "tcp"
