@@ -10,6 +10,10 @@
       {
         "title": "Jobs",
         "text": "1_jobs.md"
+      },
+      {
+        "title": "Modifying Jobs",
+        "text": "1_modifying.md"
       }
     ],
     "finish": {
@@ -18,18 +22,14 @@
     "assets": {
       "host01": [
         {
-          "file": "httpecho.hcl",
-          "target": "~/"
-        },
-        {
-          "file": "httpexec.hcl",
+          "file": "redis.nomad",
           "target": "~/"
         }
       ]
     }
   },
   "environment": {
-    "uilayout": "terminal",
+    "uilayout": "terminal-editor",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
