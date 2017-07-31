@@ -12,7 +12,9 @@
 #     https://www.nomadproject.io/docs/job-specification/job.html
 #
 job "example" {
-  # The "region" parameter specifies the region in which to execute the job. If  # omitted, this inherits the default region name of "global".  # region = "global"
+  # The "region" parameter specifies the region in which to execute the job. If  
+  # omitted, this inherits the default region name of "global".  
+  # region = "global"
 
   # The "datacenters" parameter specifies the list of datacenters which should
   # be considered when placing this task. This must be provided.
@@ -64,7 +66,7 @@ job "example" {
     # The "min_healthy_time" parameter specifies the minimum time the allocation
     # must be in the healthy state before it is marked as healthy and unblocks
     # further allocations from being updated.
-    min_healthy_time = "10s"
+    min_healthy_time = "5s"
 
     # The "healthy_deadline" parameter specifies the deadline in which the
     # allocation must be marked as healthy after which the allocation is
@@ -139,8 +141,16 @@ job "example" {
     #     https://www.nomadproject.io/docs/job-specification/ephemeral_disk.html
     #
     ephemeral_disk {
-      # When sticky is true and the task group is updated, the scheduler    # will prefer to place the updated allocation on the same node and    # will migrate the data. This is useful for tasks that store data    # that should persist across allocation updates.    # sticky = true    #     # Setting migrate to true results in the allocation directory of a    # sticky allocation directory to be migrated.    # migrate = true
-
+      # When sticky is true and the task group is updated, the scheduler
+      # will prefer to place the updated allocation on the same node and
+      # will migrate the data. This is useful for tasks that store data
+      # that should persist across allocation updates.  
+      # sticky = true
+      #
+      # Setting migrate to true results in the allocation directory of a  
+      # sticky allocation directory to be migrated.  
+      # migrate = true
+      #
       # The "size" parameter specifies the size in MB of shared ephemeral disk
       # between tasks in the group.
       size = 100

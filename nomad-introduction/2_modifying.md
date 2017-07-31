@@ -27,16 +27,12 @@ To submit the job with version verification run:
 nomad run -check-index 6 example.nomad
 ```
 
-When running the job with the check-index flag, the job will only be run if the
-server side version matches the job modify index returned. If the index has
-changed, another user has modified the job and the plan's results are
-potentially invalid.
+
 We can see that the scheduler detected the change in count and informs us that it will cause 2 new instances to be created. The in-place update that will occur is to push the update job specification to the existing allocation and will not cause any service interruption. We can then run the job with the run command the plan emitted.
 
-By running with the -check-index flag, Nomad checks that the job has not been modified since the plan was run. This is useful if multiple people are interacting with the job at the same time to ensure the job hasn't changed before you apply your modifications.
+`nomad run example.nomad`{{execute}}
 
 ```bash
-$ nomad run -check-index 6 example.nomad
 ==> Monitoring evaluation "127a49d0"
     Evaluation triggered by job "example"
     Evaluation within deployment: "2e2c818f"
@@ -83,18 +79,16 @@ To submit the job with version verification run:
 nomad run -check-index 42 example.nomad
 ```
 
-When running the job with the check-index flag, the job will only be run if the
-server side version matches the job modify index returned. If the index has
-changed, another user has modified the job and the plan's results are
-potentially invalid.
 Here we can see the plan reports it will ignore two allocations and do one create/destroy update which stops the old allocation and starts the new allocation because we have changed the version of redis to run.
 
-The reason the plan only reports a single change to occur is because the job file has an update stanza that tells Nomad to perform rolling updates when the job changes at a rate of max_parallel, which is set to 1 in the example file.
+The reason the plan only reports a single change will occur is because the job file has an update stanza that tells Nomad to perform rolling updates. We are setting the update attribute in our example file to 1, this means that nomad will update one allocation
+and wait for it to be marked as healthy before it will update the next allocation.
 
 Once ready, use run to push the updated specification:
 
+`nomad run example.nomad`{{execute}}
+
 ```bash
-$ nomad run example.nomad
 ==> Monitoring evaluation "02161762"
     Evaluation triggered by job "example"
     Evaluation within deployment: "429f8160"
@@ -105,4 +99,4 @@ $ nomad run example.nomad
 
 After running, the rolling upgrade can be followed by running `nomad status example`{{execute}} and watching the deployed count.
 
-We can see that Nomad handled the update in three phases, only updating a single allocation in each phase and waiting for it to be healthy for min_healthy_time of 10 seconds before moving on to the next. The update strategy can be configured, but rolling updates makes it easy to upgrade an application at large scale.
+We can see that Nomad handled the update in three phases, only updating a single allocation in each phase and waiting for it to be healthy for min_healthy_time of 5 seconds before moving on to the next. The update strategy can be configured, but rolling updates makes it easy to upgrade an application at large scale.
