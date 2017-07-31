@@ -20,7 +20,7 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": [
+      "client": [
         {
           "file": "redis.nomad",
           "target": "~/"

@@ -2,10 +2,12 @@ The definition of a job is not static, and is meant to be updated over time. You
 
 For now, edit the example.nomad file to update the count and set it to 3:
 
-# The "count" parameter specifies the number of the task groups that should
-# be running under this group. This value must be non-negative and defaults
-# to 1.
-count = 3
+The "count" parameter specifies the number of the task groups that should
+be running under this group. This value must be non-negative and defaults
+ to 1.
+
+`count = 3`
+
 Once you have finished modifying the job specification, use the plan command to invoke a dry-run of the scheduler to see what would happen if you ran the updated job:
 
 ```bash
