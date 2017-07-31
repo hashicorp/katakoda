@@ -9,11 +9,13 @@
     "steps": [
       {
         "title": "Creating and Running Jobs",
-        "text": "1_jobs.md"
+        "text": "1_jobs.md",
+        "courseData": "terminal.sh"
       },
       {
         "title": "Modifying Jobs",
         "text": "2_modifying.md"
+        "courseData": "terminal.sh"
       }
     ],
     "finish": {
