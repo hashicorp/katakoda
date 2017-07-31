@@ -6,8 +6,9 @@ The format of the jobs is documented in the job specification. They can either b
 # Running a Job
 To get started, we will use the init command which generates a skeleton job file:
 
+`nomad init`{{execute}}
+
 ```bash
-$ nomad init
 Example job file written to example.nomad
 ```
 
@@ -15,8 +16,9 @@ You can view the contents of this file by running cat example.nomad. In this exa
 
 We can register our example job now:
 
+`$ nomad run example.nomad`{{execute}}
+
 ```bash
-$ nomad run example.nomad
 ==> Monitoring evaluation "26cfc69e"
     Evaluation triggered by job "example"
     Allocation "8ba85cef" created: node "171a583b", group "cache"
@@ -28,8 +30,9 @@ Anytime a job is updated, Nomad creates an evaluation to determine what actions 
 
 To inspect the status of our job we use the status command:
 
+`nomad status example`{{execute}}
+
 ```bash
-$ nomad status example
 ID            = example
 Name          = example
 Submit Date   = 07/25/17 23:14:43 UTC
