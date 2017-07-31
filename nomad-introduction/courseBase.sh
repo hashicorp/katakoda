@@ -1,13 +1,13 @@
-curl -L http://assets.joinscrapbook.com/unzip -o ~/bin/unzip
-chmod +x ~/bin/unzip
+curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
+chmod +x ~/.bin/unzip
 
 curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/0.9.0/consul_0.9.0_linux_amd64.zip
-unzip -d  ~/bin/ ~/consul.zip 
-chmod +x ~/bin/consul
+unzip -d  ~/.bin/ ~/consul.zip 
+chmod +x ~/.bin/consul
 
 curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/0.6.0/nomad_0.6.0_linux_amd64.zip
-unzip -d  ~/bin/ ~/nomad.zip
-chmod +x  ~/bin/nomad 
+unzip -d  ~/.bin/ ~/nomad.zip
+chmod +x  ~/.bin/nomad 
 
 rm ~/nomad.zip ~/consul.zip
 
