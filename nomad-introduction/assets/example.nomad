@@ -139,7 +139,7 @@ job "example" {
     #     https://www.nomadproject.io/docs/job-specification/ephemeral_disk.html
     #
     ephemeral_disk {
-      # When sticky is true and the task group is updated, the scheduler  # will prefer to place the updated allocation on the same node and  # will migrate the data. This is useful for tasks that store data  # that should persist across allocation updates.  # sticky = true  #   # Setting migrate to true results in the allocation directory of a  # sticky allocation directory to be migrated.  # migrate = true
+      # When sticky is true and the task group is updated, the scheduler    # will prefer to place the updated allocation on the same node and    # will migrate the data. This is useful for tasks that store data    # that should persist across allocation updates.    # sticky = true    #     # Setting migrate to true results in the allocation directory of a    # sticky allocation directory to be migrated.    # migrate = true
 
       # The "size" parameter specifies the size in MB of shared ephemeral disk
       # between tasks in the group.
@@ -189,7 +189,6 @@ job "example" {
       #   }
       # }
 
-
       # The "logs" stana instructs the Nomad client on how many log files and
       # the maximum size of those logs files to retain. Logging is enabled by
       # default, but the "logs" stanza allows for finer-grained control over
@@ -200,11 +199,10 @@ job "example" {
       #
       #     https://www.nomadproject.io/docs/job-specification/logs.html
       #
-      # logs {
-      #   max_files     = 10
-      #   max_file_size = 15
-      # }
-
+      logs {
+        max_files     = 5
+        max_file_size = 15
+      }
       # The "resources" stanza describes the requirements a task needs to
       # execute. Resource requirements include memory, network, cpu, and more.
       # This ensures the task will execute on a machine that contains enough
@@ -217,7 +215,7 @@ job "example" {
       #
       resources {
         cpu    = 500 # 500 MHz
-        memory = 256 # 256MB
+        memory = 128 # 256MB
 
         network {
           mbits = 10

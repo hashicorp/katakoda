@@ -49,6 +49,8 @@ $ nomad run -check-index 6 example.nomad
 
 Because we set the count of the task group to three, Nomad created two additional allocations to get to the desired state. It is idempotent to run the same job specification again and no new allocations will be created.
 
+`nomad status example`{{execute}}
+
 Now, let's try to do an application update. In this case, we will simply change the version of redis we want to run. Edit the example.nomad file and change the Docker image from "redis:3.2" to "redis:4.0":
 
 ```bash
@@ -101,6 +103,6 @@ $ nomad run example.nomad
 ==> Evaluation "02161762" finished with status "complete"
 ```
 
-After running, the rolling upgrade can be followed by running nomad status and watching the deployed count.
+After running, the rolling upgrade can be followed by running `nomad status example`{{execute}} and watching the deployed count.
 
 We can see that Nomad handled the update in three phases, only updating a single allocation in each phase and waiting for it to be healthy for min_healthy_time of 10 seconds before moving on to the next. The update strategy can be configured, but rolling updates makes it easy to upgrade an application at large scale.
