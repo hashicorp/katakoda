@@ -1,6 +1,15 @@
 {
   "title": "Nomad Playground",
   "description": "HashiCorp Nomad environment with Consul and Terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Example Commands",
+        "text": "helpful.md",
+        "code": "terminal.sh"
+      }
+    ]
+  },
   "environment": {
     "hideintro": true,
     "hidefinish": true,
