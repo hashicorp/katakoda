@@ -9,3 +9,8 @@
 
 ## Other commands
 `nomad help`
+
+## Git
+Git is also installed in this playground, to clone a repository from GitHub you can use all of the standard git 
+commands, for example:
+`git clone https://github.com/hashicorp/terraform-container-deploy.git`
