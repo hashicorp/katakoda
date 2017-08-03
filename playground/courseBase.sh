@@ -10,7 +10,7 @@ unzip -d  ~/.bin/ ~/nomad.zip
 chmod +x  ~/.bin/nomad 
 
 curl -L -o ~/terraform.zip https://releases.hashicorp.com/terraform/0.10.0/terraform_0.10.0_linux_amd64.zip
-unzip id ~/.bin ~/terraform.zip
+unzip -d ~/.bin ~/terraform.zip
 chmod +x ~/.bin/terraform
 
 rm ~/nomad.zip ~/consul.zip ~/terraform.zip
