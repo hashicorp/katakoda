@@ -81,7 +81,7 @@ nomad run -check-index 42 example.nomad
 
 Here we can see the plan reports it will ignore two allocations and do one create/destroy update which stops the old allocation and starts the new allocation because we have changed the version of redis to run.
 
-The reason the plan only reports a single change will occur is because the job file has an update stanza that tells Nomad to perform rolling updates. We are setting the update attribute in our example file to 1, this means that nomad will update one allocation
+The reason the plan only reports a single change will occur is because the job file has an update stanza that tells Nomad to perform rolling updates. We are setting the update attribute in our example file to 1, this means that Nomad will update one allocation
 and wait for it to be marked as healthy before it will update the next allocation.
 
 Once ready, use run to push the updated specification:
