@@ -8,7 +8,11 @@
 `nomad status [jobname]`
 
 ## Other commands
-`nomad help`
+Nomad CLI help menu
+`nomad help`  
+
+Terraform CLI help menu
+`terraform help`
 
 ## Git
 Git is also installed in this playground, to clone a repository from GitHub you can use all of the standard git 
