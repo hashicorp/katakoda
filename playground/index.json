@@ -6,7 +6,8 @@
       {
         "title": "Example Commands",
         "text": "helpful.md",
-        "code": "terminal.sh"
+        "code": "terminal.sh",
+        "courseData":"courseBase.sh"
       }
     ]
   },
