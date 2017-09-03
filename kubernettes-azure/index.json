@@ -1,0 +1,20 @@
+{
+  "title": "Terraform Kubernetes Azure",
+  "description": "Example of how to provision Kubernetes on Azure with Terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Kubernetes on Azure with Terraform",
+        "text": "kubernetes.md",
+        "courseData": "courseBase.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "editor-terminal-split",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "bash"
+  }
+}
