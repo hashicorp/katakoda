@@ -8,7 +8,15 @@
         "text": "kubernetes.md",
         "courseData": "courseBase.sh"
       }
-    ]
+    ],
+    "assets": {
+      "client": [
+        {
+          "file": "config.hcl",
+          "target": "~/"
+        }
+      ]
+    }
   },
   "environment": {
     "uilayout": "editor-terminal",
