@@ -12,8 +12,9 @@
     ]
   },
   "environment": {
-    "uilayout": "editor-terminal",
-    "dashboards": [{"name": "Tab Name", "port": 4646}],
+    "uilayout": "terminal",
+    "showdashboard": true,
+    "dashboards": [{"name": "Nomad", "port": 4646}],
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {

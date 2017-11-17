@@ -19,7 +19,7 @@ rm ~/nomad.zip ~/consul.zip ~/terraform.zip
 n=0
 until [ $n -ge 10 ]
 do
-  response=`curl -sL -w "%{http_code}\\n" "http://localhost:4646/v1/status/leader" -o /dev/null --connect-timeout 3 --max-time 5`
+  response=`curl -sL -w "%{http_code}\\n" "http://host01:4646/v1/status/leader" -o /dev/null --connect-timeout 3 --max-time 5`
   if [[ "${response}" == "200" ]]; then
     echo "NOMAD Running"
     break
