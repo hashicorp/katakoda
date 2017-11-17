@@ -20,8 +20,3 @@ curl -L -o ~/.bin/faas-cli https://github.com/openfaas/faas-cli/releases/downloa
 chmod +x ~/.bin/faas-cli
 
 rm ~/nomad.zip ~/consul.zip ~/terraform.zip
-
-
-# Download job files
-curl -L -o ~/faas.hcl https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl
-curl -L -o ~/monitoring.hcl https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/monitoring.hcl
