@@ -5,12 +5,12 @@ This Katacoda environment already has Nomad, Consul and OpenFaaS installed and r
 
 We can also interact with OpenFaaS using the `faas-cli` tool, note that we need to specify the gateway as this defaults to localhost and our gateway is running at `http://host01:8080/`  
 
-`faas-cli list -gateway=http://host01:8080/`{{execute}}
+`faas-cli list --gateway=http://host01:8080/`{{execute}}
 
 ## Creating a new function
 We can create a new function by running the following command in the CLI:
 
-`faas-cli new gofunction -lang go`{{execute}}
+`faas-cli new --gateway=http://host01:8080/ gofunction -lang go`{{execute}}
 
 ```bash
 $ faas-cli new gofunction -lang go
@@ -125,9 +125,13 @@ faas-nomadd          system   50        running  11/15/17 11:00:31 GMT
 ```
 
 ### Running the function
-To run the function, we can simply curl the OpenFaaS gateway and pass our payload as a string:
+To run the function, we can simply call use the `faas-cli invoke gofunction` command:
+
+`faas-cli invoke --gateway=http://host01:8080/ gofunction`{{execute}}
+
+we can also curl the OpenFaaS gateway and pass our payload as a string:
 ```bash
-$ curl http://192.168.1.113:8080/function/gofunction -d 'Nic'
+$ curl http://host01:8080/function/gofunction -d 'Nic'
 Hello, Go. You said: Nic
 ```
 
