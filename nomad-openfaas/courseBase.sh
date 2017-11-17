@@ -20,3 +20,5 @@ curl -L -o ~/.bin/faas-cli https://github.com/openfaas/faas-cli/releases/downloa
 chmod +x ~/.bin/faas-cli
 
 rm ~/nomad.zip ~/consul.zip ~/terraform.zip
+
+apt-get install -y tree
