@@ -15,8 +15,10 @@
         "file": "launch.sh",
         "target": "/home/scrapbook",
         "chmod": "+x"
-      }
-    ]
+      }]
+    },
+    "intro": {
+      "text": "intro.md"
     }
   },
   "environment": {

@@ -14,5 +14,5 @@ do
 done
 echo "Nomad started. "
 echo -n "Configuring... "
-nomad run ~/faas.hcl
+nomad run ~/faas.hcl &> /dev/null
 echo "Nomad with OpenFaaS Ready"
