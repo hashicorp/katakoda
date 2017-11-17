@@ -16,7 +16,11 @@ curl -L -o ~/terraform.zip https://releases.hashicorp.com/terraform/0.11.0/terra
 unzip -d ~/.bin ~/terraform.zip
 chmod +x ~/.bin/terraform
 
+curl -L -o ~/.bin/faas-cli https://github.com/openfaas/faas-cli/releases/download/0.5.0/faas-cli
+chmod +x ~/.bin/faas-cli
+
 rm ~/nomad.zip ~/consul.zip ~/terraform.zip
+
 
 # Download job files
 curl -L -o ~/faas.hcl https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl
