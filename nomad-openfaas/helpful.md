@@ -3,6 +3,10 @@ This Katacoda environment already has Nomad, Consul and OpenFaaS installed and r
 
 `nomad status`{{execute}}
 
+We can also interact with OpenFaaS using the `faas-cli` tool, note that we need to specify the gateway as this defaults to localhost and our gateway is running at `http://host01:8080/`  
+
+`faas-cli list -gateway=http://host01:8080/`{{execute}}
+
 ## Creating a new function
 We can create a new function by running the following command in the CLI:
 
