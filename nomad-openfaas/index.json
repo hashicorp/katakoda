@@ -9,7 +9,15 @@
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
       }
+    ],
+    "assets": {
+      "client": [{
+        "file": "launch.sh",
+        "target": "~/",
+        "chmod": "+x"
+      }
     ]
+    }
   },
   "environment": {
     "uilayout": "terminal",
