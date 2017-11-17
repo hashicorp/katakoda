@@ -13,7 +13,7 @@
     "assets": {
       "client": [{
         "file": "launch.sh",
-        "target": "~/",
+        "target": "/home/scrapbook",
         "chmod": "+x"
       }
     ]
