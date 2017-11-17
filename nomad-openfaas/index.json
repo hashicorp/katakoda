@@ -9,7 +9,17 @@
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
       }
-    ]
+    ],
+    "assets": {
+      "client": [{
+        "file": "launch.sh",
+        "target": "/home/scrapbook",
+        "chmod": "+x"
+      }]
+    },
+    "intro": {
+      "text": "intro.md"
+    }
   },
   "environment": {
     "uilayout": "terminal",
