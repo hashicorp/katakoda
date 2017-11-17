@@ -1,0 +1,22 @@
+{
+  "title": "Nomad OpenFaaS Playground",
+  "description": "HashiCorp Nomad environment with OpenFaaS, Consul, and Terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Example Commands",
+        "text": "helpful.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "dashboards": [{"name": "Tab Name", "port": 4646}],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
