@@ -17,11 +17,11 @@
         "chmod": "+x"
       },
       {
-        "file": "certs/registry.test.training.katakoda.com.cert",
+        "file": "certs/registry.test.training.katacoda.com.cert",
         "target": "/certs"
       },
       {
-        "file": "certs/registry.test.training.katakoda.com.key",
+        "file": "certs/registry.test.training.katacoda.com.key",
         "target": "/certs"
       }
     ]
