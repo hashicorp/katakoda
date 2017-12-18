@@ -1,7 +1,7 @@
 export NOMAD_ADDR=http://host01:4646
 
 # Setup Docker registry
-docker run -d -e VIRTUAL_HOST=registry.test.training.katacoda.com -v /opt/registry/data:/var/lib/registry --name registry registry:2ocker run -d --name registry -p 5000:5000 registry:2
+docker run -d -e VIRTUAL_HOST=registry.test.training.katacoda.com -v /opt/registry/data:/var/lib/registry --name registry registry:2
 
 docker create -v /etc/nginx/certs --name nginx_certs busybox
 docker cp /certs/registry.test.training.katacoda.com.crt nginx_certs:/etc/nginx/certs/
