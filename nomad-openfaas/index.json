@@ -15,7 +15,16 @@
         "file": "launch.sh",
         "target": "/home/scrapbook",
         "chmod": "+x"
-      }]
+      },
+      {
+        "file": "certs/registry.test.training.katakoda.com.cert",
+        "target": "/certs"
+      },
+      {
+        "file": "certs/registry.test.training.katakoda.com.key",
+        "target": "/certs"
+      }
+    ]
     },
     "intro": {
       "text": "intro.md"
