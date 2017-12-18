@@ -2,12 +2,30 @@
   "title": "Nomad OpenFaaS Playground",
   "description": "HashiCorp Nomad environment with OpenFaaS, Consul, and Terraform",
   "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
     "steps": [
       {
-        "title": "Example Commands",
-        "text": "helpful.md",
-        "code": "terminal.sh",
-        "courseData": "courseBase.sh"
+        "title": "Getting started",
+        "text": "1_start.md",
+        "courseData": "courseBase.sh",
+        "code": "terminal.sh"
+      },
+      {
+        "title": "Creating a function",
+        "text": "2_creating.md"
+      },
+      {
+        "title": "Building and Deploying",
+        "text": "3_deploying.md"
+      },
+      {
+        "title": "Executing a function",
+        "text": "4_invoking.md"
       }
     ],
     "assets": {
@@ -15,17 +33,22 @@
         "file": "launch.sh",
         "target": "/home/scrapbook",
         "chmod": "+x"
+      }],
+      "host01": [{
+        "file": "install.sh",
+        "target": "/root",
+        "chmod": "+x"
       }]
-    },
-    "intro": {
-      "text": "intro.md"
     }
   },
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboards": [{"name": "Nomad", "port": 4646}],
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+    "dashboards": [
+      {"name": "Nomad", "port": 4646},
+      {"name": "OpenFaaS", "port": 8080}
+    ],
+    "uimessage1": "\u001b[32mInstalling and configuring OpenFaaS...\u001b[m\r\n"
   },
   "backend": {
     "imageid": "docker"
