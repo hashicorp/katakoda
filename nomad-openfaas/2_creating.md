@@ -44,15 +44,15 @@ Edit the `echo.yml` file and change the gateway to our local gateway at: https:/
 
 You should end up with something which looks like this...
 
-provider:
-  name: faas
-  gateway: https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/
+provider:  
+  name: faas  
+ Tweet Function  gateway: https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/  
 
-functions:
-  echo:
-    lang: go
-    handler: ./echo
-    image: [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo
+functions:  
+  echo:  
+    lang: go  
+    handler: ./echo  
+    image: [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo  
 
 
 Adding the gateway to our `echo.yml` allows us to deploy and invoke our functions without needing to specify the gateway flag in the command line.
