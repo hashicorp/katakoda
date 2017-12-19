@@ -4,17 +4,18 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "code": "terminal.sh",
       "courseData": "courseBase.sh"
     },
     "steps": [
       {
         "title": "Getting started",
-        "text": "step1.md"
+        "text": "step1.md",
+        "code": "terminal.sh"
       },
       {
         "title": "Creating a function",
-        "text": "step2.md"
+        "text": "step2.md",
+        "code": "terminal.sh"
       }
     ],
     "assets": {
