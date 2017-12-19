@@ -2,7 +2,7 @@ OpenFaaS allows you to run a private functions as a service, on top of the Nomad
 This Katacoda environment already has Nomad, Consul and OpenFaaS installed and running.  You can interact with nomad using the command line tools:
 
 ## Docker registry url
-`echo https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/v2`{{execute}}
+`https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/v2`
 
 `nomad status`{{execute}}
 
