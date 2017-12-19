@@ -16,7 +16,9 @@ Besides being an excellent way of monitoring your system Prometheus also has the
 ![](https://github.com/hashicorp/faas-nomad/raw/master/images/openfaas_nomad.png)
 
 ## Nomad
-The OpenFaaS gateway and the Nomad provider has already been deployed to the scheduler, if you run the `nomad status` command you should see there is one job already running.  The details of the job can be found at the following link: [https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl](https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl)
+The OpenFaaS gateway and the Nomad provider has already been deployed to the scheduler, the details of the job can be found at the following link: [https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl](https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl)
+
+If you run the `nomad status` command you should see the details of the job.
 
 `nomad status faas-nomadd`{{execute}}
 
