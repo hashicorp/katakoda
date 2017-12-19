@@ -53,6 +53,5 @@ functions:
     lang: go  
     handler: ./echo  
     image: [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo  
-  
 
 Adding the gateway to our `echo.yml` allows us to deploy and invoke our functions without needing to specify the gateway flag in the command line.

@@ -14,4 +14,4 @@ We can also directly invoke it from curl or another HTTP client using the gatewa
 
 `curl -d 'Nic' https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/function/echo`{{execute}}
 
-That is all that is required to get the most basic function created and deployed,  to see a more comprehensive example including how you can take a Test Driven approach to creating functions why not take a look at my example function for sending Tweets [OpenFaaS Tweet Function](https://github.com/nicholasjackson/open-faas-functions/tree/master/tweet).
+That is all that is required to get the most basic function created and deployed,  to see a more comprehensive example including how you can take a Test Driven approach to creating functions why not take a look at my example function for sending Tweets: [OpenFaaS Tweet Function](https://github.com/nicholasjackson/open-faas-functions/tree/master/tweet)
