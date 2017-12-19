@@ -3,13 +3,13 @@
   "description": "HashiCorp Nomad environment with OpenFaaS, Consul, and Terraform",
   "details": {
     "intro": {
-      "text": "intro.md",
-      "courseData": "courseBase.sh"
+      "text": "intro.md"
     },
     "steps": [
       {
         "title": "Getting started",
         "text": "step1.md",
+        "courseData": "courseBase.sh",
         "code": "terminal.sh"
       },
       {
