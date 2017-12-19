@@ -28,4 +28,4 @@ apt-get install -y tree
 docker run -d --name registry -p 5000:5000 registry:2
 
 # Start Nomad
-sleep 1; ~/launch.sh;
+~/launch.sh;
