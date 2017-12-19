@@ -8,13 +8,23 @@
     "steps": [
       {
         "title": "Getting started",
-        "text": "step1.md",
+        "text": "1_start.md",
         "courseData": "courseBase.sh",
         "code": "terminal.sh"
       },
       {
         "title": "Creating a function",
-        "text": "step2.md"
+        "text": "2_creating.md"
+      }
+      },
+      {
+        "title": "Building and Deploying",
+        "text": "3_deploying.md"
+      }
+      },
+      {
+        "title": "Executing a function",
+        "text": "4_invoking.md"
       }
     ],
     "assets": {
@@ -22,25 +32,22 @@
         "file": "launch.sh",
         "target": "/home/scrapbook",
         "chmod": "+x"
-      },
-      {
-        "file": "registry.test.training.katacoda.com.crt",
-        "target": "/certs"
-      },
-      {
-        "file": "registry.test.training.katacoda.com.key",
-        "target": "/certs"
-      }
-    ]
+      }]
     },
     "intro": {
       "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
     }
   },
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
-    "dashboards": [{"name": "Nomad", "port": 4646}],
+    "dashboards": [
+      {"name": "Nomad", "port": 4646},
+      {"name": "OpenFaaS", "port": 8080}
+    ],
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
