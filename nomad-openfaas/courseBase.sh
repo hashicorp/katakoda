@@ -26,6 +26,3 @@ apt-get install -y tree
 
 # Setup Docker registry
 docker run -d --name registry -p 5000:5000 registry:2
-
-# Start Nomad
-~/launch.sh;
