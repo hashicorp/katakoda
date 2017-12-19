@@ -5,6 +5,9 @@
     "intro": {
       "text": "intro.md"
     },
+    "finish": {
+      "text": "finish.md"
+    },
     "steps": [
       {
         "title": "Getting started",
@@ -33,12 +36,6 @@
         "target": "/home/scrapbook",
         "chmod": "+x"
       }]
-    },
-    "intro": {
-      "text": "intro.md"
-    },
-    "finish": {
-      "text": "finish.md"
     }
   },
   "environment": {
