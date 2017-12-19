@@ -2,12 +2,19 @@
   "title": "Nomad OpenFaaS Playground",
   "description": "HashiCorp Nomad environment with OpenFaaS, Consul, and Terraform",
   "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "terminal.sh",
+      "courseData": "courseBase.sh"
+    },
     "steps": [
       {
-        "title": "Example Commands",
-        "text": "helpful.md",
-        "code": "terminal.sh",
-        "courseData": "courseBase.sh"
+        "title": "Getting started",
+        "text": "step1.md"
+      },
+      {
+        "title": "Creating a function",
+        "text": "step2.md"
       }
     ],
     "assets": {
