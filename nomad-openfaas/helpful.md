@@ -1,6 +1,9 @@
 OpenFaaS allows you to run a private functions as a service, on top of the Nomad scheduler.  Functions are packaged in Docker Containers which enables you to work in any language and also interact with any software which can also be installed in the container.
 This Katacoda environment already has Nomad, Consul and OpenFaaS installed and running.  You can interact with nomad using the command line tools:
 
+## Docker registry url
+`echo https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/v2`{{execute}}
+
 `nomad status`{{execute}}
 
 We can also interact with OpenFaaS using the `faas-cli` tool, note that we need to specify the gateway as this defaults to localhost and our gateway is running at `http://host01:8080/`  
