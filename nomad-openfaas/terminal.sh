@@ -5,9 +5,11 @@ export DOCKER_REGISTRY=https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environ
 # Start Nomad
 sleep 1; ~/launch.sh;
 
+clear
+
 # Install templates
 faas-cli template pull
 
-clear
+# Echo status
 : The Docker Registry URL is https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/v2
 : The OpenFaaS Gateway is https://[[HOST_SUBDOMAIN]]-8078-[[KATACODA_HOST]].environments.katacoda.com/
