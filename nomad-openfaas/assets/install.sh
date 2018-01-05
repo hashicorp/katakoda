@@ -1,5 +1,3 @@
-echo "Woop woop"
-
 curl -L http://assets.joinscrapbook.com/unzip -o /usr/bin/unzip
 chmod +x /usr/bin/unzip
 

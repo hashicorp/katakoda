@@ -6,11 +6,7 @@ export DOCKER_REGISTRY=[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.ka
 
 # Start Nomad
 sleep 1; ~/launch.sh;
-
 clear
-
-# Install templates
-faas-cli template pull
 
 # Echo status
 : The local Docker Registry is [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com
