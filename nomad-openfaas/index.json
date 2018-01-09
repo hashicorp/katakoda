@@ -33,6 +33,11 @@
         "file": "launch.sh",
         "target": "/home/scrapbook",
         "chmod": "+x"
+      }],
+      "host01": [{
+        "file": "install.sh",
+        "target": "/root",
+        "chmod": "+x"
       }]
     }
   },
