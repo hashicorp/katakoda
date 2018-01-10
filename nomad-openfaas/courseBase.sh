@@ -28,6 +28,7 @@ tar -C /usr/local -xzf go1.9.2.linux-amd64.tar.gz
 rm go1.9.2.linux-amd64.tar.gz
 
 GOPATH=/home/scrapbook/go /usr/local/go/bin/go get -u github.com/golang/dep/cmd/dep
+mkdir /home/scrapbook/go/src/functions
 
 # Setup Docker registry
 docker run -d --name registry -p 5000:5000 registry:2
