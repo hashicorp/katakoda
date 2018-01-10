@@ -6,6 +6,7 @@ export DOCKER_REGISTRY=[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.ka
 export GOPATH=/home/scrapbook/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
+mkdir -p /home/scrapbook/go/src/functions
 cd /home/scrapbook/go/src/functions
 
 # Start Nomad
