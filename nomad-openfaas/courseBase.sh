@@ -23,7 +23,7 @@ rm ~/nomad.zip ~/consul.zip ~/terraform.zip
 # Install additional packages
 apt-get install -y tree
 
-wget https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz
+curl -L -o go1.9.2.linux-amd64.tar.gz https://dl.google.com/go/go1.9.2.linux-amd64.tar.gz
 tar -C /usr/local -xzf go1.9.2.linux-amd64.tar.gz
 
 GOPATH=/home/scrapbook/go go get -u github.com/golang/dep/cmd/dep
