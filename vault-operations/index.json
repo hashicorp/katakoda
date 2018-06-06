@@ -1,0 +1,57 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Operations",
+  "description": "Learn how to install, configure, and manage the Vault server.",
+  "difficulty": "beginner",
+  "time": "10 - 15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Installing Vault",
+        "text": "step1.md"
+      },
+      {
+        "title": "Run Vault in Development Mode",
+        "text": "step2.md"
+      },
+      {
+        "title": "Write Vault Configuration File",
+        "text": "step3.md"
+      },
+      {
+        "title": "Initialize Vault",
+        "text": "step4.md"
+      },
+      {
+        "title": "Enable Audit Logging",
+        "text": "step5.md"
+      },
+      {
+        "title": "Generate Root Token",
+        "text": "step6.md"
+      },
+      {
+        "title": "Key Rotation",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "files": [
+    "config.hcl"
+  ],
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
