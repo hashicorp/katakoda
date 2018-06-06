@@ -1,0 +1,5 @@
+{
+  "organization": "hashicorp",
+  "region": "US-West",
+  "zip_code": "94105"
+}
