@@ -5,6 +5,11 @@
   "difficulty": "beginner",
   "time": "10 minutes",
   "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
     "steps": [
       {
         "title": "Getting Started",
@@ -34,12 +39,7 @@
         "title": "Create an Orphan Token",
         "text": "step6.md"
       }
-    ],
-    "intro": {
-      "text": "intro.md",
-      "code": "env-init.sh",
-      "credits": "https://www.vaultproject.io"
-    },
+    ],    
     "assets": {
       "client": [
         {

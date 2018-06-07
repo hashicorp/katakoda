@@ -5,6 +5,10 @@
   "difficulty": "beginner",
   "time": "10 - 15 minutes",
   "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
     "steps": [
       {
         "title": "Installing Vault",
@@ -34,11 +38,7 @@
         "title": "Key Rotation",
         "text": "step7.md"
       }
-    ],
-    "intro": {
-      "text": "intro.md",
-      "credits": "https://www.vaultproject.io"
-    },
+    ],    
     "finish": {
       "text": "finish.md"
     }

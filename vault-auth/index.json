@@ -5,6 +5,11 @@
   "difficulty": "beginner",
   "time": "5 minutes",
   "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
     "steps": [
       {
         "title": "Getting Started",
@@ -23,11 +28,6 @@
         "text": "step3.md"
       }
     ],
-    "intro": {
-      "text": "intro.md",
-      "code": "env-init.sh",
-      "credits": "https://www.vaultproject.io"
-    },
     "assets": {
       "client": [
         {
