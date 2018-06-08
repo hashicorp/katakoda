@@ -6,7 +6,7 @@ When Vault is running in development mode, it runs entirely in-memory and starts
 
 First, get the generated root token.
 
-> Enter the following command into the terminal, or click on the command to automatically copy it into the terminal and execute it.
+> Enter the following command into the terminal, or click on the command (`⮐`) to automatically copy it into the terminal and execute it.
 
 ```
 docker logs vault > system.out

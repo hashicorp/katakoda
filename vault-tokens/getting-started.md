@@ -4,7 +4,9 @@ This tutorial uses [Vault docker container](https://hub.docker.com/_/vault/) whi
 
 When Vault is running in development mode, it runs entirely in-memory and starts unsealed with a single unseal key. The root token is already authenticated to the CLI, so you can immediately begin using Vault.
 
-First, get the generated root token by executing the following command:
+First, get the generated root token.
+
+> Enter the following command into the terminal, or click on the command (`⮐`) to automatically copy it into the terminal and execute it.
 
 ```
 docker logs vault > system.out
