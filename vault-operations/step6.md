@@ -8,9 +8,7 @@ Review the help text on the `generate-root` operation:
 vault operator generate-root -h
 ```{{execute T2}}
 
-```
-clear
-```{{execute T2}}
+`clear`{{execute T2}}
 
 
 First, execute the following command to generate a one-time password (OTP) and save it in the `otp.txt` file:
@@ -76,6 +74,4 @@ vault login $(cat root_token.txt)
 The output should show that the token policy is **root**.
 
 
-```
-clear
-```{{execute T2}}
+`clear`{{execute T2}}
