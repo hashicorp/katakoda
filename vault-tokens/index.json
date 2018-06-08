@@ -8,7 +8,6 @@
     "intro": {
       "text": "intro.md",
       "code": "env-init.sh",
-      "courseData": "base.sh",
       "credits": "https://www.vaultproject.io"
     },
     "steps": [

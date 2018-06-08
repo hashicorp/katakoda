@@ -7,7 +7,6 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "courseData": "base.sh",
       "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
