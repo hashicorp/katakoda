@@ -2,7 +2,7 @@ Vault is distributed as a [binary package](https://www.vaultproject.io/downloads
 
 To install Vault, find the appropriate package for your system and download it. (NOTE: Vault is packaged as a zip archive.)  
 
-> Enter the following command into the terminal, or click on the command to automatically copy it into the terminal and execute to downloads the `0.10.2` of the Vault binary for Linux.
+> Enter the following command into the terminal, or click on the command (`⮐`) to automatically copy it into the terminal and execute to downloads the `0.10.2` of the Vault binary for Linux.
 
 ```
 export VAULT=0.10.2
