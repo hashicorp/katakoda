@@ -3,7 +3,7 @@
   "title": "Vault Operations",
   "description": "Learn how to install, configure, and manage the Vault server.",
   "difficulty": "beginner",
-  "time": "10 - 15 minutes",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
