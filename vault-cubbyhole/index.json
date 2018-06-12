@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Lab 3: Vault Secret Engines - Cubbyhole",
+  "title": "Vault Secret Engines - Cubbyhole",
   "description": "Learn how cubbyhole secret engine works in Vault.",
   "difficulty": "beginner",
   "time": "5 minutes",

@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Lab 2: Vault Secret Engines - Versioned Key/Value",
+  "title": "Vault Secret Engines - Versioned Key/Value",
   "description": "Learn how to manage your secrets using Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
