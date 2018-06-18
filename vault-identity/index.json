@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Lab 7: Vault Identity - Entities & Groups",
+  "title": "Vault Identity - Entities & Groups",
   "description": "Learn how to create entities and groups in Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",

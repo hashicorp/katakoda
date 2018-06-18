@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Lab 1: Vault ACL Policies",
+  "title": "Vault ACL Policies",
   "description": "Learn how to create Vault Policies to govern your environment.",
   "difficulty": "beginner",
   "time": "5 minutes",

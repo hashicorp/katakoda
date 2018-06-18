@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Lab 6: Vault Authentication",
+  "title": "Vault Authentication",
   "description": "Learn how to enable and use username and password auth method.",
   "difficulty": "beginner",
   "time": "5 minutes",
