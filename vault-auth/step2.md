@@ -1,16 +1,14 @@
 Before creating a user, let's create a policy named, `base`.
 
 ```
-docker cp base.hcl vault:/base.hcl
-clear
 vault policy write base base.hcl
-```{{execute}}
+```{{execute T2}}
 
 To review the created policy:
 
 ```
 vault policy read base
-```{{execute}}
+```{{execute T2}}
 
 
 
@@ -33,7 +31,7 @@ Let's create your first user.
 ```
 vault write auth/userpass/users/student01 \
             password="training" policies="base"
-```{{execute}}
+```{{execute T2}}
 
 
 Notice that the username is a part of the path and the two parameters are password (in plain-text) and the list of policies as comma-separated value.
@@ -43,7 +41,7 @@ You can verify the setup by reading it from the path:
 
 ```
 vault read auth/userpass/users/student01
-```{{execute}}
+```{{execute T2}}
 
 Notice that the password is NOT included in the response.
 
@@ -52,4 +50,4 @@ If you wish to list the users created, execute the following command:
 
 ```
 vault list auth/userpass/users
-```{{execute}}
+```{{execute T2}}
