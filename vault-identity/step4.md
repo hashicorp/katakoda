@@ -1,10 +1,12 @@
 Now, you are going to create an internal group named, engineers.  Its member is `bob-smith` entity that you created.
 
+To clear the screen: `clear`{{execute T2}}
+
 Log back in with the root token:
 
 ```
-vault login $(cat root_token.txt)
-```{{execute}}
+vault login root
+```{{execute T2}}
 
 
 First, create a new policy so that you can test the capability inheritance:
@@ -12,14 +14,13 @@ First, create a new policy so that you can test the capability inheritance:
 Create a policy named, `team-eng` which grants CRUD operations on the `secret/data/team/eng` path.
 
 ```
-docker cp team-eng.hcl vault:/team-eng.hcl
-clear
 vault policy write team-eng team-eng.hcl
-```{{execute}}
+```{{execute T2}}
 
-To review the policy:  `vault policy read team-eng`{{execute}}
+To review the policy:  `vault policy read team-eng`{{execute T2}}
 
 <br>
+
 
 ## Create Internal Group for Engineers
 
@@ -32,7 +33,7 @@ vault write -format=json identity/group name="engineers" \
       metadata=team="Engineering" \
       metadata=region="North America" \
       | jq -r ".data.id" > group_id.txt
-```{{execute}}
+```{{execute T2}}
 
 The generated group ID is stored in the `group_id.txt` file.
 
@@ -40,7 +41,7 @@ Execute the following command to read the details of the group, `qa-entineers`:
 
 ```
 vault read identity/group/id/$(cat group_id.txt)
-```{{execute}}
+```{{execute T2}}
 
 
 > By default, Vault creates an internal group. When you create an internal group, you specify the group members, so you don't specify any group alias. Group aliases are mapping between Vault and external identity providers (e.g. LDAP, GitHub, etc.).  Therefore, you define group aliases only when you create external groups.  For internal groups, you have `member_entity_ids` and/or `member_group_ids` instead.

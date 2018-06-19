@@ -7,14 +7,14 @@ Execute the following command to login as `bob` and save the generated client to
 
 ```
 vault login -format=json -method=userpass username=bob password=training
-```{{execute}}
+```{{execute T2}}
 
 
 Remember that the `test` policy grants CRUD operations on the `secret/test` path.  Check to see if the generated token has capabilities granted:
 
 ```
 vault kv put secret/test owner="bob"
-```{{execute}}
+```{{execute T2}}
 
 
 > Although the username `bob` does not have `base` policy attached, the token inherits the capabilities granted in the base policy because `bob` is a member of the `bob-smith` entity, and the entity has base policy attached.
@@ -23,7 +23,7 @@ Check to see that the bob's token inherited the capabilities:
 
 ```
 vault token capabilities secret/data/training_test
-```{{execute}}
+```{{execute T2}}
 
 Remember that the base policy grants create and read capabilities on path starting with `secret/training`.
 
@@ -42,7 +42,7 @@ The user bob only inherits capability from its associating entity's policy.  The
 
 ```
 vault token capabilities secret/data/team/qa
-```{{execute}}
+```{{execute T2}}
 
 Therefore, the current token has no permission to access the `secret/data/team/qa` path.
 

@@ -13,21 +13,19 @@ Execute the following command to enable the userpass auth method:
 
 ```
 vault auth enable userpass
-```{{execute}}
+```{{execute T2}}
 
 Next, create a new policy named, `base`:
 
 ```
-docker cp base.hcl vault:/base.hcl
-clear
 vault policy write base base.hcl
-```{{execute}}
+```{{execute T2}}
 
 To review the created policy:
 
 ```
 vault policy read base
-```{{execute}}
+```{{execute T2}}
 
 This policy grants CRUD operations on the path starting with `secret/training`.
 
@@ -37,24 +35,22 @@ Let's create two more policies: `test` and `team-qa`.
 Execute the following command to create `test` policy.
 
 ```
-docker cp test.hcl vault:/test.hcl
 vault policy write test test.hcl
-```{{execute}}
+```{{execute T2}}
 
 
 Execute the following command to create `team-qa` policy.
 
 ```
-docker cp team-qa.hcl vault:/team-qa.hcl
 vault policy write team-qa team-qa.hcl
-```{{execute}}
+```{{execute T2}}
 
 
 At this point, you should have `base`, `test`, and `team-qa` policies:
 
 ```
 vault policy list
-```{{execute}}
+```{{execute T2}}
 
 <br>
 
@@ -69,7 +65,7 @@ Create a new user in userpass backend:
 ```
 vault write auth/userpass/users/bob password="training" \
     policies="test"
-```{{execute}}
+```{{execute T2}}
 
 
 Create another user in userpass backend:
@@ -81,4 +77,4 @@ Create another user in userpass backend:
 ```
 vault write auth/userpass/users/bsmith password="training" \
       policies="team-qa"
-```{{execute}}
+```{{execute T2}}

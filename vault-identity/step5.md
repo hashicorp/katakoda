@@ -7,7 +7,7 @@ Login as bob with userpass auth method:
 ```
 vault login -method=userpass username="bob" \
       password="training"
-```{{execute}}
+```{{execute T2}}
 
 
 Test to see if the token has an access to the following paths:
@@ -15,19 +15,19 @@ Test to see if the token has an access to the following paths:
 - `secret/data/test`:  
   ```
   vault token capabilities secret/data/test
-  ```{{execute}}
+  ```{{execute T2}}
 
 - `secret/data/training_test`:  
   ```
   vault token capabilities secret/data/training_test
-  ```{{execute}}
+  ```{{execute T2}}
 
 - `secret/data/team/qa`:  
   ```
   vault token capabilities secret/team/qa
-  ```{{execute}}
+  ```{{execute T2}}
 
 - `secret/data/team/eng`:  
   ```
   vault token capabilities secret/team/qa
-  ```{{execute}}
+  ```{{execute T2}}
