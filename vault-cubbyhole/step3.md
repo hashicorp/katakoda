@@ -22,20 +22,20 @@ Let's unwrap the secret which contains the client token with `apps`. The followi
 ```
 vault unwrap -format=json $(cat wrapping-token.txt) \
     | jq -r ".auth.client_token" > client-token.txt
-```{{execute}}
+```{{execute T2}}
 
 Log into Vault using the token you just uncovered:
 
 ```
 vault login $(cat client-token.txt)
-```{{execute}}
+```{{execute T2}}
 
 
 Remember that `apps` policy has a very limited privilege that the policy does not grant permissions on the `secret/data/dev` path other than **read**. Run the following command to verify that you can read the data at `secret/dev`:
 
 ```
 vault kv get secret/dev
-```{{execute}}
+```{{execute T2}}
 
 <br>
 
@@ -43,21 +43,26 @@ vault kv get secret/dev
 
 Token is one example.  If you have a user credential stored in Vault and wish to distribute it securely, you can use response wrapping.
 
-Login with root token again:  `vault login $(cat root_token.txt)`{{execute}}
+Login with root token again:  `vault login root`{{execute T2}}
 
 Write some secrets:
 
 ```
 vault kv put secret/app_credential user_id="project-admin" password="my-long-password"
-```{{execute}}
+```{{execute T2}}
 
 Without response wrapping enabled, you can see the output:
 
 ```
 vault kv get secret/app_credential
-```{{execute}}
+```{{execute T2}}
 
-When you wrap the `get` response, even you don't see the resulting data from the command invocation:
+But when you wrap the `get` response, even you don't see the resulting data from the command invocation. The response from the `vault kv get` operation is placed into the cubbyhole tied to the single use token (`wrapping_token`).  
+
+```
+vault kv get -format=json -wrap-ttl=60 secret/app_credential \
+     | jq -r ".wrap_info.token" > wrapping-token.txt
+```{{execute T2}}
 
 ```
 vault kv get -wrap-ttl=60 secret/app_credential
@@ -70,21 +75,15 @@ wrapping_token_ttl:              1m
 wrapping_token_creation_time:    2018-06-08 00:47:43.915339533 +0000 UTC
 wrapping_token_creation_path:    secret/data/app_credential
 ```
-<br>
-The response from the `vault kv get` operation is placed into the cubbyhole tied to the single use token (`wrapping_token`).  
 
-```
-vault kv get -format=json -wrap-ttl=60 secret/app_credential \
-     | jq -r ".wrap_info.token" > wrapping-token.txt
-```{{execute}}
 
 Using the `wrapping_token`, you can unwrap the response:
 
 ```
 vault unwrap -format=json $(cat wrapping-token.txt)
-```{{execute}}
+```{{execute T2}}
 
 
-If you run the `unwrap` command again, it fails since the `wrapping_token` is a single-use token.  
+**NOTE:** If you run the `unwrap` command again, it fails since the `wrapping_token` is a single-use token.  
 
 > Just like any other token, you can revoke `wrapping_token` if you think it was compromised at any time.
