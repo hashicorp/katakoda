@@ -6,25 +6,26 @@ Get help on `auth/token` path:
 
 ```
 vault path-help auth/token
-```{{execute}}
+```{{execute T2}}
 
 
 > **Root** or **sudo** users have the permission to generate periodic tokens. Periodic tokens have a TTL, but no max TTL; therefore, they may live for an infinite duration of time so long as they are renewed within their TTL. This is useful for long-running services that cannot handle regenerating a token.
+
+To clear the screen: `clear`{{execute T2}}
 
 ## Create a Token Role
 
 The API endpoint to create a token role is `auth/token/roles`.  Execute the following command to create a token role named, `monitor`.  This role has `base` policy attached and token renewal period of 24 hours (86400 seconds).
 
 ```
-clear
 vault write auth/token/roles/monitor allowed_policies="base" period="24h"
-```{{execute}}
+```{{execute T2}}
 
 Execute the following command to display the role details:
 
 ```
 vault read auth/token/roles/monitor
-```{{execute}}
+```{{execute T2}}
 
 
 Execute the following command to create a token for role, `monitor`, and save the generated token in a file named, `monitor_token.txt`.
@@ -32,14 +33,14 @@ Execute the following command to create a token for role, `monitor`, and save th
 ```
 vault token create -role="monitor" \
       -format=json | jq -r ".auth.client_token" > monitor_token.txt
-```{{execute}}
+```{{execute T2}}
 
 
 Display the token details:
 
 ```
 vault token lookup $(cat monitor_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 Notice that the **`role`** is set to **`monitor`**.
 

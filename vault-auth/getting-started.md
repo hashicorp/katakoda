@@ -51,6 +51,4 @@ vault login root
 ```{{execute T2}}
 
 
-<br>
-
-**Now, you are ready!**
+Now, you are ready!

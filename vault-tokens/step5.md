@@ -18,27 +18,27 @@ First, create a token, and save the generated token in a file named, `parent_tok
 ```
 vault token create -ttl=60s \
       -format=json | jq -r ".auth.client_token" > parent_token.txt
-```{{execute}}
+```{{execute T2}}
 
 
 Login with the generated token:
 
 ```
 vault login $(cat parent_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 Now, create a child token and save it in a file named, `child_token.txt`:
 
 ```
 vault token create -ttl=80s \
       -format=json | jq -r ".auth.client_token" > child_token.txt
-```{{execute}}
+```{{execute T2}}
 
 Try running some commands using this child token.
 
 ```
 vault token lookup $(cat child_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 <br>
 
@@ -47,19 +47,19 @@ vault token lookup $(cat child_token.txt)
 Log back in with `root` token:
 
 ```
-vault login $(cat root_token.txt)
-```{{execute}}
+vault login root
+```{{execute T2}}
 
 Execute the following command to revoke the parent token:
 
 ```
 vault token revoke $(cat parent_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 Try running commands with child token:
 
 ```
 vault token lookup $(cat child_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 This should failed because the child token was revoked when its parent got revoked.

@@ -9,7 +9,7 @@ First, let's see the help message on token creation.
 
 ```
 vault token create -h
-```{{execute}}
+```{{execute T2}}
 
 ## Create a Short-Lived Token
 
@@ -19,16 +19,14 @@ To specify the life of a token, run the `vault token create` command with `-ttl`
 vault token create -ttl=<duration>
 ```
 
-```
-clear
-```{{execute}}
+To clear the screen: `clear`{{execute T2}}
 
 Execute the following command to create a token whose TTL is **30 seconds**, and save the generated token in a file named, `ttl_token.txt`.
 
 ```
 vault token create -ttl=30s  \
     -format=json | jq -r ".auth.client_token" > ttl_token.txt
-```{{execute}}
+```{{execute T2}}
 
 > Notice that the generated token inherits the parent token's policy.  For the training, you are logged in with `root` token.  When you create a new token, it inherits the parent token's policy unless you specify with **`-policy`** parameter (e.g. `vault token create -policy="base" -ttl=30s`).
 
@@ -37,7 +35,7 @@ vault token create -ttl=30s  \
 
 ```
 vault login $(cat ttl_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 The output displays the **`token_duration`** left with this token in seconds.
 
@@ -46,7 +44,7 @@ Wait for a few seconds to let the TTL to be reached, and re-run the login comman
 
 ```
 vault login $(cat ttl_token.txt)
-```{{execute}}
+```{{execute T2}}
 
 You should receive **permission denied** error. After 30 seconds, the token gets revoked automatically, and you can no longer make any request with this token.
 
@@ -54,5 +52,5 @@ You should receive **permission denied** error. After 30 seconds, the token gets
 Log back in with `root` token:
 
 ```
-vault login $(cat root_token.txt)
-```{{execute}}
+vault login root
+```{{execute T2}}

@@ -50,7 +50,4 @@ Login with the generated root token.
 vault login root
 ```{{execute T2}}
 
-
-<br>
-
-**Now, you are ready to write some secrets!**
+Now, you are ready to write some secrets!
