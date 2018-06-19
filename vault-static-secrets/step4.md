@@ -12,7 +12,6 @@ To clear the screen: `clear`{{execute T2}}
 Run the following command to list all the secret keys stored in the key/value secret backend.
 
 ```
-clear
 vault kv list secret
 ```{{execute T2}}
 

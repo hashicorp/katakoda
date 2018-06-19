@@ -1,7 +1,6 @@
 Write a secret into `secret/training` path:
 
 ```
-clear
 vault kv put secret/training username="student01" password="pAssw0rd"
 ```{{execute T2}}
 

@@ -1,7 +1,6 @@
 View the contents of the file named, `data.txt`:   
 
 ```
-clear
 cat data.txt
 ```{{execute T2}}
 
