@@ -1,8 +1,8 @@
 Log back in with root token:
 
 ```
-vault login $(cat root_token.txt)
-```{{execute}}
+vault login root
+```{{execute T2}}
 
 <br>
 
@@ -10,7 +10,7 @@ Execute the capabilities command to check permissions on `secret/data/training_d
 
 ```
 vault token capabilities $(cat token.txt) secret/data/training_dev
-```{{execute}}
+```{{execute T2}}
 
 Where `token.txt` contains the generated token with `base` policy attached.
 
@@ -22,6 +22,6 @@ Execute the command without a token:
 
 ```
 vault token capabilities secret/data/training_dev
-```{{execute}}
+```{{execute T2}}
 
 With absence of a token, the command checks the capabilities of **current** token that you are logged in with.

@@ -1,6 +1,6 @@
 > Everything in Vault is **path** based, and admins write policies to grant or forbid access to certain paths and operations in Vault. Vault operates on a secure by default standard, and as such, an ***empty policy grants no permissions*** in the system.
 
-Before begins, let's check which secret engines have been enabled:  `vault secrets list`{{execute}}
+Before begins, let's check which secret engines have been enabled:  `vault secrets list`{{execute T2}}
 
 The output should look like:
 
@@ -49,18 +49,14 @@ This policy grants **create** and **read** operations on any path starting with 
 > **NOTE:**  When you are working with [_key/value secret engine v2_](https://www.vaultproject.io/api/secret/kv/kv-v2.html), the path to write policies would be `secret/data/<path>` even though the K/V command to the path is `secret/<path>`.  When you are working with [v1](https://www.vaultproject.io/api/secret/kv/kv-v1.html), the policies should be written against `secret/<path>`.  This is because the API endpoint to invoke K/V v2 is different from v1.
 
 
-Copy the `base.hcl` to the vault docker container:
-
-```
-docker cp base.hcl vault:/base.hcl
-```{{execute}}
-
 
 Get help for the `vault policy` command:
 
 ```
 vault policy -h
-```{{execute}}
+```{{execute T2}}
 
 
-To view the full list of optional parameters for `vault policy write` operation, run the following command:  `vault policy write -h`{{execute}}
+To view the full list of optional parameters for `vault policy write` operation, run the following command:  `vault policy write -h`{{execute T2}}
+
+To clear the screen: `clear`{{execute T2}}
