@@ -2,22 +2,23 @@ Get help on the delete command:
 
 ```
 vault kv delete -h
-```{{execute}}
+```{{execute T2}}
 
 This command deletes secrets and configuration from Vault at the given path.
+
+To clear the screen: `clear`{{execute T2}}
 
 Let's delete `secret/company`:
 
 ```
-clear
 vault kv delete secret/company
-```{{execute}}
+```{{execute T2}}
 
 Try reading the `secret/company` path again.
 
 ```
 vault kv get secret/company
-```{{execute}}
+```{{execute T2}}
 
 The output displays the metadata with `deletion_time`.
 
@@ -31,10 +32,10 @@ Run the following command to recover the deleted data:
 
 ```
 vault kv undelete -versions=1 secret/company
-```{{execute}}
+```{{execute T2}}
 
 Now, you should be able to read the data again:
 
 ```
 vault kv get secret/company
-```{{execute}}
+```{{execute T2}}

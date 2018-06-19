@@ -2,7 +2,7 @@ First, check the current version of the key/value secret engine that is ready to
 
 ```
 vault secrets list -detailed
-```{{execute}}
+```{{execute T2}}
 
 In the output, locate `secret/` and check its version.
 
@@ -23,7 +23,7 @@ Execute the following command to read secrets at `secret/training` path:
 
 ```
 vault kv get secret/training
-```{{execute}}
+```{{execute T2}}
 
 Expected output: `No value found at secret/training`
 
@@ -35,4 +35,6 @@ Run the following command to view the full list of optional parameters `vault kv
 
 ```
 vault kv -h
-```{{execute}}
+```{{execute T2}}
+
+To clear the screen: `clear`{{execute T2}}

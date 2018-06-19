@@ -2,17 +2,19 @@ Get help on the list command:
 
 ```
 vault kv list -h
-```{{execute}}
+```{{execute T2}}
 
 This command can be used to list keys in a given secret engine.
 
+
+To clear the screen: `clear`{{execute T2}}
 
 Run the following command to list all the secret keys stored in the key/value secret backend.
 
 ```
 clear
 vault kv list secret
-```{{execute}}
+```{{execute T2}}
 
 The output displays only the keys and not the values.
 
