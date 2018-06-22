@@ -1,6 +1,6 @@
 初期化の際に生成されたrootトークンは、新しいサーバーを設定するのに必要なオペレーションを実行するのに使い、必要なポリシーを作成後は、rootトークンではなく個々の認証トークンを使ってVaultに繋ぐ事が優良な技法とされています。
 
-その為、後にrootトークンが必要な事態が起きた時には`generate-root`コマンドを使い新しいrootトークンを生成します。
+その為、後にrootトークンが必要な事態が起きた時には`generate-root`コマンドを使い新しいrootトークンを生成する事ができます。
 
 ヘルプメッセージを表示するには`help`あるいは`-h`を使ってみましょう。
 
@@ -24,9 +24,9 @@ vault operator generate-root -init -otp=$(cat otp.txt) \
     -format=json | jq -r ".nonce" > nonce.txt
 ```{{execute T2}}
 
-> 上のコマンドがアウトプットした**nonce**(`nonce.txt`{{open}})は、Unsealキーの保持者に知らせる必要があります。
+> 上のコマンドによって生じた**nonce**(`nonce.txt`{{open}})は、Unsealキーの保持者に知らせる必要があります。
 
-rootトークンの生成には過半数のUnsealキーが必要で、個々のUnsealキー保持者が以下のコマンドを実行する必要があります。
+rootトークンの生成には過半数のUnsealキーが必要で、個々のUnsealキー保持者がそれぞれ以下のコマンドを実行します。
 
 ```
 vault operator generate-root -nonce=$(cat nonce.txt) \
@@ -57,14 +57,14 @@ vault operator generate-root -nonce=$(cat nonce.txt) \
     | jq -r ".encoded_root_token" > encoded_root.txt
 ```{{execute T2}}
 
-以下のコマンドを実行して暗号化されたrootトークンを解読します。（解読の際にはOTPが再び必要。）
+以下のコマンドを実行して暗号化されたrootトークンを解読します。（注：解読の際にはOTPが再び必要）
 
 ```
 vault operator generate-root -decode=$(cat encoded_root.txt) -otp=$(cat otp.txt) \
     > root_token.txt
 ```{{execute T2}}
 
-生成されたrootトークン(`root_token.txt`{{open}})を使いログインして確認しましょう。
+生成されたrootトークン(`root_token.txt`{{open}})を使いログインして確認してみましょう。
 
 ```
 vault login $(cat root_token.txt)

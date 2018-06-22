@@ -6,7 +6,7 @@
 vault server -dev -dev-root-token-id="root"
 ```{{execute}}
 
-> 開発モードはすでにサーバー設定がされており、簡単にVaultをローカルPC上に起動することによって、様々なVaultの機能を試す事ができます。
+> 開発モードはすでにサーバー設定がされており、簡単にVaultをローカルPC上に起動することができる為、Vaultの機能を試すのに便利です。
 
 ターミナルには以下のようなメッセージが表示されているのをみて見ましょう。
 
@@ -24,18 +24,18 @@ Root Token: root
 
 このプロセスはフォアグラウンドで起動する為、コンソールが専有されます。以降の操作は別のターミナルをあげて実行して行きます。
 
-**Terminal**の隣の**+**サインをクリックし、**Open New Terminal**を選び新しいターミナルを開きましょう。
+**Terminal**の隣の **+** サインをクリックし、**Open New Terminal**を選び新しいターミナルを開きましょう。
 
 <img src="https://s3-us-west-1.amazonaws.com/education-yh/ops-another-terminal.png" alt="New Terminal"/>
 
 
-まずは開いた**Terminal 2**から`VAULT_ADDR`の環境変数を指定します:
+まずは開いた**Terminal 2**から`VAULT_ADDR`の環境変数を指定します。
 
 ```
 export VAULT_ADDR='http://127.0.0.1:8200'
 ```{{execute T2}}
 
-rootトークンを使ってログインします。
+次にrootトークンを使ってログイン。
 
 ```
 vault login root

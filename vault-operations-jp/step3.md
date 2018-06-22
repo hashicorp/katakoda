@@ -18,7 +18,7 @@ ui = true
 
 上にある`storage`と`listener`は必須エントリーです。
 
-この例では、データを保存する`storage`に`file`を使っていて、データは`/data/vault`に保存されます。本格的にVaultを導入する場合、[Consul](https://www.vaultproject.io/docs/configuration/storage/consul.html)をデータストレージに使うのが理想的ですが、それぞれの用途に合わせ、今回のようにファイルシステムを使う事もあればDynamoDBやCassandraを使う事も可能です。詳しくは[Vault Configuration](https://www.vaultproject.io/docs/configuration/index.html)を参照してください。
+この例では、データを保存する`storage`に`file`を使っていて、データは`/data/vault`に保存されます。本格的にVaultを導入する場合、[Consul](https://www.vaultproject.io/docs/configuration/storage/consul.html)をデータストレージに使うのが理想的ですが、それぞれの用途に合わせ、今回のようにファイルシステムを使う事もあればDynamoDBやCassandraを使う事も可能です。詳しくは[Vault Configuration](https://www.vaultproject.io/docs/configuration/index.html)を参照ください。
 
 `listener`は、Vaultサーバーがクライアントからのリクエストを受ける為のリスナーで、現時点ではTCPプロトコールのみ対応しています。
 
