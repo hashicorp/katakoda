@@ -1,0 +1,57 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vaultサーバー管理の基礎知識",
+  "description": "Vaultサーバーのインストール、設定、そしてサーバー管理の基本的なコマンドを学びます。",
+  "difficulty": "ビギナー",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Vaultのインストール",
+        "text": "step1.md"
+      },
+      {
+        "title": "サーバーを開発モードで起動",
+        "text": "step2.md"
+      },
+      {
+        "title": "サーバーの設定",
+        "text": "step3.md"
+      },
+      {
+        "title": "サーバーの初期化",
+        "text": "step4.md"
+      },
+      {
+        "title": "監査ログ",
+        "text": "step5.md"
+      },
+      {
+        "title": "Rootトークンの生成",
+        "text": "step6.md"
+      },
+      {
+        "title": "暗号化キーの回転",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "files": [
+    "config.hcl"
+  ],
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
