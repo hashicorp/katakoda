@@ -1,0 +1,60 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Encryption as a Service",
+  "description": "Learn how to leverage Vault's Transit secret engine to encrypt your secrets.",
+  "difficulty": "beginner",
+  "time": "5 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
+        "title": "Configure Transit Secret Engine",
+        "text": "step1.md"
+      },
+      {
+        "title": "Encrypt Secret",
+        "text": "step2.md"
+      },
+      {
+        "title": "Rotate the Encryption Key",
+        "text": "step3.md"
+      },
+      {
+        "title": "Rewrap Data",
+        "text": "step4.md"
+      },
+      {
+        "title": "Update Key Configuration",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "apps-policy.hcl",
+          "target": "~/"
+        }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
