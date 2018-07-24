@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
+curl -s -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
 chmod +x ~/.bin/unzip
 
-curl -L -o ~/vault.zip https://releases.hashicorp.com/vault/0.10.3/vault_0.10.3_linux_amd64.zip &&
+curl -s -L -o ~/vault.zip https://releases.hashicorp.com/vault/0.10.3/vault_0.10.3_linux_amd64.zip &&
 unzip -d ~/.bin ~/vault.zip && rm ~/vault.zip
 
 export VAULT_ADDR='http://127.0.0.1:8200'
