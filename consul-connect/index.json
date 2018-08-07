@@ -2,6 +2,7 @@
   "title": "Consul Connect",
   "description":
     "Run two services and connect them securely with Consul Connect",
+  "time": "15 minutes",
   "details": {
     "steps": [
       {
