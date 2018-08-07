@@ -1,0 +1,46 @@
+{
+  "title": "Consul Connect",
+  "description":
+    "Run two services and connect them securely with Consul Connect",
+  "details": {
+    "steps": [
+      {
+        "title": "Start the backend counting service",
+        "text": "step1.md"
+      },
+      {
+        "title": "Start the dashboard",
+        "text": "step2.md"
+      },
+      {
+        "title": "Deny service connections",
+        "text": "step3.md"
+      },
+      {
+        "title": "Allow dashboard connection",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1":
+      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Counting", "port": 9003 },
+      { "name": "Dashboard", "port": 9002 },
+      { "name": "Consul-UI", "port": 8500 }
+    ]
+  }
+}
