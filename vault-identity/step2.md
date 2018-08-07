@@ -5,7 +5,7 @@ vault auth list \
     -format=json | jq -r '.["userpass/"].accessor' > accessor.txt
 ```{{execute T2}}
 
-This command parses the output using `jq`, retrieves the mount accessor for `userpass` and save it in the `accessor.txt` file.
+This command parses the output using `jq`, retrieves the mount accessor for `userpass` and save it in the `accessor.txt`{{open}} file.
 
 **NOTE:** The output of `vault auth list -detailed`{{execute T2}} includes the accessor ID for each auth method enabled on your Vault server. For example, if LDAP and Okta auth methods were enabled on your server, the output includes the accessor ID for those methods:
 

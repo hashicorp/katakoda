@@ -3,12 +3,13 @@ To better understand how a token inherits the capabilities from entity's policy,
 <img src="https://s3-us-west-1.amazonaws.com/education-yh/7-entity-2.png" alt="Entity Alias"/>
 
 
-Execute the following command to login as `bob` and save the generated client token in the `bob_token.txt` file:
+Execute the following command to login as `bob`:
 
 ```
-vault login -format=json -method=userpass username=bob password=training
+vault login -method=userpass username=bob password=training
 ```{{execute T2}}
 
+> Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `test` and `base` policies attached.
 
 Remember that the `test` policy grants CRUD operations on the `secret/test` path.  Check to see if the generated token has capabilities granted:
 
