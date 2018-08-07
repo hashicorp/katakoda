@@ -29,5 +29,5 @@ Test to see if the token has an access to the following paths:
 
 - `secret/data/team/eng`:  
   ```
-  vault token capabilities secret/team/qa
+  vault token capabilities secret/team/eng
   ```{{execute T2}}
