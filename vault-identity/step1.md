@@ -6,7 +6,7 @@ A user, Bob Smith at ACME Inc. happened to have two sets of credentials: `bob` a
 
 <img src="https://s3-us-west-1.amazonaws.com/education-yh/7-entity.png" alt="Entity"/>
 
-For the purpose of training, you are going to work with the userpass auth method.  But in reality, the user `bob` might be a username that exists in Active Directory, and `bsmith` might be Bob's username exists in GitHub, etc.
+**NOTE:** For the purpose of training, you are going to work with the userpass auth method.  But in reality, the user `bob` might be a username that exists in Active Directory, and `bsmith` might be Bob's username exists in GitHub, etc.
 
 
 Execute the following command to enable the userpass auth method:

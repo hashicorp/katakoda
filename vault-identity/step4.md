@@ -35,7 +35,7 @@ vault write -format=json identity/group name="engineers" \
       | jq -r ".data.id" > group_id.txt
 ```{{execute T2}}
 
-The generated group ID is stored in the `group_id.txt` file.
+The generated group ID is stored in the `group_id.txt`{{open}} file.
 
 Execute the following command to read the details of the group, `qa-entineers`:
 
