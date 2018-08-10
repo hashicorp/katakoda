@@ -1,6 +1,7 @@
 {
   "title": "Nomad OpenFaaS Playground",
   "description": "HashiCorp Nomad environment with OpenFaaS, Consul, and Terraform",
+  "icon": "fa-nomad",
   "details": {
     "intro": {
       "text": "intro.md"
