@@ -4,6 +4,7 @@
   "description": "Learn how cubbyhole secret engine works in Vault.",
   "difficulty": "beginner",
   "time": "5 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {

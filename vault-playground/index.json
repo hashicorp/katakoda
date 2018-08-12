@@ -3,6 +3,7 @@
   "title": "Vault Playground",
   "description": "HashiCorp Vault environment to explore Vault CLI",
   "difficulty": "beginner",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {

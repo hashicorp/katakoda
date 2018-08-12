@@ -4,6 +4,7 @@
   "description": "Learn how to install, configure, and manage the Vault server.",
   "difficulty": "beginner",
   "time": "10 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {

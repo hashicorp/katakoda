@@ -4,6 +4,7 @@
   "description": "Learn how to create Vault Policies to govern your environment.",
   "difficulty": "beginner",
   "time": "5 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {

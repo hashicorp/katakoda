@@ -4,6 +4,7 @@
   "description": "Learn how to create entities and groups in Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {
