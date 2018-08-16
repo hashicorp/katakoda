@@ -3,6 +3,7 @@
   "description":
     "Run two services and connect them securely with Consul Connect",
   "time": "15 minutes",
+  "icon": "fa-consul",
   "details": {
     "steps": [
       {

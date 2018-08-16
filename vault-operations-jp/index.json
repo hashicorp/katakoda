@@ -4,6 +4,7 @@
   "description": "Vaultサーバーのインストール、設定、そしてサーバー管理の基本的なコマンドを学びます。",
   "difficulty": "ビギナー",
   "time": "10 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {

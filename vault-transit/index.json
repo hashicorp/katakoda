@@ -4,6 +4,7 @@
   "description": "Learn how to leverage Vault's Transit secret engine to encrypt your secrets.",
   "difficulty": "beginner",
   "time": "5 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {
