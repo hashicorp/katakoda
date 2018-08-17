@@ -24,4 +24,4 @@ You can view the demo dashboard application at this URL:
 
 <img src="https://s3-us-west-1.amazonaws.com/education-yh/consul-connect/images/2-2-dashboard.png" alt="Demo Dashboard" title="Demo Dashboard">
 
-The front-end demo dashboard has been hard-coded to look for the `counting` service on `localhost:9002`. It is reading the backend counting service and displays the number. Consul Connect is being used to proxy communication between the two services.
+The front-end demo dashboard has been hard-coded to look for the `counting` service on `localhost:9001` which is being provided by the Consul Connect proxy. It is reading the backend counting service and displays the number. Consul Connect is being used to proxy communication between the two services.

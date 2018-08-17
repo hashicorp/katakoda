@@ -60,7 +60,7 @@ Here we can see that the result of our evaluation was the creation of an allocat
 
 To make the rest of these commands easier, you'll need to create a `JOB_ID` variable with the value under `ID` in the output of the last command. Copy and paste the value under ID that looks something like `f76eb168`.
 
-`export JOB_ID=`
+`export JOB_ID=`{{copy}}
 
 Verify this by running the following command. You should see your job ID.
 
