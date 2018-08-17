@@ -11,8 +11,6 @@ chmod +x  ~/.bin/nomad
 
 rm ~/nomad.zip ~/consul.zip
 
-cat "export NOMAD_ADDR=http://host01:4646" >> ~/.profile
-
 export NOMAD_ADDR="http://host01:4646"
 
 host01_commands=(
