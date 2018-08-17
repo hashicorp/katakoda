@@ -5,7 +5,7 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "courseData": "courseBase.sh"
+      "code": "courseBase.sh"
     },
     "steps": [
       {

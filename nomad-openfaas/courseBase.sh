@@ -1,4 +1,14 @@
-ssh root@host01 "curl -o ./install.sh https://raw.githubusercontent.com/hashicorp/katakoda/master/nomad-openfaas/assets/install.sh && chmod +x install.sh && ./install.sh"
+host01_commands=(
+"curl -o ./install.sh https://raw.githubusercontent.com/hashicorp/katakoda/master/nomad-openfaas/assets/install.sh"
+"chmod +x install.sh"
+"./install.sh"
+)
+
+all_commands=$(awk -v sep=' && ' 'BEGIN{ORS=OFS="";for(i=1;i<ARGC;i++){print ARGV[i],ARGC-i-1?sep:""}}' "${host01_commands[@]}")
+
+echo "$all_commands"
+
+ssh root@host01 "$all_commands"
 
 curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
 chmod +x ~/.bin/unzip
