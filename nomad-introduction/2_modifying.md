@@ -47,7 +47,7 @@ Because we set the count of the task group to three, Nomad created two additiona
 
 `nomad status example`{{execute}}
 
-Now, let's try to do an application update. In this case, we will simply change the version of redis we want to run. Edit the example.nomad file and change the Docker image from "redis:3.2" to "redis:4.0":
+Now, let's try to do an application update. In this case, we will simply change the version of redis we want to run. Edit the example.nomad file and change the Docker image from `redis:3.2` to `redis:4.0`:
 
 ```bash
 # Configure Docker driver with the image
@@ -99,4 +99,4 @@ Once ready, use run to push the updated specification:
 
 After running, the rolling upgrade can be followed by running `nomad status example`{{execute}} and watching the deployed count.
 
-We can see that Nomad handled the update in three phases, only updating a single allocation in each phase and waiting for it to be healthy for min_healthy_time of 5 seconds before moving on to the next. The update strategy can be configured, but rolling updates makes it easy to upgrade an application at large scale.
+We can see that Nomad handled the update in three phases, only updating a single allocation in each phase and waiting for it to be healthy for `min_healthy_time` of 5 seconds before moving on to the next. The update strategy can be configured, but rolling updates makes it easy to upgrade an application at large scale.
