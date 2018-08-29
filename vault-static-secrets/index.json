@@ -4,6 +4,7 @@
   "description": "Learn how to manage your secrets using Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
+  "icon": "fa-vault",
   "details": {
     "intro": {
       "text": "intro.md",

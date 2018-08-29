@@ -4,6 +4,7 @@
   "description": "Learn the lifecycle of Vault client tokens.",
   "difficulty": "beginner",
   "time": "10 minutes",
+  "icon": "fa-vault",
   "details": {
     "intro": {
       "text": "intro.md",

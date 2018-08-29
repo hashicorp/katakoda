@@ -1,4 +1,4 @@
-This tutorial has a fully featured Nomad and Consul environment configured for you to play with.  You can execute commands in the terminal window on the right or you can also click on the code examples which have the return symbol `⮐` to automatically execute the snippet in the terminal.
+This tutorial has a fully featured Nomad and [Consul](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/) environment configured for you to play with.  You can execute commands in the terminal window on the right or you can also click on the code examples which have the return symbol `⮐` to automatically execute the snippet in the terminal.
 
 Jobs are the primary configuration that users interact with when using Nomad. A job is a declarative specification of tasks that Nomad should run. Jobs have a globally unique name, one or many task groups, which are themselves collections of one or many tasks.
 
@@ -58,7 +58,17 @@ ID        Node ID   Task Group  Version  Desired  Status   Created At
 
 Here we can see that the result of our evaluation was the creation of an allocation that is now running on the local node.
 
-An allocation represents an instance of Task Group placed on a node. To inspect an allocation we use the alloc-status command:
+To make the rest of these commands easier, you'll need to create a `JOB_ID` variable with the value under `ID` in the output of the last command. Copy and paste the value under ID that looks something like `f76eb168`.
+
+`export JOB_ID=`{{copy}}
+
+Verify this by running the following command. You should see your job ID.
+
+`echo $JOB_ID`{{execute}}
+
+An allocation represents an instance of Task Group placed on a node. To inspect an allocation we use the `alloc-status` command:
+
+`nomad alloc-status $JOB_ID`{{execute}}
 
 ```bash
 $ nomad alloc-status 8ba85cef
@@ -91,7 +101,9 @@ Time                   Type      Description
 
 We can see that Nomad reports the state of the allocation as well as its current resource usage. By supplying the -stats flag, more detailed resource usage statistics will be reported.
 
-To see the logs of a task, we can use the logs command:
+To see the logs of a task, we can use the `logs` command.
+
+`nomad logs $JOB_ID redis`{{execute}}
 
 ```bash
 $ nomad logs 8ba85cef redis

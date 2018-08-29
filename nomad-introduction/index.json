@@ -1,10 +1,11 @@
 {
   "title": "Introduction to Nomad",
   "description": "A brief introduction to operating and interacting with HashiCorp Nomad",
+  "icon": "fa-nomad",
   "details": {
     "intro": {
       "text": "intro.md",
-      "courseData": "courseBase.sh"
+      "code": "courseBase.sh"
     },
     "steps": [
       {

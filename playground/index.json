@@ -1,6 +1,7 @@
 {
   "title": "Nomad Playground",
   "description": "HashiCorp Nomad environment with Consul and Terraform",
+  "icon": "fa-nomad",
   "details": {
     "steps": [
       {
