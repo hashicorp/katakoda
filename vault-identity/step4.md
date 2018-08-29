@@ -17,7 +17,7 @@ Create a policy named, `team-eng` which grants CRUD operations on the `secret/da
 vault policy write team-eng team-eng.hcl
 ```{{execute T2}}
 
-To review the policy:  `vault policy read team-eng`{{execute T2}}
+To review the policy:  `team-eng.hcl`{{open}}
 
 <br>
 

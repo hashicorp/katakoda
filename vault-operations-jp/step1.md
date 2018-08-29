@@ -1,10 +1,10 @@
 まずはVaultの[バイナリファイル](https://www.vaultproject.io/downloads.html)をダウンロードします。
 
 > 以下のコマンドをターミナル内にタイプして実行するか、あるいはリターンの記号 (`⮐`) をクリックすると自動的にコマンドがターミナルにコピーされ
-Vault `0.10.4`のバイナリファイルのダウンロードが実行されます。
+Vault `0.11.0`のバイナリファイルのダウンロードが実行されます。
 
 ```
-export VAULT=0.10.4
+export VAULT=0.11.0
 wget https://releases.hashicorp.com/vault/${VAULT}/vault_${VAULT}_linux_amd64.zip
 ```{{execute}}
 
