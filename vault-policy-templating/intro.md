@@ -15,15 +15,15 @@ You can specify non-static paths in ACL policies was to use globs (`*`) at the e
 
 For example:
 
-  ```hcl
-  path "transit/keys/*" {
-    capabilities = [ "read" ]
-  }
+```hcl
+path "transit/keys/*" {
+  capabilities = [ "read" ]
+}
 
-  path "secret/webapp_*" {
-    capabilities = [ "create", "read", "update", "delete", "list" ]
-  }
-  ```
+path "secret/webapp_*" {
+  capabilities = [ "create", "read", "update", "delete", "list" ]
+}
+```
 
 However, this makes the management and delegation tasks challenging.
 
