@@ -1,0 +1,51 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault ACL Policy Templating",
+  "description": "Learn how to write ACL policies with non-static paths.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
+        "title": "Create Policies",
+        "text": "step1.md"
+      },
+      {
+        "title": "Create Entities and Groups",
+        "text": "step2.md"
+      },
+      {
+        "title": "Test the Policies",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "user-tmpl.hcl", "target": "~/" },
+        { "file": "group-tmpl.hcl", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
