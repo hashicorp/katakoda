@@ -20,8 +20,8 @@ Scroll up the Terminal to locate the following output:
                Log Level: info
                    Mlock: supported: true, enabled: false
                  Storage: inmem
-                 Version: Vault v0.11.0
-             Version Sha: 87492f9258e0227f3717e3883c6a8be5716bf564
+                 Version: Vault v0.11.1
+             Version Sha: 8575f8fedcf8f5a6eb2b4701cb527b99574b5286
 
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
