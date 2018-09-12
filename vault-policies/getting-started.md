@@ -20,8 +20,8 @@ Scroll up the Terminal to locate the following output:
                Log Level: info
                    Mlock: supported: true, enabled: false
                  Storage: inmem
-                 Version: Vault v0.10.2
-             Version Sha: 3ee0802ed08cb7f4046c2151ec4671a076b76166
+                 Version: Vault v0.11.0
+             Version Sha: 87492f9258e0227f3717e3883c6a8be5716bf564
 
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
@@ -50,4 +50,5 @@ Login with the generated root token.
 vault login root
 ```{{execute T2}}
 
-Now, you are ready to start writing Vault policies!
+
+Now, you are logged in as a `root` and ready to play!
