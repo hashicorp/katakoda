@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault ACL Policy Templating",
+  "title": "Vault ACL Policy Path Templating",
   "description": "Learn how to write ACL policies with non-static paths.",
   "difficulty": "beginner",
   "time": "10 minutes",
