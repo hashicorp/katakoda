@@ -5,11 +5,11 @@ Now, test to understand how a token inherits the capabilities from its associati
 Login as bob with userpass auth method:
 
 ```
-vault login -method=userpass username="bob" \
+vault login -method=userpass username="bsmith" \
       password="training"
 ```{{execute T2}}
 
-Notice that the generated token only has `default` and `test` policies (`token_policies`). However, it inherits the `base` and `team-eng` policies from its identities (**`identity_policies`**).
+Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `base`, `test` and `team-eng` policies attached.
 
 ```
 Key                    Value
@@ -17,7 +17,7 @@ Key                    Value
 ...
 token_policies         ["default" "test"]
 identity_policies      ["base" "team-eng"]
-policies               ["base" "default" "team-eng" "test"]
+policies               ["base" "default" "team-eng" "team-qa"]
 ```
 
 Test to see if the token has an access to the following paths:

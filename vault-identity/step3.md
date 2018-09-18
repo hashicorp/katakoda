@@ -9,7 +9,17 @@ Execute the following command to login as `bob`:
 vault login -method=userpass username=bob password=training
 ```{{execute T2}}
 
-> Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `test` and `base` policies attached.
+Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `test` and `base` policies attached.
+
+```
+Key                    Value
+---                    -----
+...
+token_policies         ["default" "test"]
+identity_policies      ["base"]
+policies               ["base" "default" "test"]
+token_meta_username    bob
+```
 
 Remember that the `test` policy grants CRUD operations on the `secret/test` path.  Check to see if the generated token has capabilities granted:
 
