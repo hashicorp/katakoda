@@ -30,6 +30,10 @@
       {
         "title": "Test the Internal Group",
         "text": "step5.md"
+      },
+      {
+        "title": "Challenge: Create an External Group",
+        "text": "step6.md"
       }
     ],
     "intro": {

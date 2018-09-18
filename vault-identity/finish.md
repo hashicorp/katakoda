@@ -1,11 +1,10 @@
-This scenario gave you a quick introduction to using key/value secret engine version 2.
+This scenario gave you a quick introduction to creating an entity and a group.
 
 ### Resources:
 
-- [Static Secrets - Key/Value Secret Engine guide](https://www.vaultproject.io/guides/secret-mgmt/static-secrets.html)
-- [Versioned Key/Value Secret Engine guide](https://www.vaultproject.io/guides/secret-mgmt/versioned-kv.html)
-- [Key/Value Secret Engine - Version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2.html)
-- [Key/Value Secret Engine API](https://www.vaultproject.io/api/secret/kv/kv-v2.html)
+- [Identity Secrets Engine](https://www.vaultproject.io/docs/secrets/identity/index.html)
+- [Identity Secrets Engine (API)](https://www.vaultproject.io/api/secret/identity/index.html)
+- [External vs Internal Groups](https://www.vaultproject.io/docs/secrets/identity/index.html#external-vs-internal-groups)
 
 <br>
 
