@@ -15,7 +15,7 @@ Upon a successful authentication, a token will be returned. Notice that the outp
 Key                    Value
 ---                    -----
 ...
-token_policies         ["default" "test"]
+token_policies         ["default" "team-qa"]
 identity_policies      ["base" "team-eng"]
 policies               ["base" "default" "team-eng" "team-qa"]
 ```
