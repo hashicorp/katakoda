@@ -9,6 +9,16 @@ vault login -method=userpass username="bob" \
       password="training"
 ```{{execute T2}}
 
+Notice that the generated token only has `default` and `test` policies (`token_policies`). However, it inherits the `base` and `team-eng` policies from its identities (**`identity_policies`**).
+
+```
+Key                    Value
+---                    -----
+...
+token_policies         ["default" "test"]
+identity_policies      ["base" "team-eng"]
+policies               ["base" "default" "team-eng" "test"]
+```
 
 Test to see if the token has an access to the following paths:
 
@@ -24,10 +34,10 @@ Test to see if the token has an access to the following paths:
 
 - `secret/data/team/qa`:  
   ```
-  vault token capabilities secret/team/qa
+  vault token capabilities secret/data/team/qa
   ```{{execute T2}}
 
 - `secret/data/team/eng`:  
   ```
-  vault token capabilities secret/team/eng
+  vault token capabilities secret/data/team/eng
   ```{{execute T2}}
