@@ -2,7 +2,7 @@ Now, test to understand how a token inherits the capabilities from its associati
 
 <img src="https://s3-us-west-1.amazonaws.com/education-yh/7-entity-3.png" alt="Groups"/>
 
-Login as bob with userpass auth method:
+Login as `bsmith` with userpass auth method:
 
 ```
 vault login -method=userpass username="bsmith" \
