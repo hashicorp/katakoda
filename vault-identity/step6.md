@@ -7,7 +7,7 @@ Create an external group which maps to a GitHub team that **your user account** 
 ## Hint:
 
 - [Enable github auth method](https://www.vaultproject.io/intro/getting-started/authentication.html#auth-methods)
-- Configure your GitHub team (`auth/github/map/teams/<team_name>` endpoint)
+- [Configure your GitHub team (`auth/github/map/teams/<team_name>` endpoint)](https://www.vaultproject.io/docs/auth/github.html#configuration)
 - [Create a new external group (`identity/group` endpoint)](https://www.vaultproject.io/api/secret/identity/group.html)
 - [Create a group alias](https://www.vaultproject.io/api/secret/identity/group-alias.html)
 
