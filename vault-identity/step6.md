@@ -1,4 +1,4 @@
-The most common use case is to create **external groups** where each of the group maps to an external group defined in a third-party identity provider (e.g. Active Directory, OpenLDAP, etc.).
+The most common use case is to create **external groups** where each of the group maps to an external group defined in a third-party identity provider (e.g. Active Directory, OpenLDAP, etc.).  Read [External vs Internal Groups](https://www.vaultproject.io/docs/secrets/identity/index.html#external-vs-internal-groups).
 
 >This challenge section requires a GitHub account with a team membership to perform. Therefore, this step only provides you some hints and tips.
 
@@ -11,6 +11,7 @@ Create an external group which maps to a GitHub team that **your user account** 
 - [Create a new external group (`identity/group` endpoint)](https://www.vaultproject.io/api/secret/identity/group.html)
 - [Create a group alias](https://www.vaultproject.io/api/secret/identity/group-alias.html)
 
+----
 
 ## Example Scenario:
 
@@ -19,9 +20,7 @@ Create an external group, `training` which maps to:
 - GitHub team: `education`
 - GitHub organization: `hashicorp`
 
-**NOTE:** You want to use the _slugfied_ team name listed (`slug`).
-
-To find out which GitHub team you belong to:
+**NOTE:** You want to use the _slugfied_ GitHub team name. To find out which GitHub team you belong to:
 
 ```bash
 $ curl -H "Authorization: token <your_token>" \
@@ -40,9 +39,18 @@ The output should contain the slugfied team namae (`slug`):
     "description": "Education Engineering",
     "privacy": "closed",
     ...
+    "organization": {
+      "login": "hashicorp",
+      ...
   }
 ]
 ```
+
+Log back in with the root token:
+
+```
+vault login root
+```{{execute T2}}
 
 Enable `github` auth method:
 
@@ -65,6 +73,8 @@ vault write identity/group name="training" type=external \
        metadata=organization="<organization>" \
        | jq -r ".data.id" > ext_group_id.txt
 ```
+
+Notice that the `type` is set to **`external`**.
 
 Retrieve the mount accessor for `github` auth method:
 

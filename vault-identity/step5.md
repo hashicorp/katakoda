@@ -9,7 +9,7 @@ vault login -method=userpass username="bsmith" \
       password="training"
 ```{{execute T2}}
 
-Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `base`, `test` and `team-eng` policies attached.
+Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `base`, `team-qa` and `team-eng` policies attached.
 
 ```
 Key                    Value
