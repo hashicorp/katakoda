@@ -20,18 +20,14 @@ vault operator generate-root -generate-otp > otp.txt
 Initialize a root token generation with the OTP code (`otp.txt`{{open}}) and save the resulting nonce in the `nonce.txt` file:
 
 ```
-vault operator generate-root -init -otp=$(cat otp.txt) \
-    -format=json | jq -r ".nonce" > nonce.txt
+vault operator generate-root -init -otp=$(cat otp.txt)
 ```{{execute T2}}
-
-> The **nonce** value (`nonce.txt`{{open}}) should be distributed to all unseal key holders. Generation of a root token requires a quorum of unseal keys.
 
 
 **Each unseal key holder** must execute the following command providing their unseal key:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-    $(grep 'Key 1:' key.txt | awk '{print $NF}')
+vault operator generate-root
 ```{{execute T2}}
 
 The output displays the progress:
@@ -46,16 +42,15 @@ Complete    false
 Proceed with second unseal key:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-    $(grep 'Key 2:' key.txt | awk '{print $NF}')
+vault operator generate-root
 ```{{execute T2}}
 
 Finally, enter the third unseal key and save the resulting encoded root token in the `encoded_root.txt` file:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-    -format=json $(grep 'Key 3:' key.txt | awk '{print $NF}') \
-    | jq -r ".encoded_root_token" > encoded_root.txt
+vault operator generate-root -format=json \
+      $(grep 'Key 3:' key.txt | awk '{print $NF}') \
+      | jq -r ".encoded_root_token" > encoded_root.txt
 ```{{execute T2}}
 
 The resulting root token is encrypted (`encoded_root.txt`{{open}}). Execute the following command to decode:

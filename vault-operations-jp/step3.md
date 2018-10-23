@@ -38,12 +38,12 @@ vault server -config=config.hcl
 ==> Vault server configuration:
 
                      Cgo: disabled
-              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", tls: "disabled")
-               Log Level: info
+              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", max_request_duration:"1m30s", max_request_size: "33554432", tls: "disabled")
+               Log Level: (not set)
                    Mlock: supported: true, enabled: true
                  Storage: file
-                 Version: Vault v0.10.1
-             Version Sha: 756fdc4587350daf1c65b93647b2cc31a6f119cd
+                 Version: Vault v0.11.4
+             Version Sha: 612120e76de651ef669c9af5e77b27a749b0dba3
 ```
 
 次のステップではサーバーの初期化をして行きます。
