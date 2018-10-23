@@ -24,10 +24,11 @@ vault operator generate-root -init -otp=$(cat otp.txt)
 ```{{execute T2}}
 
 
+
 **Each unseal key holder** must execute the following command providing their unseal key:
 
 ```
-vault operator generate-root
+vault operator generate-root $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 The output displays the progress:
@@ -42,7 +43,7 @@ Complete    false
 Proceed with second unseal key:
 
 ```
-vault operator generate-root
+vault operator generate-root $(grep 'Key 2:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 Finally, enter the third unseal key and save the resulting encoded root token in the `encoded_root.txt` file:
