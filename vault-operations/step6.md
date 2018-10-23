@@ -57,8 +57,8 @@ vault operator generate-root -format=json \
 The resulting root token is encrypted (`encoded_root.txt`{{open}}). Execute the following command to decode:
 
 ```
-vault operator generate-root -decode=$(cat encoded_root.txt) -otp=$(cat otp.txt) \
-    > root_token.txt
+vault operator generate-root -decode=$(cat encoded_root.txt) \
+     -otp=$(cat otp.txt) > root_token.txt
 ```{{execute T2}}
 
 Now, verify the newly generated root token (`root_token.txt`{{open}}):
