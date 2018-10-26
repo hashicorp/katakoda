@@ -1,0 +1,55 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "[Vault 1.0 Beta] Batch Tokens",
+  "description": "Learn how batch tokens work in Vault",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
+        "title": "Create a Batch Token",
+        "text": "step1.md"
+      },
+      {
+        "title": "Characteristics of Batch Tokens ",
+        "text": "step2.md"
+      },
+      {
+        "title": "Apply Batch Tokens",
+        "text": "step3.md"
+      },
+      {
+        "title": "Tune the Default TTLs",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "base.hcl", "target": "~/" },
+        { "file": "shipping.hcl", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
