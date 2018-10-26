@@ -6,6 +6,6 @@ You learned the vault CLI commands to interact with the cubbyhole secret engines
 
 ### Resources:
 
-- [Cubbyhole guide](https://www.vaultproject.io/guides/secret-mgmt/cubbyhole.html)
+- [Cubbyhole guide](https://learn.hashicorp.com/vault/secrets-management/sm-cubbyhole)
 - [Cubbyhole Secret Engine doc](https://www.vaultproject.io/docs/secrets/cubbyhole/index.html)
 - [Cubbyhole Response Wrapping doc](https://www.vaultproject.io/docs/concepts/response-wrapping.html)

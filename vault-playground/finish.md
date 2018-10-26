@@ -1,1 +1,1 @@
-To learn more about Vault, refer to [Vault Guides](https://www.vaultproject.io/guides/index.html).
+To learn more about Vault, refer to [Vault Guides](https://learn.hashicorp.com/vault).

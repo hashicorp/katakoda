@@ -12,9 +12,8 @@
 
 今回は基礎知識を学びましたが、他のVaultサーバー管理についての資料も参考にしてください。
 
-- [Vault Operations guides](https://www.vaultproject.io/guides/operations/index.html)
 - [Vault Architecture](https://www.vaultproject.io/docs/internals/architecture.html)
 - [Vault Policies](https://www.vaultproject.io/docs/concepts/policies.html)
 - [Vault Configuration](https://www.vaultproject.io/docs/configuration/index.html)
-- [Initializing Vault](https://www.vaultproject.io/intro/getting-started/deploy.html#initializing-the-vault)
-- [Seal/Unseal Vault](https://www.vaultproject.io/intro/getting-started/deploy.html#seal-unseal)
+- [Initializing Vault](https://learn.hashicorp.com/vault/getting-started/deploy#initializing-the-vault)
+- [Seal/Unseal Vault](https://learn.hashicorp.com/vault/getting-started/deploy#seal-unseal)

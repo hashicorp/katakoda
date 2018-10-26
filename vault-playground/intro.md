@@ -4,7 +4,7 @@
 
 Reference Materials:
 
-- [Getting Started](https://www.vaultproject.io/intro/getting-started/dev-server.html)
+- [Getting Started](https://learn.hashicorp.com/vault/getting-started/dev-server)
 - [Vault Documentation](https://www.vaultproject.io/docs/index.html)
 - [Vault API Documentation](https://www.vaultproject.io/api/index.html)
 
