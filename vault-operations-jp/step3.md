@@ -42,8 +42,8 @@ vault server -config=config.hcl
                Log Level: (not set)
                    Mlock: supported: true, enabled: true
                  Storage: file
-                 Version: Vault v0.11.4
-             Version Sha: 612120e76de651ef669c9af5e77b27a749b0dba3
+                 Version: Vault v1.0.0
+             Version Sha: c19cef14891751a23eaa9b41fd456d1f99e7e856
 ```
 
 次のステップではサーバーの初期化をして行きます。
