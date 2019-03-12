@@ -1,0 +1,32 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "[BETA] Vault 1.1 Playground",
+  "description": "HashiCorp Vault 1.1 environment to explore Vault features",
+  "difficulty": "beginner",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start the Vault Server",
+        "text": "getting-started.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
