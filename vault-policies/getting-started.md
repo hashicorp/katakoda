@@ -16,12 +16,12 @@ Scroll up the Terminal to locate the following output:
              Api Address: http://127.0.0.1:8200
                      Cgo: disabled
          Cluster Address: https://127.0.0.1:8201
-              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", tls: "disabled")
+              Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
                Log Level: info
-                   Mlock: supported: true, enabled: false
+                   Mlock: supported: false, enabled: false
                  Storage: inmem
-                 Version: Vault v1.0.0
-             Version Sha: c19cef14891751a23eaa9b41fd456d1f99e7e856
+                 Version: Vault v1.1.0
+             Version Sha: 36aa8c8dd1936e10ebd7a4c1d412ae0e6f7900bd
 
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
