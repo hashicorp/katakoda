@@ -29,7 +29,7 @@ path "<PATH>" {
 }
 ```
 
-> The path can have a wildcard ("\*") at the end to allow for namespacing. For example, `secret/training_*` grants permissions on any path starting with `secret/training_` (e.g. `secret/training_vault`).
+> The path can have a wildcard ("`*`") at the end to allow for any string in its place. For example, "`secret/training_*`" grants permissions on any path starting with "`secret/training_`" (e.g. `secret/training_vault`). To allow wildcard matching for a single  directory, use "`+`". For example, "`secret/app/+/stage`" would match a path such as "`secret/app/release_1.0/stage`".
 
 <br>
 
