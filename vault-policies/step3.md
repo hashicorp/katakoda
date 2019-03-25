@@ -25,4 +25,18 @@ Let's login with newly generated `token` (`token.txt`{{open}}).  The command is:
 vault login $(cat token.txt)
 ```{{execute T2}}
 
+Notice that the `base` policy is listed.
+
+```
+Key                  Value
+---                  -----
+token                s.hea9aAZJ8LMPL8Q0BJUEIk94
+token_accessor       GypP6CuHkTyVHjlWkduiev2G
+token_duration       767h59m50s
+token_renewable      true
+token_policies       ["base" "default"]
+identity_policies    []
+policies             ["base" "default"]
+```
+
 > **NOTE:** A built-in policy, `default`, is attached to all tokens and provides common permissions.
