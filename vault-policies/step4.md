@@ -61,5 +61,5 @@ The path `secret/team-eng/apikey` matches the `secret/<string>/apikey` pattern, 
 Since the policy allows **delete** operation, the following command should execute successfully as well:
 
 ```
-vault kv delete secret/team-eng/apikey"
+vault kv delete secret/team-eng/apikey
 ```{{execute T2}}
