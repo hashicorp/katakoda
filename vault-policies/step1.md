@@ -40,11 +40,15 @@ The `base.hcl`{{open}} file should be opened in the editor pane.  Enter the foll
 path "secret/data/training_*" {
    capabilities = ["create", "read"]
 }
+
+path "secret/data/+/apikey" {
+   capabilities = ["create", "read", "update", "delete"]
+}
 </pre>
 
-Notice that the path has the "splat" operator (`training_*`). This is helpful in working with namespace patterns.  
+Notice that the path has the "splat" operator (`training_*`) as well as single directory wildcard (`+`). This is helpful in working with namespace patterns.  
 
-This policy grants **create** and **read** operations on any path starting with `secret/data/training_`.
+This policy grants **create** and **read** operations on any path _starting with_ `secret/data/training_`. Also, permits **create**, **read**, **update**, and **delete** operations on any path matching the pattern of `secret/data/<string>/apikey`.
 
 > **NOTE:**  When you are working with [_key/value secret engine v2_](https://www.vaultproject.io/api/secret/kv/kv-v2.html), the path to write policies would be `secret/data/<path>` even though the K/V command to the path is `secret/<path>`.  When you are working with [v1](https://www.vaultproject.io/api/secret/kv/kv-v1.html), the policies should be written against `secret/<path>`.  This is because the API endpoint to invoke K/V v2 is different from v1.
 
