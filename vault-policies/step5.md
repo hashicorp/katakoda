@@ -16,6 +16,12 @@ Where `token.txt` contains the generated token with `base` policy attached.
 
 This lists the capabilities of a token on a path granted by its attached policies (`base`). When unexpected behavior was encountered, this is an easy method to check the policy for the token.
 
+How about `secret/data/splunk/apikey` path?
+
+```
+vault token capabilities $(cat token.txt) secret/data/splunk/apikey
+```{{execute T2}}
+
 <br>
 
 Execute the command without a token:

@@ -48,16 +48,18 @@ vault kv put secret/training_ year="2018"
 
 However, this is **NOT** because the path is a regular expression.  Vault's paths use a radix tree, and that "\*" can only come at the end.  It matches zero or more characters but not because of a regex.
 
-Try the following command:
+<br>
+
+Now, try the following command:
 
 ```
 vault kv put secret/team-eng/apikey api_key="123456789"
 ```{{execute T2}}
 
-The path `secret/team-eng/apikey` matches the `secret/<string>/apikey` pattern, the command should execute successfully.
+The path `secret/team-eng/apikey` matches the `secret/<string>/apikey` pattern, so the command should execute successfully.
 
 Since the policy allows **delete** operation, the following command should execute successfully as well:
 
 ```
-vault kv delete secret/team-eng/apikey api_key="123456789"
+vault kv delete secret/team-eng/apikey"
 ```{{execute T2}}
