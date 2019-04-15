@@ -1,0 +1,48 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Auto-Unseal",
+  "description": "Learn how to automatically unseal your Vault server",
+  "difficulty": "beginner",
+  "time": "5 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Configure and Start Vault 1",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure Auto-unseal Key Provider (Vault 1)",
+        "text": "step2.md"
+      },
+      {
+        "title": "Configure Auto-unseal (Vault 2)",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "config-vault-1.hcl", "target": "~/" },
+        { "file": "config-vault-2.hcl", "target": "~/" },
+        { "file": "autounseal.hcl", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
