@@ -1,0 +1,48 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Agent",
+  "description": "Learn how to leverage Vault Agent to tackle secret zero problem",
+  "difficulty": "beginner",
+  "time": "5 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
+        "title": "Vault Agent Auto-Auth",
+        "text": "step1.md"
+      },
+      {
+        "title": "Vault Agent Caching",
+        "text": "step2.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "agent-config.hcl", "target": "~/" },
+        { "file": "token_update.hcl", "target": "~/" },
+        { "file": "agent-config-caching.hcl", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
