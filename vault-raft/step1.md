@@ -62,7 +62,7 @@ Scroll up the Terminal to locate the following output:
 
 Now, you need to initialize and unseal the Vault server (`node1`).
 
-
+<br />
 ## Initialize and Unseal node1
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
@@ -109,7 +109,8 @@ Now, `node1` is ready for operation.
 Log into Vault using the **initial root token** (`key.txt`{{open}}):
 
 ```
-vault login $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
+vault login \
+      $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 Execute the following command to view the node1's Raft cluster configuration.
