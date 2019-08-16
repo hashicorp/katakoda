@@ -4,7 +4,7 @@ Wait until the initial setup completes before start.
 
 In this tutorial, you are going to create a highly available (HA) Vault cluster using the integrated storage backend as its persistent storage.
 
-For the purpose of demonstration, you are going to start up 3 instances of Vault server each listens to different port: **node1** listens to port `8200`, **node2** listens to port `2200` and **node3** listens to port `3200`.
+For the purpose of demonstration, you are going to run 3 Vault server instances each listens to different port: **node1** listens to port `8200`, **node2** listens to port `2200` and **node3** listens to port `3200`.
 
 ![](https://education-yh.s3-us-west-1.amazonaws.com/screenshots/raft-cluster.png)
 
