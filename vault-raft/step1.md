@@ -87,8 +87,7 @@ vault operator init -key-shares=1 -key-threshold=1 > key.txt
 Execute the `vault operator unseal` command to enter unseal `node1`:
 
 ```
-vault operator unseal \
-    $(grep 'Key 1:' key.txt | awk '{print $NF}')
+vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 ```
@@ -109,8 +108,8 @@ Now, `node1` is ready for operation.
 Log into Vault using the **initial root token** (`key.txt`{{open}}):
 
 ```
-vault login \
-      $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
+export VAULT_TOKEN=$(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
+vault login $VAULT_TOKEN
 ```{{execute T2}}
 
 Execute the following command to view the node1's Raft cluster configuration.
