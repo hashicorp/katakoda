@@ -4,7 +4,7 @@ Wait until the initial setup completes before start.
 
 In this tutorial, you are going to create a highly available (HA) Vault cluster using the integrated storage backend as its persistent storage.
 
-For the purpose of demonstration, you are going to run 3 Vault server instances each listens to different port: **node1** listens to port `8200`, **node2** listens to port `2200` and **node3** listens to port `3200`.
+For the purpose of demonstration, you are going to run 3 Vault server instances each listens to a different port: **node1** listens to port `8200`, **node2** listens to port `2200` and **node3** listens to port `3200`.
 
 ![](https://education-yh.s3-us-west-1.amazonaws.com/screenshots/raft-cluster.png)
 
@@ -81,7 +81,7 @@ Now, execute the `vault operator init` command to initialize the `node1`:
 vault operator init -key-shares=1 -key-threshold=1 > key.txt
 ```{{execute T2}}
 
-> **NOTE:** For the simplicity, setting the number of unseal keys to `1` as well as the key threshold, and storing the generated unseal key and initial root token in a local file named, `key.txt`.
+> **NOTE:** For the simplicity, setting the number of unseal keys to `1` as well as the key threshold, and storing the generated unseal key and initial root token in a local file named, `key.txt`{{open}}.
 
 
 Execute the `vault operator unseal` command to enter unseal `node1`:
