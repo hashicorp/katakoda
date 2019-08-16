@@ -101,15 +101,40 @@ Threshold              1
 ...
 ```
 
-Now, `node1` is ready for operation.
+Return to the first **Terminal** and examine the server log.
+
+Notice that right after `node1` was unsealed, it first goes into **standby** mode.
+
+```
+...
+[INFO]  core: vault is unsealed
+[INFO]  core: entering standby mode
+[INFO]  storage.raft: Node at 127.0.0.1:8201 [Follower] entering Follower state (Leader: "")
+...
+```
+
+Since `node1` is currently the only cluster member, it gets elected to be the **leader**.  
+
+```
+...
+[WARN]  storage.raft: Heartbeat timeout from "" reached, starting election
+[INFO]  storage.raft: Node at 127.0.0.1:8201 [Candidate] entering Candidate state in term 2
+[INFO]  storage.raft: Election won. Tally: 1
+[INFO]  storage.raft: Node at 127.0.0.1:8201 [Leader] entering Leader state
+[INFO]  core: acquired lock, enabling active operation
+[INFO]  core: post-unseal setup starting
+...
+[INFO]  core: post-unseal setup complete
+```
+
+Now, `node1` is ready!
 
 <br />
 
 Log into Vault using the **initial root token** (`key.txt`{{open}}):
 
 ```
-export VAULT_TOKEN=$(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
-vault login $VAULT_TOKEN
+vault login $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 Execute the following command to view the node1's Raft cluster configuration.
