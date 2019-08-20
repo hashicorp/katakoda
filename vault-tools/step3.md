@@ -1,5 +1,7 @@
 Envconsul launches a subprocess which dynamically populates environment variables from secrets read from Vault. Your applications then read those environment variables. Despite its name, Envconsul does **not** require a Consul cluster to operate. It enables flexibility and portability for applications across systems.
 
+> As of [v0.8.0](https://github.com/hashicorp/envconsul/blob/master/CHANGELOG.md), Envconsul supports KV v2 secrets engine. Therefore, if you are using KV v2, you would need Envconsul v0.8.0 or later.
+
 Envconsul has been installed. Execute the following command to check the version:
 
 ```
@@ -48,12 +50,12 @@ KV_V2_DATA_CUSTOMERS_ACME_ORGANIZATION=ACME Inc.
 
 <br>
 
-View an application script, `test-app-v1.sh`{{open}}
+View an application script, `test-app-v1.sh`{{open}} which reads values from environment variables.
 
 ```
 clear
-chmod 0777 test-app.sh
-cat test-app.sh
+chmod 0777 test-app-v1.sh
+cat test-app-v1.sh
 ```{{execute T2}}
 
 Execute the following command to properly populate the script:
@@ -65,5 +67,6 @@ VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme ./te
 The `test-app-v2.sh`{{open}} is written for K/V v2.
 
 ```
+chmod 0777 test-app-v2.sh
 VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v2/data/customers/acme ./test-app-v2.sh
 ```{{execute T2}}
