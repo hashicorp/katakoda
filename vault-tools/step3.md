@@ -10,7 +10,7 @@ envconsul -v
 Execute the following command to convert the customer data as environment variables:
 
 ```
-VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme env
+VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme env | grep KV_V1
 ```{{execute T2}}
 
 The `-upcase` parameter creates environment variables all in upper case.
@@ -18,24 +18,37 @@ The `-upcase` parameter creates environment variables all in upper case.
 Notice that the generated environment variables are named after the secret paths as `KV_V1_CUSTOMERS_ACME_<key>`.
 
 ```
-...
-KV_V1_CUSTOMERS_ACME_ORGANIZATION=ACME Inc.
-KV_V1_CUSTOMERS_ACME_REGION=US-West
-KV_V1_CUSTOMERS_ACME_TYPE=premium
-...
 KV_V1_CUSTOMERS_ACME_CUSTOMER_ID=ABXX2398YZPIE7391
-KV_V1_CUSTOMERS_ACME_ZIP_CODE=94105
+KV_V1_CUSTOMERS_ACME_ORGANIZATION=ACME Inc.
+KV_V1_CUSTOMERS_ACME_TYPE=premium
 KV_V1_CUSTOMERS_ACME_CONTACT_EMAIL=james@acme.com
-...
 KV_V1_CUSTOMERS_ACME_STATUS=active
-...
+KV_V1_CUSTOMERS_ACME_ZIP_CODE=94105
+KV_V1_CUSTOMERS_ACME_REGION=US-West
 ```
 
-> **NOTE:** Currently version of Envconsul does not support KV v2, yet.
+Now, run the same command against `kv-v2`:
+
+```
+VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v2/data/customers/acme env | grep KV_V2
+```{{execute T2}}
+
+```
+KV_V2_DATA_CUSTOMERS_ACME_REGION=US-West
+KV_V2_DATA_CUSTOMERS_ACME_STATUS=active
+KV_V2_DATA_CUSTOMERS_ACME_TYPE=premium
+KV_V2_DATA_CUSTOMERS_ACME_ZIP_CODE=94105
+KV_V2_DATA_CUSTOMERS_ACME_CUSTOMER_ID=ABXX2398YZPIE7391
+KV_V2_DATA_CUSTOMERS_ACME_CONTACT_EMAIL=james@acme.com
+KV_V2_DATA_CUSTOMERS_ACME_ORGANIZATION=ACME Inc.
+```
+
+> Notice the difference in the endpoint. To retrieve secrets from `kv-v2`, the endpoint becomes `kv-v2/data/customers/acme`.
+
 
 <br>
 
-View an application script, `test-app.sh`{{open}}
+View an application script, `test-app-v1.sh`{{open}}
 
 ```
 clear
@@ -46,5 +59,11 @@ cat test-app.sh
 Execute the following command to properly populate the script:
 
 ```
-VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme ./test-app.sh
+VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme ./test-app-v1.sh
+```{{execute T2}}
+
+The `test-app-v2.sh`{{open}} is written for K/V v2.
+
+```
+VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v2/data/customers/acme ./test-app-v2.sh
 ```{{execute T2}}
