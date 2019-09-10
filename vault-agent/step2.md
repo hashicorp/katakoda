@@ -1,10 +1,13 @@
 -----
+
 **!!! BEFORE RESUME !!!**
 
 Return to the **Terminal 2** and press **Ctl + C** to stop the running Vault Agent.  We are going to modify the agent configuration to support Caching.
 
 Clear the terminal: `clear`{{execute T2}}
+
 ------
+
 <br>
 
 ## Vault Agent Configuration
