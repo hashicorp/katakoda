@@ -1,6 +1,6 @@
-To enable **Transit Auto-Unseal**, you would need **two** Vault servers. Two options are provided to perform this lab. **Choose one** of the following options and perform the tasks as instructed.
+To enable **Transit Auto-Unseal**, you would need **two** Vault servers.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/3-autounseal-2.png">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-autounseal-13.png">
 
 
 Open the `config-vault-1.hcl`{{open}} file to review the server configuration file for **Vault 1**:
