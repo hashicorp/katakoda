@@ -1,4 +1,4 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" height="100"/>
 
 [HashiCorp Vault](https://www.vaultproject.io)'s `transit` secrets engine handles cryptographic functions on data in-transit. It can also viewed as _encryption as a service_.  
 
