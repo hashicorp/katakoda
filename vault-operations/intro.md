@@ -1,6 +1,6 @@
-[HashiCorp Vault](https://www.vaultproject.io) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing. 
+[HashiCorp Vault](https://www.vaultproject.io) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
 
-[![YouTube](https://education-yh.s3-us-west-2.amazonaws.com/Armon_whiteboard.png)](https://youtu.be/VYfl-DpZ5wM)
+[![YouTube](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/Vault-Intro.png)](https://youtu.be/VYfl-DpZ5wM)
 
 
 This lab walks you through the installation and configuration of a Vault server, and some of the primary tasks in operating Vault:

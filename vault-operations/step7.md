@@ -9,7 +9,7 @@ In some cases, you may want to re-generate the master key and key shares. For ex
 
 In addition to rekeying the master key, there may be an independent desire to rotate the underlying encryption key Vault uses to encrypt data at rest.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/ops-rekey.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/rekey-and-rotate.png" alt="Logo"/>
 
 In Vault, `rekeying` and `rotating` are two separate operations. The process for generating a new master key and applying Shamir's algorithm is called "rekeying". The process for generating a new encryption key for Vault to encrypt data at rest is called "rotating".
 

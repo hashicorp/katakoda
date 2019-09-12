@@ -50,6 +50,5 @@ vault kv put secret/customer/james name="James Bond" organization="MI6"
 
 Return to the _first terminal_ where Vault server is running, and **CTRL + C** to terminate the dev server.  
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/ops-stop-server.png" alt="Stop Vault"/>
 
 Next, you are going to learn how to configure Vault for non-dev environment.
