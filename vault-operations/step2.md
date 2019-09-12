@@ -24,7 +24,7 @@ Root Token: root
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/ops-another-terminal.png" alt="New Terminal"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
 
 In the **Terminal 2**, set the `VAULT_ADDR` environment variable:
 

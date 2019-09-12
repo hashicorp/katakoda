@@ -26,7 +26,7 @@ Root Token: root
 
 **Terminal**の隣の **+** サインをクリックし、**Open New Terminal**を選び新しいターミナルを開きましょう。
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/ops-another-terminal.png" alt="New Terminal"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
 
 
 まずは開いた**Terminal 2**から`VAULT_ADDR`の環境変数を指定します。
