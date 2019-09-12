@@ -8,7 +8,7 @@
 
 更にはマスターキーによって暗号化されている暗号化キーを回転する必要が出てくるかもしれません。
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/ops-rekey.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/rekey-and-rotate.png" alt="Logo"/>
 
 `rekeying`と`rotating`は２つの異なるオペレーションとなっていて、[Shamir's Secret Sharing Algorithm](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing)によってUnsealキーを再生成するプロセスを"**rekeying**"と呼び、新しい暗号化キーを生成するプロセスを"**rotating**"と呼びます。
 

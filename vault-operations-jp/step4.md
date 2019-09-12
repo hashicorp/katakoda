@@ -19,7 +19,7 @@ Vaultにて格納される機密情報は、まず暗号化されてからスト
 
 ではこのマスターキーはどうやって構成されるかと言うと、[Shamir's Secret Sharing Algorithm](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing)と言う数式を使って複数(デフォルトは５つ)に分割され、それをUnsealキー、あるいはSharedキーと呼びます。
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/ops-shamirs-secret-sharing.png" alt="Shamir's Secret Sharing"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-autounseal.pngs" alt="Shamir's Secret Sharing"/>
 
 この初期化プロセスの際に分割されたUnsealキー(`key.txt`{{open}})は、それぞれ別の個人が安全に管理し、サーバーをUnseal(開封)する際にはその大多数が必要となります。例えば、５つのUnsealキーがある場合、過半数である３つのUnsealキーが入力されて初めてマスターキーが複合されます。このプロセスをUnseal(開封)と呼びます。つまりUnsealキー保持者５人のうち３人がUnseal(開封)プロセスに携わらないと完了しない為、誰か１人が全ての鍵を握るという事はありません。
 
