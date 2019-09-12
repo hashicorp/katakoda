@@ -1,4 +1,4 @@
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
 Before a client can interact with [HashiCorp Vault](https://www.vaultproject.io), it must authenticate against an [**auth method**](/docs/auth/index.html) to acquire a token. This token has policies attached so that the behavior of the client can be governed.
 

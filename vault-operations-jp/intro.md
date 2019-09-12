@@ -14,4 +14,4 @@
 - Rootトークンの生成
 - 暗号化キーの回転
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>

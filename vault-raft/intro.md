@@ -1,4 +1,4 @@
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
 If you are new to Vault, please complete the [Vault Operations](https://www.katacoda.com/hashicorp/scenarios/vault-operations) first, and then proceed with this Katacoda scenario to better understand the workflow.
 

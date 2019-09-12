@@ -1,4 +1,4 @@
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
  Identity secrets engine is the identity management solution for Vault. It internally maintains the clients who are recognized by [HashiCorp Vault](https://www.vaultproject.io). Each client is internally termed as an _Entity_. An entity can have multiple Aliases. For example, a single user who has accounts in both Github and LDAP, can be mapped to a single entity in Vault that has 2 aliases, one of type Github and one of type LDAP. When a client authenticates via any of the credential backend (except the Token backend), Vault creates a new entity and attaches a new alias to it, if a corresponding entity doesn't already exist. The entity identifier will be tied to the authenticated token. When such tokens are put to use, their entity identifiers are audit logged, marking a trail of actions performed by specific users.
 

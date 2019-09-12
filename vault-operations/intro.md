@@ -13,4 +13,4 @@ This lab walks you through the installation and configuration of a Vault server,
 - Generating Root Token
 - Key Rotation
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/Vault_Icon_FullColor.png" alt="Logo"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
