@@ -1,7 +1,5 @@
 Now, test to understand how a token inherits the capabilities from its associating group.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/7-entity-3.png" alt="Groups"/>
-
 Login as `bsmith` with userpass auth method:
 
 ```

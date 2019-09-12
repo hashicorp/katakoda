@@ -1,6 +1,6 @@
 To better understand how a token inherits the capabilities from entity's policy, you are going to test it by logging in as bob.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/7-entity-2.png" alt="Entity Alias"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-entity-2.png" alt="Entity Alias"/>
 
 
 Execute the following command to login as `bob`:
