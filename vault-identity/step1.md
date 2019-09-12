@@ -4,7 +4,7 @@ You are going to create a new entity with base policy assigned.  The entity defi
 
 A user, Bob Smith at ACME Inc. happened to have two sets of credentials: `bob` and `bsmith`.  To manage his accounts and link them to an identity `Bob Smith` in team, QA, you are going to create an entity for Bob.
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/7-entity.png" alt="Entity"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/7-entity.png" alt="Entity"/>
 
 **NOTE:** For the purpose of training, you are going to work with the userpass auth method.  But in reality, the user `bob` might be a username that exists in Active Directory, and `bsmith` might be Bob's username exists in GitHub, etc.
 

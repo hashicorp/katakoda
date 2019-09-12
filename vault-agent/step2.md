@@ -14,7 +14,7 @@ Clear the terminal: `clear`{{execute T2}}
 
 To enable Vault Agent Caching, the agent configuration file must define `cache` and `listener` stanzas. The `listener` stanza specifies the proxy address which Vault Agent listens. All the requests will be made through this address and forwarded to the Vault server.
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/screenshots/vault-agent-caching.png">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-agent-caching.png">
 
 Examine the Vault Agent configuration file, `agent-config-caching.hcl`{{open}}.
 

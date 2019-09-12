@@ -55,6 +55,6 @@ vault kv put secret/customer/james name="James Bond" organization="MI6"
 
 開発モードでサーバーが起動してる**Terminal**に戻り、**CTRL+C**でサーバーを停止してください。
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/ops-stop-server.png" alt="Stop Vault"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/ops-stop-server.png" alt="Stop Vault"/>
 
 次のステップでは開発モードを使うのではなく、実際にサーバーの設定をして行きます。

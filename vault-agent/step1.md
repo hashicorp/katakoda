@@ -1,6 +1,6 @@
 Vault Agent runs on the **client** side to automate leases and tokens lifecycle management.
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/screenshots/vault-agent-auto-auth.png">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-agent-auto-auth.png">
 
 For this scenario, you are going to run the Vault Agent on the same machine as where the Vault server is running. However, the basic working is the same except the host machine address.
 
@@ -102,7 +102,7 @@ The acquired client token is now stored in the `approleToken`{{open}} file.  You
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to open another terminal.
 
-<img src="https://s3-us-west-1.amazonaws.com/education-yh/screenshots/ops-another-terminal-2.png" alt="New Terminal"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png" alt="New Terminal"/>
 
 Execute the following command to verify the token information.
 
