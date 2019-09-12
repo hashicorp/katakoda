@@ -5,7 +5,7 @@ Think of a scenario where apps read secrets from Vault. The apps need:
 - More privileged token (e.g. admin) wraps a secret only the expecting client can read
 - The receiving client (an app) unwraps the secret to obtain the token
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/4-cubbyhole.png" alt="Wrapping Token"/>
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-cubbyhole.png" alt="Wrapping Token"/>
 
 When the response to `vault token create` request is wrapped, Vault inserts the generated token into the _cubbyhole_ of a single-use token, returning that single-use wrapping token. Retrieving the secret requires an `unwrap` operation against this wrapping token.
 
