@@ -1,6 +1,6 @@
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to start third terminal (**Terminal 3**).
 
-![](https://education-yh.s3-us-west-1.amazonaws.com/katacoda-images/katacoda-terminal.png)
+![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png)
 
 Open the `node2` server configuration file, `config-node2.hcl`{{open}}.
 
@@ -53,7 +53,7 @@ You can verify that the **Api Address** is `http://127.0.0.1:2200`.
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to start fourth terminal (**Terminal 4**).
 
-![](https://education-yh.s3-us-west-1.amazonaws.com/katacoda-images/katacoda-terminal.png)
+![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png)
 
 
 In **Terminal 4**, set the VAULT_ADDR to `http://127.0.0.1:2200`.
