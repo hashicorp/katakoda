@@ -1,6 +1,6 @@
 [HashiCorp Vault](https://www.vaultproject.io) secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing.
 
-[![YouTube](https://education-yh.s3-us-west-2.amazonaws.com/Armon_whiteboard.png)](https://youtu.be/VYfl-DpZ5wM)
+[![YouTube](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/Vault-Intro.png)](https://youtu.be/VYfl-DpZ5wM)
 
 
 Vault uses [policies](https://www.vaultproject.io/docs/concepts/policies.html) to govern the behavior of clients and instrument Role-Based Access Control (RBAC) by specifying access privileges (authorization).
