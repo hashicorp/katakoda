@@ -41,7 +41,7 @@ vault server -config=config-node3.hcl
                Log Level: info
                    Mlock: supported: true, enabled: false
                  Storage: raft (HA available)
-                 Version: Vault v1.2.2
+                 Version: Vault v1.2.3
 
 ==> Vault server started! Log data will stream in below:
 ```
