@@ -13,13 +13,14 @@ ssh root@host01 "$all_commands"
 curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
 chmod +x ~/.bin/unzip
 
-curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/1.0.2/consul_1.0.2_linux_amd64.zip
-unzip -d  ~/.bin/ ~/consul.zip
-chmod +x ~/.bin/consul
+# Already being installed by nomad-openfaas install.sh
+# curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/1.0.2/consul_1.0.2_linux_amd64.zip
+# unzip -d  ~/.bin/ ~/consul.zip
+# chmod +x ~/.bin/consul
 
-curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_amd64.zip
-unzip -d  ~/.bin/ ~/nomad.zip
-chmod +x  ~/.bin/nomad
+# curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_amd64.zip
+# unzip -d  ~/.bin/ ~/nomad.zip
+# chmod +x  ~/.bin/nomad
 
 curl -L -o ~/terraform.zip https://releases.hashicorp.com/terraform/0.11.1/terraform_0.11.1_linux_amd64.zip
 unzip -d ~/.bin ~/terraform.zip

@@ -11,9 +11,9 @@ cd /home/scrapbook/go/src/functions
 
 # Start Nomad
 sleep 1; ~/launch.sh;
-#clear
+clear
 
-#clear; sleep 1
+clear; sleep 1
 
 # Echo status
 : The local Docker Registry is [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com
