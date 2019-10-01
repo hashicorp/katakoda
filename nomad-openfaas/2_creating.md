@@ -36,25 +36,33 @@ Just incase you are wondering type `:x` to quit Vim :)
 
 The next step is to build our function and to deploy it to Nomad, before we do we need to edit the echo.yml file and change the image name so we can push the image to a docker registry.
 
-You can push the image to your personal registry however there is also a local registry running in this environment: [[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com](
-You can push the image to your personal registry however there is also a local registry running in this environment: [[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com])
-
-Edit the `echo.yml` file and change the gateway to our local gateway at: [https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/) and change the image to prefix the local registry.
-
 `vim echo.yml`{{execute}}
+
+You can push the image to your personal registry however there is also a local registry running in this environment: 
+
+https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com
+
+
+Edit the echo.yml file and change :
+- The gateway to our local gateway to:  
+  - https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/
+
+- The image url to:
+   - https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo 
+   - **Remove the https:// its added by Katacoda automatically**
 
 You should end up with something which looks like this...
 
-<pre class="">
 provider:  
-  name: faas  
-  gateway: https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/  
+&nbsp;&nbsp;name: faas  
+&nbsp;&nbsp;gateway: https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/  
 
 functions:  
-  echo:  
-    lang: go  
-    handler: ./echo  
-    image: [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo
-</pre>
+&nbsp;&nbsp;echo:  
+&nbsp;&nbsp;&nbsp;&nbsp;lang: go  
+&nbsp;&nbsp;&nbsp;&nbsp;handler: ./echo  
+&nbsp;&nbsp;&nbsp;&nbsp;image: https://[[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com/echo
+
+**Remove the https:// from the image url**
 
 Adding the gateway to our `echo.yml` allows us to deploy and invoke our functions without needing to specify the gateway flag in the command line.

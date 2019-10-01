@@ -14,7 +14,7 @@ done
 echo "Nomad started. "
 
 echo -n "Configuring... "
-
+export HOME=/home/scrapbook
 # Download job files
 curl -L -o ~/faas.hcl https://raw.githubusercontent.com/hashicorp/faas-nomad/master/nomad_job_files/faas.hcl
 
