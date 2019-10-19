@@ -1,6 +1,6 @@
 {
   "title": "Built Image Playground",
-  "description": "HashiCorp full stack environment 2019-10-18-1742",
+  "description": "HashiCorp full stack environment 2019-10-18-1758",
   "icon": "fa-nomad",
   "details": {
     "steps": [
@@ -17,6 +17,6 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "hashistack"
   }
 }
