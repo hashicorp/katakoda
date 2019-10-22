@@ -1,22 +1,25 @@
-# curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
-# chmod +x ~/.bin/unzip
 
-curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/1.6.1/consul_1.6.1_linux_amd64.zip
-sudo unzip -d /usr/local/bin/ ~/consul.zip
-sudo chmod +x /usr/local/bin/consul
+# Download and install a binary.
+#
+# Arguments:
+#     - Name of binary ("consul")
+#     - URL of zipfile ("https://example.com/consul.zip")
+#
+install_zip()
+{
+    NAME="$1"
+    DOWNLOAD_URL="$2"
 
-curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/0.9.6/nomad_0.9.6_linux_amd64.zip
-sudo unzip -d  /usr/local/bin/ ~/nomad.zip
-sudo chmod +x  /usr/local/bin/nomad
+    curl -L -o ~/$NAME.zip $DOWNLOAD_URL
+    sudo unzip -d /usr/local/bin/ ~/$NAME.zip
+    sudo chmod +x /usr/local/bin/$NAME
+    rm ~/$NAME.zip
+}
 
-curl -L -o ~/terraform.zip https://releases.hashicorp.com/terraform/0.12.12/terraform_0.12.12_linux_amd64.zip
-sudo unzip -d /usr/local/bin/ ~/terraform.zip
-sudo chmod +x /usr/local/bin/terraform
+install_zip "consul" "https://releases.hashicorp.com/consul/1.6.1/consul_1.6.1_linux_amd64.zip"
 
-curl -L -o ~/vault.zip https://releases.hashicorp.com/vault/1.2.3/vault_1.2.3_linux_amd64.zip
-sudo unzip -d /usr/local/bin/ ~/vault.zip
-sudo chmod +x /usr/local/bin/vault
+install_zip "nomad" "https://releases.hashicorp.com/nomad/0.10.0/nomad_0.10.0_linux_amd64.zip"
 
-rm ~/nomad.zip ~/consul.zip ~/terraform.zip ~/vault.zip
+install_zip "terraform" "https://releases.hashicorp.com/terraform/0.12.12/terraform_0.12.12_linux_amd64.zip"
 
-
+install_zip "vault" "https://releases.hashicorp.com/vault/1.2.3/vault_1.2.3_linux_amd64.zip"
