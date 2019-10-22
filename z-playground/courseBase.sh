@@ -1,1 +1,0 @@
-echo "courseBase.sh"
