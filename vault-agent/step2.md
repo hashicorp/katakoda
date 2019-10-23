@@ -2,9 +2,9 @@
 
 **!!! BEFORE RESUME !!!**
 
-Return to the **Terminal 2** and press **Ctl + C** to stop the running Vault Agent.  We are going to modify the agent configuration to support Caching.
+Press **Ctl + C** to stop the running Vault Agent.  We are going to modify the agent configuration to support Caching.
 
-Clear the terminal: `clear`{{execute T2}}
+Clear the terminal: `clear`{{execute T1}}
 
 ------
 
@@ -59,21 +59,25 @@ Execute the following command to start the Vault Agent with `debug` logs.
 
 ```
 vault agent -config=agent-config-caching.hcl -log-level=debug
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
-In the **Terminal 3**, set the `VAULT_AGENT_ADDR` environment variable.
+Click the **+** next to the opened Terminal, and select **Open New Terminal**.
+
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+
+In the **Terminal 2**, set the `VAULT_AGENT_ADDR` environment variable.
 
 ```
 export VAULT_AGENT_ADDR="http://127.0.0.1:8007"
-```{{execute T3}}
+```{{execute T2}}
 
 Execute the following command to create a short-lived token and see how agent manages its lifecycle:
 
 ```
 VAULT_TOKEN=$(cat approleToken) vault token create -ttl=30s -explicit-max-ttl=2m
-```{{execute T3}}
+```{{execute T2}}
 
 For the purpose of demonstration, the generated token has only 30 seconds before it expires. Also, its max TTL is 2 minutes; therefore, it cannot be renewed beyond 2 minutes from its creation.
 
@@ -89,7 +93,7 @@ identity_policies    []
 policies             ["token_update" "default"]
 ```
 
-Examine the agent log in **Terminal 2**. The log should include the following messages:
+Examine the agent log in **Terminal 1**. The log should include the following messages:
 
 ```
 ...
@@ -109,7 +113,7 @@ Re-run the command and observe the returned token value.
 
 ```
 VAULT_TOKEN=$(cat approleToken) vault token create -ttl=30s -explicit-max-ttl=2m
-```{{execute T3}}
+```{{execute T2}}
 
 It should be the same token.
 
@@ -158,7 +162,7 @@ If a situation requires you to clear all cached tokens and leases (e.g. reset af
 
 ```
 curl -X POST -d '{"type": "all"}' $VAULT_AGENT_ADDR/agent/v1/cache-clear
-```{{execute T3}}
+```{{execute T2}}
 
 In the agent log, you find the following:
 
