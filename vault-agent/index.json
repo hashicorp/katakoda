@@ -8,10 +8,12 @@
   "details": {
     "steps": [
       {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
         "title": "Vault Agent Auto-Auth",
-        "text": "step1.md",
-        "code": "terminal.sh",
-        "courseData": "courseBase.sh"
+        "text": "step1.md"
       },
       {
         "title": "Vault Agent Caching",
@@ -20,6 +22,7 @@
     ],
     "intro": {
       "text": "intro.md",
+      "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
     "assets": {

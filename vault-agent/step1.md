@@ -10,32 +10,32 @@ First, Login with root token.
 
 ```
 vault login root
-```{{execute T1}}
+```{{execute T2}}
 
 Setup the auth method on the Vault server. In this example, you are going to enable [`approle`](https://www.vaultproject.io/docs/auth/approle.html) auth method.
 
 ```
 vault auth enable approle
-```{{execute T1}}
+```{{execute T2}}
 
 Create a policy named, "token_update" which is defined by the `token_update.hcl`{{open}} file.
 
 ```
 vault policy write token_update token_update.hcl
-```{{execute T1}}
+```{{execute T2}}
 
 Execute the following command to create a role named, "apps" with `token_update` policy attached.
 
 ```
 vault write auth/approle/role/apps policies="token_update"
-```{{execute T1}}
+```{{execute T2}}
 
 Now, generate a role ID and stores it in a file named, "roleID".
 
 ```
 vault read -format=json auth/approle/role/apps/role-id \
         | jq  -r '.data.role_id' > roleID
-```{{execute T1}}
+```{{execute T2}}
 
 The `approle` auth method allows machines or apps to authenticate with Vault using Vault-defined roles. The generated `roleID`{{open}} is equivalent to username.
 
@@ -44,7 +44,7 @@ Also, generate a secret ID and stores it in the "secretID" file.
 ```
 vault write -f -format=json auth/approle/role/apps/secret-id \
         | jq -r '.data.secret_id' > secretID
-```{{execute T1}}
+```{{execute T2}}
 
 The generated `secretID`{{open}} is equivalent to a password.
 
@@ -89,7 +89,7 @@ Execute the following command to start the Vault Agent with `debug` logs.
 
 ```
 vault agent -config=agent-config.hcl -log-level=debug
-```{{execute T1}}
+```{{execute T2}}
 
 The agent log should include the following messages:
 
