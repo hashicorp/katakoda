@@ -4,15 +4,7 @@ Vault Agent runs on the **client** side to automate leases and tokens lifecycle 
 
 For this scenario, you are going to run the Vault Agent on the same machine as where the Vault server is running. However, the basic working is the same except the host machine address.
 
-First, Login with root token.
-
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-```
-vault login root
-```{{execute T2}}
-
-Setup the auth method on the Vault server. In this example, you are going to enable [`approle`](https://www.vaultproject.io/docs/auth/approle.html) auth method.
+First, setup the auth method on the Vault server. In this example, you are going to enable [`approle`](https://www.vaultproject.io/docs/auth/approle.html) auth method.
 
 ```
 vault auth enable approle
