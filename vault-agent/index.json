@@ -10,6 +10,7 @@
       {
         "title": "Vault Agent Auto-Auth",
         "text": "step1.md",
+        "code": "terminal.sh",
         "courseData": "courseBase.sh"
       },
       {
