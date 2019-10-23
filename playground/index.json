@@ -1,5 +1,5 @@
 {
-  "title": "Nomad Playground",
+  "title": "Nomad 0.10 Playground",
   "description": "HashiCorp Nomad environment with Consul and Terraform",
   "icon": "fa-nomad",
   "details": {
