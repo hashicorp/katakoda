@@ -1,17 +1,15 @@
-## Environment
-
-A development Nomad instance is running in the background and will be available to any Nomad command.
+A development instance of Nomad is running in the background and will be available to any `nomad` command.
 
 Recent versions of HashiCorp Vault, Consul, and Terraform are also installed (but not running).
 
 ## Generate a job file
-`nomad job init -short`
+`nomad job init -short`{{execute}}
 
 ## Nomad status
 `nomad status`{{execute}}
 
 ## Run a job
-`nomad run [filename]`
+`nomad run example.nomad`{{execute}}
 
 ## Job status
 `nomad status [jobname]`
