@@ -7,13 +7,14 @@
   "details": {
     "steps": [
       {
-        "title": "Start the Vault Server",
-        "text": "getting-started.md"
+        "title": "Example Commands",
+        "text": "getting-started.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       }
     ],
     "intro": {
       "text": "intro.md",
-      "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
     "finish": {
@@ -22,11 +23,10 @@
     }
   },
   "environment": {
-      "showdashboard": true,
-      "uilayout": "editor-terminal",
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "hashicorp-hashistack"
   }
 }
