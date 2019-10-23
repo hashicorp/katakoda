@@ -1,3 +1,5 @@
+Wait until the initial setup completes.
+
 Enter the following command to start the Vault server in development mode.  
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
@@ -17,11 +19,11 @@ Scroll up the Terminal to locate the following output:
                      Cgo: disabled
          Cluster Address: https://127.0.0.1:8201
               Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
-               Log Level: (not set)
-                   Mlock: supported: false, enabled: false
+               Log Level: info
+                   Mlock: supported: true, enabled: false
                  Storage: inmem
-                 Version: Vault v1.0.0
-             Version Sha: c19cef14891751a23eaa9b41fd456d1f99e7e856
+                 Version: Vault v1.1.1
+             Version Sha: a3dcd63451cf6da1d04928b601bbe9748d53842e
 
 WARNING! dev mode is enabled! In this mode, Vault runs entirely in-memory
 and starts unsealed with a single unseal key. The root token is already
@@ -49,6 +51,5 @@ Login with the generated root token.
 ```
 vault login root
 ```{{execute T2}}
-
 
 Now, you are logged in as a `root` and ready to play!

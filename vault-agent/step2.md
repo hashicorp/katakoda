@@ -2,9 +2,9 @@
 
 **!!! BEFORE RESUME !!!**
 
-Press **Ctl + C** to stop the running Vault Agent.  We are going to modify the agent configuration to support Caching.
+Return to the **Terminal 2** and press **Ctl + C** to stop the running Vault Agent.  We are going to modify the agent configuration to support Caching.
 
-Clear the terminal: `clear`{{execute T1}}
+Clear the terminal: `clear`{{execute T2}}
 
 ------
 
@@ -62,10 +62,6 @@ vault agent -config=agent-config-caching.hcl -log-level=debug
 ```{{execute T2}}
 
 <br>
-
-Click the **+** next to the opened Terminal, and select **Open New Terminal**.
-
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
 
 In the **Terminal 3**, set the `VAULT_AGENT_ADDR` environment variable.
 
