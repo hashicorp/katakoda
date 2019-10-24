@@ -4,16 +4,16 @@ You are going to run the `vault token create` command.  To view the full list of
 
 ```
 vault token create -h
-```{{execute T2}}
+```{{execute T1}}
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}
 
 Create a new token, and save the generated token in a file named, `token.txt`:
 
 ```
 vault token create -policy="base" \
     -format=json | jq -r ".auth.client_token" > token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -23,7 +23,7 @@ Let's login with newly generated `token` (`token.txt`{{open}}).  The command is:
 
 ```
 vault login $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the `base` policy is listed.
 

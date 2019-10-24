@@ -1,6 +1,15 @@
 > Everything in Vault is **path** based, and admins write policies to grant or forbid access to certain paths and operations in Vault. Vault operates on a secure by default standard, and as such, an ***empty policy grants no permissions*** in the system.
 
-Before begins, let's check which secret engines have been enabled:  `vault secrets list`{{execute T2}}
+First, login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
+
+Before begins, let's check which secret engines have been enabled:  `vault secrets list`{{execute T1}}
 
 The output should look like:
 
@@ -58,9 +67,9 @@ Get help for the `vault policy` command:
 
 ```
 vault policy -h
-```{{execute T2}}
+```{{execute T1}}
 
 
-To view the full list of optional parameters for `vault policy write` operation, run the following command:  `vault policy write -h`{{execute T2}}
+To view the full list of optional parameters for `vault policy write` operation, run the following command:  `vault policy write -h`{{execute T1}}
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}
