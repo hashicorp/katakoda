@@ -19,13 +19,21 @@ following table highlights the difference.
 
 ## Create a batch token
 
+Login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
 To create a batch token, you need to explicitly set the token type to be `batch`.
 
 Execute the following command:
 
 ```
 vault token create -type="batch"
-```{{execute T2}}
+```{{execute T1}}
 
 Currently, you are logged in with `root` token; therefore, the child token inherits its creator's policy in absence of `-policy` flag.
 
@@ -36,20 +44,20 @@ Code: 400. Errors:
 * batch tokens cannot be root tokens
 ```
 
-Batch tokens **cannot** be root tokens.  `clear`{{execute T2}}
+Batch tokens **cannot** be root tokens.  `clear`{{execute T1}}
 
 
 Let's create a policy named, `base`.
 
 ```
 vault policy write base base.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 To review the created policy:
 
 ```
 vault policy read base
-```{{execute T2}}
+```{{execute T1}}
 
 
 Now, create a batch token with a non-root policy attached and save it to `token.txt` file:
@@ -57,7 +65,7 @@ Now, create a batch token with a non-root policy attached and save it to `token.
 ```
 vault token create -type=batch -policy=base -format=json \
       | jq -r ".auth.client_token" > token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the generated token value is much longer than the service tokens
 (`token.txt`{{open}}). This is because batch tokens are encrypted by the Vault's
@@ -67,7 +75,7 @@ Let's view the generated batch token's properties:
 
 ```
 vault token lookup $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 The output look similar to the following:
 

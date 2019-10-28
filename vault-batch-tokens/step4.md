@@ -3,7 +3,7 @@ applies to them.
 
 ```
 vault auth list -detailed
-```{{execute T2}}
+```{{execute T1}}
 
 ```
 Path         Type        Accessor                  Plugin    Default TTL    Max TTL    ...
@@ -22,7 +22,7 @@ Read the default TTL settings for **token** auth method:
 
 ```
 vault read sys/auth/token/tune
-```{{execute T2}}
+```{{execute T1}}
 
 ```
 Key                  Value

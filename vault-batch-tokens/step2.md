@@ -3,13 +3,13 @@ Now, let's login with the batch token:
 ```
 clear
 vault login $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 Try writing some secrets to the token's Cubbyhole:
 
 ```
 vault write cubbyhole/token value="1234567890"
-```{{execute T2}}
+```{{execute T1}}
 
 Batch token has no Cubbyhole; therefore, you received an error:
 
@@ -26,7 +26,7 @@ Let's try creating a child token:
 
 ```
 vault token create -policy=default
-```{{execute T2}}
+```{{execute T1}}
 
 Batch token **cannot** create child tokens even if its policy grants permission
 
@@ -43,13 +43,13 @@ Now, log back in with `root` token:
 
 ```
 vault login root
-```{{execute T2}}
+```{{execute T1}}
 
 Execute the following command to try revoking the batch token:
 
 ```
 vault token revoke $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 Batch tokens have an explicit TTL that they **cannot** be renewed nor revoked before reaching its TTL.
 
@@ -68,4 +68,4 @@ given moment.
 
 
 
-`clear`{{execute T2}}
+`clear`{{execute T1}}
