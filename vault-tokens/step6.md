@@ -5,11 +5,11 @@ Repeat the steps to create a token and login with the generated token.
 ```
 vault token create -ttl=80s \
       -format=json | jq -r ".auth.client_token" > parent_token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 ```
 vault login $(cat parent_token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 ## Create an Orphan Token
 
@@ -20,7 +20,7 @@ Execute the following command to generate an orphan token and save it to a file 
 ```
 vault token create -ttl=120s -orphan \
       -format=json | jq -r ".auth.client_token" > orphan_token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 This child token will continue to be active for 120 seconds even after its parent token gets revoked.
 
@@ -31,18 +31,18 @@ Log back in with `root` token:
 
 ```
 vault login root
-```{{execute T2}}
+```{{execute T1}}
 
 Execute the following command to revoke the parent token:
 
 ```
 vault token revoke $(cat parent_token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 Verify that the child token still exists:
 
 ```
 vault token lookup $(cat orphan_token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the **orphan** is set to **true**.

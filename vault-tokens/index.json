@@ -8,17 +8,14 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
     "steps": [
       {
-        "title": "Getting Started",
-        "text": "getting-started.md"
-      },
-      {
         "title": "Create Short-Lived Tokens",
-        "text": "step1.md"
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       },
       {
         "title": "Token Renewal",
@@ -42,7 +39,7 @@
       }
     ],
     "assets": {
-      "client": [
+      "host01": [
         {
           "file": "base.hcl",
           "target": "~/"
@@ -60,6 +57,6 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "hashicorp-hashistack"
   }
 }

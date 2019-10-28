@@ -1,8 +1,16 @@
+Login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
 First, check the current version of the key/value secret engine that is ready to use.  Run the following command:
 
 ```
 vault secrets list -detailed
-```{{execute T2}}
+```{{execute T1}}
 
 In the output, locate `secret/` and check its version.
 
@@ -23,7 +31,7 @@ Execute the following command to read secrets at `secret/training` path:
 
 ```
 vault kv get secret/training
-```{{execute T2}}
+```{{execute T1}}
 
 Expected output: `No value found at secret/training`
 
@@ -35,6 +43,6 @@ Run the following command to view the full list of optional parameters `vault kv
 
 ```
 vault kv -h
-```{{execute T2}}
+```{{execute T1}}
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}

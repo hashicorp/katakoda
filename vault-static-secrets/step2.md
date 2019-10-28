@@ -2,7 +2,7 @@ Write a secret into `secret/training` path:
 
 ```
 vault kv put secret/training username="student01" password="pAssw0rd"
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the output displays the secret's version number.
 
@@ -14,7 +14,7 @@ To read the secrets in `secret/training` path, run the following command:
 
 ```
 vault kv get secret/training
-```{{execute T2}}
+```{{execute T1}}
 
 The output displays the metadata of the secret as well as the actual data. The metadata contains the creation time and the version number.
 
@@ -23,7 +23,7 @@ If you want to retrieve only the **username** value from `secret/training`, use 
 
 ```
 vault kv get -field=username secret/training
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -33,7 +33,7 @@ What will happen to the contents of the secret when you execute the following co
 
 ```
 vault kv put secret/training password="another-password"
-```{{execute T2}}
+```{{execute T1}}
 
 ￼
 ### Answer
@@ -42,7 +42,7 @@ It creates another version of the secret, version 2.
 
 ```
 vault kv get secret/training
-```{{execute T2}}
+```{{execute T1}}
 
 When you read the data at `secret/training`, **username** no longer exists!
 
@@ -53,14 +53,14 @@ If you wish to partially update the value, use `patch`:
 
 ```
 vault kv patch secret/training course="Vault 101"
-```{{execute T2}}
+```{{execute T1}}
 
 This time, you should see that the `course` value is added to the existing key.
 
 ```
 vault kv get secret/training
-```{{execute T2}}
+```{{execute T1}}
 
 
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}
