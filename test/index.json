@@ -43,10 +43,10 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "client": [
+      "host01": [
         {
           "file": "data.txt",
-          "target": "/root"
+          "target": "~/"
         }
       ]
     }
