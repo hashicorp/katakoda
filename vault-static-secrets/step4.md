@@ -1,20 +1,41 @@
-Get help on the list command:
+Get help on the delete command:
 
 ```
-vault kv list -h
+vault kv delete -h
 ```{{execute T1}}
 
-This command can be used to list keys in a given secret engine.
-
+This command deletes secrets and configuration from Vault at the given path.
 
 To clear the screen: `clear`{{execute T1}}
 
-Run the following command to list all the secret keys stored in the key/value secret backend.
+Let's delete `secret/company`:
 
 ```
-vault kv list secret
+vault kv delete secret/company
 ```{{execute T1}}
 
-The output displays only the keys and not the values.
+Try reading the `secret/company` path again.
 
-This indicates that there is `secret/training` and `secret/company` under the `secret/` path.
+```
+vault kv get secret/company
+```{{execute T1}}
+
+The output displays the metadata with `deletion_time`.
+
+<br>
+
+## Restore the Deleted Secrets
+
+Key/value secret engine v2 allows you to recover from unintentional data loss or overwrite when more than one user is writing at the same path.
+
+Run the following command to recover the deleted data:
+
+```
+vault kv undelete -versions=1 secret/company
+```{{execute T1}}
+
+Now, you should be able to read the data again:
+
+```
+vault kv get secret/company
+```{{execute T1}}

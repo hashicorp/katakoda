@@ -26,16 +26,12 @@
         "text": "step3.md"
       },
       {
-        "title": "List Secret Keys",
+        "title": "Delete Secrets and Recover",
         "text": "step4.md"
       },
       {
-        "title": "Delete Secrets and Recover",
-        "text": "step5.md"
-      },
-      {
         "title": "Permanently Delete Secrets",
-        "text": "step6.md"
+        "text": "step5.md"
       }
     ],
     "finish": {

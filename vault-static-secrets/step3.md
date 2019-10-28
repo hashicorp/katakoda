@@ -17,3 +17,17 @@ Read the secret in the `secret/company` path:
 ```
 vault kv get secret/company
 ```{{execute T1}}
+
+<br>
+
+# List Secret Keys
+
+Run the following command to list all the secret keys stored in the key/value secret backend.
+
+```
+vault kv list secret
+```{{execute T1}}
+
+The output displays only the keys and not the values.
+
+This indicates that there is `secret/training` and `secret/company` under the `secret/` path.

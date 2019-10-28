@@ -25,17 +25,8 @@ sys/          system       ...    map[]             system endpoints used for co
 
 Under **Options**, it should display that the kv version is 2.  
 
-> When you run Vault in development mode, the [key/value version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2.html) gets enabled by default.  If you are running your vault in non-dev mode, [key/value version 1](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html) gets enabled.
+> When you run Vault in development mode, the [key/value version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v2.html) gets enabled by default.  
 
-Execute the following command to read secrets at `secret/training` path:
-
-```
-vault kv get secret/training
-```{{execute T1}}
-
-Expected output: `No value found at secret/training`
-
-<br>
 
 ### Get Help
 
