@@ -5,7 +5,7 @@ Login as `bsmith` with userpass auth method:
 ```
 vault login -method=userpass username="bsmith" \
       password="training"
-```{{execute T2}}
+```{{execute T1}}
 
 Upon a successful authentication, a token will be returned. Notice that the output displays **`token_policies`** and **`identity_policies`**. The generated token has both `base`, `team-qa` and `team-eng` policies attached.
 
@@ -23,19 +23,19 @@ Test to see if the token has an access to the following paths:
 - `secret/data/test`:  
   ```
   vault token capabilities secret/data/test
-  ```{{execute T2}}
+  ```{{execute T1}}
 
 - `secret/data/training_test`:  
   ```
   vault token capabilities secret/data/training_test
-  ```{{execute T2}}
+  ```{{execute T1}}
 
 - `secret/data/team/qa`:  
   ```
   vault token capabilities secret/data/team/qa
-  ```{{execute T2}}
+  ```{{execute T1}}
 
 - `secret/data/team/eng`:  
   ```
   vault token capabilities secret/data/team/eng
-  ```{{execute T2}}
+  ```{{execute T1}}

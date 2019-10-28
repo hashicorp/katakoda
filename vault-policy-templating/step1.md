@@ -61,22 +61,31 @@ This policy fulfills the policy requirement 2 and 3.
 
 ## Deploy Policies
 
+Login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
+
 Execute the following command to create `user-tmpl` policy:
 
 ```
 vault policy write user-tmpl user-tmpl.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 Similarly, execute the following command to create `group-tmpl` policy:
 
 ```
 vault policy write group-tmpl group-tmpl.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 List the available policies to verify:
 
 ```
 vault policy list
-```{{execute T2}}
+```{{execute T1}}
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}

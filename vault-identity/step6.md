@@ -50,13 +50,13 @@ Log back in with the root token:
 
 ```
 vault login root
-```{{execute T2}}
+```{{execute T1}}
 
 Enable `github` auth method:
 
 ```
 vault auth enable github
-```{{execute T2}}
+```{{execute T1}}
 
 
 Configure to point to your GitHub organization (e.g. hashicorp):
@@ -81,7 +81,7 @@ Retrieve the mount accessor for `github` auth method:
 ```
 vault auth list \
     -format=json | jq -r '.["github/"].accessor' > github_accessor.txt
-```{{execute T2}}
+```{{execute T1}}
 
 
 Map the `education` team to the `training` group you just created as its group alias:
@@ -90,7 +90,7 @@ Map the `education` team to the `training` group you just created as its group a
 vault write identity/group-alias name="education" \
        mount_accessor=$(cat github_accessor.txt) \
        canonical_id=$(cat ext_group_id.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 > **NOTE:** The `name` is the actual slugfied GitHub team name that you want to map.
 

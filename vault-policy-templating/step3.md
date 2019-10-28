@@ -4,19 +4,19 @@ First, enable key/value v2 secrets engine at `user-kv` to match the policy:
 
 ```
 vault secrets enable -path=user-kv kv-v2
-```{{execute T2}}
+```{{execute T1}}
 
 Enable key/value v2 secrets engine at `group-kv`.
 
 ```
 vault secrets enable -path=group-kv kv-v2
-```{{execute T2}}
+```{{execute T1}}
 
 Now, you are ready to test!  Log in as **`bob`**.
 
 ```
 vault login -method=userpass username="bob" password="training"
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the generated token has `default`, `user-tmpl` and `group-tmpl` policies attached where `user-tmpl` policy was inherited from the `bob_smith` entity, and `group-tmpl` from the `education` group.
 
@@ -41,7 +41,7 @@ Let's test!
 
 ```
 vault kv put user-kv/bob_smith/apikey webapp="12344567890"
-```{{execute T2}}
+```{{execute T1}}
 
 The secret should be created successfully.
 
@@ -54,7 +54,7 @@ Let's verify.
 
 ```
 vault kv put group-kv/education/us-west/db_cred password="ABCDEFGHIJKLMN"
-```{{execute T2}}
+```{{execute T1}}
 
 The secret should be created successfully.
 
@@ -65,13 +65,13 @@ vault write identity/group/id/$(cat group_id.txt) \
         policies="group-tmpl" \
         metadata=region="us-west" \
         metadata=contact_email="james@example.com"
-```{{execute T2}}
+```{{execute T1}}
 
 Read the group information to verify that the data has been updated.
 
 ```
 vault read -format=json identity/group/id/$(cat group_id.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 You should see that `contact_email` metadata has been added.
 
