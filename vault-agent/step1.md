@@ -4,30 +4,38 @@ Vault Agent runs on the **client** side to automate leases and tokens lifecycle 
 
 For this scenario, you are going to run the Vault Agent on the same machine as where the Vault server is running. However, the basic working is the same except the host machine address.
 
+Login with the generated root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
 First, setup the auth method on the Vault server. In this example, you are going to enable [`approle`](https://www.vaultproject.io/docs/auth/approle.html) auth method.
 
 ```
 vault auth enable approle
-```{{execute T2}}
+```{{execute T1}}
 
 Create a policy named, "token_update" which is defined by the `token_update.hcl`{{open}} file.
 
 ```
 vault policy write token_update token_update.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 Execute the following command to create a role named, "apps" with `token_update` policy attached.
 
 ```
 vault write auth/approle/role/apps policies="token_update"
-```{{execute T2}}
+```{{execute T1}}
 
 Now, generate a role ID and stores it in a file named, "roleID".
 
 ```
 vault read -format=json auth/approle/role/apps/role-id \
         | jq  -r '.data.role_id' > roleID
-```{{execute T2}}
+```{{execute T1}}
 
 The `approle` auth method allows machines or apps to authenticate with Vault using Vault-defined roles. The generated `roleID`{{open}} is equivalent to username.
 
@@ -36,7 +44,7 @@ Also, generate a secret ID and stores it in the "secretID" file.
 ```
 vault write -f -format=json auth/approle/role/apps/secret-id \
         | jq -r '.data.secret_id' > secretID
-```{{execute T2}}
+```{{execute T1}}
 
 The generated `secretID`{{open}} is equivalent to a password.
 
@@ -81,7 +89,7 @@ Execute the following command to start the Vault Agent with `debug` logs.
 
 ```
 vault agent -config=agent-config.hcl -log-level=debug
-```{{execute T2}}
+```{{execute T1}}
 
 The agent log should include the following messages:
 
@@ -110,7 +118,7 @@ Execute the following command to verify the token information.
 export VAULT_ADDR='http://127.0.0.1:8200'
 
 vault token lookup $(cat approleToken)
-```{{execute T3}}
+```{{execute T2}}
 
 Verify that the token has the token_update policy attached.
 
@@ -135,4 +143,4 @@ You should be able to create a token using this token (permitted by the `token_u
 
 ```
 VAULT_TOKEN=$(cat approleToken) vault token create
-```{{execute T3}}
+```{{execute T2}}
