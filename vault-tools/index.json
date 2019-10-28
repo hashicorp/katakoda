@@ -8,14 +8,17 @@
   "details": {
     "intro": {
       "text": "intro.md",
+      "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
     "steps": [
       {
+        "title": "Getting Started",
+        "text": "getting-started.md"
+      },
+      {
         "title": "Setup Secret Engines",
-        "text": "step1.md",
-        "code": "terminal.sh",
-        "courseData": "courseBase.sh"
+        "text": "step1.md"
       },
       {
         "title": "Consul Template",
@@ -31,7 +34,7 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "host01": [
+      "client": [
         { "file": "readonly.hcl", "target": "~/" },
         { "file": "test-app-v1.sh", "target": "~/" },
         { "file": "test-app-v2.sh", "target": "~/" },
@@ -49,6 +52,6 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "docker"
   }
 }

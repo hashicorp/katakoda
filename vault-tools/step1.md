@@ -1,23 +1,15 @@
-Login with root token.
-
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-```
-vault login root
-```{{execute T1}}
-
 To see the difference between Key/Value secrets engine [version 1](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html) and [version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html), first enable additional KV secret engines.
 
 ```
 vault secrets enable -path="kv-v1" -version=1 kv
 vault secrets enable -path="kv-v2" -version=2 kv
-```{{execute T1}}
+```{{execute T2}}
 
 Let's list enabled secrets engines to verify:
 
 ```
 vault secrets list -detailed
-```{{execute T1}}
+```{{execute T2}}
 
 In the output, locate `secret/` and check its version.
 
@@ -53,19 +45,19 @@ Execute the following commands:
 ```
 vault kv put kv-v1/customers/acme @data.json
 vault kv put kv-v2/customers/acme @data.json
-```{{execute T1}}
+```{{execute T2}}
 
 Let's view the secrets written in `kv-v1`:
 
 ```
 clear
 vault kv get kv-v1/customers/acme
-```{{execute T1}}
+```{{execute T2}}
 
 Similarly, view the secrets written in `kv-v2`:
 
 ```
 vault kv get kv-v2/customers/acme
-```{{execute T1}}
+```{{execute T2}}
 
-Notice that KV v2 keeps track of changes that were made to the secrets; therefore, the data has its _metadata_ associate with it.
+Notice that KV v2 keeps track of changes that were made to the secrets; therefore, the data has its _metadata_ associate with it. 

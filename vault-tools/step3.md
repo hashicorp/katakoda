@@ -7,13 +7,13 @@ Envconsul has been installed. Execute the following command to check the version
 ```
 clear
 envconsul -v
-```{{execute T1}}
+```{{execute T2}}
 
 Execute the following command to convert the customer data as environment variables:
 
 ```
 VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme env | grep KV_V1
-```{{execute T1}}
+```{{execute T2}}
 
 The `-upcase` parameter creates environment variables all in upper case.
 
@@ -33,7 +33,7 @@ Now, run the same command against `kv-v2`:
 
 ```
 VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v2/data/customers/acme env | grep KV_V2
-```{{execute T1}}
+```{{execute T2}}
 
 ```
 KV_V2_DATA_CUSTOMERS_ACME_REGION=US-West
@@ -56,17 +56,17 @@ View an application script, `test-app-v1.sh`{{open}} which reads values from env
 clear
 chmod 0777 test-app-v1.sh
 cat test-app-v1.sh
-```{{execute T1}}
+```{{execute T2}}
 
 Execute the following command to properly populate the script:
 
 ```
 VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v1/customers/acme ./test-app-v1.sh
-```{{execute T1}}
+```{{execute T2}}
 
 The `test-app-v2.sh`{{open}} is written for K/V v2.
 
 ```
 chmod 0777 test-app-v2.sh
 VAULT_TOKEN=$(cat token.txt) envconsul -upcase -secret kv-v2/data/customers/acme ./test-app-v2.sh
-```{{execute T1}}
+```{{execute T2}}
