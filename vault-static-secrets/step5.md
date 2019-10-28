@@ -50,4 +50,22 @@ Now, check the metadata:
 vault kv metadata get secret/test
 ```{{execute T1}}
 
-Notice that the deletion_time is set on each version. After 40 seconds, the data gets deleted automatically.
+Notice that the `deletion_time` is set on each version. After 40 seconds, the data gets deleted automatically.
+
+Wait for 40 seconds and try to read **version 1** of the `secret/test` data:
+
+```
+vault kv get -version=1 secret/test
+```{{execute T1}}
+
+The response only displays the metadata since the data was automatically deleted after 40 seconds of its creation.
+
+```
+====== Metadata ======
+Key              Value
+---              -----
+created_time     2019-10-28T20:53:33.984068007Z
+deletion_time    2019-10-28T20:54:13.984068007Z
+destroyed        false
+version          1
+```
