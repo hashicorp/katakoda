@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault - Direct App Integration",
-  "description": "Learn how to intebrate Vault with your applications.",
+  "description": "Learn how to integrate Vault with your applications.",
   "difficulty": "beginner",
   "time": "10 minutes",
   "icon": "fa-vault",
