@@ -18,7 +18,7 @@ Since you are currently logged in as a root, you are going to perform the follow
 
 <br>
 
-To clear the screen: `clear`{{execute T2}}
+To clear the screen: `clear`{{execute T1}}
 
 ## Create a New Token for Apps
 
@@ -26,7 +26,7 @@ A policy file (`apps-policy.hcl`) is provided.
 
 ```
 cat apps-policy.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 This policy grants **read** operation on the `secret/dev` and nothing else.
 
@@ -40,13 +40,13 @@ Execute the following command to create a new policy named, `apps-policy`:
 
 ```
 vault policy write apps apps-policy.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 Also, write some data in `secret/data/dev` for testing:
 
 ```
 vault kv put secret/dev apikey="1234567890"
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -62,6 +62,6 @@ Execute the following commands to generate a token for apps using response wrapp
 ```
 vault token create -policy=apps -wrap-ttl=360 \
     -format=json | jq -r ".wrap_info.token" > wrapping-token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 > **NOTE:** The response is the **wrapping token** rather than the actual client token for apps-policy; therefore, the admin user does not even see the generated token that he/she generated. After 360 seconds, the wrapping token gets expired that its wrapped content will no longer discoverable.
