@@ -45,7 +45,7 @@
     "assets": {
       "host01": [
         {
-          "file": "data.txt",
+          "file": "data.json",
           "target": "~/"
         }
       ]

@@ -1,13 +1,13 @@
-View the contents of the file named, `data.txt`:   
+View the contents of the file named, `data.json`:   
 
 ```
-cat data.txt
+cat data.json
 ```{{execute T1}}
 
-Now, let's store the data written in `data.txt` to Vault at `secret/company` path:
+Now, let's store the data written in `data.json` to Vault at `secret/company` path:
 
 ```
-vault kv put secret/company @data.txt
+vault kv put secret/company @data.json
 ```{{execute T1}}
 
 > Any value begins with "@" is loaded from a file.
