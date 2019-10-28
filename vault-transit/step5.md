@@ -5,13 +5,13 @@ vault write -f transit/keys/orders/rotate
 vault write -f transit/keys/orders/rotate
 vault write -f transit/keys/orders/rotate
 vault write -f transit/keys/orders/rotate
-```{{execute T2}}
+```{{execute T1}}
 
 Check the `orders` key information:
 
 ```
 vault read transit/keys/orders
-```{{execute T2}}
+```{{execute T1}}
 
 ```
 Key                       Value
@@ -30,13 +30,13 @@ Run the following command to enforce the use of the encryption key at version **
 
 ```
 vault write transit/keys/orders/config min_decryption_version=5
-```{{execute T2}}
+```{{execute T1}}
 
 Now, verify the `orders` key configuration:
 
 ```
 vault read transit/keys/orders
-```{{execute T2}}
+```{{execute T1}}
 
 
 All the data encrypted with key earlier than 5 must be rewrapped.

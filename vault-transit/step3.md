@@ -6,7 +6,7 @@ Execute the following command to review the `orders` key detail:
 
 ```
 vault read transit/keys/orders
-```{{execute T2}}
+```{{execute T1}}
 
 Note that there is only one version of the key; therefore, data gets encrypted with version 1 of the `orders` key.
 
@@ -27,14 +27,14 @@ Execute the following command to rotate the `orders` key:
 
 ```
 vault write -f transit/keys/orders/rotate
-```{{execute T2}}
+```{{execute T1}}
 
 Check the `orders` key information again:
 
 ```
 vault read transit/keys/orders
-```{{execute T2}}
+```{{execute T1}}
 
 Now, there are two versions of keys.
 
-`clear`{{execute T2}}
+`clear`{{execute T1}}

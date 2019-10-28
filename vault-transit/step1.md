@@ -1,10 +1,18 @@
+Login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
+
 The [`transit` secrets engine](https://www.vaultproject.io/docs/secrets/transit/index.html) must be configured before it can perform its operations.  These steps are usually done by an **operator** or configuration management tool.
 
 First, enable the `transit` secret engine by executing the following command:
 
 ```
 vault secrets enable transit
-```{{execute T2}}
+```{{execute T1}}
 
 By default, the secrets engine will mount at the name of the engine.  If you wish to enable it at a different path, use the `-path` argument.
 
@@ -14,13 +22,13 @@ Run the following command to verify that the `transit` secrets engine has been e
 
 ```
 vault secrets list
-```{{execute T2}}
+```{{execute T1}}
 
 Now, create an encryption key ring named, "orders" by executing the following command:
 
 ```
 vault write -f transit/keys/orders
-```{{execute T2}}
+```{{execute T1}}
 
 > **NOTE:** Typically, you want to create an encryption key ring for each application.
 

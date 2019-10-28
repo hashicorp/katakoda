@@ -9,21 +9,21 @@ Create a policy named, `readonly`:
 
 ```
 vault policy write readonly readonly.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 Now, execute the following command to generate a client token for Consul Template to use and save the generated token in `token.txt` file:
 
 ```
 vault token create -policy=readonly -ttl=1h \
       -format=json | jq -r ".auth.client_token" > token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 This token is valid for 1 hour, and `readonly` policy is attached.
 
 ```
 clear
 vault token lookup $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -67,13 +67,13 @@ Consul Template has been installed. Execute the following command to check the v
 
 ```
 consul-template -v
-```{{execute T2}}
+```{{execute T1}}
 
 Let's run Consul Template against `kv-v1`:
 
 ```
 VAULT_TOKEN=$(cat token.txt) consul-template -template=customer-v1.tpl:customer-v1.txt -once
-```{{execute T2}}
+```{{execute T1}}
 
 Verify that the secrets were retrieved successfully: `customer-v1.txt`{{open}}
 
@@ -83,6 +83,6 @@ Now, run Consul Template against `kv-v2`:
 
 ```
 VAULT_TOKEN=$(cat token.txt) consul-template -template=customer-v2.tpl:customer-v2.txt -once
-```{{execute T2}}
+```{{execute T1}}
 
 Verify that the secrets were retrieved successfully: `customer-v2.txt`{{open}}
