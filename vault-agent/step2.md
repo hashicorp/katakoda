@@ -63,7 +63,7 @@ vault agent -config=agent-config-caching.hcl -log-level=debug
 
 <br>
 
-In the **Terminal 3**, set the `VAULT_AGENT_ADDR` environment variable.
+In the **Terminal 2**, set the `VAULT_AGENT_ADDR` environment variable.
 
 ```
 export VAULT_AGENT_ADDR="http://127.0.0.1:8007"
@@ -89,7 +89,7 @@ identity_policies    []
 policies             ["token_update" "default"]
 ```
 
-Examine the agent log in **Terminal 2**. The log should include the following messages:
+Examine the agent log in the first **Terminal**. The log should include the following messages:
 
 ```
 ...

@@ -4,7 +4,7 @@ Vault Agent runs on the **client** side to automate leases and tokens lifecycle 
 
 For this scenario, you are going to run the Vault Agent on the same machine as where the Vault server is running. However, the basic working is the same except the host machine address.
 
-Login with the generated root token.
+Login with root token.
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
