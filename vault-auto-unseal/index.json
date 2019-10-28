@@ -25,7 +25,7 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "client": [
+      "host01": [
         { "file": "config-vault-1.hcl", "target": "~/" },
         { "file": "config-vault-2.hcl", "target": "~/" },
         { "file": "autounseal.hcl", "target": "~/" }
