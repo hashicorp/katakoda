@@ -2,13 +2,13 @@ Before creating a user, let's create a policy named, `base`.
 
 ```
 vault policy write base base.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 To review the created policy:
 
 ```
 vault policy read base
-```{{execute T2}}
+```{{execute T1}}
 
 
 
@@ -31,7 +31,7 @@ Let's create your first user.
 ```
 vault write auth/userpass/users/student01 \
             password="training" policies="base"
-```{{execute T2}}
+```{{execute T1}}
 
 
 Notice that the username is a part of the path and the two parameters are password (in plain-text) and the list of policies as comma-separated value.
@@ -41,7 +41,7 @@ You can verify the setup by reading it from the path:
 
 ```
 vault read auth/userpass/users/student01
-```{{execute T2}}
+```{{execute T1}}
 
 Notice that the password is NOT included in the response.
 
@@ -50,4 +50,4 @@ If you wish to list the users created, execute the following command:
 
 ```
 vault list auth/userpass/users
-```{{execute T2}}
+```{{execute T1}}

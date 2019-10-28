@@ -1,24 +1,31 @@
 The username/password combinations are configured directly to the auth method using the `users/` path. This method cannot read usernames and passwords from an external source.
 
+Login with root token.
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+```
+vault login root
+```{{execute T1}}
 
 Execute the following command to list which authentication methods have been enabled:
 
 ```
 vault auth list
-```{{execute T2}}
+```{{execute T1}}
 
 
 Userpass auth method allows users to login with username and password.  Execute the following command to enable the userpass auth method:
 
 ```
 vault auth enable userpass
-```{{execute T2}}
+```{{execute T1}}
 
 Now, when you list the enabled auth methods, you should see `userpass`.
 
 ```
 vault auth list
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -28,13 +35,13 @@ Execute the following command to enable userpass at a different path, training-u
 
 ```
 vault auth enable -path=training-userpass -description="userpass at a different path" userpass
-```{{execute T2}}
+```{{execute T1}}
 
 Now, the enabled auth method list should include `userpass` and `training-userpass`:
 
 ```
 vault auth list
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
