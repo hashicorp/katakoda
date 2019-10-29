@@ -1,6 +1,6 @@
 {
   "title": "Introduction to Nomad",
-  "description": "A brief introduction to operating and interacting with HashiCorp Nomad",
+  "description": "A brief introduction to operating and interacting with HashiCorp Nomad 0.10",
   "icon": "fa-nomad",
   "details": {
     "intro": {
