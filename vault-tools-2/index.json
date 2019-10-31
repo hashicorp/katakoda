@@ -31,7 +31,7 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "client": [
+      "host01": [
         { "file": "readonly.hcl", "target": "~/" },
         { "file": "test-app-v1.sh", "target": "~/" },
         { "file": "test-app-v2.sh", "target": "~/" },
