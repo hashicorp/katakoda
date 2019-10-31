@@ -1,0 +1,9 @@
+{
+  "organization": "ACME Inc.",
+  "customer_id": "ABXX2398YZPIE7391",
+  "region": "US-West",
+  "zip_code": "94105",
+  "type": "premium",
+  "contact_email": "james@acme.com",
+  "status": "active"
+}

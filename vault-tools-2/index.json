@@ -1,0 +1,54 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "[TEST] Vault - Direct App Integration",
+  "description": "Learn how to intebrate Vault with your applications.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "steps": [
+      {
+        "title": "Setup Secret Engines",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Consul Template",
+        "text": "step2.md"
+      },
+      {
+        "title": "Envconsul",
+        "text": "step3.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "readonly.hcl", "target": "~/" },
+        { "file": "test-app-v1.sh", "target": "~/" },
+        { "file": "test-app-v2.sh", "target": "~/" },
+        { "file": "data.json", "target": "~/" }
+      ]
+    }
+  },
+  "files": [
+    "customer-v1.tpl",
+    "customer-v2.tpl"
+  ],
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
