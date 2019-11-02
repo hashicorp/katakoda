@@ -6,7 +6,7 @@ We're already running Consul for you on a publically accessible IP address. The 
 
 To start, you'll see a red `X` next to the `counting` and `dashboard` services since neither are running (so both are unhealthy).
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/consul-connect/images/1-1-web-ui.png" alt="Consul Web UI" title="Consul Web UI">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/1-1-web-ui.png" alt="Consul Web UI" title="Consul Web UI">
 
 Now let's start some services. Connect to `host01`. You'll examine the configuration for this service and then start the `counting-service` on port `9003`.
 
