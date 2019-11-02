@@ -4,7 +4,7 @@ Next, connect to `host01` in a second terminal. You'll start the front-end `dash
 
 Click the **+** button in the tab bar and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.pngs" alt="Consul Web UI" title="Consul Web UI">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal" title="New Terminal">
 
 Now connect to `host01` again.
 
