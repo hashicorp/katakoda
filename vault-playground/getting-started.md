@@ -14,6 +14,8 @@ vault login root
 
 **Now, you are ready to explore Vault CLI!**
 
+To explore [Vault Web UI](https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com/), enter **`root`** in the **Token** text field to sign in. 
+
 <br>
 
 ## Useful Links
