@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault - Direct App Integration",
-  "description": "Learn how to integrate Vault with your applications.",
+  "title": "[WIP] Vault - Codify Management of Vault",
+  "description": "Learn how to codify the basic Vault setup operations.",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
@@ -12,18 +12,14 @@
     },
     "steps": [
       {
-        "title": "Setup Secret Engines",
+        "title": "Codified Vault Configuration",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
       },
       {
-        "title": "Consul Template",
+        "title": "Verification",
         "text": "step2.md"
-      },
-      {
-        "title": "Envconsul",
-        "text": "step3.md"
       }
     ],
     "finish": {
@@ -32,17 +28,10 @@
     },
     "assets": {
       "host01": [
-        { "file": "readonly.hcl", "target": "~/" },
-        { "file": "test-app-v1.sh", "target": "~/" },
-        { "file": "test-app-v2.sh", "target": "~/" },
-        { "file": "data.json", "target": "~/" }
+        { "file": "main.tf", "target": "~/" }
       ]
     }
   },
-  "files": [
-    "customer-v1.tpl",
-    "customer-v2.tpl"
-  ],
   "environment": {
       "showdashboard": true,
       "uilayout": "editor-terminal",
