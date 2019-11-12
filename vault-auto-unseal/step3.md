@@ -42,7 +42,7 @@ VAULT_ADDR=http://127.0.0.1:8100 vault operator init -recovery-shares=1 \
          -recovery-threshold=1 > recovery-key.txt
 ```{{execute T3}}
 
-By passing the `VAULT_ADDR`, the subsequent command gets executed against the second Vault server (http://127.0.0.1:8100). Notice that you are setting the number of **recovery** key and **recovery** threshold because there is no unseal keys with auto-unseal. Vault 2's master key is now protected by the `transit` secret engine of **Vault 1**.
+By passing the `VAULT_ADDR`, the subsequent command gets executed against the second Vault server (http://127.0.0.1:8100). Notice that you are setting the number of **recovery** key and **recovery** threshold because there is no unseal keys with auto-unseal. Vault 2's master key is now protected by the `transit` secrets engine of **Vault 1**.
 
 In the terminal where the server is running, you should see entries similar to:
 

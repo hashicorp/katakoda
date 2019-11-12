@@ -8,7 +8,7 @@ vault login root
 
 The [`transit` secrets engine](https://www.vaultproject.io/docs/secrets/transit/index.html) must be configured before it can perform its operations.  These steps are usually done by an **operator** or configuration management tool.
 
-First, enable the `transit` secret engine by executing the following command:
+First, enable the `transit` secrets engine by executing the following command:
 
 ```
 vault secrets enable transit

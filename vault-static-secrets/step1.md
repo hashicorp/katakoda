@@ -6,7 +6,7 @@ Login with root token.
 vault login root
 ```{{execute T1}}
 
-First, check the current version of the key/value secret engine that is ready to use.  Run the following command:
+First, check the current version of the key/value secrets engine that is ready to use.  Run the following command:
 
 ```
 vault secrets list -detailed

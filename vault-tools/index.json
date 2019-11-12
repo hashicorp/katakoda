@@ -12,7 +12,7 @@
     },
     "steps": [
       {
-        "title": "Setup Secret Engines",
+        "title": "Setup Secrets Engines",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"

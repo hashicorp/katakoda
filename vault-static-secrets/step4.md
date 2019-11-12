@@ -26,7 +26,7 @@ The output displays the metadata with `deletion_time`.
 
 ## Restore the Deleted Secrets
 
-Key/value secret engine v2 allows you to recover from unintentional data loss or overwrite when more than one user is writing at the same path.
+Key/value secrets engine v2 allows you to recover from unintentional data loss or overwrite when more than one user is writing at the same path.
 
 Run the following command to recover the deleted data:
 

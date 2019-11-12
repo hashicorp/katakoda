@@ -7,7 +7,7 @@ vault login root
 ```{{execute T1}}
 
 
-To see the difference between Key/Value secrets engine [version 1](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html) and [version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html), first enable additional KV secret engines.
+To see the difference between Key/Value secrets engine [version 1](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html) and [version 2](https://www.vaultproject.io/docs/secrets/kv/kv-v1.html), first enable additional KV secrets engines.
 
 ```
 vault secrets enable -path="kv-v1" -version=1 kv

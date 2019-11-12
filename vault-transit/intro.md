@@ -11,7 +11,7 @@ The primary use case for the `transit` secrets engine is to encrypt data from ap
 <br>
 This scenario demonstrates the usage of `transit` secrets engine:
 
-- Configure Transit Secret Engine
+- Configure Transit Secrets Engine
 - Encrypt Secret
 - Rotate the Encryption Key
 - Rewrap Data

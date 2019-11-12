@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault Secret Engines - Versioned Key/Value",
+  "title": "Vault Secrets Engine - Versioned Key/Value",
   "description": "Learn how to manage your secrets using Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
@@ -12,7 +12,7 @@
     },
     "steps": [
       {
-        "title": "Secret Engine List",
+        "title": "Secrets Engine List",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"

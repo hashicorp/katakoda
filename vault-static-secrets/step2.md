@@ -46,7 +46,7 @@ vault kv get secret/training
 
 When you read the data at `secret/training`, **username** no longer exists!
 
-> This is very important to understand. The  key/value secret engine does **NOT** merge or add values. If you want to add/update a key, you must specify all the existing keys as well; otherwise, ***data loss*** can occur!
+> This is very important to understand. The  key/value secrets engine does **NOT** merge or add values. If you want to add/update a key, you must specify all the existing keys as well; otherwise, ***data loss*** can occur!
 
 Execute the following command to rollback the original data (version 1):
 

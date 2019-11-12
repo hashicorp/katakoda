@@ -39,16 +39,18 @@ vault policy read training
 
 1. With **Encrypt** selected, enter some text in the **Plaintext** field (e.g. `my-long-secrets`).
 
-1. Click **Encode to base64**, and then **Encrypt**.
+1. Click **Encode to base64**, and then **Encrypt**. This returns you the ciphertext.
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit.png)
 
-  This returns you the ciphertext.
+  > **NOTE:** To learn more about the `transit` secrets engine, go to the [Vault Encryption as a Service](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
 
 1. Select `kv-v2` and click **Create secret**.
 
-1. Test to see that you can create some data.
+1. Test to see that you can create some data. (**NOTE:** Remember that the `training` policy grants `create` capability against the `kv-v2/data/training/*`; therefore, the **Path for this secret** must start with `training`.)
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-kv-v2.png)
+
+  > **NOTE:** To learn more about the Key/Value v2 secrets engine, go to the [Vault Secrets Engines - Versioned Key/Value](https://www.katacoda.com/hashicorp/scenarios/vault-static-secrets) tutorial. 

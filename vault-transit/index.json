@@ -1,14 +1,14 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault Encryption as a Service",
-  "description": "Learn how to leverage Vault's Transit secret engine to encrypt your secrets.",
+  "description": "Learn how to leverage Vault's Transit secrets engine to encrypt your secrets.",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
       {
-        "title": "Configure Transit Secret Engine",
+        "title": "Configure Transit Secrets Engine",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
