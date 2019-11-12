@@ -38,6 +38,8 @@ vault auth list
 vault secrets list
 ```{{execute T1}}
 
+<br>
+
 ## Run Terraform
 
 First, set the `VAULT_TOKEN` environment variable with value, `root`.
