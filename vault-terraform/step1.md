@@ -31,25 +31,32 @@ First, set the `VAULT_TOKEN` environment variable with value, `root`.
 export VAULT_TOKEN=root
 ```{{execute T1}}
 
-Execute the following command to pull the Vault provider plugin.
+Terraform reads the `VAULT_ADDR` and `VAULT_TOKEN` environment variables to connect to your target Vault server/cluster.
+
+```
+echo VAULT_ADDR
+echo VAULT_TOKEN
+```{{execute T1}}
+
+Execute the following Terraform command to pull the Vault provider plugin.
 
 ```
 terraform init
 ```{{execute T1}}
 
-Execute the following command to see what changes will be made based on the terraform file.
+Execute the following command to calculate what changes will be made based on the terraform file (`main.tf`).
 
 ```
 terraform plan
 ```{{execute T1}}
 
-The `plan` output reports what resources will be created, changed, or destroyed.
+The `plan` output reports what resources will be created, changed, or destroyed. Since this is the first time running Terraform against this Vault instance, there is nothing to change or destroy.
 
 ```
 Plan: 6 to add, 0 to change, 0 to destroy.
 ```
 
-Finally, execute the following command to configure Vault using Terraform.
+Finally, execute the plan using the `terraform apply` command.
 
 ```
 terraform apply -auto-approve

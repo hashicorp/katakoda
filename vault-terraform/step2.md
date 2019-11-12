@@ -1,12 +1,19 @@
 Verify to make sure that Vault has been configured as defined in the `main.tf`.
 
+- `training` policy was created
+- `userpass` auth method is enabled and you can login as `student`
+- Key/Value v2 secrets engine is enabled at `kv-v2`
+- Transit secrets engine is enabled at `transit` and `payment` key exists
+- The user `student` has the permissions granted by the `training` policy
+
+
 First, check to verify that `training` policy has been created:
 
 ```
 vault policy list
 ```{{execute T1}}
 
-The list should contain the `training` policy. You can view the policy.
+The list should contain the `training` policy, and read it to verify its defined rules.
 
 ```
 vault policy read training
@@ -35,7 +42,7 @@ vault policy read training
 1. Click **Encode to base64**, and then **Encrypt**.
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit.png)
-  
+
   This returns you the ciphertext.
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
