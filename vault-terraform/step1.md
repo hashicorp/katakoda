@@ -1,10 +1,10 @@
-Once a Vault server is started, initialized and unsealed, the first step is to perform initial setup which typically includes:
+Once a Vault server is started, initialized and unsealed, the next step is to perform initial setup which typically includes:
 
 - Create ACL policies to control access to Vault
 - Enable auth methods for people or system to authenticate with Vault
 - Enable secrets engines
 
-You may have multiple Vault environments: Dev, QA, Staging, Production, etc.  To reduce the operation overhead to repeat the same initial setups, you can leverage [Terraform](https://www.terraform.io/). Terraform is a ***Infrastructure as Code*** tool which enables you to build, change and configure your infrastructure.
+You may have multiple Vault environments: Dev, QA, Staging, Production, etc.  Instead of manually repeating the same setups against multiple environments, you can leverage [Terraform](https://www.terraform.io/) to codify it. Terraform is a ***Infrastructure as Code*** tool which enables you to build, change and configure your infrastructure.
 
 First, login with root token.
 
