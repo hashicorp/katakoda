@@ -34,8 +34,8 @@ export VAULT_TOKEN=root
 Terraform reads the `VAULT_ADDR` and `VAULT_TOKEN` environment variables to connect to your target Vault server/cluster.
 
 ```
-echo VAULT_ADDR
-echo VAULT_TOKEN
+echo $VAULT_ADDR
+echo $VAULT_TOKEN
 ```{{execute T1}}
 
 Execute the following Terraform command to pull the Vault provider plugin.
