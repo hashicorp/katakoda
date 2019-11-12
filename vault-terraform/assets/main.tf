@@ -1,3 +1,4 @@
+# Use Vault provider
 provider "vault" { }
 
 # Create a policy document

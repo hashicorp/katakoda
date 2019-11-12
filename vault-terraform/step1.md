@@ -4,7 +4,7 @@ Once a Vault server is started, initialized and unsealed, the first step is to p
 - Enable auth methods for people or system to authenticate with Vault
 - Enable secrets engines
 
-You may have multiple Vault environments: Dev, QA, Staging, Production, etc.  To reduce the operation overhead to repeat the same initial setups, you can leverage Terraform. Terraform is a ***Infrastructure as Code*** tool which enables you to build, change and configure your infrastructure.
+You may have multiple Vault environments: Dev, QA, Staging, Production, etc.  To reduce the operation overhead to repeat the same initial setups, you can leverage [Terraform](https://www.terraform.io/). Terraform is a ***Infrastructure as Code*** tool which enables you to build, change and configure your infrastructure.
 
 First, login with root token.
 
@@ -15,13 +15,7 @@ vault login root
 ```{{execute T1}}
 
 
-Open the `main.tf`{{open}} file to review its content. Notice that it pulls the `vault` provider.
-
-```
-provider "vault" { }
-```
-
-Examine the provided Terraform file. Refer to the [Terraform documentation](https://www.terraform.io/docs/providers/vault/index.html) as needed to understand. The `main.tf` creates the following:
+Open the `main.tf`{{open}} file to review its content. Refer to the [Terraform documentation](https://www.terraform.io/docs/providers/vault/index.html) as necessary. The `main.tf` creates the following:
 
 1. `training` policy file (`training.hcl`)
 1. Create a `training` policy based on the policy file
@@ -31,13 +25,13 @@ Examine the provided Terraform file. Refer to the [Terraform documentation](http
 1. Enable Transit secrets engine at `transit` path
 1. Create a new encryption key named, `payment`
 
-When you are ready, set the `VAULT_TOKEN` environment variable.
+First, set the `VAULT_TOKEN` environment variable with value, `root`.
 
 ```
 export VAULT_TOKEN=root
 ```{{execute T1}}
 
-Execute the following command to pull Vault provider plugin.
+Execute the following command to pull the Vault provider plugin.
 
 ```
 terraform init
