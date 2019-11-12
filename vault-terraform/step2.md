@@ -35,6 +35,7 @@ vault policy read training
 1. Click **Encode to base64**, and then **Encrypt**.
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit.png)
+  
   This returns you the ciphertext.
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
