@@ -31,12 +31,16 @@ Execute the following command to list existing policies:
 vault policy list
 ```{{execute T1}}
 
+The built-in policies, `default` and `root` are the only policies listed.
+
 Similarly, list the currently enabled auth methods as well as secrets engine:
 
 ```
 vault auth list
 vault secrets list
 ```{{execute T1}}
+
+The `token` auth method is the only auth method currently enabled. The list of secrets engines does not display neither `kv-v2` or `transit` paths.  
 
 <br>
 
