@@ -47,10 +47,12 @@ vault policy read training
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
 
+  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-secrets-0.png)
+
 1. Select `kv-v2` and click **Create secret**.
 
-1. Test to see that you can create some data. (**NOTE:** Remember that the `training` policy grants `create` capability against the `kv-v2/data/training/*`; therefore, the **Path for this secret** must start with `training`.)
+1. Enter `training/course` in the **Path for this secret** text field. In the key text field under **Version data**, enter `Name`, and `Codify Management of Vault` in the value text field.
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-kv-v2.png)
 
-  > **NOTE:** To learn more about the Key/Value v2 secrets engine, go to the [Vault Secrets Engines - Versioned Key/Value](https://www.katacoda.com/hashicorp/scenarios/vault-static-secrets) tutorial. 
+1. Click **Save**.

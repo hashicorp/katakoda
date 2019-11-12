@@ -25,6 +25,21 @@ Open the `main.tf`{{open}} file to review its content. Refer to the [Terraform d
 1. Enable Transit secrets engine at `transit` path
 1. Create a new encryption key named, `payment`
 
+Execute the following command to list existing policies:
+
+```
+vault policy list
+```{{execute T1}}
+
+Similarly, list the currently enabled auth methods as well as secrets engine:
+
+```
+vault auth list
+vault secrets list
+```{{execute T1}}
+
+## Run Terraform
+
 First, set the `VAULT_TOKEN` environment variable with value, `root`.
 
 ```
