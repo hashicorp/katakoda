@@ -56,11 +56,7 @@ vault secrets list
 ```
 Path          Type         Accessor              Description
 ----          ----         --------              -----------
-cubbyhole/    cubbyhole    cubbyhole_cf2efe8d    per-token private secret storage
-identity/     identity     identity_01a842d3     identity store
-kv-v2/        kv           kv_2f7e556c           n/a
-secret/       kv           kv_859c0538           key/value secret storage
-sys/          system       system_2962a929       system endpoints used for control, policy and debugging
+...
 team-edu/     kv           kv_9ddb2a46           K/V v2 dedicated to the Education Team
 transit/      transit      transit_36211345      n/a
 ```
@@ -69,4 +65,7 @@ The output now includes `team-edu`.
 
 ## Question
 
-What happens when you change the `path` from `team-edu` to `team-training`?
+What happens if you change the `path` from `team-edu` to `team-training` in the `main.tf`{{open}} file and run `terraform plan` and `terraform apply` commands?  Test and see!
+
+
+When you want to apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.
