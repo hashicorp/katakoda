@@ -20,6 +20,10 @@
       {
         "title": "Verification",
         "text": "step2.md"
+      },
+      {
+        "title": "Update the Configuration",
+        "text": "step3.md"
       }
     ],
     "finish": {
