@@ -56,3 +56,5 @@ vault policy read training
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-kv-v2.png)
 
 1. Click **Save**.
+
+> **NOTE:** To apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.

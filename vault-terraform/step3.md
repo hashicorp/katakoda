@@ -66,6 +66,3 @@ The output now includes `team-edu`.
 ## Question
 
 What happens if you change the `path` from `team-edu` to `team-training` in the `main.tf`{{open}} file and run `terraform plan` and `terraform apply` commands?  Test and see!
-
-
-When you want to apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.
