@@ -21,8 +21,6 @@ Now, let's see what happens when you execute the plan command:
 terraform plan
 ```{{execute T1}}
 
-The output indicates that it plans to add 1 new creation.
-
 ```
 ...
 Resource actions are indicated with the following symbols:
@@ -43,7 +41,7 @@ Terraform will perform the following actions:
 Plan: 1 to add, 0 to change, 0 to destroy.
 ```
 
-Terraform has a state file to keep track of what has been created. Therefore, it identifies that the only change needs to be made is the addition of the `team-edu`.
+The output shows 1 to add and nothing to change or destroy. This is because Terraform has a state file to keep track of current state and identifies that the only change needs to be made is the addition of the `team-edu`.
 
 ```
 terraform apply -auto-approve
@@ -68,3 +66,7 @@ transit/      transit      transit_36211345      n/a
 ```
 
 The output now includes `team-edu`.
+
+## Question
+
+What happens when you change the `path` from `team-edu` to `team-training`?

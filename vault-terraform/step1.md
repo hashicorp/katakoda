@@ -52,12 +52,7 @@ First, set the `VAULT_TOKEN` environment variable with value, `root`.
 export VAULT_TOKEN=root
 ```{{execute T1}}
 
-Terraform reads the `VAULT_ADDR` and `VAULT_TOKEN` environment variables to connect to your target Vault server/cluster.
-
-```
-echo $VAULT_ADDR
-echo $VAULT_TOKEN
-```{{execute T1}}
+> **NOTE:** Terraform reads the `VAULT_ADDR` and `VAULT_TOKEN` environment variables to connect to your target Vault server/cluster.
 
 Execute the following Terraform command to pull the Vault provider plugin.
 
