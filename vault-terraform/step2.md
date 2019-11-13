@@ -43,7 +43,7 @@ vault policy read training
 
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit.png)
 
-  > **NOTE:** To learn more about the `transit` secrets engine, go to the [Vault Encryption as a Service](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
+  > **NOTE:** To learn more about the `transit` secrets engine, visit to the [Vault Encryption as a Service](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
 
@@ -57,4 +57,4 @@ vault policy read training
 
 1. Click **Save**.
 
-> **NOTE:** To apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.
+  > **NOTE:** To learn more about the Key/Value secrets engine, visit to the [Vault Secrets Engine - Versioned Key/Value](https://www.katacoda.com/hashicorp/scenarios/vault-static-secrets) tutorial.

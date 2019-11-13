@@ -83,3 +83,5 @@ After the successful execution, the output should contain the following message:
 ```
 Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
 ```
+
+> **NOTE:** To apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.
