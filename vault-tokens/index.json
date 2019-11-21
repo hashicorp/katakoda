@@ -36,6 +36,10 @@
       {
         "title": "Create an Orphan Token",
         "text": "step6.md"
+      },
+      {
+        "title": "Get Token Count",
+        "text": "step7.md"
       }
     ],
     "assets": {

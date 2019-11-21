@@ -26,3 +26,4 @@ Almost all operations in [HashiCorp Vault](https://www.vaultproject.io) requires
 1. Create Tokens with Use Limit
 1. Create a Token Role and Periodic Token
 1. Create an Orphan Token
+1. Get the service token count
