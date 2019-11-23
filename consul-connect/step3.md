@@ -4,13 +4,13 @@ You've started the source and destination services, but they cannot yet reach ea
 
 Open a third terminal and run the `consul connect proxy` command.
 
-`consul connect proxy -sidecar-for counting`
+`consul connect proxy -sidecar-for counting`{{execute}}
 
 No other details are needed because Consul can read the `counting.json` config file to determine the service name and port.
 
 Open a fourth terminal and start a proxy for the `dashboard` service.
 
-`consul connect proxy -sidecar-for dashboard`
+`consul connect proxy -sidecar-for dashboard`{{execute}}
 
 No other configuration is needed because Consul has been configured in `dashboard.json` with the name and port of the `dashboard` service, as well as a list of `upstreams` which are services we want to talk to. The `dashboard` service communicates to `localhost:9001` when it wants to communicate to the `counting` service. Consul load balances across all healthy `counting` services defined on the network (and potentially in other datacenters with more advanced multi-datacenter Consul features).
 
