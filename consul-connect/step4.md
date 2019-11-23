@@ -12,6 +12,8 @@ Click the blue "Create" button to open the intentions form. Start by defining a 
 
 Save the intention.
 
+In order for the `deny` intention to take effect, you may need to go to the second terminal tab and kill the `dashboard` service with `Ctrl-c`. Type the up arrow and hit `ENTER` to start it again.
+
 View the [Demo Dashboard](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/) and you will see that it cannot reach the backend `counting-service`. This is intended.
 
 <img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
