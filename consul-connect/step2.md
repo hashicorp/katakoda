@@ -1,27 +1,23 @@
 # Launch Demo Dashboard
 
-Next, connect to `host01` in a second terminal. You'll start the front-end `dashboard-service` on port `9002` and it will communicate to the `counting` service through an encrypted proxy.
+Next, start a second terminal. You'll start the front-end `dashboard-service` on port `9002`. It will not yet connect to the `counting` service...we will do that in another step.
 
 Click the **+** button in the tab bar and select **Open New Terminal**.
 
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal" title="New Terminal">
 
-Now connect to `host01` again.
-
-`ssh root@host01`{{execute}}
-
 Consul is configured to look for the `dashboard-service` on port `9002`. You can see the configuration by looking at the configuration file at `/etc/consul.d/dashboard.json`.
 
 `cat /etc/consul.d/dashboard.json`{{execute}}
 
-Now start the service, specifying `PORT` as an environment variable.
+Now start the service, specifying `PORT` as an environment variable and `COUNTING_SERVICE_URL`. In another step, we will run the proxy on `localhost:9001`, so specify it here for future use.
 
-`PORT=9002 dashboard-service`{{execute}}
+`PORT=9002 COUNTING_SERVICE_URL=http://localhost:9001 dashboard-service`{{execute}}
 
-You can view the demo dashboard application at this URL:
+You can view the demo dashboard application at this URL. It should show an error since we have not yet started the proxy:
 
 - [Dashboard Application](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/)
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/2-2-dashboard.png" alt="Demo Dashboard" title="Demo Dashboard">
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
 
-The front-end demo dashboard has been hard-coded to look for the `counting` service on `localhost:9001` which is being provided by the Consul Connect proxy. It is reading the backend counting service and displays the number. Consul Connect is being used to proxy communication between the two services.
+In the next step, you'll restore the connection between the services.
