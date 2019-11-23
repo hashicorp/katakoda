@@ -4,16 +4,16 @@ Let's control which services are allowed to communicate to other services by def
 
 In the [Consul Web UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/), find the _Intentions_ menu. It may be hidden behind the overflow menu (three dots).
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/consul-connect/images/3-1-intentions-menu.png" alt="Intentions menu" title="Intentions menu">
+<img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-1-intentions-menu.png" alt="Intentions menu" title="Intentions menu">
 
 Click the blue "Create" button to open the intentions form. Start by defining a default rule that denies all communication between all services. This is achieved by creating an intention from `*` to `*` with a value of `deny`. You can optionally add a description such as "Deny all communication by default."
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/consul-connect/images/3-2-deny.png" alt="Default deny intention" title="Default deny intention">
+<img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-2-deny.png" alt="Default deny intention" title="Default deny intention">
 
 Save the intention.
 
 View the [Demo Dashboard](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/) and you will see that it cannot reach the backend `counting-service`. This is intended.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/consul-connect/images/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
+<img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
 
 In the next step, you'll define an intention that allows the connection between the services.

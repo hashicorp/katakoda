@@ -18,6 +18,6 @@ You can view the demo dashboard application at this URL. It should show an error
 
 - [Dashboard Application](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/)
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
+<img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
 
 In the next step, you'll restore the connection between the services.
