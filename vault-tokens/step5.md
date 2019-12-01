@@ -56,10 +56,23 @@ Execute the following command to revoke the parent token:
 vault token revoke $(cat parent_token.txt)
 ```{{execute T1}}
 
-Try running commands with child token:
+The parent token was successfully revoked.
+
+Now, let's see what happened to the child token. Execute the following command to lookup the child token.
 
 ```
 vault token lookup $(cat child_token.txt)
 ```{{execute T1}}
 
-This should failed because the child token was revoked when its parent got revoked.
+The output should look like:
+
+```
+Error looking up token: Error making API request.
+
+URL: POST http://127.0.0.1:8200/v1/auth/token/lookup
+Code: 403. Errors:
+
+* bad token
+```
+
+This is because the child token was revoked when its parent got revoked.

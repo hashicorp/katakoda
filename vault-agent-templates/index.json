@@ -1,48 +1,40 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Direct App Integration",
-  "description": "Learn how to integrate Vault with your applications using Consul Templates and Envconsul.",
+  "title": "[WIP] Vault Agent Templates",
+  "description": "Learn how to leverage Vault Agent to tackle secret zero problem",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
   "details": {
-    "intro": {
-      "text": "intro.md",
-      "credits": "https://www.vaultproject.io"
-    },
     "steps": [
       {
-        "title": "Setup Secrets Engines",
+        "title": "Vault Agent Templates",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
       },
       {
-        "title": "Consul Template",
+        "title": "Examine the behavior",
         "text": "step2.md"
-      },
-      {
-        "title": "Envconsul",
-        "text": "step3.md"
       }
     ],
-    "finish": {
-      "text": "finish.md",
+    "intro": {
+      "text": "intro.md",
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
       "host01": [
-        { "file": "readonly.hcl", "target": "~/" },
-        { "file": "test-app-v1.sh", "target": "~/" },
-        { "file": "test-app-v2.sh", "target": "~/" },
+        { "file": "agent-config.hcl", "target": "~/" },
+        { "file": "customer.tmpl", "target": "~/" },
+        { "file": "app-pol.hcl", "target": "~/" },
         { "file": "data.json", "target": "~/" }
       ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
     }
   },
-  "files": [
-    "customer-v1.tpl",
-    "customer-v2.tpl"
-  ],
   "environment": {
       "showdashboard": true,
       "uilayout": "editor-terminal",
