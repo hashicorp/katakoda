@@ -16,11 +16,19 @@ Let's update the `contact_email` value by executing the following command:
 vault kv patch secret/customers/acme contact_email=jenn@acme.com
 ```{{execute T2}}
 
+Check and verify the updated secrets:
+
+```
+vault kv get secret/customers/acme
+```{{execute T2}}
+
+Ensure that the `contact_email` is now set to `jenn@acme.com`
+
 Return to the **Terminal** to view the Vault Agent log. Since the `customer.tmpl` was set to read secret with no specific secret version specified (`{{ with secret "secret/data/customers/acme" }}`), the agent will pull the latest version the next time it checks.
 
 > **NOTE:** If you wish to always read a specific version of the `secret/customers/acme`, you can hard-set the version by setting the path to `secret/data/customers/acme?version=1`.
 
-Wait until the agent pulls the secrets at `secret/data/customers/acme` again:
+Wait until the agent pulls the secrets at `secret/data/customers/acme` again (~5 minutes interval):
 
 ```
 ...
@@ -35,9 +43,3 @@ Wait until the agent pulls the secrets at `secret/data/customers/acme` again:
 ```
 
 First, close the opened `customer.txt` file, and then reopen `customer.txt`{{open}} to verify that the **Contact** information is now `jenn@acme.com` instead of `james@acme.com`.
-
-You can verify:
-
-```
-vault kv get secret/customers/acme
-```{{execute T2}}
