@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault - Direct App Integration",
-  "description": "Learn how to integrate Vault with your applications.",
+  "title": "Direct App Integration",
+  "description": "Learn how to integrate Vault with your applications using Consul Templates and Envconsul.",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
