@@ -8,7 +8,7 @@ vault login root
 
 Write some secrets at `secret` paths. The test data is provided in the `data.json`{{open}} file.
 
-```s
+```
 {
   "organization": "ACME Inc.",
   "customer_id": "ABXX2398YZPIE7391",
@@ -103,7 +103,7 @@ template {
 
 Notice the **`template`** block. This defines the path on disk to use as the input template which uses Consul Templates markup.  The `destination` specifies the desired rendered output file.
 
-View the `customer.tmpl`{{open} file.
+View the `customer.tmpl`{{open}} file.
 
 
 Execute the following command to start the Vault Agent with `debug` logs.
@@ -116,52 +116,20 @@ The agent log should include the following messages:
 
 ```
 ...
-[INFO]  sink.file: creating file sink
-[INFO]  sink.file: file sink configured: path=approleToken
-[INFO]  auth.handler: starting auth handler
-[INFO]  auth.handler: authenticating
-[INFO]  sink.server: starting sink server
-[INFO]  auth.handler: authentication successful, sending token to sinks
-[INFO]  auth.handler: starting renewal process
-[INFO]  sink.file: token written: path=approleToken
+[DEBUG] (runner) checking template c6c6b1e5bb647223b68c4e2f66b9f182
+[DEBUG] (runner) rendering "./customer.tmpl" => "./customer.txt"
+[INFO]  (runner) rendered "./customer.tmpl" => "./customer.txt"
+[DEBUG] (runner) diffing and updating dependencies
+[DEBUG] (runner) vault.read(secret/data/customers/acme) is still needed
+[DEBUG] (runner) watching 1 dependencies
+[DEBUG] (runner) all templates rendered
 ...
 ```
 
-The acquired client token is now stored in the `approleToken`{{open}} file.  Your applications can read the token from `approleToken` and use it to invoke the Vault API.
-
-Click the **+** next to the opened Terminal, and select **Open New Terminal** to open another terminal.
-
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png" alt="New Terminal"/>
-
-Execute the following command to verify the token information.
+Vault Agent read the secrets at `secret/customer/acme` based on the `customer.tmpl` file and outputed the rendered data into the `customer.txt`{{open}} file.
 
 ```
-export VAULT_ADDR='http://127.0.0.1:8200'
-
-vault token lookup $(cat approleToken)
-```{{execute T2}}
-
-Verify that the token has the app-pol policy attached.
-
+Organization: ACME Inc.
+ID: ABXX2398YZPIE7391
+Contact: james@acme.com
 ```
-Key                  Value
----                  -----
-...
-display_name         approle
-entity_id            f06b5047-6174-eda5-8530-d067c77e26bc
-expire_time          2019-05-19T01:32:26.451100637Z
-explicit_max_ttl     0s
-id                   s.YKo3MLA6dSshKgeStGuIxIsJ
-...
-meta                 map[role_name:apps]
-...
-path                 auth/approle/login
-policies             [default app-pol]
-...
-```
-
-You should be able to create a token using this token (permitted by the `app-pol` policy).
-
-```
-VAULT_TOKEN=$(cat approleToken) vault token create
-```{{execute T2}}

@@ -12,6 +12,10 @@
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Examine the behavior",
+        "text": "step2.md"
       }
     ],
     "intro": {
@@ -22,7 +26,8 @@
       "host01": [
         { "file": "agent-config.hcl", "target": "~/" },
         { "file": "customer.tmpl", "target": "~/" },
-        { "file": "app-pol.hcl", "target": "~/" }
+        { "file": "app-pol.hcl", "target": "~/" },
+        { "file": "data.json", "target": "~/" }
       ]
     },
     "finish": {

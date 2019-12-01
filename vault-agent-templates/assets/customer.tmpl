@@ -1,4 +1,4 @@
-{{ with secret "secret/data/customers/acme?version=1" }}
+{{ with secret "secret/data/customers/acme" }}
 Organization: {{ .Data.data.organization }}
 ID: {{ .Data.data.customer_id }}
 Contact: {{ .Data.data.contact_email }}
