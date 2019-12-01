@@ -26,6 +26,7 @@ Execute the following commands:
 vault kv put secret/customers/acme @data.json
 ```{{execute T1}}
 
+<br />
 
 ## Setup Auth Method
 
@@ -63,6 +64,7 @@ vault write -f -format=json auth/approle/role/apps/secret-id \
         | jq -r '.data.secret_id' > secretID
 ```{{execute T1}}
 
+<br />
 
 ## Vault Agent Configuration
 
@@ -101,7 +103,7 @@ template {
 }
 ```
 
-Notice the **`template`** block. This defines the path on disk to use as the input template which uses Consul Templates markup.  The `destination` specifies the desired rendered output file.
+> Notice the **`template`** block. This defines the path on disk to use as the input template which uses Consul Templates markup.  The `destination` specifies the desired rendered output file.
 
 View the `customer.tmpl`{{open}} file.
 
