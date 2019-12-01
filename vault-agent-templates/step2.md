@@ -18,6 +18,10 @@ vault kv patch secret/customers/acme contact_email=jenn@acme.com
 
 Return to the **Terminal** to view the Vault Agent log. Since the `customer.tmpl` was set to read secret with no specific secret version specified (`{{ with secret "secret/data/customers/acme" }}`), the agent will pull the latest version the next time it checks.
 
+> **NOTE:** If you wish to always read a specific version of the `secret/customers/acme`, you can hard-set the version by setting the path to `secret/data/customers/acme?version=1`.
+
+Wait until the agent pulls the secrets at `secret/data/customers/acme` again:
+
 ```
 ...
 [DEBUG] (runner) checking template 494ea5cbe4765bfe2e5eca2363eff06b

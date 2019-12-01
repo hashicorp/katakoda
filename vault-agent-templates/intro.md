@@ -4,4 +4,6 @@
 
 You can configure Vault Agent to render [Consul Templates markup](https://github.com/hashicorp/consul-template#templating-language) language. This makes it even easier to integrate your applications with Vault.
 
+# Prerequisites
+
 This scenario assumes that you have some working knowledge of Vault Agent and Consul Templates. If you are not familiar with Vault Agent, first try the [Vault Agent](https://www.katacoda.com/hashicorp/scenarios/vault-agent) scenario. If you have never used Consul Templates, walkthrough the [Direct App Integration](https://www.katacoda.com/hashicorp/scenarios/vault-tools) scenario.
