@@ -1,0 +1,38 @@
+{
+  "title": "Terraform Cloud",
+  "description":
+    "Use the free tier of Terraform Cloud to manage state and create infrastructure.",
+  "time": "15 minutes",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Initialize a Local Terraform Configuration",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure a Terraform Cloud token",
+        "text": "step2.md"
+      },
+      {
+        "title": "Migrate State to Terraform Cloud",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1":
+      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
