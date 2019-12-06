@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault Agent Templates",
-  "description": "Learn how to leverage Vault Agent Templates feature to leverage Consul Templates. This is new in Vault 1.3",
+  "description": "Learn how Vault Agent Templates renders secrets using the Consul Template markup language. This is new in Vault 1.3",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
