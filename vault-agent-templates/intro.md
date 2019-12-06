@@ -11,4 +11,7 @@ In **Vault 1.3**, Vault Agent introduced [Vault Agent Templates](https://www.vau
 
 # Prerequisites
 
-This scenario assumes that you have some working knowledge of Vault Agent and Consul Templates. If you are not familiar with Vault Agent, first try the [Vault Agent](https://www.katacoda.com/hashicorp/scenarios/vault-agent) scenario. If you have never used Consul Templates, walkthrough the [Direct App Integration](https://www.katacoda.com/hashicorp/scenarios/vault-tools) scenario.
+This scenario assumes that you have some working knowledge of **Vault Agent** and **Consul Templates**. If you are not familiar with Vault Agent and/or Consul Template, complete the following scenario before continuing with this scenario:
+
+- [Vault Agent](https://www.katacoda.com/hashicorp/scenarios/vault-agent)
+- [Direct App Integration](https://www.katacoda.com/hashicorp/scenarios/vault-tools) 

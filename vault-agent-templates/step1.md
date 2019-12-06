@@ -20,10 +20,16 @@ Write some secrets at `secret` paths. The test data is provided in the `data.jso
 }
 ```
 
-Execute the following commands:
+Execute the following commands to write the data:
 
 ```
 vault kv put secret/customers/acme @data.json
+```{{execute T1}}
+
+Check to verify the secrets at `secret/customers/acme`:
+
+```
+vault kv get secret/customers/acme
 ```{{execute T1}}
 
 <br />
