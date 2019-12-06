@@ -73,7 +73,6 @@ Vault Agent runs on the **client** side to automate leases and tokens lifecycle 
 Examine the Vault Agent configuration file, `agent-config.hcl`{{open}}.
 
 ```
-exit_after_auth = false
 pid_file = "./pidfile"
 
 vault {
