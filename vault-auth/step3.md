@@ -27,22 +27,26 @@ However, the `base` policy does not grant any permission on `sys/policy` that th
 vault policy read base
 ```{{execute T1}}
 
+<br>
 
 ## Vault UI
 
 Now, let's explore the Vault UI.
 
 1. Click on the **Vault UI** tab to launch the Vault UI.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
 
 1. Select **Username** from the **Method** drop-down list, and enter `student01` in the **Username** text field and `training` in the **Password** text field.
 
 1. Select **secret > training**. Click the sensitive data toggle to show or hide the `course_id` value.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-auth-ui.png)
 
 1. Click **Create new version** allows you to update the secrets at `secret/training`.
 
 1. Click the **Access** tab. You should see the **Not authorized** message. This is because the `base` policy does not allow you to perform any operation under this tab.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-auth-ui-2.png)
 
-> To learn more about Vault policies, check out the [Vault ACL Policies](https://www.katacoda.com/hashicorp/scenarios/vault-policies) scenario. 
+> To learn more about Vault policies, check out the [Vault ACL Policies](https://www.katacoda.com/hashicorp/scenarios/vault-policies) scenario.
