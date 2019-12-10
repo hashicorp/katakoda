@@ -44,3 +44,5 @@ Now, let's explore the Vault UI.
 
 1. Click the **Access** tab. You should see the **Not authorized** message. This is because the `base` policy does not allow you to perform any operation under this tab.
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-auth-ui-2.png)
+
+> To learn more about Vault policies, check out the [Vault ACL Policies](https://www.katacoda.com/hashicorp/scenarios/vault-policies) scenario. 
