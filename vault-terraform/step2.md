@@ -24,6 +24,7 @@ vault policy read training
 ## Verify the student user
 
 1. Click on the **Vault UI** tab to launch the Vault UI.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
 
 1. Select **Username** from the **Method** drop-down list, and enter `student` in the **Username** text field and `changeme` in the **Password** text field.

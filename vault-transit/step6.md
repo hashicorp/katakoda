@@ -1,13 +1,15 @@
 Let's explore the Vault UI.
 
 1. Click on the **Vault UI** tab to launch the Vault UI.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
 
 1. Enter **`root`** in the **Token** text field to sign in.
 
 1. Select **transit > orders**.
 
-1. Select the **Versions** tab which displays only the valid versions of the key. 
+1. Select the **Versions** tab which displays only the valid versions of the key.
+
   ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit-versions.png)
 
 1. Select the **Key action**.
