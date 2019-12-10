@@ -37,7 +37,6 @@
     }
   },
   "environment": {
-      "showdashboard": true,
       "uilayout": "editor-terminal",
       "showdashboard": true,
       "dashboards": [

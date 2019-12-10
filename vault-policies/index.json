@@ -28,11 +28,20 @@
       {
         "title": "Check Token Capabilities",
         "text": "step5.md"
+      },
+      {
+        "title": "Explore the Vault UI",
+        "text": "step6.md"
       }
     ],
     "intro": {
       "text": "intro.md",
       "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "client": [
+        { "file": "admin.hcl", "target": "~/" }
+      ]
     },
     "finish": {
       "text": "finish.md",
@@ -43,8 +52,11 @@
       "base.hcl"
   ],
   "environment": {
-      "showdashboard": true,
       "uilayout": "editor-terminal",
+      "showdashboard": true,
+      "dashboards": [
+        { "name": "Vault UI", "port": 8200 }
+      ],
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {

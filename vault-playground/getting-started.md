@@ -20,7 +20,7 @@ Click on the **Vault UI** tab to launch the Vault UI.
 
 ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
 
-Enter **`root`** in the **Token** text field to sign in. 
+Enter **`root`** in the **Token** text field and then click **Sign In**. 
 
 <br>
 
