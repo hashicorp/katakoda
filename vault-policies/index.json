@@ -39,7 +39,7 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "client": [
+      "host01": [
         { "file": "admin.hcl", "target": "~/" }
       ]
     },
