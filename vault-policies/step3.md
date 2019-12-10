@@ -49,13 +49,11 @@ You should be able to read back the data:
 vault kv get secret/training_test
 ```{{execute T1}}
 
-Now, pass a different password value to update it.
+Now, pass a different password value to update it. This should **FAIL** because the base policy only grants **create** and **read** .  With absence of **update** permission, this operation fails.
 
 ```
 vault kv put secret/training_test password="password1234"
 ```{{execute T1}}
-
-> This should **fail** because the base policy only grants **create** and **read** .  With absence of **update** permission, this operation fails.
 
 <br>
 
