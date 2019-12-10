@@ -38,6 +38,8 @@ Now, verify the `orders` key configuration:
 vault read transit/keys/orders
 ```{{execute T1}}
 
+<br>
+
 ## Question
 
 What happen to those data that were encrypted with older version of the key which does not meet the minimum key version restriction?
@@ -58,4 +60,4 @@ The output includes the following error message.
 * ciphertext or signature version is disallowed by policy (too old)
 ```
 
-This means that the data encrypted with key earlier than 5 must be rewrapped if they are still valid.
+This means that the data encrypted with key earlier than 5 cannot be decrypted. As a best practice, you should rotate your ciphertext when you rotate the encryption key to keep the data valid. 

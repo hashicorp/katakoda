@@ -15,12 +15,8 @@ cat cipher2.txt
 
 Notice that the first ciphertext starts with `vault:v1:`.  After rotated the encryption key, the ciphertext starts with `vault:v2:`.  This indicates that the data gets encrypted using the latest version of the key after the rotation.
 
-## Question
-What about those existing ciphertexts that have been ecnrypted using older version of the key?
 
-## Answer
-
-Upgrade already-encrypted data with a new key by invoking `transit/rewrap` endpoint.  
+You can upgrade already-encrypted data with a new key by invoking `transit/rewrap` endpoint.  
 
 Execute the following command to rewrap your secret:
 
