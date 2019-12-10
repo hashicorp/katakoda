@@ -28,6 +28,10 @@
       {
         "title": "Update Key Configuration",
         "text": "step5.md"
+      },
+      {
+        "title": "Explore the Vault UI",
+        "text": "step6.md"
       }
     ],
     "intro": {

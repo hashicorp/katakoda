@@ -30,4 +30,6 @@ vault write transit/rewrap/orders ciphertext=$(cat cipher.txt)
 
 Notice that the resulting ciphertext now starts with `vault:v2:`.  
 
-This operation does not reveal the plaintext data. But Vault will decrypt the value using the appropriate key in the keyring and then encrypted the resulting plaintext with the newest key in the keyring.
+## Important Note
+
+To rewrap the data, you don't need to decrypt it. You can simply pass the ciphertext to the Vault. Vault will decrypt the value using the appropriate key in the keyring and then encrypted the resulting plaintext with the newest key in the keyring. Therefore, this operation does not reveal the plaintext data.

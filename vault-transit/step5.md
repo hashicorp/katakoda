@@ -38,5 +38,24 @@ Now, verify the `orders` key configuration:
 vault read transit/keys/orders
 ```{{execute T1}}
 
+## Question
 
-All the data encrypted with key earlier than 5 must be rewrapped.
+What happen to those data that were encrypted with older version of the key which does not meet the minimum key version restriction?
+
+## Answer
+
+Vault rejects to decrypt the ciphertext:
+
+```
+vault write -format=json transit/decrypt/orders \
+      ciphertext=$(cat cipher2.txt) \
+      | jq -r ".data.plaintext" > plain.txt
+```{{execute T1}}
+
+The output includes the following error message.
+
+```
+* ciphertext or signature version is disallowed by policy (too old)
+```
+
+This means that the data encrypted with key earlier than 5 must be rewrapped if they are still valid.
