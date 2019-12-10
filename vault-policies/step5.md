@@ -1,33 +1,19 @@
-Log back in with root token:
+Let's explore the Vault UI.
 
-```
-vault login root
-```{{execute T1}}
+1. Click on the **Vault UI** tab to launch the Vault UI.
 
-<br>
+  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
 
-Execute the capabilities command to check permissions on `secret/data/training_dev` path.
+1. Enter **`root`** in the **Token** text field and then click **Sign In**.
 
-```
-vault token capabilities $(cat token.txt) secret/data/training_dev
-```{{execute T1}}
+1. Click the **Policies** tab on the top menu, and then select **Create ACL policy**.
 
-Where `token.txt` contains the generated token with `base` policy attached.
+  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-policy-ui.png)
 
-This lists the capabilities of a token on a path granted by its attached policies (`base`). When unexpected behavior was encountered, this is an easy method to check the policy for the token.
+1. Open the `admin.hcl`{{open}} file and copy its content, and then paste it into the **Policy** text field in the UI.
 
-How about `secret/data/splunk/apikey` path?
+1. Enter `admin` in the **Name** field.
 
-```
-vault token capabilities $(cat token.txt) secret/data/splunk/apikey
-```{{execute T1}}
+  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-policy-ui-2.png)
 
-<br>
-
-Execute the command without a token:
-
-```
-vault token capabilities secret/data/training_dev
-```{{execute T1}}
-
-With absence of a token, the command checks the capabilities of **current** token that you are logged in with.
+1. Click **Create policy** to create a new `admin` policy.

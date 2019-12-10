@@ -18,20 +18,16 @@
         "text": "step2.md"
       },
       {
-        "title": "Create a token",
+        "title": "Verify your policy",
         "text": "step3.md"
       },
       {
-        "title": "Verify your policy",
+        "title": "Check Token Capabilities",
         "text": "step4.md"
       },
       {
-        "title": "Check Token Capabilities",
-        "text": "step5.md"
-      },
-      {
         "title": "Explore the Vault UI",
-        "text": "step6.md"
+        "text": "step5.md"
       }
     ],
     "intro": {
