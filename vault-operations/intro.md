@@ -6,7 +6,6 @@
 This lab walks you through the installation and configuration of a Vault server, and some of the primary tasks in operating Vault:
 
 - Installing Vault
-- Run Vault in Development Mode
 - Write Vault Configuration File
 - Initialize Vault
 - Enable Audit Logging
