@@ -18,18 +18,19 @@ Create some test data at `secret/myapp/db-config`:
 vault kv put secret/myapp/db-config @data.json
 ```{{execute T1}}
 
-To verify:
+Verify to see that test data was successfully created:
 
 ```
 vault kv get secret/myapp/db-config
 ```{{execute T1}}
 
+<br>
 
 ## Setup AppRole
 
 For the purpose of introducing the basics of AppRole, this guide walks you through a very simple scenario involving only two personas (admin and app).
 
-https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-approle-workflow.png
+![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-approle-workflow.png)
 
 Execute the following command to enable the `approle` auth method:
 
@@ -56,4 +57,17 @@ To view the `jenkins` role details:
 vault read auth/approle/role/jenkins
 ```{{execute T1}}
 
-When a client authenticates as `jenkins` role, the generated client token has a time-to-live (TTL) of 1 hour and it can be renewed for up to 4 hours of its first creation. 
+```
+Key                        Value
+---                        -----
+...
+token_max_ttl              4h
+token_no_default_policy    false
+token_num_uses             0
+token_period               0s
+token_policies             [jenkins]
+token_ttl                  1h
+token_type                 default
+```
+
+When a client authenticates as `jenkins` role, the generated client token has a time-to-live (TTL) of 1 hour and it can be renewed for up to 4 hours of its first creation.

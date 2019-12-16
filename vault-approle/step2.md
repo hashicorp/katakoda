@@ -8,14 +8,14 @@ vault read auth/approle/role/<ROLE_NAME>/role-id
 
 Execute the following command to read the Role ID for `jenkins` and store the returned value in a file named, `role_id.txt`:
 
-````
+```
 vault read -format=json auth/approle/role/jenkins/role-id \
       | jq -r ".data.role_id" > role_id.txt
 ```{{execute T1}}
 
 The `role-id` is equivalent to username or user ID; therefore, it does not change for the life of the `jenkins` role. Re-run the command and compare the value stored in `role_id.txt`{{open}}.
 
-````
+```
 vault read auth/approle/role/jenkins/role-id
 ```{{execute T1}}
 
