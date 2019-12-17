@@ -26,7 +26,7 @@ vault policy write shipping shipping.hcl
 Now configure the `approle` auth method to generate a batch token for your app:
 
 ```
-vault write auth/approle/role/shipping policies="shipping" token_ttl="60s" \
+vault write auth/approle/role/shipping token_policies="shipping" token_ttl="60s" \
       token_type="batch"         
 ```{{execute T1}}
 

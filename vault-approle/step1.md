@@ -48,7 +48,8 @@ Create a role named `jenkins` with `jenkins` policy attached. (NOTE: This exampl
 mode](https://www.vaultproject.io/docs/auth/approle.html).)
 
 ```
-vault write auth/approle/role/jenkins policies="jenkins" token_ttl=1h token_max_ttl=4h
+vault write auth/approle/role/jenkins token_policies="jenkins" \
+      token_ttl=1h token_max_ttl=4h
 ```{{execute T1}}
 
 To view the `jenkins` role details:
