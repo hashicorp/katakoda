@@ -1,12 +1,24 @@
 The definition of a job is not static, and is meant to be updated over time. You may update a job to change the docker container, to update the application version, or to change the count of a task group to scale with load.
 
-For now, edit the example.nomad file to update the count and set it to 3:
+For now, find a line labeled `group "cache"` in the example.nomad file and add `count = 3` under it. This will run three instances of redis.
+
+```bash
+group "cache" {
+  count = 3
+}
+```
 
 The "count" parameter specifies the number of the task groups that should
 be running under this group. This value must be non-negative and defaults
  to 1.
 
 `count = 3`
+
+In order to run smoothly, find the line `memory = 256` and change it to `32` so that each redis instance runs with less memory (for the purposes of this demo).
+
+```bash
+memory = 32
+```
 
 Once you have finished modifying the job specification, use the plan command to invoke a dry-run of the scheduler to see what would happen if you ran the updated job:
 

@@ -3,7 +3,7 @@
     "name": "counting",
     "port": 9003,
     "connect": {
-      "proxy": {}
+      "sidecar_service": {}
     },
     "check": {
       "id": "counting-check",

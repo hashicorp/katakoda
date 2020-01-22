@@ -6,7 +6,7 @@ Login with root token.
 vault login root
 ```{{execute T1}}
 
-To better demonstrate the cubbyhole secret engine, first create a **non-privileged** token.
+To better demonstrate the cubbyhole secrets engine, first create a **non-privileged** token.
 
 ```
 vault token create -policy=default \
@@ -20,7 +20,7 @@ Now, log into Vault using the newly generated token:
 vault login $(cat token.txt)
 ```{{execute T1}}
 
-Your token has `default` policy attached which does **not** give you access to any of the secret engines except cubbyhole. You can test that by running the following command:
+Your token has `default` policy attached which does **not** give you access to any of the secrets engines except cubbyhole. You can test that by running the following command:
 
 ```
 vault kv put secret/test password="my-password"

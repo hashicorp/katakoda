@@ -1,16 +1,16 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
-[HashiCorp Vault](https://www.vaultproject.io)'s secret engines are components responsible for managing secrets:
+[HashiCorp Vault](https://www.vaultproject.io)'s secrets engines are components responsible for managing secrets:
 
 - Secrets are pieces of sensitive information that can be used to access infrastructure, resources, data, etc.
-- Some secret engines simply store and read data
+- Some secrets engines simply store and read data
     - Like encrypted Redis/Memcached
 - Some connect to other services and generate dynamic credentials on-demand
 - Others provide encryption as a service (EaaS), TOTP generation, certificates, etc.
 
-This scenario demonstrates the [key/value secret engine v2](https://www.vaultproject.io/docs/secrets/kv/index.html).
+This scenario demonstrates the [key/value secrets engine v2](https://www.vaultproject.io/docs/secrets/kv/index.html).
 
-Key/Value secret engine is used to store arbitrary secrets:
+Key/Value secrets engine is used to store arbitrary secrets:
 
 - Secrets are accessible via interactive or automated means
 - Enforced access control via policies

@@ -1,14 +1,14 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault Encryption as a Service",
-  "description": "Learn how to leverage Vault's Transit secret engine to encrypt your secrets.",
+  "description": "Learn how to leverage Vault's Transit secrets engine to encrypt your secrets.",
   "difficulty": "beginner",
   "time": "5 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
       {
-        "title": "Configure Transit Secret Engine",
+        "title": "Configure Transit Secrets Engine",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
@@ -28,6 +28,10 @@
       {
         "title": "Update Key Configuration",
         "text": "step5.md"
+      },
+      {
+        "title": "Explore the Vault UI",
+        "text": "step6.md"
       }
     ],
     "intro": {
@@ -48,9 +52,12 @@
     }
   },
   "environment": {
-      "showdashboard": true,
-      "uilayout": "terminal",
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "showdashboard": true,
+    "uilayout": "terminal-iframe",
+    "dashboards": [
+      { "name": "Vault UI", "port": 8200 }
+    ],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
     "imageid": "hashicorp-hashistack"

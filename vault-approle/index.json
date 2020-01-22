@@ -1,0 +1,48 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault AppRole Auth Method",
+  "description": "Learn how to use AppRole auth method in Vault",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Enable and configure AppRole",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Role ID and Secret ID",
+        "text": "step2.md"
+      },
+      {
+        "title": "Verification",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "host01": [
+        { "file": "jenkins.hcl", "target": "~/" },
+        { "file": "data.json", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}

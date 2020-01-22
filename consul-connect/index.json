@@ -15,12 +15,16 @@
         "text": "step2.md"
       },
       {
-        "title": "Deny service connections",
+        "title": "Start the proxies",
         "text": "step3.md"
       },
       {
-        "title": "Allow dashboard connection",
+        "title": "Deny service connections",
         "text": "step4.md"
+      },
+      {
+        "title": "Allow dashboard connection",
+        "text": "step5.md"
       }
     ],
     "intro": {
@@ -37,7 +41,7 @@
       "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker",
+    "imageid": "hashicorp-hashistack",
     "showdashboard": true,
     "dashboards": [
       { "name": "Counting", "port": 9003 },

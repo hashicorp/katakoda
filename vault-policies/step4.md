@@ -1,65 +1,33 @@
-Recall that the `base` policy only permits CRUD operations on `secret/training_*` path.  
-
-The following command **should fail** with **"permission denied"** error since the `base` policy doesn't define any permission on the `secret/apikey` path:
+Log back in with root token:
 
 ```
-vault kv put secret/apikey key="my-api-key"
+vault login root
 ```{{execute T1}}
-
-Now, the following command should execute **successfully**:
-
-```
-vault kv put secret/training_test password="p@ssw0rd"
-```{{execute T1}}
-
-The policy was written for the `secret/training_*` path so that you can write on `secret/training_test`, `secret/training_dev`, `secret/training_prod`, etc.
-
-You should be able to read back the data:
-
-```
-vault kv get secret/training_test
-```{{execute T1}}
-
-Now, pass a different password value to update it.
-
-```
-vault kv put secret/training_test password="password1234"
-```{{execute T1}}
-
-> This should **fail** because the base policy only grants **create** and **read** .  With absence of **update** permission, this operation fails.
 
 <br>
 
-## Question
+Execute the capabilities command to check permissions on `secret/data/training_dev` path.
 
-What happens when you try to write data in `secret/training_` path?
+```
+vault token capabilities $(cat token.txt) secret/data/training_dev
+```{{execute T1}}
 
-Will this work?
-￼
+Where `token.txt` contains the generated token with `base` policy attached.
+
+This lists the capabilities of a token on a path granted by its attached policies (`base`). When unexpected behavior was encountered, this is an easy method to check the policy for the token.
+
+How about `secret/data/splunk/apikey` path?
+
+```
+vault token capabilities $(cat token.txt) secret/data/splunk/apikey
+```{{execute T1}}
+
 <br>
 
-## Answer
-
-This is going to work.
+Execute the command without a token:
 
 ```
-vault kv put secret/training_ year="2018"
+vault token capabilities secret/data/training_dev
 ```{{execute T1}}
 
-However, this is **NOT** because the path is a regular expression.  Vault's paths use a radix tree, and that "\*" can only come at the end.  It matches zero or more characters but not because of a regex.
-
-<br>
-
-Now, try the following command:
-
-```
-vault kv put secret/team-eng/apikey api_key="123456789"
-```{{execute T1}}
-
-The path `secret/team-eng/apikey` matches the `secret/<string>/apikey` pattern, so the command should execute successfully.
-
-Since the policy allows **delete** operation, the following command should execute successfully as well:
-
-```
-vault kv delete secret/team-eng/apikey
-```{{execute T1}}
+With absence of a token, the command checks the capabilities of **current** token that you are logged in with.

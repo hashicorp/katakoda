@@ -3,7 +3,17 @@ Initialization is the process configuring the Vault. This only happens once when
 To initialize Vault use `vault operator init` operation.
 <br>
 
-In the **Terminal 2**, execute the `vault operator init` command to initialize Vault:
+Click the **+** next to the opened Terminal, and select **Open New Terminal**.
+
+<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+
+In the **Terminal 2**, set the `VAULT_ADDR`:
+
+```
+export VAULT_ADDR='http://127.0.0.1:8200'
+```{{execute T2}}
+
+Now, execute the `vault operator init` command to initialize Vault:
 
 ```
 vault operator init > key.txt

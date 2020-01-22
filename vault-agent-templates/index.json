@@ -1,0 +1,46 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Agent Templates",
+  "description": "Learn how Vault Agent Templates renders secrets using the Consul Template markup language. This is new in Vault 1.3",
+  "difficulty": "beginner",
+  "time": "5 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Vault Agent Templates",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Examine the behavior",
+        "text": "step2.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "host01": [
+        { "file": "agent-config.hcl", "target": "~/" },
+        { "file": "customer.tmpl", "target": "~/" },
+        { "file": "app-pol.hcl", "target": "~/" },
+        { "file": "data.json", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://www.vaultproject.io"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}

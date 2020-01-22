@@ -1,24 +1,21 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault - Direct App Integration",
-  "description": "Learn how to integrate Vault with your applications.",
+  "title": "Direct App Integration",
+  "description": "Learn how to integrate Vault with your applications using Consul Templates and Envconsul.",
   "difficulty": "beginner",
-  "time": "10 minutes",
+  "time": "5 minutes",
   "icon": "fa-vault",
   "details": {
     "intro": {
       "text": "intro.md",
-      "code": "env-init.sh",
       "credits": "https://www.vaultproject.io"
     },
     "steps": [
       {
-        "title": "Getting Started",
-        "text": "getting-started.md"
-      },
-      {
-        "title": "Setup Secret Engines",
-        "text": "step1.md"
+        "title": "Setup Secrets Engines",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       },
       {
         "title": "Consul Template",
@@ -34,7 +31,7 @@
       "credits": "https://www.vaultproject.io"
     },
     "assets": {
-      "client": [
+      "host01": [
         { "file": "readonly.hcl", "target": "~/" },
         { "file": "test-app-v1.sh", "target": "~/" },
         { "file": "test-app-v2.sh", "target": "~/" },
@@ -52,6 +49,6 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "hashicorp-hashistack"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "url": "foo.example.com:35533",
+  "db_name": "users",
+  "username": "admin",
+  "password": "passw0rd"
+}

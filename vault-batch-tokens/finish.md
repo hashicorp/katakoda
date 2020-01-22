@@ -1,4 +1,4 @@
-This scenario demonstrated the sharacteristics of **batch tokens** introduced in Vault 1.0 **(currently in Beta)**.
+This scenario demonstrated the characteristics of **batch tokens** introduced in Vault 1.0.
 
 ### Resources:
 

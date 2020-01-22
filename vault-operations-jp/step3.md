@@ -42,7 +42,7 @@ vault server -config=config.hcl
                Log Level: (not set)
                    Mlock: supported: true, enabled: true
                  Storage: file
-                 Version: Vault v1.0.0
+                 Version: Vault v1.3.0
              Version Sha: c19cef14891751a23eaa9b41fd456d1f99e7e856
 ```
 

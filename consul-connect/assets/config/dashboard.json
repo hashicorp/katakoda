@@ -3,8 +3,8 @@
     "name": "dashboard",
     "port": 9002,
     "connect": {
-      "proxy": {
-        "config": {
+      "sidecar_service": {
+        "proxy": {
           "upstreams": [
             {
               "destination_name": "counting",

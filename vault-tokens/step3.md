@@ -31,13 +31,11 @@ vault kv put secret/training_test year="2018"
 
 The command should execute successfully.
 
-Now, try to read the data that you just wrote.
+Now, let's try a negative test. The following command fails since the use limit was reached and no more usage left with this token. Once the use limit was reached, the token gets revoked automatically.
 
 ```
 vault kv get secret/training_test
 ```{{execute T1}}
-
-This fails since the use limit was reached. Once the use limit was reached, the token gets revoked automatically.
 
 Log back in with `root` token:
 

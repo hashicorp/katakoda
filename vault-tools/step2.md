@@ -9,21 +9,21 @@ Create a policy named, `readonly`:
 
 ```
 vault policy write readonly readonly.hcl
-```{{execute T2}}
+```{{execute T1}}
 
 Now, execute the following command to generate a client token for Consul Template to use and save the generated token in `token.txt` file:
 
 ```
 vault token create -policy=readonly -ttl=1h \
       -format=json | jq -r ".auth.client_token" > token.txt
-```{{execute T2}}
+```{{execute T1}}
 
 This token is valid for 1 hour, and `readonly` policy is attached.
 
 ```
 clear
 vault token lookup $(cat token.txt)
-```{{execute T2}}
+```{{execute T1}}
 
 <br>
 
@@ -50,14 +50,16 @@ This template file will be used to retrieve data from `kv-v1`.
 Open the `customer-v2.tpl`{{open}} file and enter the following:
 
 <pre class="file" data-filename="customer-v2.tpl" data-target="replace">
-{{ with secret "kv-v2/data/customers/acme?version=1" }}
+{{ with secret "kv-v2/data/customers/acme" }}
 Organization: {{ .Data.data.organization }}
 ID: {{ .Data.data.customer_id }}
 Contact: {{ .Data.data.contact_email }}
 {{ end }}
 </pre>
 
-Notice the difference. In `customer-v2.tpl`, it specifies the version of the secrets you wish to retrieve (`kv-v2/data/customers/acme?version=1`).  Also, the path contains `data`. This is because the API endpoint to interact with KV version 1 and version 2 are slightly different. Read the [KV v2 documentation](https://www.vaultproject.io/api/secret/kv/kv-v2.html#read-secret-version) for more detail.
+Notice the difference. In `customer-v2.tpl`, the path contains `data` (`kv-v2/data/customers/acme`). This is because the API endpoint to interact with KV version 1 and version 2 are slightly different. Read the [KV v2 documentation](https://www.vaultproject.io/api/secret/kv/kv-v2.html#read-secret-version) for more detail.
+
+If you wish to always read a specific version of the `kv-v2/customer/acme`, you can hard-set the version by setting the path to `kv-v2/data/customers/acme?version=1`.
 
 <br>
 
@@ -67,13 +69,13 @@ Consul Template has been installed. Execute the following command to check the v
 
 ```
 consul-template -v
-```{{execute T2}}
+```{{execute T1}}
 
 Let's run Consul Template against `kv-v1`:
 
 ```
 VAULT_TOKEN=$(cat token.txt) consul-template -template=customer-v1.tpl:customer-v1.txt -once
-```{{execute T2}}
+```{{execute T1}}
 
 Verify that the secrets were retrieved successfully: `customer-v1.txt`{{open}}
 
@@ -83,6 +85,6 @@ Now, run Consul Template against `kv-v2`:
 
 ```
 VAULT_TOKEN=$(cat token.txt) consul-template -template=customer-v2.tpl:customer-v2.txt -once
-```{{execute T2}}
+```{{execute T1}}
 
 Verify that the secrets were retrieved successfully: `customer-v2.txt`{{open}}

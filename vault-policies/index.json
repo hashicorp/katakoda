@@ -18,21 +18,22 @@
         "text": "step2.md"
       },
       {
-        "title": "Create a token",
+        "title": "Verify your policy",
         "text": "step3.md"
       },
       {
-        "title": "Verify your policy",
-        "text": "step4.md"
-      },
-      {
         "title": "Check Token Capabilities",
-        "text": "step5.md"
+        "text": "step4.md"
       }
     ],
     "intro": {
       "text": "intro.md",
       "credits": "https://www.vaultproject.io"
+    },
+    "assets": {
+      "host01": [
+        { "file": "admin.hcl", "target": "~/" }
+      ]
     },
     "finish": {
       "text": "finish.md",
@@ -43,8 +44,11 @@
       "base.hcl"
   ],
   "environment": {
-      "showdashboard": true,
       "uilayout": "editor-terminal",
+      "showdashboard": true,
+      "dashboards": [
+        { "name": "Vault UI", "port": 8200 }
+      ],
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
