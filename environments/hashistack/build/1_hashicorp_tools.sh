@@ -16,11 +16,11 @@ install_zip()
     rm ~/$NAME.zip
 }
 
-install_zip "consul" "https://releases.hashicorp.com/consul/1.6.1/consul_1.6.1_linux_amd64.zip"
+install_zip "consul" "https://releases.hashicorp.com/consul/1.6.2/consul_1.6.2_linux_amd64.zip"
 
-install_zip "nomad" "https://releases.hashicorp.com/nomad/0.10.1/nomad_0.10.1_linux_amd64.zip"
+install_zip "nomad" "https://releases.hashicorp.com/nomad/0.10.2/nomad_0.10.2_linux_amd64.zip"
 
-install_zip "terraform" "https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip"
+install_zip "terraform" "https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip"
 
 install_zip "vault" "https://releases.hashicorp.com/vault/1.3.2/vault_1.3.2_linux_amd64.zip"
 
