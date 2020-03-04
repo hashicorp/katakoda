@@ -1,0 +1,46 @@
+{
+  "title": "Getting Started with Terraform Consul Provider ",
+  "description": "Getting Started with Terraform Consul Provider",
+  "difficulty": "Advanced",
+  "time": "20",
+  "icon": "fa-consul",
+  "details": {
+    "steps": [
+      {
+        "text": "overview.md"
+      },
+      {
+        "text": "substitution.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Consul UI",
+        "port": 8500
+      },
+      {
+        "name": "Dashboard Instance",
+        "port": 8080
+      },
+      {
+        "name": "Counting Instance",
+        "port": 9001
+      }
+    ],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
