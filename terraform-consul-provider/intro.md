@@ -1,0 +1,1 @@
+This scenario is meant to serve as a workspace for the [Register External Services with Terraform guide](http://learn.hashicorp.com/consul/developer-discovery/terraform-consul-provider).
