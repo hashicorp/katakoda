@@ -1,14 +1,6 @@
 ## Overview of Workspace
 
-This is the workspace for **Getting Started with Terraform Consul Provider**.
-
-This workspace contains the following:
-
-- simple Consul datacenter running with ACL pre-configured (UI on port [:8500](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui)):
-    - 3 Consul servers
-    - 2 Consul clients
-- Counting service running on port [:9001](https://[[HOST_SUBDOMAIN]]-9001-[[KATACODA_HOST]].environments.katacoda.com)
-- Dashboard for counting service running on port [:8080](https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com)
+This is the workspace for the [**Register External Services with Terraform**](http://learn.hashicorp.com/consul/developer-discovery/terraform-consul-provider) guide.
 
 These services can be open by clicking on their respective tabs in the terminal.
 
@@ -18,50 +10,119 @@ up the above services in the background. To view these instances, run `docker ps
 It takes about a minute after you see the `Ready` message for the Consul datacenter
 to nominate a cluster leader and for you to continue to the next step.
 
-## Retrieve Master ACL Token
-To retrieve the master ACL token, run `docker exec -it consul-playground_consul-server-1_1 consul acl bootstrap`{{execute}}
+## Bootstrap Consul datacenter
 
-This runs the `consul acl bootstrap` command on one of Consul agents. The output
- should be similar to this:
+`docker exec -it consul-playground_consul-server-1_1 consul acl bootstrap`{{execute}}
 
-```
-AccessorID:       aaf45cbf-2293-59f8-dacb-d473e35d111c
-SecretID:         91f5e30c-c51b-8399-39bb-a902346205c4
-Description:      Bootstrap Token (Global Management)
-Local:            false
-Create Time:      2020-02-19 21:36:04.9283912 +0000 UTC
-Policies:
-   00000000-0000-0000-0000-000000000001 - global-management
-```
+For more information about this command, please reference the guide.
 
-If you see `Failed ACL bootstrapping: Unexpected response code: 500 (The ACL system is currently in legacy mode.)`,
-the Consul datacenter has not nominated a cluster leader yet. Please wait before
-rerunning the command.
+## Localhost Substitution
 
-## View Consul Agents using ACL Token
-The SecretID is your Consul Master ACL Token. To verify that this token works, run:
-`docker exec -it consul-playground_consul-server-1_1 consul members -token=<TOKEN>`{{execute}}
-replacing `<TOKEN>` with your Master ACL Token. 
+NOTE: If you are using Katacoda, Katacoda uses a unique method to route its services.
 
-If successful, the output should be 
-similar to this:
+As a result, you should substitute any references to localhost to the following:
 
-```
-Node          Address          Status  Type    Build  Protocol  DC   Segment
-53559b91bb91  172.29.0.3:8301  alive   server  1.7.0  2         dc1  <all>
-87f38aef301d  172.29.0.2:8301  alive   server  1.7.0  2         dc1  <all>
-aea8b638b48c  172.29.0.6:8301  alive   server  1.7.0  2         dc1  <all>
-0d69f754b8fd  172.29.0.7:8301  alive   client  1.7.0  2         dc1  <default>
-477484ae7f62  172.29.0.5:8301  alive   client  1.7.0  2         dc1  <default>
-e553a7b10918  172.29.0.4:8301  alive   client  1.7.0  2         dc1  <default>
-```
+| Learn Address   | Katacoda Address |
+| --------------  | ---------------- |
+| localhost:8500  | `[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com` |
+| localhost:9001  | `[[HOST_SUBDOMAIN]]-9001-[[KATACODA_HOST]].environments.katacoda.com` |
+| localhost:8080  | `[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com` |
 
-## Configure Consul UI with ACL Token
-Finally, to configure your Consul UI to use the ACL token, open the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/acls/tokens). 
-Then, navigate to the ACL page using the menu at the top. You should see a page 
-like this:
+Remember to substitute `ACL_TOKEN_HERE` with your master ACL token. Your `main.tf` file should be similar to:
 
-![Consul ACL Page](/im2nguyen/scenarios/terraform-consul-provider/assets/consul-acl.png)
+<pre class="file" data-filename="main.tf" data-target="replace"># Configure the Consul provider
+provider "consul" {
+  address    = "[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"
+  datacenter = "dc1"
+  token      = "ACL_TOKEN_HERE"
+}
 
-Enter your Master ACL Token into the text box and hit Save. After refreshing 
-your page, you should be able to view your Consul resources via the UI.
+# Register external node - counting
+resource "consul_node" "counting" {
+  name    = "counting"
+  address = "[[HOST_SUBDOMAIN]]-9001-[[KATACODA_HOST]].environments.katacoda.com"
+
+  meta = {
+    "external-node"  = "true"
+    "external-probe" = "true"
+  }
+}
+
+# Register external node - dashboard
+resource "consul_node" "dashboard" {
+  name    = "dashboard"
+  address = "[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+
+  meta = {
+    "external-node"  = "true"
+    "external-probe" = "true"
+  }
+}
+
+# Register Counting Service
+resource "consul_service" "counting" {
+  name    = "counting-service"
+  node    = consul_node.counting.name
+  port    = 80
+  tags    = ["counting"]
+
+  check {
+    check_id                          = "service:counting"
+    name                              = "Counting health check"
+    status                            = "passing"
+    http                              = "[[HOST_SUBDOMAIN]]-9001-[[KATACODA_HOST]].environments.katacoda.com"
+    tls_skip_verify                   = false
+    method                            = "GET"
+    interval                          = "5s"
+    timeout                           = "1s"
+  }
+}
+
+# Register Dashboard Service
+resource "consul_service" "dashboard" {
+  name    = "dashboard-service"
+  node    = consul_node.dashboard.name
+  port    = 80
+  tags    = ["dashboard"]
+
+  check {
+    check_id                          = "service:dashboard"
+    name                              = "Dashboard health check"
+    status                            = "passing"
+    http                              = "[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+    tls_skip_verify                   = false
+    method                            = "GET"
+    interval                          = "5s"
+    timeout                           = "1s"
+  }
+}
+
+# List all services
+data "consul_services" "dc1" {}
+
+output "consul_services_dc1" {
+    value = data.consul_services.dc1
+}
+
+# List counting service information
+data "consul_service" "counting" {
+  name = consul_service.counting.name
+}
+
+output "counting_ports" {
+  value = data.consul_service.counting
+}
+
+# List Consul agent node address and ports
+data "consul_service" "agents" {
+  name = "consul"
+}
+
+output "consul_agents_address_ports" {
+  value = {
+    for service in data.consul_service.agents.service:
+    service.node_id => join(":", [service.node_address, service.port])
+  }
+}
+
+</pre>
