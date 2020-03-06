@@ -10,17 +10,15 @@ up the above services in the background. To view these instances, run `docker ps
 It takes about a minute after you see the `Ready` message for the Consul datacenter
 to nominate a cluster leader and for you to continue to the next step.
 
-## Bootstrap Consul datacenter
+## Bootstrap Consul ACLs
+
+This corresponds to the [BootStrap Consul ACLs](http://learn.hashicorp.com/consul/developer-discovery/terraform-consul-provider#bootstrap-consul-acls) section on the Learn guide. Once you run this command, use the guide to complete the rest of this scenario.
 
 `docker exec -it consul-playground_consul-server-1_1 consul acl bootstrap`{{execute}}
 
-For more information about this command, please reference the guide.
-
 ## Localhost Substitution
 
-NOTE: If you are using Katacoda, Katacoda uses a unique method to route its services.
-
-As a result, you should substitute any references to localhost to the following:
+Katacoda uses a unique method to route its services. As you follow the guide substitute any references to localhost with the following addresses, in order to make the configuration work with Katacoda.
 
 | Learn Address   | Katacoda Address |
 | --------------  | ---------------- |
@@ -28,7 +26,7 @@ As a result, you should substitute any references to localhost to the following:
 | localhost:9001  | `[[HOST_SUBDOMAIN]]-9001-[[KATACODA_HOST]].environments.katacoda.com` |
 | localhost:8080  | `[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com` |
 
-Remember to substitute `ACL_TOKEN_HERE` with your master ACL token. Your `main.tf` file should be similar to:
+Alternatively you can copy the following `main.tf` file, which represents the finished state of the guide and has the correct addressing. Remember to substitute `ACL_TOKEN_HERE` with your master ACL token.
 
 <pre class="file" data-filename="main.tf" data-target="replace"># Configure the Consul provider
 provider "consul" {
