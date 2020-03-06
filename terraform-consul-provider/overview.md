@@ -2,13 +2,12 @@
 
 This is the workspace for the [**Register External Services with Terraform**](http://learn.hashicorp.com/consul/developer-discovery/terraform-consul-provider) guide.
 
-These services can be open by clicking on their respective tabs in the terminal.
-
-On initialization, this workspace should have ran `docker-compose up -d` which spins
-up the above services in the background. To view these instances, run `docker ps`{{execute}}
+On initialization, this workspace should have ran `docker-compose up -d` creates all the services listed in the Learn guide. To view these instances, run `docker ps`{{execute}}
 
 It takes about a minute after you see the `Ready` message for the Consul datacenter
 to nominate a cluster leader and for you to continue to the next step.
+
+Continue following the instructions in the learn guide for bootstrapping Consul's ACL system. 
 
 ## Bootstrap Consul datacenter
 
