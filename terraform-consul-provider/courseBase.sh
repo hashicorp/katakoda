@@ -1,9 +1,9 @@
 # Install Terraform and init config
-# Install docker - Ubuntu doesn't have docker
+# Install docker, unzip - Ubuntu doesn't have docker
 apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Install unzip - Katacoda docker image doesn't have unzip
-apt-get install unzip
+# apt-get install unzip
 cd ..
 curl -O https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
 unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/
