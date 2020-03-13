@@ -1,6 +1,6 @@
 # Install Terraform and init config
 # Install docker - Ubuntu doesn't have docker
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # Install unzip - Katacoda docker image doesn't have unzip
 apt-get install unzip
