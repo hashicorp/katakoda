@@ -10,7 +10,7 @@ It takes about a minute after you see the `Ready` message for the Consul datacen
 
 This corresponds to the [Bootstrap Consul ACLs](http://learn.hashicorp.com/consul/developer-discovery/terraform-consul-provider#bootstrap-consul-acls) section on the Learn guide. Once you run the following command, use the guide to complete the rest of this scenario.
 
-`docker exec -it consul-playground_consul-server-1_1 consul acl bootstrap`{{execute}}
+`docker exec -it consulplayground_consul-server-1_1 consul acl bootstrap`{{execute}}
 
 ## Localhost Substitution
 
