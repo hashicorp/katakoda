@@ -8,8 +8,16 @@ Vault supports opt-in automatic unsealing via cloud technologies: **AliCloud KMS
 
 This scenario demonstrates how to [auto-unseal Vault with Transit Secrets Engine](https://www.vaultproject.io/docs/configuration/seal/transit.html).
 
- In this lab, you are going to perform the following tasks:
+In this lab, you are going to perform the following tasks:
 
 1. Configure Auto-unseal Key Provider
 1. Configure Auto-unseal
 1. Audit the incoming request
+
+
+To learn more about the auto-unseal feature, refer to the following:
+
+- [Auto-unseal using AWS KMS](https://learn.hashicorp.com/vault/day-one/ops-autounseal-aws-kms)
+- [Auto-unseal using Azure Key Vault](https://learn.hashicorp.com/vault/day-one/autounseal-azure-keyvault)
+- [Auto-unseal using GCP Cloud KMS](https://learn.hashicorp.com/vault/operations/autounseal-gcp-kms)
+- [Auto-unseal using Transit Secrets Engine](https://learn.hashicorp.com/vault/day-one/autounseal-transit)

@@ -1,5 +1,7 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
+> This scenario supplements the [Vault Agent with AWS](Vault Agent with AWS) and [Vault Agent Caching](https://learn.hashicorp.com/vault/identity-access-management/agent-caching) guides.
+
 Nearly all requests to Vault must be accompanied by an authentication token. This includes all API requests, as well as via the Vault CLI and other libraries.
 
 Although a number of [auth methods](https://www.vaultproject.io/docs/auth/index.html) are available, the client is still responsible for managing the lifecycle of its Vault tokens. Therefore, the challenge becomes how to enable authentication to Vault and manage the **lifecycle** of tokens in a standard way without having to write custom logic.

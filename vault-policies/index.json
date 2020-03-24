@@ -28,7 +28,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     },
     "assets": {
       "host01": [
@@ -37,7 +37,7 @@
     },
     "finish": {
       "text": "finish.md",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     }
   },
   "files": [

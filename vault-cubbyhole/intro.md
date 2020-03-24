@@ -1,5 +1,7 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
+> This scenario supplements the [Cubbyhole Response Wrapping](https://learn.hashicorp.com/vault/secrets-management/sm-cubbyhole) guide.
+
 [HashiCorp Vault](https://www.vaultproject.io)'s secrets engines are components responsible for managing secrets:
 
 - Secrets are pieces of sensitive information that can be used to access infrastructure, resources, data, etc.

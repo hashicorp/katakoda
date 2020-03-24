@@ -7,7 +7,7 @@ Vault uses [policies](https://www.vaultproject.io/docs/concepts/policies.html) t
 
 When you first initialize Vault, the root policy gets created by default. This root policy is a special policy that gives superuser access to everything in Vault. Therefore, it is recommended that a token with root policy is used for just enough initial setup or in emergencies. As a best practice, use tokens with an appropriate set of policies based on your role in the organization.
 
-<br>
+> This scenario supplements the [Vault Policies](https://learn.hashicorp.com/vault/identity-access-management/iam-policies) guide.
 
 In this scenario, you will learn how to write an ACL policy in Vault.
 
