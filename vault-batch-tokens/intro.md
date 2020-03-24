@@ -1,5 +1,7 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
+> This scenario supplements the [Tokens](https://learn.hashicorp.com/vault/identity-access-management/tokens) guide.
+
 ## Overview
 
 Tokens are the core method for authentication within Vault. Tokens can be used

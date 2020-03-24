@@ -27,7 +27,7 @@
     "intro": {
       "text": "intro.md",
       "code": "env-init.sh",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     },
     "assets": {
       "client": [
@@ -39,7 +39,7 @@
     },
     "finish": {
       "text": "finish.md",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     }
   },
   "environment": {

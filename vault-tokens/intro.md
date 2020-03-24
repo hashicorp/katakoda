@@ -1,5 +1,8 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
+> This scenario supplements the [Tokens](https://learn.hashicorp.com/vault/identity-access-management/tokens) guide.
+
+
 Before a client can interact with [HashiCorp Vault](https://www.vaultproject.io), it must authenticate against an [**auth method**](/docs/auth/index.html) to acquire a token. This token has policies attached so that the behavior of the client can be governed.
 
 Since tokens are the core method for authentication within Vault, there is a **token** auth method (often referred to as **_token store_**). This is a special auth method responsible for creating and storing tokens.

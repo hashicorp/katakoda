@@ -1,5 +1,7 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" />
 
+> This scenario supplements the [Encryption as a Service: Transit Secrets Engine](https://learn.hashicorp.com/vault/encryption-as-a-service/eaas-transit) guide.
+
 [HashiCorp Vault](https://www.vaultproject.io)'s `transit` secrets engine handles cryptographic functions on data in-transit. It can also viewed as _encryption as a service_.  
 
 > **NOTE:** Vault does *not* store the data sent to the secrets engine.  

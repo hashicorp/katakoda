@@ -13,3 +13,9 @@ This lab walks you through the installation and configuration of a Vault server,
 - Key Rotation
 
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+
+Also, refer to the following guides:
+
+- [Starting the Server](https://learn.hashicorp.com/vault/getting-started/dev-server)
+- [Deploy Vault](https://learn.hashicorp.com/vault/getting-started/deploy)
+- [Rekeying & Rotating Vault](https://learn.hashicorp.com/vault/operations/ops-rekeying-and-rotating)

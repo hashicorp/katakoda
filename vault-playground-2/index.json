@@ -15,11 +15,11 @@
     ],
     "intro": {
       "text": "intro.md",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     },
     "finish": {
       "text": "finish.md",
-      "credits": "https://www.vaultproject.io"
+      "credits": "https://learn.hashicorp.com/vault"
     }
   },
   "environment": {
