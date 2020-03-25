@@ -40,8 +40,9 @@ vault server -config=config-node3.hcl
               Listener 1: tcp (addr: "127.0.0.1:3200", cluster address: "127.0.0.1:3201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
                Log Level: info
                    Mlock: supported: true, enabled: false
+           Recovery Mode: false
                  Storage: raft (HA available)
-                 Version: Vault v1.2.3
+                 Version: Vault v1.4.0-rc1
 
 ==> Vault server started! Log data will stream in below:
 ```
@@ -91,41 +92,15 @@ vault login $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
 Check the Raft cluster configuration.
 
 ```
-vault operator raft configuration -format=json
+vault operator raft list-peers
 ```{{execute T6}}
 
 ```
-{
-  ...
-  "data": {
-    "config": {
-      "index": 32,
-      "servers": [
-        {
-          "address": "127.0.0.1:8201",
-          "leader": true,
-          "node_id": "node1",
-          "protocol_version": "3",
-          "voter": true
-        },
-        {
-          "address": "127.0.0.1:2201",
-          "leader": false,
-          "node_id": "node2",
-          "protocol_version": "3",
-          "voter": true
-        },
-        {
-          "address": "127.0.0.1:3201",
-          "leader": false,
-          "node_id": "node3",
-          "protocol_version": "3",
-          "voter": true
-        }
-      ]
-    }
-  },
-  ...
+Node     Address           State       Voter
+----     -------           -----       -----
+node1    127.0.0.1:8201    leader      true
+node2    127.0.0.1:2201    follower    true
+node3    127.0.0.1:3201    follower    true
 ```
 
 You should see `node1`, `node2` and `node3` listed.

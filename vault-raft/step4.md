@@ -1,9 +1,14 @@
-Let's enable K/V secrets engine and create some test data.
+Let's enable K/V secrets engine.
 
 > **NOTE:** You can execute the CLI commands from any of the node; however, the request will always be routed to the active server which is `node1`.  
 
 ```
 vault secrets enable -path=secret kv-v2
+```{{execute T6}}
+
+Create some secrets.
+
+```
 vault kv put secret/credentials user_id="student" passcode="vaultrocks"
 ```{{execute T6}}
 
@@ -80,47 +85,3 @@ Now, you should be able to read the secrets at `secret/credentials` again.
 ```
 vault kv get secret/credentials
 ```{{execute T2}}
-
-
-<br>
-
-## Leave the Cluster
-
-If you ever need to remove a node from a cluster, invoke the following command.
-
-```
-vault operator raft remove-peer node3
-```{{execute T2}}
-
-Verify the Raft cluster configuration.
-
-```
-vault operator raft configuration -format=json
-```{{execute T2}}
-
-```
-{
-  ...
-  "data": {
-    "config": {
-      "index": 51,
-      "servers": [
-        {
-          "address": "127.0.0.1:8201",
-          "leader": true,
-          "node_id": "node1",
-          "protocol_version": "3",
-          "voter": true
-        },
-        {
-          "address": "127.0.0.1:2201",
-          "leader": false,
-          "node_id": "node2",
-          "protocol_version": "3",
-          "voter": true
-        }
-      ]
-    }
-  },
-  ...
-```
