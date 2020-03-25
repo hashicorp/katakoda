@@ -36,11 +36,12 @@ vault server -config=config-node2.hcl
              Api Address: http://127.0.0.1:2200
                      Cgo: disabled
          Cluster Address: https://127.0.0.1:2201
-              Listener 1: tcp (addr: "127.0.0.1:2200", cluster address: "127.0.0.1:2201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
-               Log Level: info
-                   Mlock: supported: true, enabled: false
-                 Storage: raft (HA available)
-                 Version: Vault v1.2.3
+               Listener 1: tcp (addr: "127.0.0.1:2200", cluster address: "127.0.0.1:2201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
+                Log Level: info
+                    Mlock: supported: true, enabled: false
+            Recovery Mode: false
+                  Storage: raft (HA available)
+                  Version: Vault v1.4.0-rc1
 
 ==> Vault server started! Log data will stream in below:
 ```
@@ -67,20 +68,6 @@ Check the `node2` server status:
 ```
 vault status
 ```{{execute T4}}
-
-```
-Key                Value
----                -----
-Seal Type          shamir
-Initialized        false
-Sealed             true
-Total Shares       0
-Threshold          0
-Unseal Progress    0/0
-Unseal Nonce       n/a
-Version            n/a
-HA Enabled         true
-```
 
 Now, you are going to use `vault operator raft` command to join `node2` to `node1` Raft cluster.  Execute the `vault operator raft join` command.
 
@@ -112,7 +99,7 @@ Total Shares       1
 Threshold          1
 Unseal Progress    0/1
 Unseal Nonce       n/a
-Version            1.2.3
+Version            1.4.0-rc1
 HA Enabled         true
 ```
 
@@ -130,37 +117,17 @@ Once Vault is unsealed, you can login using the root token.
 vault login $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
 ```{{execute T4}}
 
-Check the Raft cluster configuration.
+Execute the following command to list the raft peer set.
 
 ```
-vault operator raft configuration -format=json
+vault operator raft list-peers
 ```{{execute T4}}
 
 ```
-{
-  ...
-  "data": {
-    "config": {
-      "index": 51,
-      "servers": [
-        {
-          "address": "127.0.0.1:8201",
-          "leader": true,
-          "node_id": "node1",
-          "protocol_version": "3",
-          "voter": true
-        },
-        {
-          "address": "127.0.0.1:2201",
-          "leader": false,
-          "node_id": "node2",
-          "protocol_version": "3",
-          "voter": true
-        }
-      ]
-    }
-  },
-  ...
+Node     Address           State       Voter
+----     -------           -----       -----
+node1    127.0.0.1:8201    leader      true
+node2    127.0.0.1:2201    follower    true
 ```
 
 You should see both `node1` and `node2` listed.

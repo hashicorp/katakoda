@@ -22,6 +22,10 @@
       {
         "title": "Taking a Data Snapshot",
         "text": "step4.md"
+      },
+      {
+        "title": "Manage the Cluster Members",
+        "text": "step5.md"
       }
     ],
     "intro": {
