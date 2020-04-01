@@ -4,10 +4,12 @@
   "icon": "fa-nomad",
   "details": {
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/nomad"
     },
     "finish": {
-      "text": "finish.md"
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/nomad"
     },
     "steps": [
       {

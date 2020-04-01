@@ -3,6 +3,9 @@
   "description": "HashiCorp Nomad environment with Consul and Terraform",
   "icon": "fa-nomad",
   "details": {
+    "intro": {
+      "credits": "https://learn.hashicorp.com"
+    },
     "steps": [
       {
         "title": "Example Commands",

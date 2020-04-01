@@ -12,10 +12,12 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "courseBase.sh"
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
     },
     "finish": {
-      "text": "finish.md"
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
     }
   },
   "environment": {

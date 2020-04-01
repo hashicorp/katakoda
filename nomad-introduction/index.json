@@ -5,7 +5,8 @@
   "details": {
     "intro": {
       "text": "intro.md",
-      "code": "courseBase.sh"
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/nomad"
     },
     "steps": [
       {
@@ -25,7 +26,8 @@
       }
     ],
     "finish": {
-      "text": "finish.md"
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/nomad"
     },
     "assets": {
       "client": [
