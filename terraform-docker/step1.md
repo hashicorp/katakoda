@@ -42,6 +42,6 @@ You will be prompted to confirm. Type `yes` and press `ENTER`.
 
 ## Conclusion
 
-You have now created and destroyed your first Terraform resources! Terraform 
+You have now created and destroyed your first Terraform resources! Terraform supports hundreds of ecosystem providers, from major cloud resources to content delivery networks and more.
 
 Continue learning at [HashiCorp Learn](https://learn.hashicorp.com/terraform) and the [Terraform API documentation](https://www.terraform.io/) or discuss with others on the [Terraform forum](https://discuss.hashicorp.com/c/terraform-core/27).
