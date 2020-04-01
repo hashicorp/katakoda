@@ -1,0 +1,39 @@
+{
+  "title": "Terraform Tutorial",
+  "description": "A 60 second Terraform tutorial with just the basics",
+  "time": 1,
+  "icon": "fa-terraform",
+  "details": {
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "steps": [
+      {
+        "title": "Terraform in 60 Seconds",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "assets": {
+      "host01": [
+        { "file": "main.tf", "target": "~/terraform-docker-demo" }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Nginx", "port": 80 }
+    ]
+  }
+}
