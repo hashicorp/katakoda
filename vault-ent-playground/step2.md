@@ -32,22 +32,22 @@ vault login root
 You can create a **namespace** by executing the following command.
 
 ```
-vault namespaces create education
+vault namespace create education
 ```{{execute T2}}
 
 Execute the following command to create a child namespace called `training` under the `education` namespace.
 
 ```
-vault namespaces create -namespace=education training
+vault namespace create -namespace=education training
 ```{{execute T2}}
 
-Create child namespaces called `certification` under the `education` namespace.
+Create child namespace called `certification` under the `education` namespace.
 
 ```
 vault namespace create -namespace=education certification
 ```{{execute T2}}
 
-List the existing namespaces on the root.
+List the existing namespace on the root.
 
 ```
 vault namespace list
@@ -59,4 +59,4 @@ List the existing namespace on the education namespace.
 vault namespace list -namespace=education
 ```{{execute T2}}
 
-To learn more about the **namespaces**, refer to the [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/vault/security/namespaces) guide.
+To learn more about the **namespace**, refer to the [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/vault/security/namespace) guide.
