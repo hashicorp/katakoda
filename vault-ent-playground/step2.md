@@ -59,4 +59,4 @@ List the existing namespace on the education namespace.
 vault namespace list -namespace=education
 ```{{execute T2}}
 
-To learn more about the **namespace**, refer to the [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/vault/security/namespace) guide.
+To learn more about the **namespace**, refer to the [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/vault/security/namespaces) guide.
