@@ -29,7 +29,7 @@ Execute the command again and store the encoded value in a file named, `card-enc
 ```
 vault write -format=json transform/encode/payments value=1111-2222-3333-4444 \
    | jq -r ".data.encoded_value" > card-encoded.txt
-```
+```{{execute T1}}
 
 ## Decode secrets
 
