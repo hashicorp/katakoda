@@ -38,6 +38,7 @@ vault write transform/encode/payments value="+1 123-345-5678" \
         transformation=phone-number
 ```{{execute T1}}
 
+<br />
 
 ## Use case of the data masking
 

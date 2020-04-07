@@ -31,6 +31,8 @@ vault write -format=json transform/encode/payments value=1111-2222-3333-4444 \
    | jq -r ".data.encoded_value" > card-encoded.txt
 ```{{execute T1}}
 
+Open the `card-encoded.txt`{{open}} to see the returned encoded value.
+
 ## Decode secrets
 
 To decode the value encoded with `payments` role, execute the following command.

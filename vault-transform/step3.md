@@ -13,6 +13,8 @@ vault write transform/template/ca-passport-tmpl type=regex \
 
 > **NOTE:** This example uses the built-in alphabet, `builtin/alphanumericupper`.
 
+<br />
+
 ## Verification
 
 Create a transformation named "ca-passport" containing the `ca-passport-tmpl` template.

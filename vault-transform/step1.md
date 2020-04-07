@@ -28,7 +28,7 @@ expression](https://en.wikipedia.org/wiki/Regular_expression)) and allowed **alp
 
 <br />
 
-Login with root token.
+Let's begin!  First, login with root token.
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
@@ -42,6 +42,8 @@ Execute the following command to enable the `transform` secrets engine at `trans
 vault secrets enable transform
 ```{{execute T1}}
 
+## Create a role
+
 Create a role named "payments" with "card-number" transformation attached which you will create next.
 
 ```
@@ -53,6 +55,8 @@ To list existing roles, execute the following command.
 ```
 vault list transform/role
 ```{{execute T1}}
+
+## Create a transformation
 
 Create a transformation named "card-number" which will be used to transform credit card numbers. This uses the built-in `builtin/creditcardnumber` template to perform format-preserving encryption (FPE). The allowed role to use this transformation is `payments` you just created.
 
