@@ -9,11 +9,9 @@
     "steps": [
       {
         "title": "Installing Vault Enterprise",
-        "text": "step1.md"
-      },
-      {
-        "title": "Start Vault Enterprise in dev mode",
-        "text": "step2.md"
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       }
     ],
     "intro": {
@@ -24,15 +22,15 @@
       "text": "finish.md"
     }
   },
-  "files": [
-    "config.hcl"
-  ],
   "environment": {
-      "showdashboard": true,
-      "uilayout": "editor-terminal",
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "uilayout": "editor-terminal",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Vault UI", "port": 8200 }
+    ],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "hashicorp-hashistack-ent"
   }
 }
