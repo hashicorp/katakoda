@@ -4,7 +4,7 @@ To list existing alphabets, execute the following command.
 
 ```
 vault list transform/alphabet
-```
+```{{execute T1}}
 
 **Built-in alphabets:**
 
