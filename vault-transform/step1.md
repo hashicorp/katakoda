@@ -2,8 +2,8 @@ Transform secrets engine configuration workflow:
 
   1. Enable the `transform` secrets engine
   1. Create a **role** containing the transformations that it can perform
-  1. [Create an alphabet](#create-custom-alphabets) defining a set of characters to use for format-preserving encryption (FPE) if not using the built-in alphabets.
-  1. [Create a template](##create-custom-templates) defining the rules for value matching if not using the built-in template
+  1. Create an alphabet defining a set of characters to use for format-preserving encryption (FPE) if not using the built-in alphabets.
+  1. Create a template defining the rules for value matching if not using the built-in template
   1. Create a **transformation** to specify the nature of the data manipulation
 
 ![Relationship](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-transform-2.png)
@@ -24,7 +24,7 @@ expression](https://en.wikipedia.org/wiki/Regular_expression)) and allowed **alp
 | generated   | Vault generates and returns the tweak source along with the encoded data. The user must securely store the tweak source which will be needed to decrypt the data |
 | internal    | Vault generates a tweak source for the transformation and the same tweak source will be used for every request |
 
--> **NOTE:** Tweak source is only applicable to the FPE transformation.
+> **NOTE:** Tweak source is only applicable to the FPE transformation.
 
 <br />
 

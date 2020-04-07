@@ -4,28 +4,8 @@ When you need to encode more than one secret value, you can send multiple secret
 
 You received a credit card number, Canadian passport number and a phone number of a customer and wish to transform all these secrets using the `payments` role.
 
-Create an API request payload containing all secrets associated with transformations associated with the `payments` role.
-
-```
-tee input-multiple.json <<EOF
-{
-  "batch_input": [
-    {
-      "value": "1111-1111-1111-1111",
-      "transformation": "card-number"
-    },
-    {
-      "value": "AB123456",
-      "transformation": "ca-passport"
-    },
-    {
-      "value": "+1 123-345-5678",
-      "transformation": "phone-number"
-    }
-  ]
-}
-EOF
-```{{execute T1}}
+The API request payload can contain all secrets associated with transformations associated with the `payments` role.
+Examine the `input-multiple.json`{{open}} file containing the test data.
 
 Invoke the `transform/encode/payments` endpoint.
 
@@ -35,31 +15,20 @@ curl --header "X-Vault-Token: root" --request POST \
        http://127.0.0.1:8200/v1/transform/encode/payments | jq ".data"
 ```{{execute T1}}
 
+<br />
+
 **Example Scenario 2:**
 
 An on-prem database stores corporate card numbers and your organization decided to migrate the data to another database. You wish to encode those card numbers before storing them in the new database.
 
 To encode multiple card numbers at once, set the values as `batch_input`. If the role has more than one transformation associate with it, be sure to specify the name of transformation as well.
 
-Create a request payload containing multiple card numbers.
-
-```
-tee payload-batch.json <<EOF
-{
-  "batch_input": [
-    { "value": "1111-1111-1111-1111", "transformation": "card-number" },
-    { "value": "2222-2222-2222-2222", "transformation": "card-number" },
-    { "value": "3333-3333-3333-3333", "transformation": "card-number" },
-    { "value": "4444-4444-4444-4444", "transformation": "card-number" }
-  ]
-}
-EOF
-```{{execute T1}}
+The request payload can contain multiple card numbers. Examine the `payload-batch.json`{{open}} file containing the test data.
 
 Execute the `transform/encode/payments` endpoint.
 
 ```
-curl --header "X-Vault-Token: <TOKEN>" --request POST \
+curl --header "X-Vault-Token: root" --request POST \
        --data @payload-batch.json \
        http://127.0.0.1:8200/v1/transform/encode/payments | jq ".data"
 ```{{execute T1}}
@@ -80,7 +49,7 @@ $ tee payload-batch.json <<EOF
 }
 EOF
 
-curl --header "X-Vault-Token: <TOKEN>" \
+$ curl --header "X-Vault-Token: root" \
        --request POST \
        --data @payload-batch.json \
        http://127.0.0.1:8200/v1/transform/decode/payments | jq ".data"

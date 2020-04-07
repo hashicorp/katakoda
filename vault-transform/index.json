@@ -38,6 +38,12 @@
       "text": "intro.md",
       "credits": "https://learn.hashicorp.com/vault"
     },
+    "assets": {
+      "host01": [
+        { "file": "input-multiple.json", "target": "~/" },
+        { "file": "payload-batch.json", "target": "~/" }
+      ]
+    },
     "finish": {
       "text": "finish.md",
       "credits": "https://learn.hashicorp.com/vault"

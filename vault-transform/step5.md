@@ -3,7 +3,7 @@ of [General Data Protection Regulation (GDPR)](https://www.eugdpr.org/) introduc
 
 The following steps demonstrate the use of masking to obscure your customer's phone number since it is personally identifiable information (PII).
 
-!> **NOTE:** Masking is a unidirectional operation; therefore, `encode` is the only supported operation.
+> **NOTE:** Masking is a unidirectional operation; therefore, `encode` is the only supported operation.
 
 Create a template named "phone-number-tmpl" with country code.
 
@@ -37,3 +37,8 @@ Send a test data.
 vault write transform/encode/payments value="+1 123-345-5678" \
         transformation=phone-number
 ```{{execute T1}}
+
+
+## Use case of the data masking
+
+Think of the US citizen's [Social Security Number (SSN) on a Tax statement](https://www.americanpayroll.org/news-resources/apa-news/news-detail/2019/07/12/irs-finalizes-rules-to-allow-employers-to-mask-ssns-on-employees-w-2s). You don't have to worry about your employees' SSNs securely encrypted and stored in a database. But you still need to worry about the SSN appears on a Tax form, or perhaps online banking statements. This is when you may want to use the data masking to protect the highly sensitive data (SSNs).
