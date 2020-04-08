@@ -44,7 +44,7 @@ Notice the output indicating that the **Storage** is set to `file` system, and t
                Log Level: (not set)
                    Mlock: supported: true, enabled: true
                  Storage: file
-                 Version: Vault v1.4.0-rc1
+                 Version: Vault v1.4.0
              Version Sha: c19cef14891751a23eaa9b41fd456d1f99e7e856
 ```
 
