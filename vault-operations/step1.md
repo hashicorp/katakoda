@@ -5,7 +5,7 @@ To install Vault, find the appropriate package for your system and download it. 
 > Enter the following command into the terminal, or click on the command (`⮐`) to automatically copy it into the terminal and execute to downloads the Vault binary for Linux.
 
 ```
-export VAULT=1.4.0-rc1
+export VAULT=1.4.0
 wget https://releases.hashicorp.com/vault/${VAULT}/vault_${VAULT}_linux_amd64.zip
 ```{{execute}}
 
