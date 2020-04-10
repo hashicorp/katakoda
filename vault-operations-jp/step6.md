@@ -11,25 +11,19 @@ vault operator generate-root -h
 `clear`{{execute T2}}
 
 
-始めに以下のコマンドを実行してone-time password (OTP)を生成し、`otp.txt`ファイルに書き留めておきます。
+始めに以下のコマンドを実行してrootトークン生成のオペレーションの初期化します。
 
 ```
-vault operator generate-root -generate-otp > otp.txt
+vault operator generate-root -init > init-output.txt
 ```{{execute T2}}
 
-rootトークン生成のオペレーションには、このOTP(`otp.txt`{{open}})を使い初期化します。
-
-```
-vault operator generate-root -init -otp=$(cat otp.txt) \
-    -format=json | jq -r ".nonce" > nonce.txt
-```{{execute T2}}
-
-> 上のコマンドによって生じた**nonce**(`nonce.txt`{{open}})は、Unsealキーの保持者に知らせる必要があります。
+> 上のコマンドによって生じた**Nonce**(`init-output.txt`{{open}})は、Unsealキーの保持者に知らせる必要があります。
 
 rootトークンの生成には過半数のUnsealキーが必要で、個々のUnsealキー保持者がそれぞれ以下のコマンドを実行します。
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
+vault operator generate-root \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
     $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
@@ -45,23 +39,25 @@ Complete    false
 ２つ目のUnsealキーを入力します。
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
+vault operator generate-root \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
     $(grep 'Key 2:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 最後に３つ目のUnsealキーを入力すると、暗号化された新しいrootトークン(`encoded_root.txt`{{open}})が生成されます。
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-    -format=json $(grep 'Key 3:' key.txt | awk '{print $NF}') \
+vault operator generate-root -format=json \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
+    $(grep 'Key 3:' key.txt | awk '{print $NF}') \
     | jq -r ".encoded_root_token" > encoded_root.txt
 ```{{execute T2}}
 
 以下のコマンドを実行して暗号化されたrootトークンを解読します。（注：解読の際にはOTPが再び必要）
 
 ```
-vault operator generate-root -decode=$(cat encoded_root.txt) -otp=$(cat otp.txt) \
-    > root_token.txt
+vault operator generate-root -decode=$(cat encoded_root.txt) \
+     -otp=$(grep 'OTP' init-output.txt | awk '{print $NF}') > root_token.txt
 ```{{execute T2}}
 
 生成されたrootトークン(`root_token.txt`{{open}})を使いログインして確認してみましょう。

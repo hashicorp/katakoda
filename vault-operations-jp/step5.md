@@ -18,11 +18,6 @@ vault audit enable file file_path=/var/log/vault-audit.log
 
 監査ログはJSON形式で、APIのリクエストメッセージとレスポンスメッセージが記録され、その際に使われた機密情報は安全性重視の為、暗号化されたハッシュ値に変換されます。
 
-まずJSONファイルを読みやすくする為に`jq`ツールをインストールしましょう
-
-```
-apt-get install jq -y
-```{{execute T2}}
 
 では監査ログを見てみましょう。
 
