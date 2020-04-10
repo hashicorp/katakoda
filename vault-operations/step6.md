@@ -11,26 +11,21 @@ vault operator generate-root -h
 `clear`{{execute T2}}
 
 
-First, execute the following command to generate a one-time password (OTP) and save it in the `otp.txt` file:
+Initialize a root token generation and store the output in a file named, `otp.txt`:
 
 ```
-vault operator generate-root -generate-otp > otp.txt
+vault operator generate-root -init > init-output.txt
 ```{{execute T2}}
 
-Initialize a root token generation with the OTP code (`otp.txt`{{open}}) and save the resulting nonce in the `nonce.txt` file:
-
-```
-vault operator generate-root -init -otp=$(cat otp.txt) \
-      -format=json | jq -r ".nonce" > nonce.txt
-```{{execute T2}}
-
+Open the `init-output.txt`{{open}} file and examine its content.
 
 
 **Each unseal key holder** must execute the following command providing their unseal key:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-      $(grep 'Key 1:' key.txt | awk '{print $NF}')
+vault operator generate-root \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
+    $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 The output displays the progress:
@@ -45,15 +40,17 @@ Complete    false
 Proceed with second unseal key:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-      $(grep 'Key 2:' key.txt | awk '{print $NF}')
+vault operator generate-root \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
+    $(grep 'Key 2:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
 Finally, enter the third unseal key and save the resulting encoded root token in the `encoded_root.txt` file:
 
 ```
-vault operator generate-root -nonce=$(cat nonce.txt) \
-    -format=json $(grep 'Key 3:' key.txt | awk '{print $NF}') \
+vault operator generate-root -format=json \
+    -nonce=$(grep 'Nonce' init-output.txt | awk '{print $NF}') \
+    $(grep 'Key 3:' key.txt | awk '{print $NF}') \
     | jq -r ".encoded_root_token" > encoded_root.txt
 ```{{execute T2}}
 
@@ -61,7 +58,7 @@ The resulting root token is encrypted (`encoded_root.txt`{{open}}). Execute the 
 
 ```
 vault operator generate-root -decode=$(cat encoded_root.txt) \
-     -otp=$(cat otp.txt) > root_token.txt
+     -otp=$(grep 'OTP' init-output.txt | awk '{print $NF}') > root_token.txt
 ```{{execute T2}}
 
 Now, verify the newly generated root token (`root_token.txt`{{open}}):

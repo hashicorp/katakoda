@@ -19,13 +19,7 @@ The file audit device writes audit logs to a file (`/var/log/vault-audit.log`). 
 
 Each line in the audit log is a JSON object. The type field specifies what type of object it is. Currently, only two types exist: request and response. The line contains all of the information for any given request and response. By default, all the sensitive information is first hashed before logging in the audit logs.
 
-Let's install a JSON format tool, `jq`:
-
-```
-apt-get install jq -y
-```{{execute T2}}
-
-Now, take a look at the audit log by executing the following command:
+Take a look at the audit log by executing the following command:
 
 ```
 cat /var/log/vault-audit.log | jq
