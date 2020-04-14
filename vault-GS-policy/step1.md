@@ -45,12 +45,6 @@ First, check to verify that KV v2 secrets engine has not been enabled at `secret
 vault secrets list
 ```{{execute T1}}
 
-If `secret/` is **not** listed, enable it before proceeding.
-
-```
-vault secrets enable -path=secret/ kv-v2
-```{{execute T1}}
-
 To use the policy, create a token and assign it to that policy.
 
 ```
@@ -72,7 +66,7 @@ Verify that you can write any data to `secret/data/`.
 vault kv put secret/creds password="my-long-password"
 ```{{execute T1}}
 
-Since `my-policy` only permits read from the `secret/data/foo` path, any attempt to write fails with "permission denied" error.
+Since `my-policy` only permits read from the `secret/data/foo` path, any attempt to write **fails** with "permission denied" error.
 
 ```
 vault kv put secret/foo robot=beepboop
