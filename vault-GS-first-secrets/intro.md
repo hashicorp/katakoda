@@ -1,7 +1,6 @@
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
 
-[Vault's auth methods](https://www.vaultproject.io/docs/concepts/auth.html) perform authentication to verify the user or machine-supplied information. Some of the supported auth methods are targeted towards users while others are targeted toward machines or apps. For example, [LDAP](https://www.vaultproject.io/docs/auth/ldap.html) auth method enables user authentication using an existing LDAP server while [AppRole](https://www.vaultproject.io/docs/auth/approle.html) auth method is recommended for machines or apps.
+One of the core features of Vault is the ability to read and write arbitrary secrets securely. This scenario uses the CLI, but there is also a complete [HTTP API](https://www.vaultproject.io/api/index.html) that can be used to programmatically do anything with Vault.
 
-The [Getting Started](https://learn.hashicorp.com/vault/) guide walks you through how to enable the GitHub auth method for user authentication.
-
-This scenario demonstrates the **`userpass`** auth method which allows users to authenticate with Vault using a username and password combination.
+Secrets written to Vault are encrypted and then written to backend storage. For our dev server, backend storage is in-memory, but in production this would more likely be on disk or in [Consul](https://www.consul.io). Vault encrypts the value before it is ever handed to the storage driver. The backend storage mechanism _never_ sees the unencrypted value and doesn't
+have the means necessary to decrypt it without Vault.
