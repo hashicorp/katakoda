@@ -1,14 +1,14 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault Getting Started - Install",
-  "description": "Learn how to install, configure, and manage the Vault server.",
+  "description": "Learn how to install the Vault server in 60 seconds.",
   "difficulty": "beginner",
-  "time": "10 minutes",
+  "time": "2 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
       {
-        "title": "Installing Vault",
+        "title": "Install Vault",
         "text": "step1.md"
       }
     ],

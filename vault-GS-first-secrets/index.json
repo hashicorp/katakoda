@@ -1,0 +1,37 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Getting Started - Your First Secret",
+  "description": "With the Vault server running, let's read and write our first secret.",
+  "difficulty": "beginner",
+  "time": "2 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Write secrets",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "showdashboard": true,
+    "dashboards": [
+      { "name": "Vault UI", "port": 8200 }
+    ],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
