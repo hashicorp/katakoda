@@ -1,0 +1,31 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Getting Started - Install",
+  "description": "Learn how to install, configure, and manage the Vault server.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Installing Vault",
+        "text": "step1.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
