@@ -25,7 +25,7 @@ vault kv put secret/hello foo=world excited=yes
 `vault kv put` is a very powerful command. In addition to writing data directly from the command-line, it can read values and key pairs from `STDIN` as well as files. For more information, see the
 [command documentation](https://www.vaultproject.io/docs/commands/index.html).
 
-!> **Warning:** The documentation uses the `key=value` based entry throughout, but it is more secure to use files if possible. Sending data via the CLI is often logged in shell history. For real secrets,
+> **Warning:** The documentation uses the `key=value` based entry throughout, but it is more secure to use files if possible. Sending data via the CLI is often logged in shell history. For real secrets,
 please use files. See the link above about reading in from `STDIN` for more information.
 
 ## Getting a Secret
