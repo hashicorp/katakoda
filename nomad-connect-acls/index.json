@@ -1,0 +1,80 @@
+{
+  "title": "Nomad, Consul Connect, and Consul ACLs",
+  "description": "Learn how to run Nomad jobs that leverage Consul Connect for ACL-enabled Consul clusters.",
+  "difficulty": "Intermediate",
+  "time": "20-40 minutes",
+  "icon": "fa-nomad",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Extra Course Components",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Enable and bootstrap Consul ACLs",
+        "text": "01-enable.md",
+        "verify": "01-enable.md.verify.sh"
+      },
+      {
+        "title": "Create Consul agent policy and token",
+        "text": "02-consul_policy.md"
+      },
+      {
+        "title": "Install Consul agent token",
+        "text": "03-consul_agent_token.md"
+      },
+      {
+        "title": "Create Nomad server policy and token",
+        "text": "04-nomad_policy.md"
+      },
+      {
+        "title": "Configure Nomad with Consul token",
+        "text": "05-nomad_config.md"
+      },
+      {
+        "title": "Run a Connect-enabled job",
+        "text": "06-run_connect_job.md"
+      },
+      {
+        "title": "Require Consul authentication to run jobs",
+        "text": "07-disallow_unauthenticated.md"
+      },
+      {
+        "title": "Run a Connect-enabled job with a token",
+        "text": "08-run_connect_job_w_token.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mInteractive Bash Terminal.\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Nomad UI",
+        "port": 4646
+      },
+      {
+        "name": "Consul UI",
+        "port": 8500
+      },
+      {
+        "name": "CountDash UI",
+        "port": 9002
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
