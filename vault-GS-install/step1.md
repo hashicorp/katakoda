@@ -41,4 +41,10 @@ To install completions, run:
 vault -autocomplete-install
 ```{{execute}}
 
+This will automatically install the helpers in your `~/.bashrc` or `~/.zshrc`, or to `~/.config/fish/completions/vault.fish` for Fish users. Then restart your terminal or reload your shell:
+
+```
+exec $SHELL
+```{{execute}}
+
 Now when you type vault `<tab>`, Vault will suggest options. This is very helpful for beginners and advanced Vault users.
