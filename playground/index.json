@@ -1,7 +1,7 @@
 {
-  "title": "Nomad 0.10 Playground",
-  "description": "HashiCorp Nomad environment with Consul and Terraform",
-  "icon": "fa-nomad",
+  "title": "HashiCorp Tools Playground",
+  "description": "HashiCorp tools environment with Terraform, Vault, Consul and Nomad",
+  "icon": "fa-terraform",
   "details": {
     "intro": {
       "credits": "https://learn.hashicorp.com"
