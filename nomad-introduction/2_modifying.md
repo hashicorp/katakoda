@@ -1,6 +1,8 @@
-The definition of a job is not static, and is meant to be updated over time. You may update a job to change the docker container, to update the application version, or to change the count of a task group to scale with load.
+The definition of a job is not static, and is meant to be updated over time. You may update a job to change the docker container, to update the application version, or to change the count of a task group to scale with load. Open the Nomad job file by clicking on this link.
 
-For now, find a line labeled `group "cache"` in the example.nomad file and add `count = 3` under it. This will run three instances of redis.
+`example.nomad`{{open}}
+
+Find a line labeled `group "cache"` in the example.nomad file and add `count = 3` under it. This will run three instances of redis.
 
 ```bash
 group "cache" {
