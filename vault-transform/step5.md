@@ -28,7 +28,7 @@ Verify the newly created `phone-number` mask transformation.
 First, add the `phone-number` transformation to the `payments` role.
 
 ```
-vault write transform/role/payments transformations=card-number,ca-passport,phone-number
+vault write transform/role/payments transformations=card-number,uk-passport,phone-number
 ```{{execute T1}}
 
 Send a test data.

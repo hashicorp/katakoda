@@ -2,7 +2,7 @@ When you need to encode more than one secret value, you can send multiple secret
 
 **Example Scenario 1:**
 
-You received a credit card number, Canadian passport number and a phone number of a customer and wish to transform all these secrets using the `payments` role.
+You received a credit card number, British passport number and a phone number of a customer and wish to transform all these secrets using the `payments` role.
 
 The API request payload can contain all secrets associated with transformations associated with the `payments` role.
 Examine the `input-multiple.json`{{open}} file containing the test data.
