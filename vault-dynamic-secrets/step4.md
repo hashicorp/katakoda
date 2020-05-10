@@ -4,6 +4,18 @@ The TTL for `readonly` role is set to 1 hour.
 vault read database/roles/readonly
 ```{{execute T1}}
 
+Generate a new set of credentials and store the output in a file named, "new-lease.json"
+
+```
+VAULT_TOKEN=$(cat app-token.txt) vault read -format=json database/creds/readonly > new-lease.json
+```{{execute T1}}
+
+View the contents of the new-lease.json file.
+
+```
+cat new-lease.json
+```{{execute T1}}
+
 ## Renew a lease
 
 If you need to extend the lease TTL, execute the following command to renew the lease for this credential by passing its `lease_id`.

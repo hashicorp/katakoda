@@ -1,15 +1,3 @@
-Generate a new set of credentials and store the output in a file named, "new-lease.json"
-
-```
-VAULT_TOKEN=$(cat app-token.txt) vault read -format=json database/creds/readonly > new-lease.json
-```{{execute T1}}
-
-View the contents of the new-lease.json file.
-
-```
-cat new-lease.json
-```{{execute T1}}
-
 Let's connect to the `postgres` container.
 
 ```
