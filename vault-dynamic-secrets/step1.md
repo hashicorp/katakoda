@@ -52,7 +52,7 @@ supply the information in SQL to create desired users.
 View the provided `readonly.sql` file:
 
 ```
-cat readonly.SQL
+cat readonly.sql
 ```{{execute T1}}
 
 The values within the `{{<value>}}` will be filled in by Vault. Notice that `VALID_UNTIL` clause. This tells PostgreSQL to revoke the credentials even if Vault is offline or unable to communicate with it.
