@@ -1,0 +1,54 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Dynamic Engine - Database Secrets Engine",
+  "description": "Learn how to manage database credentials using Vault.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Setup Database secrets engine",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Request PostgreSQL credentials",
+        "text": "step2.md"
+      },
+      {
+        "title": "Validation",
+        "text": "step3.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "readonly.sql",
+          "target": "~/"
+        },
+        {
+          "file": "apps-policy.hcl",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
