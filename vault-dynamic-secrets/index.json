@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault Dynamic Engine - Database Secrets Engine",
+  "title": "Vault Dynamic Secrets - Database Secrets Engine",
   "description": "Learn how to manage database credentials using Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
