@@ -1,7 +1,13 @@
-Generate a new set of credentials and make a note of the generated username and password.
+Generate a new set of credentials and store the output in a file named, "new-lease.json"
 
 ```
-VAULT_TOKEN=$(cat app-token.txt) vault read database/creds/readonly
+VAULT_TOKEN=$(cat app-token.txt) vault read -format=json database/creds/readonly > new-lease.json
+```{{execute T1}}
+
+View the contents of the new-lease.json file.
+
+```
+cat new-lease.json
 ```{{execute T1}}
 
 Let's connect to the `postgres` container.
@@ -13,7 +19,7 @@ docker exec -it postgres bash
 To perform the tasks in this guide, create a user, `vault-edu` with password, `mypassword`.
 
 ```
-/# psql -U root
+psql -U root
 ```{{execute T1}}
 
 Once you are in `psql`, execute `\du`{{execute T1}} to list users. You should find the Vault generated usernames.

@@ -41,10 +41,12 @@ The PostgreSQL secrets engine needs to be configured with valid credentials. It 
 
 ```
 vault write database/config/postgresql \
-        plugin_name=postgresql-database-plugin \
-        allowed_roles=readonly \
-        connection_url=postgresql://root:rootpassword@localhost:5432/postgres?sslmode=disable
+    plugin_name=postgresql-database-plugin \
+    allowed_roles=readonly \
+    connection_url=postgresql://root:rootpassword@localhost:5432/postgres?sslmode=disable
 ```{{execute T1}}
+
+> To learn more about managing the database root credentials, refer to the [Database Root Credential Rotation](https://learn.hashicorp.com/vault/secrets-management/db-root-rotation) guide.
 
 The next step is to define the `readonly` role. A role is a logical name that maps to a policy used to generate credentials. Since Vault does not know what kind of PostgreSQL users you want to create,
 supply the information in SQL to create desired users.
