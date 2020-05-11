@@ -4,7 +4,7 @@ Let's connect to the `postgres` container.
 docker exec -it postgres bash
 ```{{execute T1}}
 
-To perform the tasks in this guide, create a user, `vault-edu` with password, `mypassword`.
+Start the PostgreSQL client CLI.
 
 ```
 psql -U root
