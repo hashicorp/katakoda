@@ -4,7 +4,7 @@
 Vaultのバイナリファイルのダウンロードが実行されます。
 
 ```
-export VAULT=1.4.0
+export VAULT=1.4.2
 wget https://releases.hashicorp.com/vault/${VAULT}/vault_${VAULT}_linux_amd64.zip
 ```{{execute}}
 
