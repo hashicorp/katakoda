@@ -6,6 +6,7 @@ Finally, let's migrate the project to Terraform Cloud and execute the configurat
 - Delete your local `terraform.tfstate` file
 - Run `apply` to execute the configuration remotely
 - Make further changes and run `apply` again
+- Logout
 
 ## Run `init`
 
@@ -48,3 +49,9 @@ As with a local Terraform run, you'll be asked to confirm. But this time, you'll
 You can scroll up to find the URL to this run within your organization and workspace in Terraform Cloud.
 
 Or, visit [Terraform Cloud](https://app.terraform.io/app) and select your organization. You'll see a workspace named `random-pet-demo`. Click the workspace to see that it has been run. You can examine the output from the run or view state, variables, or other settings.
+
+## Logout
+
+To clear your authentication token from the local workstation, run `logout`.
+
+`terraform logout`{{execute}}

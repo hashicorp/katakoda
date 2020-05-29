@@ -6,7 +6,8 @@
   "details": {
     "intro": {
         "text": "intro.md",
-        "code": "courseBase.sh",
+        "background": "intro-background.sh",
+        "foreground": "intro-foreground.sh",
         "credits": "https://learn.hashicorp.com/terraform"
     },
     "steps": [
@@ -27,7 +28,10 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "hideHiddenFiles": true,
+    "uieditorpath": "/root/terraform-docker-demo",
+    "exclusionPatterns": ["./terraform/*"]
   },
   "backend": {
     "imageid": "hashicorp-hashistack",
