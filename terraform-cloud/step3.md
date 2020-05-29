@@ -50,7 +50,11 @@ You can scroll up to find the URL to this run within your organization and works
 
 Or, visit [Terraform Cloud](https://app.terraform.io/app) and select your organization. You'll see a workspace named `random-pet-demo`. Click the workspace to see that it has been run. You can examine the output from the run or view state, variables, or other settings.
 
-## Logout
+## Destroy and Logout
+
+To complete this tutorial, destroy the state stored on Terraform cloud. This will not delete the organization or workspace, but will reset the workspace state so it can be used again in the future.
+
+`terraform destroy`{{execute}}
 
 To clear your authentication token from the local workstation, run `logout`.
 
