@@ -14,9 +14,13 @@ You'll be asked to [create an organization](https://app.terraform.io/app/organiz
 
 ## Authenticate this machine to Terraform Cloud
 
-To authenticate to Terraform Cloud, you must run the `login` command. Your web browser will open Terraform Cloud. Upon completion, a local file will be created with an authentication token.
+To authenticate to Terraform Cloud, you must run the `login` command.
 
 `terraform login`{{execute}}
+
+You will be prompted to visit [Terraform Cloud](https://app.terraform.io/app/settings/tokens?source=terraform-login) and copy the generated token. Paste it into the terminal at the prompt.
+
+Upon completion, a local file will be created with an authentication token.
 
 ## Edit the Terraform configuration
 
