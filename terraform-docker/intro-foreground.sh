@@ -1,0 +1,1 @@
+cd ~/terraform-docker-demo
