@@ -24,7 +24,9 @@ Upon completion, a local file will be created with an authentication token.
 
 ## Edit the Terraform configuration
 
-Finally, edit `~/random-pet-demo/main.tf` with the name of the `organization` you created earlier. Under `workspaces`, use `random-pet-demo` as the `name`. This workspace will be created on Terraform Cloud the first time we run `terraform init` in the next step.
+Now, edit `~/random-pet-demo/main.tf` with the name of the `organization` you created earlier. Under `workspaces`, use `random-pet-demo` as the `name`. This workspace will be created on Terraform Cloud the first time you run `terraform init` in the next step.
+
+`main.tf`{{open}}
 
 ```
 terraform {
