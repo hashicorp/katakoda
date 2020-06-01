@@ -1,0 +1,63 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Installation to Minikube via Helm",
+  "description": "Deploy Vault on Kubernetes locally using Minikube with the official Helm chart.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Minikube",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Install the Consul Helm chart",
+        "text": "step2.md"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step3.md"
+      },
+      {
+        "title": "Initialize and unseal Vault",
+        "text": "step4.md"
+      },
+      {
+        "title": "Set a secret in Vault",
+        "text": "step5.md"
+      },
+      {
+        "title": "Configure Kubernetes authentication",
+        "text": "step6.md"
+      },
+      {
+        "title": "Launch a web application",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "helm-consul-values.yml", "target": "~/" },
+        { "file": "helm-vault-values.yml", "target": "~/" },
+        { "file": "deployment-01-webapp.yml", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "minikube-running"
+  }
+}
