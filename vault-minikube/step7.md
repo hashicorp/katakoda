@@ -14,6 +14,8 @@ kubectl get pods
 
 The web application pod is displayed here as the pod prefixed with `webapp`.
 
+Wait until the `webapp` status becomes **Running** and Ready (`1/1`).
+
 This web application is running an HTTP service that is listening on port 8080.
 
 [Port

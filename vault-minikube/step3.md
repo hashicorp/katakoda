@@ -19,9 +19,13 @@ To verify, get all the pods within the `default` namespace.
 kubectl get pods
 ```{{execute}}
 
-The `vault-0`, `vault-1` and `vault-2` pods report that they are `Running` but
-they are not ready `0/1`. That is because Vault in each pod is executes a status
-check defined in a [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes).
+
+The Vault pods are displayed as  `vault-0`, `vault-1` and `vault-2`.
+
+Wait until the pods report that they are `Running` and not ready (`0/1`).
+
+These pods are not ready because Vault in each pod executes a status
+check as a [readinessProbe](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes).
 
 Retrieve the status of Vault on the `vault-0` pod.
 
