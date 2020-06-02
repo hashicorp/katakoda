@@ -22,7 +22,7 @@ To verify, get all the pods within the `default` namespace.
 kubectl get pods
 ```{{execute}}
 
-The Consul services are displayed here as the pods prefixed with `consul`. The server
+Wait until the Consul services are displayed here as the pods prefixed with `consul`. The server
 and client report that they are
 [`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
 and ready (`1/1`).
