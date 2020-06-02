@@ -1,6 +1,6 @@
 Running Vault on [Kubernetes](https://kubernetes.io/) is generally the same as
 running it anywhere else. Kubernetes, as a container orchestration engine, eases
-some of the operational burdens and [Helm
+some of the operational burden and [Helm
 charts](https://helm.sh/docs/topics/charts/) provide the benefit of a
 refined interface when it comes to deploying Vault in a variety of different
 modes.
