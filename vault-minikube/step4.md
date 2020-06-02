@@ -12,7 +12,7 @@ These key shares are written to the output as unseal keys in JSON format
 `-format=json`. Here the output is redirected to a file named
 `cluster-keys.json`.
 
-View the unseal key found in `cluster-keys.json`.
+View the unseal key found in `cluster-keys.json`{{open}}.
 
 ```shell
 cat cluster-keys.json | jq -r ".unseal_keys_b64[]"
