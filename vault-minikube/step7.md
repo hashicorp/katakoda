@@ -1,4 +1,5 @@
-Deploy the webapp in Kubernetes by applying the file `deployment-01-webapp.yml`{{open}}.
+Deploy the webapp in Kubernetes by applying the file
+`deployment-01-webapp.yml`{{open}}.
 
 ```shell
 kubectl apply --filename deployment-01-webapp.yml
