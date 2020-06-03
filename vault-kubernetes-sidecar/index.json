@@ -1,0 +1,84 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Injecting Secrets into Kubernetes Pods via Vault Helm Sidecar",
+  "description": "Deploy Vault-unaware applications on Kubernetes that consume Vault Secrets.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Minikube",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step2.md"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step3.md"
+      },
+      {
+        "title": "Configure Kubernetes authentication",
+        "text": "step4.md"
+      },
+      {
+        "title": "Define a Kubernetes service account",
+        "text": "step5.md"
+      },
+      {
+        "title": "Launch an application",
+        "text": "step6.md"
+      },
+      {
+        "title": "Inject secrets into the pod",
+        "text": "step7.md"
+      },
+      {
+        "title": "Apply a template to the injected secrets",
+        "text": "step8.md"
+      },
+      {
+        "title": "Deployment with annotations",
+        "text": "step9.md"
+      },
+      {
+        "title": "Secrets are bound to the service account",
+        "text": "step10.md"
+      },
+      {
+        "title": "Secrets are bound to the namespace",
+        "text": "step11.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "service-account-internal-app.yml", "target": "~/" },
+        { "file": "deployment-01-orgchart.yml", "target": "~/" },
+        { "file": "deployment-02-inject-secrets.yml", "target": "~/" },
+        { "file": "deployment-03-inject-secrets-as-template.yml", "target": "~/" },
+        { "file": "deployment-04-payrole.yml", "target": "~/" },
+        { "file": "deployment-05-website.yml", "target": "~/" },
+        { "file": "deployment-06-issues.yml", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "hideHiddenFiles": true,
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "minikube-running"
+  }
+}
