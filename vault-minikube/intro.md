@@ -6,5 +6,5 @@ refined interface when it comes to deploying Vault in a variety of different
 modes.
 
 In this tutorial, you will setup Vault and its dependencies with a Helm chart.
-Then you will integrate a web application that uses the Kubernetes service account token
-to authenticate with Vault and retrieve a secret.
+Then you will integrate a web application that uses the Kubernetes service
+account token to authenticate with Vault and retrieve a secret.
