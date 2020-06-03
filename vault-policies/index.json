@@ -47,6 +47,7 @@
       "uilayout": "editor-terminal",
       "hideHiddenFiles": true,
       "showdashboard": true,
+      "hideHiddenFiles": true,
       "dashboards": [
         { "name": "Vault UI", "port": 8200 }
       ],

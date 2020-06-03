@@ -46,6 +46,7 @@
   "environment": {
     "uilayout": "terminal-iframe",
     "showdashboard": true,
+    "hideHiddenFiles": true,
     "dashboards": [
       { "name": "Vault UI", "port": 8200 }
     ],

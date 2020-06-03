@@ -46,6 +46,7 @@
   },
   "environment": {
     "uilayout": "terminal",
+    "hideHiddenFiles": true,
     "showdashboard": true,
     "dashboards": [
       {"name": "Nomad", "port": 4646},
