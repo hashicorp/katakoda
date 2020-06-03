@@ -1,16 +1,14 @@
-# Launch Demo Dashboard
-
-Next, start a second terminal. You'll start the front-end `dashboard-service` on port `9002`. It will not yet connect to the `counting` service...we will do that in another step.
+Next, start a second terminal. You'll start the frontend service, `dashboard-service`, on port `9002`. It will not yet connect to the `counting` service...you will do that in another step.
 
 Click the **+** button in the tab bar and select **Open New Terminal**.
 
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal" title="New Terminal">
 
-Consul is configured to look for the `dashboard-service` on port `9002`. You can see the configuration by looking at the configuration file at `/etc/consul.d/dashboard.json`.
+The service defnition instructs Consul to look for the `dashboard-service` on port `9002`. You can see the service defnition by looking at the configuration file at `/etc/consul.d/dashboard.json`.
 
 `cat /etc/consul.d/dashboard.json`{{execute}}
 
-Now start the service, specifying `PORT` as an environment variable and `COUNTING_SERVICE_URL`. In another step, we will run the proxy on `localhost:9001`, so specify it here for future use.
+Now start the service, specifying `PORT` as an environment variable and `COUNTING_SERVICE_URL`. In another step, you will run the sidecar proxy on `localhost:9001`, so specify it here for future use.
 
 `PORT=9002 COUNTING_SERVICE_URL=http://localhost:9001 dashboard-service`{{execute}}
 
