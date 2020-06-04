@@ -1,0 +1,20 @@
+{
+  "batch_input": [
+    {
+      "value": "1111-1111-1111-1111",
+      "transformation": "card-number"
+    },
+    {
+      "value": "2222-2222-2222-2222",
+      "transformation": "card-number"
+    },
+    {
+      "value": "3333-3333-3333-3333",
+      "transformation": "card-number"
+    },
+    {
+      "value": "4444-4444-4444-4444",
+      "transformation": "card-number" 
+    }
+  ]
+}
