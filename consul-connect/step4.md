@@ -2,7 +2,7 @@ You can control which services are allowed to communicate to other services by d
 
 # Create a Consul Intention to Deny All
 
-In the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/), find the _Intentions_ menu in the top navigation.
+In the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/intentions), find the _Intentions_ menu in the top navigation.
 
 Click the "Create" button to open the intentions form. Start by defining a default rule that denies all communication between all services. This is achieved by creating an intention from `*` to `*` with a value of `deny`. You can optionally add a description such as "Deny all communication by default."
 
