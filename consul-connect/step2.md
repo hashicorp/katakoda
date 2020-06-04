@@ -1,10 +1,10 @@
-Next, start a second terminal. You'll start the frontend service, `dashboard-service`, on port `9002`. It will not yet connect to the `counting` service...you will do that in another step.
+Next, start a second terminal. You'll start the frontend service, `dashboard-service`, on port `9002`. It will not yet connect to the `counting` service, you will do that in another step.
 
 Click the **+** button in the tab bar and select **Open New Terminal**.
 
 <img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal" title="New Terminal">
 
-The service defnition instructs Consul to look for the `dashboard-service` on port `9002`. You can see the service defnition by looking at the configuration file at `/etc/consul.d/dashboard.json`.
+The service definition instructs Consul to look for the `dashboard-service` on port `9002`. You can inspect the service definition by looking at the configuration file at `/etc/consul.d/dashboard.json`.
 
 `cat /etc/consul.d/dashboard.json`{{execute}}
 

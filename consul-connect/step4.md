@@ -16,7 +16,7 @@ Restart the `dashboard-service`.
 
 `PORT=9002 COUNTING_SERVICE_URL=http://localhost:9001 dashboard-service`{{execute}}
 
-View the [dashboard](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/) and you will see that it cannot reach the backend `counting-service`. This is intended.
+View the [dashboard](https://[[HOST_SUBDOMAIN]]-9002-[[KATACODA_HOST]].environments.katacoda.com/) and you will notice that it cannot reach the backend `counting-service`. This is intended.
 
 <img src="https://hashicorp-education.s3-us-west-2.amazonaws.com/katacoda/consul-connect/images/3-3-dashboard-unreachable.png" alt="Demo dashboard cannot reach the counting service" title="Demo dashboard cannot reach the counting service">
 

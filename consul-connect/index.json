@@ -7,7 +7,7 @@
   "details": {
     "steps": [
       {
-        "title": "Access the Consul UI and Strat Backend Service",
+        "title": "Access the Consul UI and Start Backend Service",
         "text": "step1.md"
       },
       {

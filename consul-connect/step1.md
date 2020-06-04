@@ -12,13 +12,13 @@ Since health checks have been configured, there will be a red `X` next to the `c
 
 Start the backend service, `counting-service`. First, you'll examine the configuration for this service and then start the it on port `9003`.
 
-The service defnition instructs Consul to look for the `counting-service` on port `9003`. You can see the service defnition by looking at the configuration file at `/etc/consul.d/counting.json`.
+The service definition instructs Consul to look for the `counting-service` on port `9003`. You can see the service definition by looking at the configuration file at `/etc/consul.d/counting.json`.
 
 `cat /etc/consul.d/counting.json`{{execute}}
 
 There are three important settings in the service definition.
 
-- Consul will look for a service running on port `9003`. It will advertise that as the `counting` service. On a properly configured node, this can be reached as `counting.service.consul` through DNS.
+- Consul will look for a service running on port `9003`. It will advertise that as the `counting` service. On a properly configured node, this can be reached as `counting.service.consul` through Consul DNS interface.
 - A service sidecar proxy is defined. This enables proxy communication through Consul service mesh but doesn't define any connections right away. The proxy must be manually started, which we will do later.
 - A health check examines the local `/health` endpoint every second to determine whether the service is healthy and can be exposed to other services.
 
