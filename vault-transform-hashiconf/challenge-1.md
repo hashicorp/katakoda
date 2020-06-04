@@ -20,8 +20,8 @@ Create an FPE transformation that can satisfy your business requirements.
 If you are not familiar with regex, refer to the [Regular Expression Quick Reference](http://regexrenamer.sourceforge.net/help/regex_quickref.html) to help define the pattern.
 
 
-## Verification
+<br />
 
-Do NOT forget to test your solution. You can add the transformations to the `payments` role, or create a new role.  
+DO NOT FORGET to test your solution. You can add the transformations to the `payments` role, or create a new role.  
 
 ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/thinker.jpg)

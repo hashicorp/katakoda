@@ -22,7 +22,7 @@ vault write transform/template/phone-number-tmpl type=regex \
         alphabet=builtin/numeric
 ```{{execute T1}}
 
-## Verification
+## Test
 
 Test the newly created `phone-number` mask transformation.
 

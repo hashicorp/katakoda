@@ -5,7 +5,7 @@
       "transformation": "card-number"
     },
     {
-      "value": "AB123456",
+      "value": "123456789",
       "transformation": "uk-passport"
     },
     {
