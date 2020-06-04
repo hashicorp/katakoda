@@ -1,7 +1,7 @@
 {
-  "title": "Consul Connect",
+  "title": "Consul Connect Service Mesh",
   "description":
-    "Run two services and connect them securely with Consul Connect",
+    "Securly connect two services with Consul service mesh",
   "time": "15 minutes",
   "icon": "fa-consul",
   "details": {
