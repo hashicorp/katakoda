@@ -8,7 +8,7 @@ vault write transform/transformation/swiss-phone type=masking \
 ```{{execute T1}}
 
 
-Step 2: Create "swiss-phone-tmpl"
+Step 2: Create `swiss-phone-tmpl` template
 
 ```
 vault write transform/template/swiss-phone-tmpl type=regex \
