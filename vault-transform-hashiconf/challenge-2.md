@@ -4,8 +4,8 @@ The telephone numbers in Switzerland is consisted of 10 digits: **`0xx xxx xx xx
 
 Create a masking transformation to mask only the subscriber number (the last 7 digits of the phone number). Use **`*`** as the masking character. (No need to worry about the country code.)
 
-## Verification
+<br />
 
-Do NOT forget to test your solution. You can add the transformations to the `payments` role, or create a new role.  
+DO NOT FORGET to test your solution. You can add the transformations to the `payments` role, or create a new role.  
 
 ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/thinker.jpg)

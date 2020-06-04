@@ -19,8 +19,9 @@ vault write transform/template/card-count-tmpl type=regex \
 The regex expression `\d` matches a digit 0 through 9, and `{2}` matches exactly 2 times; therefore, 2 digits numbers. The expression, `{13,15}` matches between 13 and 15 times. Therefore, the `\d{13,15}` matches 13 to 15 digits numbers.
 Because `\d{13,15}` is inside the parentheses but `\d{2}` is _NOT_, only the last 13 to 15 digits will be encoded by Vault.
 
+<br />
 
-## Validation
+## Test
 
 Add the transformations to the `payment` role.
 
