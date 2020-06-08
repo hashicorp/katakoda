@@ -3,7 +3,7 @@
   "title": "[HashiConf EU Digital] Transform Secrets Engine Workshop",
   "description": "Learn how Transform Secrets Engine works to protect your application data.",
   "difficulty": "beginner",
-  "time": "20 minutes",
+  "time": "30 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
