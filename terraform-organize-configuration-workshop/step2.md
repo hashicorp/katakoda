@@ -2,7 +2,7 @@ Now that you have a monolithic configuration to work with, in this step you will
 separate the configuration into two files, one for your "dev" environment, and
 one for "prod".
 
-## Seperate Configuration Files
+## Separate Configuration Files
 
 In this step, you will separate your production and development environments
 into two configuration files.
