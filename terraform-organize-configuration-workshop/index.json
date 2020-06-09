@@ -1,0 +1,58 @@
+{
+  "title": "Organize Terraform Configuration",
+  "description":
+    "Learn to organize Terraform configuration.",
+  "time": "30 minutes",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Create Terraform Configuration",
+        "text": "step1.md"
+      },
+      {
+        "title": "Separate Configuration Files",
+        "text": "step2.md"
+      },
+      {
+        "title": "Separate Configuration Directories",
+        "text": "step3.md"
+      },
+      {
+        "title": "Separate State With Workspaces",
+        "text": "step4.md"
+      },
+      {
+        "title": "Refactor With Modules",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "index.html",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1":
+      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "uieditorpath": "/root/learn-terraform",
+    "hideHiddenFiles": true
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
