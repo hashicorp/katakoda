@@ -116,7 +116,7 @@ This configuration includes two s3 buckets set up for static website hosting:
 `dev`, and `prod`.
 
 You may have noticed three variables being used in the above configuration. Define
-these variabled by adding the following to `variables.tf`{{open}}.
+these variables by adding the following to `variables.tf`{{open}}.
 
 ```
 variable "aws_region" {
@@ -173,5 +173,5 @@ Respond with `yes`{{execute}} when prompted.
 
 You can verify the website endpoint URLs by opening them in your web browser.
 
-In the next step, you will begin to organize this configuration by seperating
+In the next step, you will begin to organize this configuration by separating
 your development and production configuration.

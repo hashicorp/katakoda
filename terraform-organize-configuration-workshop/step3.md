@@ -146,9 +146,9 @@ Again, respond to the prompt with `yes`{{execute}}, and check the new production
 endpoint.
 
 Now your environments can be managed independently. This works well when the
-configuration is identical betwen environments (aside from variable
+configuration is identical between environments (aside from variable
 definitions), but can be inflexible if you need different configuration between
-environments, or need to manage the resources seperately. You also need to
+environments, or need to manage the resources separately. You also need to
 ensure that all commands are run in the correct workspace.
 
 ## Destroy Resources
@@ -168,5 +168,5 @@ terraform destroy -var-file=dev.tfvars
 
 And once again respond to the prompt with `yes`{{execute}}.
 
-In the next step, you will learn to manage your configuration in seperate directories.
+In the next step, you will learn to manage your configuration in separate directories.
 
