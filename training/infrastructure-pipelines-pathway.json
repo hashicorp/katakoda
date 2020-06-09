@@ -1,0 +1,13 @@
+{
+    "title": "Terraform Infrastructure Pipelines Workshop",
+    "description": "Use Terraform Cloud Run Triggers to deploy a Kubernetes cluster, Consul, and Vault.",
+    "courses": [
+      {
+        "pathway_id": "infrastructure-pipelines-pathway",
+        "title": "Terraform Infrastructure Pipelines",
+        "id": "infrastructure-pipelines-workshop",
+        "course_id": "infrastructure-pipelines-workshop",
+        "description": "Use Terraform Cloud Run Triggers to deploy a Kubernetes cluster, Consul, and Vault."
+      }
+    ]
+  }
