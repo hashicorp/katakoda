@@ -14,7 +14,7 @@ kubectl config set-context --current --namespace offsite
 ```{{execute}}
 
 Apply the deployment and create the service account defined in
-`deployment-06-issues.yml`.
+`deployment-06-issues.yml`{{open}}.
 
 ```shell
 kubectl apply --filename deployment-06-issues.yml
