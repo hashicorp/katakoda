@@ -35,7 +35,7 @@ blocks, so comment out or remove these lines from `prod.tf`{{open}}:
 # }
 ```
 
-Also remove the resource blocks for your dev environment from `prod.tf{{open}}:
+Also remove the resource blocks for your dev environment from `prod.tf`{{open}}:
 
 - Remove the entire `resource "aws_s3_bucket" "dev" { ... }` block
 - Remove the entire `resource "aws_s3_bucket_object" "dev" { ... }` block
