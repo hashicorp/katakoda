@@ -171,5 +171,5 @@ the `-var-file=prod.tfvars` flag.
 
 ## Destroy Resources
 
-Clean up both environments by running `terraform destroy` in both directories.
+Clean up both environments by running `terraform destroy`{{execute}} in both directories.
 Don't forget to include the `-var-file` argument!
