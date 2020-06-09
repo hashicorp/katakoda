@@ -75,7 +75,7 @@ dev_website_endpoint = http://hc-digital-dev-infinitely-vertically-busy-tapir.s3
 prod_website_endpoint = http://hc-digital-prod-infinitely-vertically-busy-tapir.s3-website-us-west-2.amazonaws.com/index.html
 ```
 
-Now your production and development environemnts are in separate files, but they
+Now your production and development environments are in separate files, but they
 are managed by the same Terraform workspace, and share both configuration and
 state. Because of this, a change that you intend to make in one environment can
 affect the other.
