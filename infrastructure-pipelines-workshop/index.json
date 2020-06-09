@@ -25,10 +25,6 @@
       {
         "title": "Verify deployments",
         "text": "verify-deployments.md"
-      },
-      {
-        "title": "Clean up resources",
-        "text": "clean-up.md"
       }
     ],
     "intro": {
