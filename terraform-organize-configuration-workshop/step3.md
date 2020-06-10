@@ -108,16 +108,10 @@ prefix = "prod"
 
 ## Apply Changes In Two Workspaces
 
-Now that your configuration is refactored to support either a dev or prod
-environment, initialize your workspace again to ensure your Terraform
-configuration is valid:
-
-```
-terraform init
-```{{execute}}
+Now your configuration supports either a dev or prod environment.
 
 Terraform commands operate in a default workspace, but you can create and manage
-other workspaces as well.
+other workspaces as well. Create a new `dev` workspace.
 
 ```
 terraform workspace new dev

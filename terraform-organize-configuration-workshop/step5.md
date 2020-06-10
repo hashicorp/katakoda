@@ -37,8 +37,10 @@ Add the following configuration to `modules/aws-s3-static-website-bucket/main.tf
 ```
 resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
-
   acl    = "public-read"
+
+  force_destroy = true
+
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -61,10 +63,7 @@ EOF
   website {
     index_document = "index.html"
     error_document = "error.html"
-
   }
-
-  force_destroy = true
 }
 ```{{copy}}
 

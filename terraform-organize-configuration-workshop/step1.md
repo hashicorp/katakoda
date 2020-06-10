@@ -36,6 +36,8 @@ resource "aws_s3_bucket" "dev" {
   bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
+  force_destroy = true
+
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -58,9 +60,7 @@ EOF
   website {
     index_document = "index.html"
     error_document = "error.html"
-
   }
-  force_destroy = true
 }
 
 resource "aws_s3_bucket_object" "dev" {
@@ -69,13 +69,14 @@ resource "aws_s3_bucket_object" "dev" {
   bucket       = aws_s3_bucket.dev.id
   content      = file("${path.module}/assets/index.html")
   content_type = "text/html"
-
 }
 
 resource "aws_s3_bucket" "prod" {
   bucket = "hc-digital-${var.prod_prefix}-${random_pet.petname.id}"
-
   acl    = "public-read"
+
+  force_destroy = true
+
   policy = <<EOF
 {
     "Version": "2012-10-17",
@@ -100,7 +101,6 @@ EOF
     error_document = "error.html"
 
   }
-  force_destroy = true
 }
 
 resource "aws_s3_bucket_object" "prod" {
