@@ -2,7 +2,7 @@ In this scenario, you will apply the Sentinel Policy-as-Code principles to a Ter
 
 Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the configuration you are testing.
 
-This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. Noice the `policy` block of the `"aws_s3_bucket" "bucket"` resource that makes the bucket readable. 
+This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. The `acl` attribute of the `"aws_s3_bucket" "bucket"` resource ensures this web app object is public but the viewer cannot write or edit it.
 
 For your first policy, create a resource filter for your S3 buckets and a rule that requires that resource to have at least one tag. 
 
@@ -51,7 +51,7 @@ To see Sentinel policy logic in action, run an `apply` with the `trace` flag in 
 sentinel apply -trace restrict-s3-buckets.sentinel
 ```{{execute}}
 
-Review the trace information.
+Review the trace information. You will find that this policy passed because the Terraform plan contained at least one tag and meets the requirements in your `bucket_tags` rule.
 
 ## Create a failing policy
 
@@ -65,7 +65,7 @@ all s3_buckets as _, buckets {
 }
 ```{{copy}}
 
-Run an apply in the Sentinel CLI again and evaluate the output.
+Run an apply in the Sentinel CLI again and evaluate the output. You changed the `bucket_tags` rule to require that NO tags are applied to the S3 bucket. Because your plan information already contains these tags, your policy failed.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel

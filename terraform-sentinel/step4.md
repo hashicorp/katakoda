@@ -9,8 +9,7 @@ Open `terraform-sentinel/test/restrict-s3-buckets/fail.json`{{open}} to add a pa
 Copy and paste the relative path to your failing mock in the test file.
 
 ```
-{
-  "mock": {
+"mock": {
     "tfplan/v2": "../../mock-data/mock-tfplan-fail-v2.sentinel"
 },
 ```{{copy}}
@@ -23,8 +22,7 @@ Open `terraform-sentinel/test/restrict-s3-buckets/pass.json`{{open}} and add a p
 Copy and paste the relative path to your passing mock in the test file.
 
 ```
-{
-  "mock": {
+"mock": {
     "tfplan/v2": "../../mock-data/mock-tfplan-pass-v2.sentinel"
 },
 ```{{copy}}
@@ -39,4 +37,4 @@ In your terminal, run a test with the `verbose` flag
 sentinel test -verbose restrict-s3-buckets.sentinel
 ```{{execute}}
 
-Now that your failing and passing scenarios are detailed in test files, you can create upload these to your VCS provider connected to your Terraform Cloud organization. 
+Now that your failing and passing scenarios are detailed in test files, you can upload these to your VCS policy repo and connect it to your Terraform Cloud organization. Your organization must be subscribed to **Team & Governance** in [Terraform Cloud or Terraform Enterprise](https://www.hashicorp.com/blog/announcing-free-trials-for-hashicorp-terraform-cloud-paid-offerings/) to apply your Sentinel policies to your workspaces. 
