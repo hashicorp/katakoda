@@ -1,12 +1,12 @@
-In this scenario, you will apply the Sentinel logic principles to a Terraform specific deployment.
+In this scenario, you will apply the Sentinel Policy-as-Code principles to a Terraform specific deployment. You will create a policy that requires your configuration to have specific tags on your S3 buckets and restrict the level of access to your bucket objects.
 
-Navigate to the `terraform-sentinel/tf-config/main.tf`{{open}} and review the configuration you are testing.
+Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the configuration you are testing.
 
-This configuration builds an S3 bucket with a unique name and deploys an example web app as a bucket object. You have an S3 bucket policy attached to the bucket resource which allows pubic read permissions for your bucket object. This example configuration does not have any deployment safeguards built in and if your AWS user has S3 build and upload permissions, your Terraform deployment will apply successfully.
+This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. Noice the `policy` block of the `"aws_s3_bucket" "bucket"` resource that makes the bucket readable. 
 
-Proper testing of a policy requires that these values be able to be mocked - or, in other words, simulated in a way that allows the accurate testing of the scenarios that a policy could reasonably pass or fail under.
+This example configuration does not have any deployment safeguards built in, so if your AWS user has S3 build and upload permissions, your Terraform deployment will apply successfully, making the contents of the bucket public.
 
-In order to test this policy, this scenario has pre-generated [mock data from Terraform Cloud](https://www.terraform.io/docs/cloud/sentinel/mock.html). To learn how to generate mock data for testing in the Sentinel CLI, follow the [Sentinel Learn guides on Sentinel & Terraform Cloud](https://www.learn.hashicorp.com/terraform?LINK).
+In Terraform Cloud, Sentinel runs between the plan and apply phases of a Terraform run. In order to test this policy, this scenario has mock data in `~/terraform-sentinel/mock-data` to mimic the plan information you would receive during a Terraform plan. 
 
 Part of writing Sentinel policies is to determine your parameters based on your infrastructure. For your first policy, you must ensure the following: 
 
@@ -36,7 +36,7 @@ bucket_tags = rule {
 		buckets.change.after.tags is not null
 		}
 	}
-	```{{copy}}
+```{{copy}}
 
 
 ## Create main rule
@@ -65,11 +65,11 @@ To see the failure behavior of your Sentinel policy, change the `bucket_tags` ru
 
 ```
 bucket_tags = rule {
-	all s3_buckets as _, buckets {
-		buckets.change.after.tags is null
-		}
+all s3_buckets as _, buckets {
+	buckets.change.after.tags is null
 	}
-	```{{copy}}
+}
+```{{copy}}
 
 Run an apply in the Sentinel CLI again and evaluate the output.
 
@@ -81,10 +81,10 @@ After reviewing the failing output, change the `bucket_tags` rule to evaluate co
 
 ```
 bucket_tags = rule {
-	all s3_buckets as _, buckets {
-		buckets.change.after.tags is not null
-		}
+all s3_buckets as _, buckets {
+	buckets.change.after.tags is not null
 	}
-	```{{copy}}
+}
+```{{copy}}
 
 In the next step, you will build on this policy with more specific and restrictive policy information.
