@@ -4,7 +4,7 @@ Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}, 
 
 ## Create a print statement for debugging
 
-The print statement is a helpful tool for debugging and discovery when you are writing policies, so create one here after the closing bracked of your `s3_buckets` filter.
+The print statement is a helpful tool for debugging and discovery when you are writing policies, so create one here after the closing bracket of your `s3_buckets` filter.
 
 ```
 print(s3_buckets)
