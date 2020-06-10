@@ -4,7 +4,7 @@
   "courses": [
     {
       "pathway_id": "hashicorp",
-      "title": "Organize Terraform Configuration",
+      "title": "Vault on Raft",
       "id": "vault-raft-hashiconf",
       "course_id": "vault-raft-hashiconf",
       "description": "Use raft storage with Vault."
