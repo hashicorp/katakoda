@@ -1,0 +1,13 @@
+{
+  "title": "Terraform Organize Configuration Workshop",
+  "description": "Organize configuration",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Organize Terraform Configuration",
+      "id": "terraform-organize-configuration-workshop",
+      "course_id": "terraform-organize-configuration-workshop",
+      "description": "Learn to organize Terraform configuration."
+    }
+  ]
+}

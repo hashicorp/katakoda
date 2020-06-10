@@ -1,0 +1,13 @@
+{
+  "title": "Terraform Sentinel Workshop",
+  "description": "Terraform Sentinel workshop",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Terraform Sentinel",
+      "id": "terraform-sentinel",
+      "course_id": "terraform-sentinel",
+      "description": "Write, test, and deploy Sentinel policies."
+    }
+  ]
+}
