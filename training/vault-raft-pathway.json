@@ -1,0 +1,20 @@
+{
+  "title": "Vault Raft Workshop",
+  "description": "Vault Raft workshop",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Organize Terraform Configuration",
+      "id": "vault-raft-hashiconf",
+      "course_id": "vault-raft-hashiconf",
+      "description": "Use raft storage with Vault."
+    },
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault Kubernetes Sidecar",
+      "id": "vault-kubernetes-sidecar",
+      "course_id": "vault-kubernetes-sidecar",
+      "description": "Use Vault with Kubernetes."
+    }
+  ]
+}
