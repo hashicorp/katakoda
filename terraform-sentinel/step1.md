@@ -10,7 +10,7 @@ For your first policy, create a resource filter for your S3 buckets and a rule t
 
 The stub of this policy is in `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}.
 
-The first step in this policy relies on creating a filter for the s3_bucket resources in the Terraform Cloud plan. Copy and paste the filter block below the import statement.
+The first step in this policy relies on creating a filter for the s3_bucket resources in the Terraform Cloud plan. Copy and paste the filter block below the commented line `# Filter S3 buckets`.
 
 ```
 s3_buckets = filter tfplan.resource_changes as _, rc {
@@ -22,7 +22,7 @@ s3_buckets = filter tfplan.resource_changes as _, rc {
 
 ## Create the bucket rule
 
-Your policy has a filter that will search the mock data, but no rule to evaluate this data against. Copy and paste the `bucket_tags` rule to your policy below the filter statement.
+Your policy has a filter that will search the mock data, but no rule to evaluate this data against. Copy and paste the `bucket_tags` rule below the commented line `# Rule to require at least one tag`.
 
 ```
 bucket_tags = rule {
@@ -35,7 +35,8 @@ bucket_tags = rule {
 
 ## Create main rule
 
-Your filter and bucket rule will be evaluated in the main rule. Copy and paste the main rule below your bucket rule.
+Your filter and bucket rule will be evaluated in the main rule. Copy and paste the main rule below the commented line `# Main rule`
+
 
 ```
 main = rule {
