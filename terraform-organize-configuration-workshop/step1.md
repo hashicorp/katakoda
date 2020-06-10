@@ -173,5 +173,9 @@ Respond with `yes`{{execute}} when prompted.
 
 You can verify the website endpoint URLs by opening them in your web browser.
 
+**Note**: Depending on the width of your browser window, the URL shown may be
+split across two lines. In that case, you'll need to select the entire URL and
+copy and paste it into your browser window rather than clicking on it.
+
 In the next step, you will begin to organize this configuration by separating
 your development and production configuration.
