@@ -10,19 +10,19 @@ The print statement is a helpful tool for debugging and discovery when you are w
 print(s3_buckets)
 ```{{copy}}
 
-Run your Sentinel CLI apply again to see what data your plan contains. 
+Run your Sentinel CLI apply again to see what data your filter contains. 
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
 ```{{execute}}
 
-Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")"` }. Create a new file called `print.json`.
+Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`. Create a new file called `print.json`.
 
 ```
 touch ~/terraform-sentinel/print.json
 ```{{execute}}
 
-Open the file and paste the print output to the `print.json`{{open}} file.
+Open the `print.json`{{open}} file and paste the print output.
 
 Pipe the contents of this file to a `jq` command in your terminal to make this data easier to read.
 
@@ -30,7 +30,7 @@ Pipe the contents of this file to a `jq` command in your terminal to make this d
 cat print.json | jq
 ```{{execute}}
 
-Now, you can view the `resource_changes` collection as a key/value store.
+Now, you can view the `resource_changes` collection for your S3 bucket resource as a key/value store.
 
 Remove the print statement from your policy once you have reviewed the output.
 

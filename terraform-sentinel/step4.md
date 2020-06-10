@@ -18,6 +18,7 @@ Copy and paste the failing mock data in your test file relative to your `fail.js
 Review the rest of the test file. This test ensures the main rule will evalute to false.
 
 ## Create a passing test file
+
 Open `terraform-sentinel/test/restrict-s3-buckets/pass.json`{{open}} and add a path to the passing mock data that has already been provided for you.
 
 Copy and paste the passing mock data in your test file relative to your `pass.json` file, in this case, two directories above the current folder in `mock-data`.
