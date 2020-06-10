@@ -16,13 +16,9 @@ Run your Sentinel CLI apply again to see what data your filter contains.
 sentinel apply -trace restrict-s3-buckets.sentinel
 ```{{execute}}
 
-Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`. Create a new file called `print.json`.
+Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`. 
 
-```
-touch ~/terraform-sentinel/print.json
-```{{execute}}
-
-Open the `print.json`{{open}} file and paste the print output.
+Open the `~/terraform-sentinel/print.json`{{open}} file and paste the print output.
 
 Pipe the contents of this file to a `jq` command in your terminal to make this data easier to read.
 
@@ -36,7 +32,9 @@ Remove the print statement from your policy once you have reviewed the output.
 
 ## Create a required tags variable
 
-Copy and paste the `required_tags` variable below your print statement. You are creating a list of variables that are required to be returned from the data you just generated in the previous print statement.
+Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again.
+
+Copy and paste the `required_tags` variable below your print statement in `~/terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that are required to be returned from the data you just generated in the previous print statement.
 
 ```
 required_tags = [
