@@ -3,7 +3,7 @@
   "description": "Organize configuration",
   "courses": [
     {
-      "pathway_id": "terraform-organize-configuration",
+      "pathway_id": "hashicorp",
       "title": "Organize Terraform Configuration",
       "id": "terraform-organize-configuration-workshop",
       "course_id": "terraform-organize-configuration-workshop",
