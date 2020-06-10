@@ -1,0 +1,13 @@
+{
+  "title": "Vault Minikube Workshop",
+  "description": "Vault minikube",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault on Minikube",
+      "id": "vault-minikube",
+      "course_id": "vault-minikube",
+      "description": "Use Vault on minikube."
+    }
+  ]
+}
