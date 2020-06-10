@@ -40,7 +40,7 @@
       "host01": [
         {
           "file": "index.html",
-          "target": "~/"
+          "target": "~/learn-terraform/assets/"
         }
       ]
     }
