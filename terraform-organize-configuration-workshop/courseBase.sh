@@ -1,6 +1,6 @@
 mkdir -p learn-terraform/assets
 
-cp /root/learn-terraform/index.html /root/learn-terraform/assets/
+cp /root/index.html /root/learn-terraform/assets/
 
 cd learn-terraform
 
