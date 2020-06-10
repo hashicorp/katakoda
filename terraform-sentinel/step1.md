@@ -4,13 +4,7 @@ Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the conf
 
 This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. Noice the `policy` block of the `"aws_s3_bucket" "bucket"` resource that makes the bucket readable. 
 
-This example configuration does not have any deployment safeguards built in, so if your AWS user has S3 build and upload permissions, your Terraform deployment will apply successfully, making the contents of the bucket public.
-
-In Terraform Cloud, Sentinel runs between the plan and apply phases of a Terraform run. In order to test this policy, this scenario has mock data in `~/terraform-sentinel/mock-data` to mimic the plan information you would receive during a Terraform plan. 
-
-Part of writing Sentinel policies is to determine your parameters based on your infrastructure. For your first policy, you must ensure the following: 
-
-- Any S3 buckets created or updated have at least 1 tag
+For your first policy, create a resource filter for your S3 buckets and a rule that requires that resource to have at least one tag. 
 
 ## Create a filter
 
