@@ -1,0 +1,13 @@
+{
+    "title": "Secure Nomad Jobs with Consul Connect",
+    "description": "Secure Nomad Jobs with Consul Connect",
+    "courses": [
+      {
+        "pathway_id": "hashicorp",
+        "title": "Use Nomad with Consul Connect",
+        "id": "nomad-connect-acls",
+        "course_id": "nomad-connect-acls",
+        "description": "Use Nomad with Consul Connect."
+      }
+    ]
+  }
