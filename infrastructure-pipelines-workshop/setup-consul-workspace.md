@@ -51,4 +51,4 @@ Under "Source Workspaces", select your Kubernetes workspace(`john-d-k8s`) then c
 
 You have successfully configured your Consul workspace. The pipeline will retrieve the Kubernetes credentials from the Kubernetes workspace to authenticate to the Kubernetes and Helm provider.
 
-In the next step, you will configure your Consul workspace.
+In the next step, you will configure your Vault workspace.

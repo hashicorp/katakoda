@@ -59,7 +59,7 @@ Next, click on "Variables". Both your Terraform Variables and Environment Variab
 
 ## Deploy Kubernetes cluster
 
-Select your Kubernetes workspace and click "Queue Plan". If the plan is successful, Terraform cloud will display a notice that a run will automatically queue a plan in the Consul workspace, and ask you to confirm and apply.
+Click on "Run", you should see a queued plan. If the plan is successful, Terraform cloud will display a notice that a run will automatically queue a plan in the Consul workspace, and ask you to confirm and apply.
 
 Click "Confirm & Apply" to apply this configuration. This process should take about 10 minutes to complete. 
 
