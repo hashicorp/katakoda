@@ -1,0 +1,66 @@
+{
+    "pathwayTitle": "Configure a zero-trust network with Consul service mesh intentions on Kubernetes",
+    "icon": "fa-consul",
+    "title": "Configure a zero-trust network with Consul service mesh intentions on Kubernetes",
+    "description": "Enforce a zero-trust Network with Consul Service Mesh intentions",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Verify Service Connectivity",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Enforce Zero-Trust Networking",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Allow Communication with Consul Intentions",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "consul-values.yml", "target": "~/" },
+          { "file": "api.yml", "target": "~/" },
+          { "file": "web.yml", "target": "~/" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n",
+        "dashboards": [
+            {
+              "name": "Consul UI",
+              "port": 80
+            },
+            {"name": "Web frontend", "href": "https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/ui"}
+          ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "minikube"
+    }
+}
