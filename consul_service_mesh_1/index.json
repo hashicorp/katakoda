@@ -1,0 +1,65 @@
+{
+    "pathwayTitle": "Install Consul service mesh on Kubernetes",
+    "icon": "fa-consul",
+    "title": "Install Consul service mesh on Kubernetes",
+    "description": "Install Consul service mesh on Kubernetes in a hosted sandboxed interactive environment",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Start Minikube",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Download the Helm chart",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Access the Consul UI",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "consul-values.yml", "target": "~/" },
+          { "file": "api.yml", "target": "~/" },
+          { "file": "web.yml", "target": "~/" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n",
+        "dashboards": [
+            {
+              "name": "Consul UI",
+              "port": 80
+            }
+          ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "minikube"
+    }
+}
