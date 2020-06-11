@@ -2,6 +2,8 @@
 
 Now that you have deployed a Vault instance using Consul as a backend on a GKE cluster, you will connect to your Kubernetes cluster using `kubectl` to access the respective instances.
 
+You will do this in KataCoda, using the editor and terminal you see on the right.
+
 ## Login with the Terraform CLI
 
 First, login to Terraform Cloud using the CLI.
@@ -14,7 +16,7 @@ The command output will ask you if you want to confirm that you want to generate
 
 Terraform will prompt you to visit a link in the output.
 
-Follow this link and generate a new token in Terraform cloud. 
+Copy and paste the link in the output to generate a new token in Terraform cloud. 
 
 Copy the API token from Terraform Cloud and then paste it into the Katacoda terminal and press enter to confirm. The terminal will not display the token, so only paste your token once.
 
@@ -48,9 +50,13 @@ Save your Kubernetes workspace's `kubeconfig` output value into a file named `ku
 
 Check the number of nodes in your Kubernetes deployment.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn get nodes`{{execute}} 
+`kubectl --kubeconfig=kubeconfig get nodes`{{execute}} 
 
 Since Vault and Consul are enabled, you should see 5 nodes.
+
+Check the Kubernetes cluster pods. You should see pods for both Consul and Vault.
+
+`kubectl --kubeconfig=kubeconfig -n hashicorp-learn get pods`{{execute}} 
 
 ## Access Consul UI
 
