@@ -26,8 +26,9 @@ to open an exec window to the fs-example task.
 
 ![UI screenshot image of the exec button](./assets/exec_button.png)
 
-If you attempt to run a command at this point, the connection will close
-immediately.
+Change the default command ("/bin/bash") to `/bin/sh` and press <key>Enter</key>
+
+Run the `ls` command.
 
 ![UI screenshot showing the exec interface "The connection has closed" as the last message.](./assets/exec_output.png)
 
