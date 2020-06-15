@@ -1,0 +1,71 @@
+{
+  "title": "Deploying Nomad UI with a Reverse Proxy",
+  "description": "Learn how to configure and deploy a TLS-uplift reverse proxy for the Nomad UI.",
+  "difficulty": "Intermediate",
+  "time": "20-40 minutes",
+  "icon": "fa-nomad",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Extra Course Components",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Run a job in the cluster",
+        "text": "10_start_sample_job.md"
+      },
+      {
+        "title": "Visit the Nomad UI",
+        "text": "12_examine_the_ui.md"
+      },
+      {
+        "title": "Enable mTLS",
+        "text": "15_enable_mtls.md"
+      },
+      {
+        "title": "Configure NGINX as Reverse Proxy",
+        "text": "20_create_proxy_config_1.md"
+      },
+      {
+        "title": "Extend Connection Read Timeout",
+        "text": "30_create_proxy_config_2.md"
+      },
+      {
+        "title": "Disable Proxy Buffering",
+        "text": "40_create_proxy_config_3.md"
+      },
+      {
+        "title": "Enable WebSocket connections",
+        "text": "50_create_proxy_config_4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "files": [],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mInteractive Bash Terminal.\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Nomad UI (non-proxy)",
+        "port": 4646
+      },
+      {
+        "name": "Nomad UI (proxy)",
+        "port": 8000
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
