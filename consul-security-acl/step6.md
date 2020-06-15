@@ -49,7 +49,7 @@ The previous requests were successful because you still had the bootstrap token 
 
 `unset CONSUL_HTTP_TOKEN`{{execute T1}}
 
-After unsetting it, try query Consul:
+After unsetting it, try querying Consul:
 
 `consul members`{{execute T1}}
 
