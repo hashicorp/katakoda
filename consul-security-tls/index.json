@@ -14,23 +14,19 @@
             },
             {
                 "title": "Initialize Consul built-in CA",
-                "code": "set-env.sh",
                 "text": "step1.md"
             },
             {
                 "title": "Configure and start server",
-                "code": "set-env.sh",
                 "text": "step2.md"
             },
             {
                 "title": "Configure and start client",
-                "code": "set-env.sh",
                 "text": "step3.md"
             }
         ],
     "intro": {
         "text": "intro.md",
-        "code": "courseBase.sh",
         "credits": "https://learn.hashicorp.com/consul"
         },
     "finish": {

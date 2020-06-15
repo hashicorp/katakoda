@@ -14,38 +14,31 @@
             },
             {
                 "title": "Setup server agent",
-                "code": "set-env.sh",
                 "text": "step1.md"
             },
             {
                 "title": "Bootstrap ACLs",
-                "code": "set-env.sh",
                 "text": "step2.md"
             },
             {
                 "title": "Set the bootstrap token",
-                "code": "set-env.sh",
                 "text": "step3.md"
             },
             {
                 "title": "Setup server agent",
-                "code": "set-env.sh",
                 "text": "step4.md"
             },
             {
                 "title": "Setup client agent",
-                "code": "set-env.sh",
                 "text": "step5.md"
             },
             {
                 "title": "Create non-privileged policy & token",
-                "code": "set-env.sh",
                 "text": "step6.md"
             }
         ],
     "intro": {
         "text": "intro.md",
-        "code": "courseBase.sh",
         "credits": "https://learn.hashicorp.com/consul"
         },
     "finish": {

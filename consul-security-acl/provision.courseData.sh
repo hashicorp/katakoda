@@ -1,4 +1,4 @@
-cat << 'EOFSRSLY' > /tmp/provision.sh
+cat << 'EOF' > /tmp/provision.sh
 #! /bin/bash
 
 log() {
@@ -44,6 +44,6 @@ docker container create --name volumes -v server_config:/server -v client_config
 
 finish
 
-EOFSRSLY
+EOF
 
 chmod +x /tmp/provision.sh

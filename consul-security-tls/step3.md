@@ -40,8 +40,8 @@ Finally start the Consul client.
 
 #### Confirm client started and joined the datacenter
 
-You can verify the Consul client started correctly and joined the datacenter using the `consum members` command.
+You can verify the Consul client started correctly and joined the datacenter using the `consul members` command.
 
 `docker exec server consul members`{{execute T2}}
 
-Alternatively you can reach the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/nodes) tab to be redirected to the Consul UI.
+Or you can click the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/nodes) tab to be redirected to the Consul UI.

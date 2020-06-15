@@ -42,7 +42,7 @@ You can verify the Consul server started correctly by checking the logs.
 
 `docker logs server`{{execute T2}}
 
-Alternatively you can reach the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui) tab to be redirected to the Consul UI.
+Or you can click the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com/ui) tab to be redirected to the Consul UI.
 
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
   <p><strong>Warning: </strong>
