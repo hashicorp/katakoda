@@ -1,0 +1,65 @@
+{
+    "pathwayTitle": "Secure consul with TLS",
+    "icon": "fa-consul",
+    "title": "Secure consul with TLS",
+    "description": "Enable mTLS for Consul agents.",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Extra Course Components",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Initialize Consul built-in CA",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Configure and start server",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Configure and start client",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "server.json", "target": "./" },
+          { "file": "client.json", "target": "./" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 8500}
+        ],
+        "terminals": [
+            {"name": "server", "target": "host01"},
+            {"name": "client", "target": "host01"}
+        ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "docker"
+    }
+}

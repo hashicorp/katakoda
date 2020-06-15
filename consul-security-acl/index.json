@@ -1,0 +1,82 @@
+{
+    "pathwayTitle": "Secure Consul with ACLs",
+    "icon": "fa-consul",
+    "title": "Secure Consul with ACLs",
+    "description": "Enable ACLs for Consul datacenters.",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Setup server agent",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Bootstrap ACLs",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Set the bootstrap token",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            },
+            {
+                "title": "Setup server agent",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            },
+            {
+                "title": "Setup client agent",
+                "code": "set-env.sh",
+                "text": "step5.md"
+            },
+            {
+                "title": "Create non-privileged policy & token",
+                "code": "set-env.sh",
+                "text": "step6.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "server.hcl", "target": "./" },
+          { "file": "client_policy.hcl", "target": "./" },
+          { "file": "server_policy.hcl", "target": "./" },
+          { "file": "read_policy.hcl", "target": "./" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 8500}
+        ],
+        "terminals": [
+            {"name": "server", "target": "host01"},
+            {"name": "client", "target": "host01"}
+        ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "ubuntu"
+    }
+}
