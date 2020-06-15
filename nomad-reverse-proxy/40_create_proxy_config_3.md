@@ -16,7 +16,7 @@ clicking the `fs-example` task, then clicking the logs tab.
 
 Logs will not load and eventually the following error will appear in the UI.
 
-![Displayed error "Error in the UI. Cannot fetch logs. The logs for this task are inaccessible"](./assets/img-cannot-fetch-logs.png)
+![Displayed error "Error in the UI. Cannot fetch logs. The logs for this task are inaccessible"](./assets/cannot-fetch-logs.png)
 
 There will also likely be an additional error in the browser developer tools
 console.

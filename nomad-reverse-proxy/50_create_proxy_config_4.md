@@ -22,7 +22,7 @@ results in exec sessions immediately terminating. You can experience this in the
 Web UI by navigating to the [sample job], clicking the Exec button, selecting the
 task, and attempting to run the command `/bin/sh`.
 
-![Error in the UI when running /bin/sh. The connection has closed.](./assets/img-cannot-remote-exec.png)
+![Error in the UI when running /bin/sh. The connection has closed.](./assets/cannot-remote-exec.png)
 
 The fulfill the handshake NGINX will need to forward the `Connection` and
 `Upgrade` headers. To meet the origin verification required by the Nomad API,
