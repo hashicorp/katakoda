@@ -72,6 +72,7 @@ Now do the equivalent for `dev.tf`{{open}}:
       acl    = "public-read"
 
     # ...
+
       website {
         index_document = "index.html"
         error_document = "error.html"

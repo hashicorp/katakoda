@@ -32,6 +32,10 @@ resource "aws_s3_bucket" "dev" {
 }
 EOF
 
+  tags = {
+    Project = "HashiConf-Digital"
+  }
+
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -70,6 +74,10 @@ resource "aws_s3_bucket" "prod" {
     ]
 }
 EOF
+
+  tags = {
+    Project = "HashiConf-Digital"
+  }
 
   website {
     index_document = "index.html"
