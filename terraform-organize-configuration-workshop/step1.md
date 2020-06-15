@@ -1,154 +1,50 @@
-In this step, you will create a monolithic configuration to use with the rest of
-the scenario.
+In this step, you will create two S3 buckets configured for static website
+hosting using a monolithic configuration.
 
 ## Configure AWS Provider
 
-First, configure an AWS provider.
+First, configure the AWS provider.
 
-Open `main.tf`{{open}}. Begin your configuration with the AWS provider block below.
+Open `main.tf`{{open}}. Your configuration begins with the AWS provider block below.
 
 ```
 provider "aws" {
-  access_key = "REPLACE"
-  secret_key = "REPLACE"
   region     = var.aws_region
 }
 ```{{copy}}
 
-You will need to replace the values for the access_key and secret_key arguments
-with the ones provided to you for this session.
+Terraform will need to authenticate with your AWS account. To do so, you will
+need to export two environment variables in the terminal window.
 
-**Warning**: Hard-coding credentials into your Terraform configuration is not
-recommended outside of this lab environment.
+```
+$ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+$ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+```
+
+You will need to replace the values for the access key ID and secret access key values
+with the ones provided to you for this session.
 
 ## Create Monolithic Configuration
 
-Now that your AWS provider is configured, copy and paste the following example configuration
-into `main.tf`.
+Now that your AWS provider is configured, review the rest of the configuration
+found in `main.tf`{{open}}. You will find 5 resource blocks.
 
-```
-resource "random_pet" "petname" {
-  length    = 4
-  separator = "-"
-}
+The first resource block generates a random string that is used to give the S3 buckets your
+configuration creates unique names.
 
-resource "aws_s3_bucket" "dev" {
-  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
-  acl    = "public-read"
+Next, you will see a pair of blocks that configure an S3 bucket for static
+website hosting, and an "index.html" object in the bucket. These represent your
+"dev" environment.
 
-  force_destroy = true
+The final two resource blocks are almost identical to the previous two, and
+represent your "prod" environment.
 
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::hc-digital-${var.dev_prefix}-${random_pet.petname.id}/*"
-            ]
-        }
-    ]
-}
-EOF
+You may have noticed three variables being used in your configuration. These
+variables are defined in `variables.tf`{{open}}.
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-  }
-}
-
-resource "aws_s3_bucket_object" "dev" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.dev.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
-}
-
-resource "aws_s3_bucket" "prod" {
-  bucket = "hc-digital-${var.prod_prefix}-${random_pet.petname.id}"
-  acl    = "public-read"
-
-  force_destroy = true
-
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::hc-digital-${var.prod_prefix}-${random_pet.petname.id}/*"
-            ]
-        }
-    ]
-}
-EOF
-
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-
-  }
-}
-
-resource "aws_s3_bucket_object" "prod" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.prod.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
-}
-```{{copy}}
-
-This configuration includes two s3 buckets set up for static website hosting:
-`dev`, and `prod`.
-
-You may have noticed three variables being used in the above configuration. Define
-these variables by adding the following to `variables.tf`{{open}}.
-
-```
-variable "aws_region" {
-  description = "AWS region for all resources"
-  default     = "us-west-2"
-}
-
-variable "dev_prefix" {
-  description = "Prefix for buckets in the dev environment"
-  default     = "dev"
-}
-
-variable "prod_prefix" {
-  description = "Prefix for buckets in the prod environment"
-  default     = "prod"
-}
-```{{copy}}
-
-You will also want to know the website endpoints for these two buckets. Add the
-following to `outputs.tf`{{open}}:
-
-```
-output "dev_website_endpoint" {
-  description = "Website endpoint for the dev environment"
-  value       = "http://${aws_s3_bucket.dev.website_endpoint}/index.html"
-}
-
-output "prod_website_endpoint" {
-  description = "Website endpoint for the prod environment"
-  value       = "http://${aws_s3_bucket.prod.website_endpoint}/index.html"
-}
-```{{copy}}
+The file `outputs.tf`{{open}} will output the website endpoints for these two
+buckets. You can use these values to visit the website and verify that your
+configuration was successfully deployed.
 
 These three files make up the configuration for the environment you will work
 with for this session.
@@ -161,7 +57,8 @@ Initialize your Terraform workspace:
 terraform init
 ```{{execute}}
 
-Terraform with install two providers.
+Terraform with install two providers - one for AWS, and one for the "random_pet"
+resource.
 
 Now apply this configuration:
 

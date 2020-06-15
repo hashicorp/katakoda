@@ -21,7 +21,7 @@ Copy your configuration into the dev directory.
 
 ```
 cp main.tf outputs.tf variables.tf dev/
-mv dev.tfvars dev/
+mv dev.tfvars dev/terraform.tfvars
 mkdir dev/assets
 cp assets/index.html dev/assets/
 ```{{execute}}
@@ -30,7 +30,7 @@ Now move the configuration into the `prod` directory.
 
 ```
 mv main.tf outputs.tf variables.tf prod/
-mv prod.tfvars prod/
+mv prod.tfvars prod/terraform.tfvars
 mv assets prod/
 ```{{execute}}
 
@@ -42,7 +42,7 @@ independently. Initialize and apply each one:
 ```
 cd dev
 terraform init
-terraform apply -var-file=dev.tfvars
+terraform apply
 ```{{execute}}
 
 Be sure to respond to the prompt with `yes`{{execute}}.
@@ -54,7 +54,7 @@ Repeat the same steps to provision your production infrastructure:
 ```
 cd ../prod
 terraform init
-terraform apply -var-file=prod.tfvars
+terraform apply
 ```{{execute}}
 
 Again, respond to the confirmation prompt with `yes`{{execute}}.
@@ -64,14 +64,14 @@ Again, respond to the confirmation prompt with `yes`{{execute}}.
 After verifying that the infrastructure works as expected, you can destroy it.
 
 ```
-terraform destroy -var-file=prod.tfvars
+terraform destroy
 ```{{execute}}
 
 Respond to the prompt with `yes`{{execute}}.
 
 ```
 cd ../dev
-terraform destroy -var-file=dev.tfvars
+terraform destroy
 ```{{execute}}
 
 Once more, respond to the prompt with `yes`{{execute}}.

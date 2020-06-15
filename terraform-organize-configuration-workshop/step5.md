@@ -12,8 +12,8 @@ cd ~/learn-terraform
 Now create a directory with empty files to define your module.
 
 ```
-mkdir -p modules/aws-s3-static-website-bucket
-cd modules/aws-s3-static-website-bucket
+mkdir -p modules/terraform-aws-s3-static-website-bucket
+cd modules/terraform-aws-s3-static-website-bucket
 touch {README.md,main.tf,variables.tf,outputs.tf}
 cd -
 ```{{execute}}
@@ -22,7 +22,7 @@ The file `README.md` isn't used by Terraform, but can be used to document your
 module if you host it in a public or private Terraform Registry, or in a version
 control system such as GitHub.
 
-Add the following to `modules/aws-s3-static-website-bucket/README.md`{{open}}:
+Add the following to `modules/terraform-aws-s3-static-website-bucket/README.md`{{open}}:
 
 ```
 # AWS S3 static website bucket
@@ -32,7 +32,7 @@ This module provisions AWS S3 buckets configured for static website hosting.
 
 ## Create Module Configuration
 
-Add the following configuration to `modules/aws-s3-static-website-bucket/main.tf`{{open}}:
+Add the following configuration to `modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}:
 
 ```
 resource "aws_s3_bucket" "s3_bucket" {
@@ -72,7 +72,7 @@ the provider configuration from the Terraform configuration that uses them.
 
 Like any Terraform configuration, modules can have variables and outputs.
 
-Add the following to `modules/aws-s3-static-website-bucket/variables.tf`{{open}}:
+Add the following to `modules/terraform-aws-s3-static-website-bucket/variables.tf`{{open}}:
 
 ```
 variable "bucket_name" {
@@ -81,7 +81,7 @@ variable "bucket_name" {
 }
 ```{{copy}}
 
-And add the following to `modules/aws-s3-static-website-bucket/outputs.tf`{{open}}:
+And add the following to `modules/terraform-aws-s3-static-website-bucket/outputs.tf`{{open}}:
 
 ```
 output "arn" {
@@ -100,16 +100,31 @@ output "website_endpoint" {
 }
 ```{{copy}}
 
-## Refactor Configuration
+## Refactor Dev Configuration
 
-Now refactor your `prod` and `dev` configuration to use this module.
+Now refactor your `dev` configuration to use this module.
 
-Update `dev/main.tf`{{open}} to remove the entire `resource "aws_s3_bucket"
-"web" { ... }` block, and replace it with the following:
+Open `dev/main.tf`{{open}} and remove the entire bucket resource block.
+
+```
+resource "aws_s3_bucket" "web" {
+  bucket = "${var.prefix}-${random_pet.petname.id}"
+  acl    = "public-read"
+
+# ...
+
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
+```
+
+Replace it with the following.
 
 ```
 module "website_s3_bucket" {
-  source = "../modules/aws-s3-static-website-bucket"
+  source = "../modules/terraform-aws-s3-static-website-bucket"
 
   bucket_name = "${var.prefix}-${random_pet.petname.id}"
 }
@@ -154,15 +169,15 @@ same filesystem as your Terraform configuration.
 Now you can provision the bucket:
 
 ```
-terraform apply -var-file=dev.tfvars
+terraform apply
 ```{{execute}}
 
 Respond `yes`{{execute}} to the prompt, and once again visit the website
 endpoint in your web browser to verify the website was deployed correctly.
 
-## Practice
+## Practice: Refactor Prod Configuration
 
-Now do the same with your prod environment.
+Now refactor your `prod` configuration to use this module.
 
 The steps to update and apply your production configuration are nearly identical
 to the ones for your dev environment. Be sure to apply your configuration with
