@@ -1,6 +1,4 @@
 provider "aws" {
-  access_key = "REPLACE"
-  secret_key = "REPLACE"
   region     = var.aws_region
 }
 

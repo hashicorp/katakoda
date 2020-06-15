@@ -24,8 +24,6 @@ blocks, so comment out or remove these lines from `prod.tf`{{open}}:
 
 ```
 # provider "aws" {
-#   access_key = "AKI#############IEU"
-#   secret_key = "Kg7##################################yGv"
 #   region     = "us-west-2"
 # }
 
