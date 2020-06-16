@@ -1,3 +1,7 @@
+<style type="text/css">
+.alert { position: relative; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; }
+.alert-warning { color: #856404; background-color: #fff3cd; border-color: #ffeeba; }
+</style>
 ## Enable WebSocket connections
 
 As of Nomad 0.11.0, the Web UI has supported [interactive exec sessions with any
@@ -77,6 +81,11 @@ in the NGINX configuration file.
       # Use the stateful upstream to facilitate WebSocket connections.
       proxy_pass https://nomad-ws;
 </pre>
+
+<div class="alert alert-warning">
+Don't forget to remove the original proxy_pass line in the configuration or the
+NGINX container will fail to start.
+</div>
 
 Since this development environment only has one node, this change has no
 observable effect.
