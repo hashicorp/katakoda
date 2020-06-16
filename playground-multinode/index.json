@@ -1,6 +1,6 @@
 {
   "title": "HashiCorp Multi-node Tools Playground",
-  "description": "HashiCorp tools environment with Terraform, Vault, Consul and Nomad. build:001",
+  "description": "HashiCorp tools environment with Terraform, Vault, Consul and Nomad. build:002",
   "icon": "fa-terraform",
   "details": {
     "intro": {
