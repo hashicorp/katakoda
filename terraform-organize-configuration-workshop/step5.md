@@ -1,7 +1,7 @@
 In this step, you will refactor the configuration from the last step to use a
 module to define buckets used to host static websites.
 
-Ensure that you are still working in the `learn-terraform` directory before moving on.
+Ensure that you are working in the `learn-terraform` directory before moving on.
 
 ```
 cd ~/learn-terraform
@@ -22,7 +22,8 @@ The file `README.md` isn't used by Terraform, but can be used to document your
 module if you host it in a public or private Terraform Registry, or in a version
 control system such as GitHub.
 
-Add the following to `modules/terraform-aws-s3-static-website-bucket/README.md`{{open}}:
+Add the following to
+`modules/terraform-aws-s3-static-website-bucket/README.md`{{open}}.
 
 ```
 # AWS S3 static website bucket
@@ -32,7 +33,8 @@ This module provisions AWS S3 buckets configured for static website hosting.
 
 ## Create Module Configuration
 
-Add the following configuration to `modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}:
+Add the following configuration to
+`modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}:
 
 ```
 resource "aws_s3_bucket" "s3_bucket" {
@@ -60,6 +62,10 @@ resource "aws_s3_bucket" "s3_bucket" {
 }
 EOF
 
+  tags = {
+    Project = "HashiConf-Digital"
+  }
+
   website {
     index_document = "index.html"
     error_document = "error.html"
@@ -70,39 +76,41 @@ EOF
 Notice that you did not configure a provider for this module. Modules inherit
 the provider configuration from the Terraform configuration that uses them.
 
-Like any Terraform configuration, modules can have variables and outputs.
+Like any Terraform configuration, modules have variables and outputs.
 
-Add the following to `modules/terraform-aws-s3-static-website-bucket/variables.tf`{{open}}:
+Add the following to
+`modules/terraform-aws-s3-static-website-bucket/variables.tf`{{open}}.
 
 ```
 variable "bucket_name" {
-  description = "Name of the s3 bucket. Must be unique."
+  description = "Name of the S3 bucket. Must be unique."
   type        = string
 }
 ```{{copy}}
 
-And add the following to `modules/terraform-aws-s3-static-website-bucket/outputs.tf`{{open}}:
+And add the following to
+`modules/terraform-aws-s3-static-website-bucket/outputs.tf`{{open}}:
 
 ```
 output "arn" {
-  description = "ARN of the bucket"
+  description = "ARN of the S3 bucket"
   value       = aws_s3_bucket.s3_bucket.arn
 }
 
 output "name" {
-  description = "Name (id) of the bucket"
+  description = "Name (id) of the S3 bucket"
   value       = aws_s3_bucket.s3_bucket.id
 }
 
 output "website_endpoint" {
-  description = "Domain name of the bucket"
+  description = "Domain name of the S3 bucket"
   value       = aws_s3_bucket.s3_bucket.website_endpoint
 }
 ```{{copy}}
 
 ## Refactor Dev Configuration
 
-Now refactor your `dev` configuration to use this module.
+Now refactor your "dev" configuration to use this module.
 
 Open `dev/main.tf`{{open}} and remove the entire bucket resource block.
 
@@ -130,26 +138,27 @@ module "website_s3_bucket" {
 }
 ```{{copy}}
 
-And replace the bucket object resource block in the same file with the following
-to reference the bucket created by the module.
+Now reference the bucket created by the module in your bucket resource block.
 
 ```
 resource "aws_s3_bucket_object" "webapp" {
   acl          = "public-read"
   key          = "index.html"
-  bucket       = module.website_s3_bucket.name
+- bucket       = aws_s3_bucket.dev.id
++ bucket       = module.website_s3_bucket.name
   content      = file("${path.module}/assets/index.html")
   content_type = "text/html"
 }
 ```{{copy}}
 
-You will also need to update `dev/outputs.tf`{{open}} to refer to the module instead of
-the resource name:
+Next, update `dev/outputs.tf`{{open}} to refer to the module instead of the
+resource name.
 
 ```
 output "website_endpoint" {
   description = "Website endpoint for this environment"
-  value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
+- 
++ value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
 }
 ```{{copy}}
 
@@ -185,5 +194,5 @@ the `-var-file=prod.tfvars` flag.
 
 ## Destroy Resources
 
-Clean up both environments by running `terraform destroy`{{execute}} in both directories.
-Don't forget to include the `-var-file` argument!
+Clean up both environments by running `terraform destroy`{{execute}} in both
+directories.

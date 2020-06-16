@@ -4,11 +4,11 @@ variable "aws_region" {
 }
 
 variable "dev_prefix" {
-  description = "Prefix for buckets in the dev environment"
+  description = "Prefix for S3 buckets in the dev environment"
   default     = "dev"
 }
 
 variable "prod_prefix" {
-  description = "Prefix for buckets in the prod environment"
+  description = "Prefix for S3 buckets in the prod environment"
   default     = "prod"
 }

@@ -1,7 +1,8 @@
 In this step, you will separate your prod and dev environments into two
 directories, each with their own configuration and state.
 
-Ensure that you are still working in the `learn-terraform` directory before moving on.
+Ensure that you are still working in the `learn-terraform` directory before
+moving on.
 
 ```
 cd ~/learn-terraform
@@ -17,7 +18,7 @@ mkdir prod && mkdir dev
 
 ## Copy Configuration
 
-Copy your configuration into the dev directory.
+Copy your configuration and "assets/index.html" into the dev directory.
 
 ```
 cp main.tf outputs.tf variables.tf dev/
@@ -26,7 +27,7 @@ mkdir dev/assets
 cp assets/index.html dev/assets/
 ```{{execute}}
 
-Now move the configuration into the `prod` directory.
+Now move the configuration and "assets/index.html" into the `prod` directory.
 
 ```
 mv main.tf outputs.tf variables.tf prod/
@@ -36,8 +37,8 @@ mv assets prod/
 
 ## Initialize and Apply Configuration
 
-Now, your configuration is located in two separate directories, and can be managed
-independently. Initialize and apply each one:
+Now, your configuration is located in two separate directories, and can be
+managed independently. Initialize and apply each one.
 
 ```
 cd dev
@@ -49,7 +50,7 @@ Be sure to respond to the prompt with `yes`{{execute}}.
 
 You can verify the website endpoint URL by opening it in your web browser.
 
-Repeat the same steps to provision your production infrastructure:
+Repeat the same steps to provision your production infrastructure.
 
 ```
 cd ../prod
@@ -61,7 +62,8 @@ Again, respond to the confirmation prompt with `yes`{{execute}}.
 
 ## Destroy Resources
 
-After verifying that the infrastructure works as expected, you can destroy it.
+After verifying that the infrastructure works as expected, destroy it before
+moving on.
 
 ```
 terraform destroy

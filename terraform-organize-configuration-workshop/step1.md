@@ -3,9 +3,8 @@ hosting using a monolithic configuration.
 
 ## Configure AWS Provider
 
-First, configure the AWS provider.
-
-Open `main.tf`{{open}}. Your configuration begins with the AWS provider block below.
+Open `main.tf`{{open}}. Your configuration begins with the AWS provider block
+below.
 
 ```
 provider "aws" {
@@ -21,23 +20,16 @@ $ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 $ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
-You will need to replace the values for the access key ID and secret access key values
-with the ones provided to you for this session.
+You will need to replace the values for the access key ID and secret access key
+values with the ones provided to you for this session.
 
-## Create Monolithic Configuration
+## Review Monolithic Configuration
 
-Now that your AWS provider is configured, review the rest of the configuration
-found in `main.tf`{{open}}. You will find 5 resource blocks.
-
-The first resource block generates a random string that is used to give the S3 buckets your
-configuration creates unique names.
-
-Next, you will see a pair of blocks that configure an S3 bucket for static
-website hosting, and an "index.html" object in the bucket. These represent your
-"dev" environment.
-
-The final two resource blocks are almost identical to the previous two, and
-represent your "prod" environment.
+Now that you have configured the AWS provider, review the rest of the
+configuration found in `main.tf`{{open}}. This configuration will create two s3
+buckets, each configured to host a static website, and each containing a single
+"index.html". One bucket will be for your "dev" environment, and the other for
+"prod".
 
 You may have noticed three variables being used in your configuration. These
 variables are defined in `variables.tf`{{open}}.
@@ -46,12 +38,9 @@ The file `outputs.tf`{{open}} will output the website endpoints for these two
 buckets. You can use these values to visit the website and verify that your
 configuration was successfully deployed.
 
-These three files make up the configuration for the environment you will work
-with for this session.
-
 ## Apply Configuration
 
-Initialize your Terraform workspace:
+Initialize your Terraform workspace.
 
 ```
 terraform init
@@ -60,7 +49,7 @@ terraform init
 Terraform with install two providers - one for AWS, and one for the "random_pet"
 resource.
 
-Now apply this configuration:
+Now apply this configuration.
 
 ```
 terraform apply
