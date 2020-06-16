@@ -46,11 +46,11 @@ Or you can click the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST
 
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
   <p><strong>Warning: </strong>
-  The current configuration leaves the HTTP interface open for the UI so to permit you to access it without setting a client certificate for your browser. To complete configuration and prevent the UOI to be accessed over HTTP you can add the following to your server configuration:<br>
+  The current configuration leaves the HTTP interface open for the UI so to permit you to access it without setting a client certificate for your browser. To complete configuration and prevent the UI to be accessed over HTTP you can add the following to your server configuration for a production environment:<br>
   ```
   "ports": {
     "http": -1,
     "https": 8501
   }
-  ```
+  ``` 
 </p></div>
