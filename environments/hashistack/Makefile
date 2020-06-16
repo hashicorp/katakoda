@@ -1,14 +1,14 @@
-PROJECT="katakoda"
+PROJECT="katacoda"
 
 build: clean
-	@echo "==> Building katakoda image..."
+	@echo "==> Building katacoda image..."
 	@docker build \
         --rm \
         -t \
 		$(PROJECT):latest \
         .
 run: build
-	@echo "==> Running katakoda container..."
+	@echo "==> Running katacoda container..."
 	docker run \
 	  -d \
 	  -v /var/run/docker.sock:/var/run/docker.sock \

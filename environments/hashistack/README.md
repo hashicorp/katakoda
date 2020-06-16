@@ -7,7 +7,7 @@ The Dockerfile will build a ubuntu 16.0.4 image using the build scripts in this 
 The following will create a fresh terminal session using the image:
 
 ```shell
-make && docker exec -it katakoda bash
+make && docker exec -it katacoda bash
 ```
 
 > The container is reset each time the make command is run.
@@ -22,31 +22,31 @@ Built the docker container
 docker build \
          --rm \
          -t \
-         katakoda:latest
+         katacoda:latest
 ```
 
-## Run Katakoda image.
+## Run Katacoda image.
 
-Launch the katakoda container in the background.
+Launch the katacoda container in the background.
 
 ```shell
 docker run \
   -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   --name \
-  katakoda \
-  katakoda
+  katacoda \
+  katacoda
 ```
 
 > The -v flag is optional but allows docker (in docker) to use the hosts docker api.
 
-## Run Katacoda scenerio 
+## Run Katacoda scenario
 
-Connect to the katakoda container for interactive testing.
+Connect to the katacoda container for interactive testing.
 
 
 ```shell
-docker exec -it katakoda bash
+docker exec -it katacoda bash
 ```
 
 ## Resetting the container
@@ -56,13 +56,13 @@ View the running containers
 ```shell
 docker ps
 CONTAINER ID        IMAGE               COMMAND               CREATED             STATUS              PORTS               NAMES
-08a114d9aa4d        5fdc74d879ca        "tail -f /dev/null"   3 minutes ago       Up 3 minutes                            katakoda
+08a114d9aa4d        5fdc74d879ca        "tail -f /dev/null"   3 minutes ago       Up 3 minutes                            katacoda
 ```
 
 Remove the running container
 
 ```shell
-docker rm -f katakoda
+docker rm -f katacoda
 ```
 
 > All session state will be lost.
