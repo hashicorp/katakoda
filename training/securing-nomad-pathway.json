@@ -3,16 +3,19 @@
   "description": "Scenarios that explore transport encryption and access control necessary to transition to a production Nomad configuration",
   "courses": [
     {
+      "id":"encrypt-gossip",
       "course_id": "securing-nomad/encrypt-gossip",
       "title": "Encrypt Nomad Gossip Traffic",
       "description": "Nomad uses UDP-based gossip for membership and liveness; secure it using symmetric key encryption."
     },
     {
+      "id": "configure-mtls",
       "course_id": "securing-nomad/configure-mtls",
       "title": "Encrypt API/RPC Traffic with mTLS",
       "description": "Nomad can use mutual TLS(mTLS) to validate nodes are trusted and performing their expected roles."
     },
     {
+      "id": "enable-acls",
       "course_id": "securing-nomad/enable-acls",
       "title": "Enable Access Control in Nomad",
       "description": "Nomad can use mutual TLS(mTLS) to validate nodes are trusted and performing their expected roles."
