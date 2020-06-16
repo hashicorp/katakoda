@@ -5,14 +5,14 @@
       {
         "pathway_id": "hashicorp",
         "title": "Secure consul with TLS",
-        "id": "secure_consul_tls",
+        "id": "consul-security-tls",
         "course_id": "consul-security-tls",
         "description": "Enable mTLS for Consul agents."
       },
       {
         "pathway_id": "hashicorp",
         "title": "Secure Consul with ACLs",
-        "id": "secure_consul_acl",
+        "id": "consul-security-acl",
         "course_id": "consul-security-acl",
         "description": "Enable ACLs for Consul datacenters."
       }
