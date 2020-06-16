@@ -8,12 +8,12 @@ below.
 
 ```
 provider "aws" {
-  region     = var.aws_region
+  region = var.aws_region
 }
 ```{{copy}}
 
-Terraform will need to authenticate with your AWS account. To do so, you will
-need to export two environment variables in the terminal window.
+Terraform will use IAM credentials to authenticate with your AWS account. To do
+so, you will need to export two environment variables in the terminal window.
 
 ```
 $ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
@@ -21,7 +21,10 @@ $ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
 You will need to replace the values for the access key ID and secret access key
-values with the ones provided to you for this session.
+values with credentials configured with the correct IAM policy.
+
+You can review `policy.json`{{open}} for an example of an appropriate policy for
+the actions you will take while following this scenario.
 
 ## Review Monolithic Configuration
 

@@ -10,7 +10,7 @@ cd ~/learn-terraform
 
 ## Create Directories
 
-Create directories for your environments:
+Create directories for your environments.
 
 ```
 mkdir prod && mkdir dev
@@ -79,7 +79,7 @@ terraform destroy
 Once more, respond to the prompt with `yes`{{execute}}.
 
 Now your configuration is independent, and each environment is managed
-separately. However, the configuration is entirely duplicated between
+separately. However, the configuration is almost entirely duplicated between
 environments.
 
 In the next step, you will refactor the bucket resource into a module that you

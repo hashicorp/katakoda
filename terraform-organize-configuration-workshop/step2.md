@@ -21,7 +21,7 @@ blocks, remove these lines from `prod.tf`{{open}}.
 
 ```
 provider "aws" {
-  region     = "us-west-2"
+  region = "us-west-2"
 }
 
 resource "random_pet" "petname" {
@@ -73,7 +73,6 @@ Now do the equivalent for `dev.tf`{{open}}.
       website {
         index_document = "index.html"
         error_document = "error.html"
-
       }
     }
     ```

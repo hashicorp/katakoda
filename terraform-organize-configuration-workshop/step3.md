@@ -1,7 +1,3 @@
-In the last step, you separated your configuration into two different files.
-While this helps you organize configuration within a single project, it doesn't
-help prevent accidental changes to parts of your infrastructure.
-
 In this step, you will learn to use Terraform workspaces to manage two separate
 environments with the same set of configuration.
 
@@ -40,7 +36,7 @@ variable "prefix" {
 }
 ```{{copy}}
 
-Also replace `outputs.tf`{{open}} with the following.
+Also replace the contents of `outputs.tf`{{open}} with the following.
 
 ```
 output "website_endpoint" {
@@ -49,7 +45,7 @@ output "website_endpoint" {
 }
 ```{{copy}}
 
-Now, update `main.tf`{{open}} to reflect these changes.
+Now, update `main.tf`{{open}} to reflect the new variable name.
 
 Update the bucket resource name from `dev` to `web`, and the bucket name
 argument to use the new `var.prefix` variable.
@@ -101,14 +97,14 @@ your development environment.
 
 ```
 aws_region = "us-west-2"
-prefix = "dev"
+prefix     = "dev"
 ```{{copy}}
 
 Create another file called `prod.tfvars`{{open}}.
 
 ```
 aws_region = "us-west-2"
-prefix = "prod"
+prefix     = "prod"
 ```{{copy}}
 
 ## Create Dev Workspace

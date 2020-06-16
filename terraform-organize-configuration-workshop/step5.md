@@ -1,5 +1,5 @@
-In this step, you will refactor the configuration from the last step to use a
-module to define buckets used to host static websites.
+In this step, you will refactor your configuration to use a module to define
+buckets used to host static websites.
 
 Ensure that you are working in the `learn-terraform` directory before moving on.
 
@@ -26,15 +26,15 @@ Add the following to
 `modules/terraform-aws-s3-static-website-bucket/README.md`{{open}}.
 
 ```
-# AWS S3 static website bucket
+# Terraform Module: AWS S3 static website bucket
 
-This module provisions AWS S3 buckets configured for static website hosting.
+This Terraform module provisions AWS S3 buckets configured for static website hosting.
 ```{{copy}}
 
 ## Create Module Configuration
 
 Add the following configuration to
-`modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}:
+`modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}.
 
 ```
 resource "aws_s3_bucket" "s3_bucket" {
@@ -162,7 +162,7 @@ output "website_endpoint" {
 }
 ```{{copy}}
 
-## Initialize and Apply
+## Initialize and Apply Dev Environment
 
 Change into the dev directory and re-initialize it.
 
@@ -188,9 +188,8 @@ endpoint in your web browser to verify the website was deployed correctly.
 
 Now refactor your `prod` configuration to use this module.
 
-The steps to update and apply your production configuration are nearly identical
-to the ones for your dev environment. Be sure to apply your configuration with
-the `-var-file=prod.tfvars` flag.
+The steps to refactor and apply your production configuration are nearly
+identical to the ones for your dev environment.
 
 ## Destroy Resources
 
