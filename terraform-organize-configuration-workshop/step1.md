@@ -34,11 +34,10 @@ buckets, each configured to host a static website, and each containing a single
 `index.html`. One bucket will be for your `dev` environment, and the other for
 `prod`.
 
-You may have noticed three variables being used in your configuration. These
-variables are defined in `variables.tf`{{open}}.
+Notice the three variables used in your configuration. Open `variables.tf`{{open}} and notice how these variables are declared with default values.
 
-The file `outputs.tf`{{open}} will output the website endpoints for these two
-buckets. You can use these values to visit the website and verify that your
+Now open `outputs.tf`{{open}}, which will output the website endpoints for the two
+buckets once Terraform creates them. Later you will use these values to visit the website and verify that your
 configuration was successfully deployed.
 
 ## Apply Configuration
