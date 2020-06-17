@@ -124,7 +124,7 @@ are managed by the same Terraform workspace, and share both configuration and
 state. Because of this, a change that you intend to make in one environment can
 affect the other.
 
-## Make a Configuration Change
+## Trigger a hidden dependency
 
 Update the random_pet resource in `dev.tf`{{open}}, changing value of the
 `length` argument to "5".
@@ -144,6 +144,8 @@ terraform apply
 ```{{execute}}
 
 Respond with `yes`{{execute}} to apply the changes.
+
+Terraform destroyed and recreated all the resources because the development and production environments share configuration and state. Even though the `random_pet` resource is in the development configuration file, changes to it still impact the production configuration. 
 
 ## Destroy Resources
 
