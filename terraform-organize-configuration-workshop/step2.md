@@ -4,9 +4,6 @@ one for "prod".
 
 ## Separate Configuration Files
 
-In this step, you will separate your production and development environments
-into two configuration files.
-
 First, copy `main.tf` to `dev.tf`.
 
 ```
@@ -20,35 +17,82 @@ mv main.tf prod.tf
 ```{{execute}}
 
 Your configuration only needs one instance of the provider and random_pet
-blocks, so comment out or remove these lines from `prod.tf`{{open}}:
+blocks, remove these lines from `prod.tf`{{open}}.
 
 ```
-# provider "aws" {
-#   access_key = "AKI#############IEU"
-#   secret_key = "Kg7##################################yGv"
-#   region     = "us-west-2"
-# }
+provider "aws" {
+  region = "us-west-2"
+}
 
-# resource "random_pet" "petname" {
-#   length    = 4
-#   separator = "-"
-# }
+resource "random_pet" "petname" {
+  length    = 4
+  separator = "-"
+}
 ```
 
-Also remove the resource blocks for your dev environment from `prod.tf`{{open}}:
+Also remove the resource blocks for your dev environment from `prod.tf`{{open}}.
 
-- Remove the entire `resource "aws_s3_bucket" "dev" { ... }` block
-- Remove the entire `resource "aws_s3_bucket_object" "dev" { ... }` block
+First, remove the bucket resource.
+
+```
+resource "aws_s3_bucket" "dev" {
+  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  acl    = "public-read"
+
+# ...
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+  }
+}
+```
+
+Next, remove the object resource.
+
+```
+resource "aws_s3_bucket_object" "dev" {
+  acl          = "public-read"
+  key          = "index.html"
+  bucket       = aws_s3_bucket.dev.id
+  content      = file("${path.module}/assets/index.html")
+  content_type = "text/html"
+}
+```
 
 Once this is done, you will have two resource blocks in `prod.tf`: One for the
 bucket, and one for the bucket object.
 
-Now do the equivalent for `dev.tf`{{open}}:
+Now do the equivalent for `dev.tf`{{open}}.
 
-- Remove the entire `resource "aws_s3_bucket" "prod" { ... }` block
-- Remove the entire `resource "aws_s3_bucket_object" "prod" { ... }` block
+First, remove the bucket resource.
+```
+resource "aws_s3_bucket" "prod" {
+  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  acl    = "public-read"
 
-Be sure to leave the aws provider and random_pet resource blocks in this file.
+# ...
+
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
+```
+
+Next, remove the object resource.
+```
+resource "aws_s3_bucket_object" "prod" {
+  acl          = "public-read"
+  key          = "index.html"
+  bucket       = aws_s3_bucket.dev.id
+  content      = file("${path.module}/assets/index.html")
+  content_type = "text/html"
+}
+```
+
+Be sure to leave the aws provider and random_pet resource blocks in `dev.tf`.
+
 You will now have two resource blocks in `dev.tf`: One for the bucket, and one for
 the bucket object.
 
@@ -62,7 +106,7 @@ terraform apply
 ```{{execute}}
 
 Ensure that you get no errors running this apply command before you continue.
-You should see output like this:
+You should see output like the following.
 
 ```
 # Output truncated...
@@ -82,8 +126,8 @@ affect the other.
 
 ## Make a Configuration Change
 
-Update the random_pet resource in `dev.tf`{{open}}, changing value of the `length`
-argument to "5".
+Update the random_pet resource in `dev.tf`{{open}}, changing value of the
+`length` argument to "5".
 
 ```
 resource "random_pet" "petname" {
