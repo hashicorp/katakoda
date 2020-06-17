@@ -31,8 +31,8 @@ for the actions you will take while following this scenario.
 Now that you have configured the AWS provider, review the rest of the
 configuration found in `main.tf`{{open}}. This configuration will create two s3
 buckets, each configured to host a static website, and each containing a single
-"index.html". One bucket will be for your "dev" environment, and the other for
-"prod".
+`index.html`. One bucket will be for your `dev` environment, and the other for
+`prod`.
 
 You may have noticed three variables being used in your configuration. These
 variables are defined in `variables.tf`{{open}}.
