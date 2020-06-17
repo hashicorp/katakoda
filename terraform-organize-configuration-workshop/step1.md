@@ -23,9 +23,6 @@ $ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 You will need to replace the values for the access key ID and secret access key
 values with credentials configured with the correct IAM policy.
 
-You can review `policy.json`{{open}} for an example of an appropriate IAM policy for
-the actions you will take while following this scenario.
-
 You can review `assets/policy.json`{{open}} for an example of an appropriate IAM policy
 for the actions you will take while following this scenario.
 
