@@ -32,60 +32,64 @@ resource "random_pet" "petname" {
 
 Also remove the resource blocks for your dev environment from `prod.tf`{{open}}.
 
-- First, remove the bucket resource.
-    ```
-    resource "aws_s3_bucket" "dev" {
-      bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
-      acl    = "public-read"
+First, remove the bucket resource.
 
-    # ...
-      website {
-        index_document = "index.html"
-        error_document = "error.html"
+```
+resource "aws_s3_bucket" "dev" {
+  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  acl    = "public-read"
 
-      }
-    }
-    ```
-- Next, remove the object resource.
-    ```
-    resource "aws_s3_bucket_object" "dev" {
-      acl          = "public-read"
-      key          = "index.html"
-      bucket       = aws_s3_bucket.dev.id
-      content      = file("${path.module}/assets/index.html")
-      content_type = "text/html"
-    }
-    ```
+# ...
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+
+  }
+}
+```
+
+Next, remove the object resource.
+
+```
+resource "aws_s3_bucket_object" "dev" {
+  acl          = "public-read"
+  key          = "index.html"
+  bucket       = aws_s3_bucket.dev.id
+  content      = file("${path.module}/assets/index.html")
+  content_type = "text/html"
+}
+```
 
 Once this is done, you will have two resource blocks in `prod.tf`: One for the
 bucket, and one for the bucket object.
 
 Now do the equivalent for `dev.tf`{{open}}.
 
-- First, remove the bucket resource.
-    ```
-    resource "aws_s3_bucket" "prod" {
-      bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
-      acl    = "public-read"
+First, remove the bucket resource.
+```
+resource "aws_s3_bucket" "prod" {
+  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  acl    = "public-read"
 
-    # ...
+# ...
 
-      website {
-        index_document = "index.html"
-        error_document = "error.html"
-      }
-    }
-    ```
-- Next, remove the object resource.
-    ```
-    resource "aws_s3_bucket_object" "prod" {
-      acl          = "public-read"
-      key          = "index.html"
-      bucket       = aws_s3_bucket.dev.id
-      content      = file("${path.module}/assets/index.html")
-      content_type = "text/html"
-    }
-    ```
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
+  }
+}
+```
+
+Next, remove the object resource.
+```
+resource "aws_s3_bucket_object" "prod" {
+  acl          = "public-read"
+  key          = "index.html"
+  bucket       = aws_s3_bucket.dev.id
+  content      = file("${path.module}/assets/index.html")
+  content_type = "text/html"
+}
+```
 
 Be sure to leave the aws provider and random_pet resource blocks in `dev.tf`.
 
