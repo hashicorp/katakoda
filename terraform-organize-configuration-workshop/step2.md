@@ -106,7 +106,7 @@ terraform apply
 ```{{execute}}
 
 Ensure that you get no errors running this apply command before you continue.
-You should see output like the following.
+Your output will resemble the snippet below.
 
 ```
 # Output truncated...
