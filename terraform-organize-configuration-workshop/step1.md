@@ -48,7 +48,7 @@ Initialize your Terraform workspace.
 terraform init
 ```{{execute}}
 
-Terraform with install two providers - one for AWS, and one for the "random_pet"
+Terraform with install two providers - one for AWS, and one for the `random_pet`
 resource.
 
 Now apply this configuration.
