@@ -65,7 +65,7 @@ bucket, and one for the bucket object.
 
 Now do the equivalent for `dev.tf`{{open}}.
 
-First, remove the bucket resource.
+First, remove the `prod` bucket resource.
 ```
 resource "aws_s3_bucket" "prod" {
   bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
@@ -80,7 +80,7 @@ resource "aws_s3_bucket" "prod" {
 }
 ```
 
-Next, remove the object resource.
+Now, remove the `prod` object resource.
 ```
 resource "aws_s3_bucket_object" "prod" {
   acl          = "public-read"
