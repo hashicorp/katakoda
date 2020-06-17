@@ -21,6 +21,6 @@
     "uimessage2": "Terminal 2\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack-multinode"
+    "imageid": "hashicorp-hashistack"
   }
 }
