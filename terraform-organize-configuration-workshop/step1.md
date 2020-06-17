@@ -59,11 +59,9 @@ terraform apply
 
 Respond with `yes`{{execute}} when prompted.
 
-You can verify the website endpoint URLs by opening them in your web browser.
+Verify the website endpoint URLs by copying them from the embedded terminal and pasting them into your web browser.
 
-**Note**: Depending on the width of your browser window, the URL shown may be
-split across two lines. In that case, you'll need to select the entire URL and
-copy and paste it into your browser window rather than clicking on it.
+**Note**: If your browser window is wide enough the link may only span one line, in which case it will be clickable from the embedded terminal. 
 
 In the next step, you will begin to organize this configuration by separating
 your development and production configuration.
