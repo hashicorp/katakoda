@@ -136,7 +136,7 @@ resource "random_pet" "petname" {
 }
 ```{{copy}}
 
-Now, apply these changes, and notice that all five of your resources are be
+Now, apply these changes, and notice that all five of your resources will be
 destroyed and recreated.
 
 ```

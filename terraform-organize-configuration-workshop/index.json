@@ -56,7 +56,7 @@
         },
         {
           "file": "policy.json",
-          "target": "~/learn-terraform/"
+          "target": "~/learn-terraform/assets/"
         }
       ]
     }

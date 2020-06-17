@@ -26,7 +26,7 @@ values with credentials configured with the correct IAM policy.
 You can review `policy.json`{{open}} for an example of an appropriate IAM policy for
 the actions you will take while following this scenario.
 
-You can review `policy.json`{{open}} for an example of an appropriate IAM policy
+You can review `assets/policy.json`{{open}} for an example of an appropriate IAM policy
 for the actions you will take while following this scenario.
 
 ## Review Monolithic Configuration
