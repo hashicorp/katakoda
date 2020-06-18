@@ -56,8 +56,8 @@ argument to use the new `var.prefix` variable.
 
 ```
 - resource "aws_s3_bucket" "dev" {
-+ resource "aws_s3_bucket" "web" {
 - bucket = "${var.dev_prefix}-${random_pet.petname.id}"
++ resource "aws_s3_bucket" "web" {
 + bucket = "${var.prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
