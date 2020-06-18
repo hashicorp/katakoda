@@ -1,0 +1,38 @@
+global:
+  datacenter: dc1
+  image: consul:1.8.0-rc1
+  imageK8S: "hashicorp/consul-k8s:0.16.0"
+  tls:
+    enabled: true
+  federation:
+    enabled: true
+    createFederationSecret: true
+  name: consul
+
+ui:
+  enabled: true
+  service:
+    type: 'NodePort'
+    ports:
+      nodePort: 18500
+
+server:
+    replicas: 1
+    bootstrapExpect: 1
+    disruptionBudget:
+      enabled: true
+      maxUnavailable: 0
+
+connectInject:
+  enabled: true
+  imageEnvoy: envoyproxy/envoy-alpine:v1.13.1
+
+meshGateway:
+  enabled: true
+  enableHealthChecks: false
+  replicas: 1
+  service:
+    enabled: true
+    type: 'NodePort'
+    nodePort: 30001
+    imageEnvoy: envoyproxy/envoy-alpine:v1.13.1

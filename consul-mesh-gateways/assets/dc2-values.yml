@@ -1,0 +1,58 @@
+global:
+  name: consul
+  image: consul:1.8.0-rc1
+  imageK8S: "hashicorp/consul-k8s:0.16.0"
+  datacenter: dc2
+  tls:
+    enabled: true
+
+    # Here we're using the shared certificate authority from the primary
+    # datacenter that was exported via the federation secret.
+    caCert:
+      secretName: consul-federation
+      secretKey: caCert
+    caKey:
+      secretName: consul-federation
+      secretKey: caKey
+
+  # acls:
+  #   manageSystemACLs: true
+
+  #   # Here we're importing the replication token that was
+  #   # exported from the primary via the federation secret.
+  #   replicationToken:
+  #     secretName: consul-federation
+  #     secretKey: replicationToken
+
+  federation:
+    enabled: true
+  # gossipEncryption:
+  #   secretName: consul-federation
+  #   secretKey: gossipEncryptionKey
+
+connectInject:
+  enabled: true
+
+meshGateway:
+  enabled: true
+  replicas: 1
+  service:
+    enabled: true
+    type: 'NodePort'
+    nodePort: 30002
+    imageEnvoy: envoyproxy/envoy-alpine:v1.13.1
+
+server:
+  replicas: 1
+  bootstrapExpect: 1
+  # Here we're including the server config exported from the primary
+  # via the federation secret. This config includes the addresses of
+  # the primary datacenter's mesh gateways so Consul can begin federation.
+  extraVolumes:
+    - type: secret
+      name: consul-federation
+      items:
+        - key: serverConfigJSON
+          path: config.json
+      load: true
+
