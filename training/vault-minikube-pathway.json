@@ -8,6 +8,13 @@
       "id": "vault-minikube",
       "course_id": "vault-minikube",
       "description": "Use Vault on minikube."
+    },
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault Kubernetes Sidecar",
+      "id": "vault-kubernetes-sidecar",
+      "course_id": "vault-kubernetes-sidecar",
+      "description": "Use Vault with Kubernetes."
     }
   ]
 }
