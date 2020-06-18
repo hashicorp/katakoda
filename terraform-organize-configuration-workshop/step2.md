@@ -30,7 +30,7 @@ resource "random_pet" "petname" {
 }
 ```
 
-Also remove the resource blocks for your dev environment from `prod.tf`{{open}}.
+Also remove the resource blocks for your `dev` environment from `prod.tf`{{open}}.
 
 First, remove the bucket resource.
 
