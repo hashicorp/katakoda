@@ -31,8 +31,9 @@ deployment to fail initialization.
 
 View the deployment patch `patch-website.yml`{{open}}.
 
-The patch modifies defines the service account `internal-app`. This Kubernetes
-service account is authorized by the Vault Kubernetes authentication role.
+The patch modifies the deployment definition to use the service account
+`internal-app`. This Kubernetes service account is authorized by the Vault
+Kubernetes authentication role.
 
 Patch the `website` deployment defined in `patch-website.yml`.
 
