@@ -16,6 +16,8 @@ This process should take about 5 minutes to complete.
 
 Notice that a plan for your Consul workspace will be automatically queued once the apply completes.
 
+![Consul workspace has been automatically triggered upon successful Kubernetes deployment](./assets/consul-auto-queued.png)
+
 ## Deploy Consul
 
 Navigate to the Consul workspace, view the run plan, then click "Confirm & Apply". This will deploy Consul onto your cluster using the Helm provider. The plan retrieves the Kubernetes cluster authentication information from the Kubernetes workspace to configure both the Kubernetes and Helm provider.
