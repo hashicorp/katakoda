@@ -4,7 +4,7 @@ an application to use. Before writing the secrets to the file system a
 template can structure the data. To apply this template a new set of annotations
 need to be applied.
 
-View the annotations file that contains a template definition in `deployment-03-inject-secrets-as-template.yml`{{open}}
+View the annotations file that contains a template definition in `patch-inject-secrets-as-template.yml`{{open}}
 
 This patch contains two new annotations:
 
@@ -20,7 +20,7 @@ string.
 Apply the updated annotations.
 
 ```shell
-kubectl patch deployment orgchart --patch "$(cat deployment-03-inject-secrets-as-template.yml)"
+kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets-as-template.yml)"
 ```{{execute}}
 
 Get all the pods within the `default` namespace.
