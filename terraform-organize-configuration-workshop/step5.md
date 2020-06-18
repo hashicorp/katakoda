@@ -138,7 +138,7 @@ module "website_s3_bucket" {
 }
 ```{{copy}}
 
-Now reference the bucket created by the module in your bucket resource block.
+Now reference the bucket created by the module in your bucket object block.
 
 ```
 resource "aws_s3_bucket_object" "webapp" {
