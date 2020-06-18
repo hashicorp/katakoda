@@ -162,8 +162,15 @@ terraform destroy -var-file=prod.tfvars
 
 Be sure to answer `yes`{{execute}} at the prompt.
 
+Switch to the development workspace.
+
 ```
 terraform workspace select dev
+```{{execute}}
+
+Now destroy the development workspace. 
+
+```
 terraform destroy -var-file=dev.tfvars
 ```{{execute}}
 
