@@ -91,7 +91,7 @@ resource "aws_s3_bucket_object" "prod" {
 }
 ```
 
-Be sure to leave the aws provider and random_pet resource blocks in `dev.tf`.
+Be sure to leave the `aws` provider and `random_pet` resource blocks in `dev.tf`.
 
 You will now have two resource blocks in `dev.tf`: One for the bucket, and one for
 the bucket object.
