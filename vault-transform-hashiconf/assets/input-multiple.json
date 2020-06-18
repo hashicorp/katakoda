@@ -1,0 +1,16 @@
+{
+  "batch_input": [
+    {
+      "value": "1111-1111-1111-1111",
+      "transformation": "card-number"
+    },
+    {
+      "value": "123456789",
+      "transformation": "uk-passport"
+    },
+    {
+      "value": "+31 123456789",
+      "transformation": "phone-number"
+    }
+  ]
+}

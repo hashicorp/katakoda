@@ -1,0 +1,13 @@
+{
+  "title": "Vault Raft Workshop",
+  "description": "Vault Raft workshop",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault on Raft",
+      "id": "vault-raft-hashiconf",
+      "course_id": "vault-raft-hashiconf",
+      "description": "Use raft storage with Vault."
+    }
+  ]
+}

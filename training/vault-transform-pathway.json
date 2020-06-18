@@ -1,0 +1,13 @@
+{
+  "title": "Protecting Data with Transform Secrets Engine",
+  "description": "Vault workshop",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault Transform Secrets Engine",
+      "id": "vault-transform-hashiconf",
+      "course_id": "vault-transform-hashiconf",
+      "description": "Use the transform secrets engine."
+    }
+  ]
+}

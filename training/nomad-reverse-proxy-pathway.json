@@ -1,0 +1,13 @@
+{
+    "title": "Deploying the Nomad UI in Production",
+    "description": "",
+    "courses": [
+      {
+        "pathway_id": "hashicorp",
+        "title": "Deploying the Nomad UI in Production",
+        "id": "nomad-reverse-proxy",
+        "course_id": "nomad-connect-acls",
+        "description": ""
+      }
+    ]
+  }

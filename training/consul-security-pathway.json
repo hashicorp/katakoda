@@ -1,0 +1,20 @@
+{
+    "title": "Secure Consul Workshop",
+    "description": "Secure Consul workshop",
+    "courses": [
+      {
+        "pathway_id": "hashicorp",
+        "title": "Secure consul with TLS",
+        "id": "consul-security-tls",
+        "course_id": "consul-security-tls",
+        "description": "Enable mTLS for Consul agents."
+      },
+      {
+        "pathway_id": "hashicorp",
+        "title": "Secure Consul with ACLs",
+        "id": "consul-security-acl",
+        "course_id": "consul-security-acl",
+        "description": "Enable ACLs for Consul datacenters."
+      }
+    ]
+  }

@@ -1,0 +1,27 @@
+{
+    "title": "Consul Service Mesh Workshop",
+    "description": "Consul service mesh on Kubernetes workshop",
+    "courses": [
+      {
+        "pathway_id": "hashicorp",
+        "title": "Install Consul service mesh on Kubernetes",
+        "id": "consul-service-mesh-1",
+        "course_id": "consul-service-mesh-1",
+        "description": "Install Consul service mesh on Kubernetes in a hosted sandboxed interactive environment"
+      },
+      {
+        "pathway_id": "hashicorp",
+        "title": "Deploy services to Consul service mesh on Kubernetes",
+        "id": "consul-service-mesh-2",
+        "course_id": "consul-service-mesh-2",
+        "description": "You will deploy two services into Consul's service mesh running on a Kubernetes cluster. The two services will use Consul to discover each other and communicate over mTLS with sidecar proxies. This is the first step in deploying an application into a zero-trust network."
+      },
+      {
+        "pathway_id": "hashicorp",
+        "title": "Configure a zero-trust network with Consul service mesh intentions on Kubernetes",
+        "id": "consul-service-mesh-3",
+        "course_id": "consul-service-mesh-3",
+        "description": "Enforce a zero-trust Network with Consul Service Mesh intentions"
+      }
+    ]
+  }

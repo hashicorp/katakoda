@@ -1,0 +1,39 @@
+# nginx.conf
+events {}
+
+http {
+  server {
+    location / {
+      proxy_buffering off;
+      proxy_pass https://172.17.0.18:4646;
+      proxy_redirect off;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Nginx-Proxy true;
+      proxy_set_header X-Forwarded-Proto https;
+      proxy_next_upstream error timeout http_500;
+      proxy_ssl_certificate /opt/ssl-certs/global-server-nomad-0.pem;
+      proxy_ssl_certificate_key /opt/ssl-certs/global-server-nomad-0-key.pem;
+      proxy_ssl_trusted_certificate /opt/ssl-certs/nomad-agent-ca.pem;
+      proxy_ssl_name server.global.nomad;
+      proxy_ssl_server_name on;
+      proxy_ssl_session_reuse on;
+      
+      # Nomad blocking queries will remain open for a default of 5 minutes.
+      # Increase the proxy timeout to accommodate this timeout with an
+      # additional grace period.
+      proxy_read_timeout 310s;
+
+      # The Upgrade and Connection headers are used to establish
+      # a WebSockets connection.
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection "upgrade";
+      
+      # The default Origin header will be the proxy address, which
+      # will be rejected by Nomad. It must be rewritten to be the
+      # host address instead.
+      proxy_set_header Origin "${scheme}://${proxy_host}";
+    }
+  }
+}

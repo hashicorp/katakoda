@@ -1,0 +1,119 @@
+{
+  "title": "Enable Access Control in Nomad",
+  "description": "Nomad provides an access control system which allows you to customize access to your cluster using tokens, policies, rules, and capabilities.",
+  "difficulty": "Beginner",
+  "time": "30 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Extra Course Components",
+        "text": "provision.md",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Introduction to Nomad ACLs",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure your nodes",
+        "text": "step2.md"
+      },
+      {
+        "title": "Restart to enable ACLs",
+        "text": "step3.md"
+      },
+      {
+        "title": "Bootstrapping the ACL system",
+        "text": "step4.md"
+      },
+      {
+        "title": "Create the anonymous policy definition",
+        "text": "step5.md"
+      },
+      {
+        "title": "Create anonymous policy",
+        "text": "step6.md"
+      },
+      {
+        "title": "Test the anonymous policy",
+        "text": "step7.md"
+      },
+      {
+        "title": "Policy fundamentals",
+        "text": "step8.md"
+      },
+      {
+        "title": "Developing policies - Scenario",
+        "text": "step9.md"
+      },
+      {
+        "title": "Developing policies",
+        "text": "step10.md"
+      },
+      {
+        "title": "Developing policies",
+        "text": "step11.md"
+      },
+      {
+        "title": "Upload policies",
+        "text": "step11-1.md"
+      },
+      {
+        "title": "Create test tokens",
+        "text": "step12.md"
+      },
+      {
+        "title": "Test job submission",
+        "text": "step13.md"
+      },
+      {
+        "title": "Test the nodes API",
+        "text": "step14.md"
+      },
+      {
+        "title": "Challenge: Restrict anonymous users",
+        "text": "step15.md"
+      },
+      {
+        "title": "Explore the scenario environment",
+        "text": "step16.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "*.template",
+          "target": "/tmp"
+        },
+        {
+          "file": "nomad.hcl",
+          "target": "/etc/nomad.d/"
+        },
+        {
+          "file": "*.service",
+          "target": "/lib/systemd/system"
+        },
+        {
+          "file": "*.sh",
+          "target": "/usr/local/bin",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["Desktop"]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

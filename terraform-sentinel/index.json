@@ -1,0 +1,49 @@
+{
+  "title": "Sentinel Tutorial",
+  "description": "Learn to write and test Sentinel policies for Terraform Cloud infrastructure",
+  "time": "30 minutes",
+  "icon": "fa-terraform",
+  "details": {
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/terraform"
+    },
+        "assets": {
+      "host01": [
+
+        { "file": "restrict-s3-buckets.sentinel", "target": "~/" }
+      ]
+    },
+    "steps": [
+        {
+          "title": "Write your first Sentinel policy",
+          "text": "step1.md"
+        },
+        {
+          "title": "Add additonal policy requirements",
+          "text": "step2.md"
+        },
+        {
+          "title": "Edit mock data to simulate failure scenarios",
+          "text": "step3.md"
+        },
+        {
+          "title": "Write passing and failing tests",
+          "text": "step4.md"
+        }
+      ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
