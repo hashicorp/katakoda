@@ -149,7 +149,7 @@ resource "aws_s3_bucket_object" "webapp" {
   content      = file("${path.module}/assets/index.html")
   content_type = "text/html"
 }
-```{{copy}}
+```
 
 Next, update `dev/outputs.tf`{{open}} to refer to the module instead of the
 resource name.
@@ -160,7 +160,7 @@ output "website_endpoint" {
 - value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
 + value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
 }
-```{{copy}}
+```
 
 ## Initialize and Apply Dev Environment
 
