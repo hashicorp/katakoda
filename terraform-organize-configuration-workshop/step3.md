@@ -10,11 +10,15 @@ as you refactor your configuration.
 Since the configuration found in `dev.tf` and `prod.tf` is almost identical, you
 can consolidate it into one file managed by two workspaces.
 
-Remove the `prod.tf` file you created in the last step, and rename `dev.tf` back
-to `main.tf`.
+Remove the `prod.tf` file you created in the last step.
 
 ```
 rm prod.tf
+```{{execute}}
+
+Rename `dev.tf` back to `main.tf`.
+
+```
 mv dev.tf main.tf
 ```{{execute}}
 
@@ -52,8 +56,8 @@ argument to use the new `var.prefix` variable.
 
 ```
 - resource "aws_s3_bucket" "dev" {
-+ resource "aws_s3_bucket" "web" {
 - bucket = "${var.dev_prefix}-${random_pet.petname.id}"
++ resource "aws_s3_bucket" "web" {
 + bucket = "${var.prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
@@ -158,8 +162,15 @@ terraform destroy -var-file=prod.tfvars
 
 Be sure to answer `yes`{{execute}} at the prompt.
 
+Switch to the development workspace.
+
 ```
 terraform workspace select dev
+```{{execute}}
+
+Now destroy the development workspace. 
+
+```
 terraform destroy -var-file=dev.tfvars
 ```{{execute}}
 

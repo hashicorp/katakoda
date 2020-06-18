@@ -30,7 +30,7 @@ resource "random_pet" "petname" {
 }
 ```
 
-Also remove the resource blocks for your dev environment from `prod.tf`{{open}}.
+Also remove the resource blocks for your `dev` environment from `prod.tf`{{open}}.
 
 First, remove the bucket resource.
 
@@ -65,7 +65,7 @@ bucket, and one for the bucket object.
 
 Now do the equivalent for `dev.tf`{{open}}.
 
-First, remove the bucket resource.
+First, remove the `prod` bucket resource.
 ```
 resource "aws_s3_bucket" "prod" {
   bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
@@ -80,7 +80,7 @@ resource "aws_s3_bucket" "prod" {
 }
 ```
 
-Next, remove the object resource.
+Now, remove the `prod` object resource.
 ```
 resource "aws_s3_bucket_object" "prod" {
   acl          = "public-read"
@@ -91,7 +91,7 @@ resource "aws_s3_bucket_object" "prod" {
 }
 ```
 
-Be sure to leave the aws provider and random_pet resource blocks in `dev.tf`.
+Be sure to leave the `aws` provider and `random_pet` resource blocks in `dev.tf`.
 
 You will now have two resource blocks in `dev.tf`: One for the bucket, and one for
 the bucket object.
@@ -106,7 +106,7 @@ terraform apply
 ```{{execute}}
 
 Ensure that you get no errors running this apply command before you continue.
-You should see output like the following.
+Your output will resemble the snippet below.
 
 ```
 # Output truncated...
@@ -124,7 +124,7 @@ are managed by the same Terraform workspace, and share both configuration and
 state. Because of this, a change that you intend to make in one environment can
 affect the other.
 
-## Make a Configuration Change
+## Trigger a hidden dependency
 
 Update the random_pet resource in `dev.tf`{{open}}, changing value of the
 `length` argument to "5".
@@ -145,6 +145,8 @@ terraform apply
 
 Respond with `yes`{{execute}} to apply the changes.
 
+Terraform destroyed and recreated all the resources because the development and production environments share configuration and state. Even though the `random_pet` resource is in the development configuration file, changes to it still impact the production configuration. 
+
 ## Destroy Resources
 
 Before moving on, destroy the resources you've created so far.
@@ -155,5 +157,5 @@ terraform destroy
 
 Respond with `yes`{{execute}} when prompted.
 
-In the next step, you will separate your dev and production environments into
-different workspaces, so each can be managed separately.
+In the next step, you will separate your development and production environments into
+different workspaces, so you can manage each separately.
