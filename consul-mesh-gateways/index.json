@@ -1,0 +1,77 @@
+{
+	"title": "Consul Mesh Gateways Test 2",
+	"icon": "fa-consul",
+	"description": "Consul Service Discovery and Secure Mesh across Multiple Kubernetes Clusters",
+	"details": {
+		"steps": [
+			{
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+			},
+			{
+				"title": "Configure and start primary Consul datacenter",
+				"text": "step1.md"
+			},
+			{
+				"title": "Export configuration from Kubernetes secrets",
+				"text": "step2.md"
+			},
+			{
+				"title": "Configure and start secondary Consul datacenter",
+				"text": "step3.md"
+			},
+			{
+				"title": "Verify Consul datacenter federation",
+				"text": "step4.md"
+			},
+			{
+				"title": "Deploy service on primary datacenter",
+				"text": "step5.md"
+			},
+			{
+				"title": "Deploy service on secondary datacenter",
+				"text": "step6.md"
+			},
+			{
+				"title": "Verify service connection",
+				"text": "step7.md"
+			}
+		],
+		"intro": {
+			"text": "intro.md"
+		},
+		"finish": {
+			"text": "finish.md"
+		},
+		"assets": {
+			"client": [
+			  { "file": "dc1-values.yml", "target": "./" },
+			  { "file": "dc2-values.yml", "target": "./" },
+			  { "file": "cluster-blueprint/README.md", "target": "./cluster-blueprint" },
+			  { "file": "cluster-blueprint/ingress.hcl", "target": "./cluster-blueprint" },
+			  { "file": "cluster-blueprint/k8s.hcl", "target": "./cluster-blueprint" },
+			  { "file": "cluster-blueprint/k8s-dashboard.yml", "target": "./cluster-blueprint" },
+			  { "file": "cluster-blueprint/network.hcl", "target": "./cluster-blueprint" },
+			  { "file": "api.yml", "target": "./" },
+          	  { "file": "web.yml", "target": "./" }
+			]
+		}
+	},
+	
+	"environment": {
+		"uilayout": "terminal",
+		"showdashboard": true,
+		"uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+		"dashboards": [
+			{"name": "Consul DC1 UI", "href": "https://[[HOST_SUBDOMAIN]]-8501-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1" },
+			{"name": "Consul DC2 UI", "href": "https://[[HOST_SUBDOMAIN]]-8502-[[KATACODA_HOST]].environments.katacoda.com/ui/dc2" },
+            {"name": "Web frontend", "href": "https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/ui"}
+		]
+	},
+	"backend": {
+		"imageid": "ubuntu"
+	}
+}
