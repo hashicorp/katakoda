@@ -10,11 +10,15 @@ as you refactor your configuration.
 Since the configuration found in `dev.tf` and `prod.tf` is almost identical, you
 can consolidate it into one file managed by two workspaces.
 
-Remove the `prod.tf` file you created in the last step, and rename `dev.tf` back
-to `main.tf`.
+Remove the `prod.tf` file you created in the last step.
 
 ```
 rm prod.tf
+```{{execute}}
+
+Rename `dev.tf` back to `main.tf`.
+
+```
 mv dev.tf main.tf
 ```{{execute}}
 
