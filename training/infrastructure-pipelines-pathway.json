@@ -5,8 +5,8 @@
       {
         "pathway_id": "hashicorp",
         "title": "Terraform Infrastructure Pipelines",
-        "id": "infrastructure-pipelines-workshop",
-        "course_id": "infrastructure-pipelines-workshop",
+        "id": "terraform-infrastructure-pipelines-workshop",
+        "course_id": "terraform-infrastructure-pipelines-workshop",
         "description": "Use Terraform Cloud Run Triggers to deploy a Kubernetes cluster, Consul, and Vault."
       }
     ]
