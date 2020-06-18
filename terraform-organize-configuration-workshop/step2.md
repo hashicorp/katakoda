@@ -157,5 +157,5 @@ terraform destroy
 
 Respond with `yes`{{execute}} when prompted.
 
-In the next step, you will separate your dev and production environments into
+In the next step, you will separate your development and production environments into
 different workspaces, so each can be managed separately.
