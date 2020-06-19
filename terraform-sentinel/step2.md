@@ -92,7 +92,7 @@ main = rule {
 }
 ```{{copy}}
 
-## Run your apply 
+## Apply the policy 
 
 Run an apply in the Sentinel CLI again and evaluate the output. You should see that both the `acl_allowed` and `bucket_tags` rules evaluate to true, which allows your `main` rule to evaluate as true and the policy passes.
 
