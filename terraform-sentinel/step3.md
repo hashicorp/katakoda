@@ -2,7 +2,7 @@ In this step, you will edit your mock data structure to create a failing scenari
 
 ## Open the failing mock scenario for editing
 
-Open `~/terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel`{{open}} and edit the values for your failing test. This file is a copy of your original mock data, but with a different file name to allow you to edit it with values that will cause your policy to fail. Creating a known "passing" and "failing" mock file in your mock-data directory keeps all your plan imports in the same folder structure.
+Open `terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel`{{open}} and edit the values for your failing test. This file is a copy of your original mock data, but with a different file name to allow you to edit it with values that will cause your policy to fail. Creating a known "passing" and "failing" mock file in your mock-data directory keeps all your plan imports in the same folder structure.
 
 ## Edit your mock data ACL
 
