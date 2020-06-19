@@ -3,7 +3,7 @@ account in the `default` namespace. The Vault Agent injector only modifies a
 deployment if it contains a specific set of annotations. An existing deployment
 may have its definition patched to include the necessary annotations.
 
-View the deployment patch `deployment-02-inject-secrets.yml`{{open}}.
+View the deployment patch `patch-inject-secrets.yml`{{open}}.
 
 These
 [annotations](https://www.vaultproject.io/docs/platform/k8s/injector/index.html#annotations)
@@ -16,10 +16,10 @@ define a partial structure of the deployment schema and are prefixed with
   `database-config.txt` written to the `/vault/secrets` directory. The value
   is the path to the secret defined in Vault.
 
-Patch the `orgchart` deployment defined in `deployment-02-inject-secrets.yml`.
+Patch the `orgchart` deployment defined in `patch-inject-secrets.yml`.
 
 ```shell
-kubectl patch deployment orgchart --patch "$(cat deployment-02-inject-secrets.yml)"
+kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets.yml)"
 ```{{execute}}
 
 The original orgchart pod is terminated and a new orgchart pod is created.

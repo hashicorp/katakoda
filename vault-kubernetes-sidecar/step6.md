@@ -2,16 +2,16 @@ We've created a sample application, published it to DockerHub, and created a
 Kubernetes deployment that launches this application.
 
 View the deployment for the `orgchart` application in
-`deployment-01-orgchart.yml`{{open}}.
+`deployment-orgchart.yml`{{open}}.
 
 The name of this deployment is `orgchart`. The
 `spec.template.spec.serviceAccountName` defines the service account
 `internal-app` to run this container.
 
-Apply the deployment defined in `deployment-01-orgchart.yml`.
+Apply the deployment defined in `deployment-orgchart.yml`.
 
 ```shell
-kubectl apply --filename deployment-01-orgchart.yml
+kubectl apply --filename deployment-orgchart.yml
 ```{{execute}}
 
 The application runs as a pod within the `default` namespace.

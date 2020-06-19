@@ -5,13 +5,12 @@
   "icon": "fa-terraform",
   "details": {
     "intro": {
-        "text": "intro.md",
-        "code": "courseBase.sh",
-        "credits": "https://learn.hashicorp.com/terraform"
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
     },
-        "assets": {
+    "assets": {
       "host01": [
-
         { "file": "restrict-s3-buckets.sentinel", "target": "~/" }
       ]
     },

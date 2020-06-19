@@ -1,0 +1,20 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: website
+  labels:
+    app: website
+  annotations:
+    vault.hashicorp.com/agent-inject: "true"
+    vault.hashicorp.com/role: "external-app"
+    vault.hashicorp.com/agent-inject-secret-database-config.txt: "internal/data/database/config"
+    vault.hashicorp.com/agent-inject-template-database-config.txt: |
+      {{- with secret "internal/data/database/config" -}}
+      postgresql://{{ .Data.data.username }}:{{ .Data.data.password }}@postgres:5432/wizard
+      {{- end -}}
+spec:
+  # This service account does not have permission to request the secrets.
+  serviceAccountName: external-app
+  containers:
+  - image: jweissig/app:0.0.1
+    name: website

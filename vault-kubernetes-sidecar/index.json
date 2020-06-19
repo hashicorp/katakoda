@@ -59,13 +59,15 @@
     },
     "assets": {
       "host01": [
+        { "file": "pod-payroll.yml", "target": "~/" },
+        { "file": "patch-website.yml", "target": "~/" },
         { "file": "service-account-internal-app.yml", "target": "~/" },
-        { "file": "deployment-01-orgchart.yml", "target": "~/" },
-        { "file": "deployment-02-inject-secrets.yml", "target": "~/" },
-        { "file": "deployment-03-inject-secrets-as-template.yml", "target": "~/" },
-        { "file": "deployment-04-payrole.yml", "target": "~/" },
-        { "file": "deployment-05-website.yml", "target": "~/" },
-        { "file": "deployment-06-issues.yml", "target": "~/" }
+        { "file": "deployment-orgchart.yml", "target": "~/" },
+        { "file": "patch-inject-secrets.yml", "target": "~/" },
+        { "file": "patch-inject-secrets-as-template.yml", "target": "~/" },
+        { "file": "patch-issues.yml", "target": "~/" },
+        { "file": "deployment-website.yml", "target": "~/" },
+        { "file": "deployment-issues.yml", "target": "~/" }
       ]
     },
     "finish": {

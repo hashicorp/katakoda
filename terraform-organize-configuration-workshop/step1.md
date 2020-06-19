@@ -1,169 +1,60 @@
-In this step, you will create a monolithic configuration to use with the rest of
-the scenario.
+In this step, you will create two S3 buckets configured for static website
+hosting using a monolithic configuration.
 
 ## Configure AWS Provider
 
-First, configure an AWS provider.
-
-Open `main.tf`{{open}}. Begin your configuration with the AWS provider block below.
+Open `main.tf`{{open}}. Your configuration begins with the AWS provider block
+below.
 
 ```
 provider "aws" {
-  access_key = "REPLACE"
-  secret_key = "REPLACE"
-  region     = var.aws_region
+  region = var.aws_region
 }
 ```{{copy}}
 
-You will need to replace the values for the access_key and secret_key arguments
-with the ones provided to you for this session.
-
-**Warning**: Hard-coding credentials into your Terraform configuration is not
-recommended outside of this lab environment.
-
-## Create Monolithic Configuration
-
-Now that your AWS provider is configured, copy and paste the following example configuration
-into `main.tf`.
+Terraform will use IAM credentials to authenticate with your AWS account. To do
+so, you will need to export two environment variables in the terminal window.
 
 ```
-resource "random_pet" "petname" {
-  length    = 4
-  separator = "-"
-}
-
-resource "aws_s3_bucket" "dev" {
-  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
-  acl    = "public-read"
-
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::hc-digital-${var.dev_prefix}-${random_pet.petname.id}/*"
-            ]
-        }
-    ]
-}
-EOF
-
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-
-  }
-  force_destroy = true
-}
-
-resource "aws_s3_bucket_object" "dev" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.dev.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
-
-}
-
-resource "aws_s3_bucket" "prod" {
-  bucket = "hc-digital-${var.prod_prefix}-${random_pet.petname.id}"
-
-  acl    = "public-read"
-  policy = <<EOF
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "PublicReadGetObject",
-            "Effect": "Allow",
-            "Principal": "*",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::hc-digital-${var.prod_prefix}-${random_pet.petname.id}/*"
-            ]
-        }
-    ]
-}
-EOF
-
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
-
-  }
-  force_destroy = true
-}
-
-resource "aws_s3_bucket_object" "prod" {
-  acl          = "public-read"
-  key          = "index.html"
-  bucket       = aws_s3_bucket.prod.id
-  content      = file("${path.module}/assets/index.html")
-  content_type = "text/html"
-}
+$ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
 ```{{copy}}
-
-This configuration includes two s3 buckets set up for static website hosting:
-`dev`, and `prod`.
-
-You may have noticed three variables being used in the above configuration. Define
-these variables by adding the following to `variables.tf`{{open}}.
 
 ```
-variable "aws_region" {
-  description = "AWS region for all resources"
-  default     = "us-west-2"
-}
-
-variable "dev_prefix" {
-  description = "Prefix for buckets in the dev environment"
-  default     = "dev"
-}
-
-variable "prod_prefix" {
-  description = "Prefix for buckets in the prod environment"
-  default     = "prod"
-}
+$ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```{{copy}}
 
-You will also want to know the website endpoints for these two buckets. Add the
-following to `outputs.tf`{{open}}:
+You will need to replace the values for the access key ID and secret access key
+values with credentials configured with the correct IAM policy.
 
-```
-output "dev_website_endpoint" {
-  description = "Website endpoint for the dev environment"
-  value       = "http://${aws_s3_bucket.dev.website_endpoint}/index.html"
-}
+You can review `assets/policy.json`{{open}} for an example of an appropriate IAM policy
+for the actions you will take while following this scenario.
 
-output "prod_website_endpoint" {
-  description = "Website endpoint for the prod environment"
-  value       = "http://${aws_s3_bucket.prod.website_endpoint}/index.html"
-}
-```{{copy}}
+## Review Monolithic Configuration
 
-These three files make up the configuration for the environment you will work
-with for this session.
+Now that you have configured the AWS provider, review the rest of the
+configuration found in `main.tf`{{open}}. This configuration will create two s3
+buckets, each configured to host a static website, and each containing a single
+`index.html`. One bucket will be for your `dev` environment, and the other for
+`prod`.
+
+Notice the three variables used in your configuration. Open `variables.tf`{{open}} and notice how these variables are declared with default values.
+
+Now open `outputs.tf`{{open}}, which will output the website endpoints for the two
+buckets once Terraform creates them. Later you will use these values to visit the website and verify that your
+configuration was successfully deployed.
 
 ## Apply Configuration
 
-Initialize your Terraform workspace:
+Initialize your Terraform workspace.
 
 ```
 terraform init
 ```{{execute}}
 
-Terraform with install two providers.
+Terraform with install two providers - one for AWS, and one for the `random_pet`
+resource.
 
-Now apply this configuration:
+Now apply this configuration.
 
 ```
 terraform apply
@@ -171,7 +62,9 @@ terraform apply
 
 Respond with `yes`{{execute}} when prompted.
 
-You can verify the website endpoint URLs by opening them in your web browser.
+Verify the website endpoint URLs by copying them from the embedded terminal and pasting them into your web browser.
+
+**Note**: If your browser window is wide enough the link may only span one line, in which case it will be clickable from the embedded terminal. 
 
 In the next step, you will begin to organize this configuration by separating
 your development and production configuration.

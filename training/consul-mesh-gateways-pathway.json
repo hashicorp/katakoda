@@ -1,0 +1,13 @@
+{
+    "title": "Mesh Gateways on Kubernetes",
+    "description": "Federate two Consul datacenters running on Kubernetes using mesh gateways.",
+    "courses": [
+      {
+        "pathway_id": "hashicorp",
+        "title": "Mesh Gateways on Kubernetes",
+        "id": "consul-mesh-gateways",
+        "course_id": "consul-mesh-gateways",
+        "description": "Federate two Consul datacenters running on Kubernetes using mesh gateways."
+      }
+    ]
+  }

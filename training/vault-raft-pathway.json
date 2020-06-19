@@ -8,13 +8,6 @@
       "id": "vault-raft-hashiconf",
       "course_id": "vault-raft-hashiconf",
       "description": "Use raft storage with Vault."
-    },
-    {
-      "pathway_id": "hashicorp",
-      "title": "Vault Kubernetes Sidecar",
-      "id": "vault-kubernetes-sidecar",
-      "course_id": "vault-kubernetes-sidecar",
-      "description": "Use Vault with Kubernetes."
     }
   ]
 }

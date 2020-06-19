@@ -59,7 +59,7 @@ Next, click on "Variables". Both your Terraform Variables and Environment Variab
 
 ## Deploy Kubernetes cluster
 
-Click on "Run", you should see a queued plan. If the plan is successful, Terraform cloud will display a notice that a run will automatically queue a plan in the Consul workspace, and ask you to confirm and apply.
+Queue a plan by clicking on "Queue Plan". If the plan is successful, Terraform Cloud will ask you to confirm and apply.
 
 Click "Confirm & Apply" to apply this configuration. This process should take about 10 minutes to complete. 
 
@@ -67,7 +67,7 @@ While your Kubernetes cluster deploying, continue onto the next step and configu
 
 ## Next steps
 
-You have successfully configured your Kubernetes workspace. Terraform cloud will use these values to deploy your Kubernetes cluster. The pipeline will output the Kubernetes credentials for the Helm charts to consume in the Consul and Vault workspaces. These values are specified in [`output.tf`](https://github.com/hashicorp/learn-terraform-pipelines-k8s/blob/master/outputs.tf).
+You have successfully configured your Kubernetes workspace. Terraform Cloud will use these values to deploy your Kubernetes cluster. The pipeline will output the Kubernetes credentials for the Helm charts to consume in the Consul and Vault workspaces. These values are specified in [`output.tf`](https://github.com/hashicorp/learn-terraform-pipelines-k8s/blob/master/outputs.tf).
 
 In the next step, you will configure your Consul workspace.
 

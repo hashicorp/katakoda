@@ -41,6 +41,22 @@
         {
           "file": "index.html",
           "target": "~/learn-terraform/assets/"
+        },
+        {
+          "file": "main.tf",
+          "target": "~/learn-terraform/"
+        },
+        {
+          "file": "variables.tf",
+          "target": "~/learn-terraform/"
+        },
+        {
+          "file": "outputs.tf",
+          "target": "~/learn-terraform/"
+        },
+        {
+          "file": "policy.json",
+          "target": "~/learn-terraform/assets/"
         }
       ]
     }
@@ -48,7 +64,7 @@
   "environment": {
     "uilayout": "editor-terminal",
     "uimessage1":
-      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
     "uieditorpath": "/root/learn-terraform",
     "hideHiddenFiles": true
   },

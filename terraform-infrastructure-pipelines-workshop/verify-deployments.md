@@ -16,7 +16,7 @@ The command output will ask you if you want to confirm that you want to generate
 
 Terraform will prompt you to visit a link in the output.
 
-Copy and paste the link in the output to generate a new token in Terraform cloud. 
+Copy and paste the link in the output to generate a new token in Terraform Cloud. 
 
 Copy the API token from Terraform Cloud and then paste it into the Katacoda terminal and press enter to confirm. The terminal will not display the token, so only paste your token once.
 
@@ -42,27 +42,27 @@ terraform {
 
 Then, initialize your Terraform workspace.
 
-`terraform init`{{execute}} 
+`terraform init`{{execute T1}} 
 
 Save your Kubernetes workspace's `kubeconfig` output value into a file named `kubeconfig`. This will allow you to connect to your cluster.
 
-`terraform output kubeconfig > kubeconfig`{{execute}} 
+`terraform output kubeconfig > kubeconfig`{{execute T1}} 
 
 Check the number of nodes in your Kubernetes deployment.
 
-`kubectl --kubeconfig=kubeconfig get nodes`{{execute}} 
+`kubectl --kubeconfig=kubeconfig get nodes`{{execute T1}} 
 
 Since Vault and Consul are enabled, you should see 5 nodes.
 
 Check the Kubernetes cluster pods. You should see pods for both Consul and Vault.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn get pods`{{execute}} 
+`kubectl --kubeconfig=kubeconfig -n hashicorp-learn get pods`{{execute T1}} 
 
 ## Access Consul UI
 
 Forward port :8500 (Consul UI) to port :8500, allowing you to access it on KataCoda's port 8500.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn port-forward --address 0.0.0.0 consul-server-0 8500:8500`{{execute}} 
+`kubectl --kubeconfig=kubeconfig -n hashicorp-learn port-forward --address 0.0.0.0 consul-server-0 8500:8500`{{execute T1}} 
 
 Click on the "Consul UI" tab in your terminal pane or visit `[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com` in your browser to access the Consul UI.
 
