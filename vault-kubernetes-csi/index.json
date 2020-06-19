@@ -1,0 +1,68 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Mount Vault Secrets through Container Storage Interface (CSI) Volume",
+  "description": "Mount Vault secrets in your pods and deployments through a Container Storage Interface (CSI) Volume",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Minikube",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step2.md"
+      },
+      {
+        "title": "Set a secret in Vault",
+        "text": "step3.md"
+      },
+      {
+        "title": "Configure Kubernetes authentication",
+        "text": "step4.md"
+      },
+      {
+        "title": "Install the secrets store CSI driver",
+        "text": "step5.md"
+      },
+      {
+        "title": "Install the provider-vault executable",
+        "text": "step6.md"
+      },
+      {
+        "title": "Define a SecretProviderClass resource",
+        "text": "step7.md"
+      },
+      {
+        "title": "Create a pod with secret mounted",
+        "text": "step8.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "daemon-set-provider-vault.yml", "target": "~/" },
+        { "file": "pod-webapp.yml", "target": "~/" },
+        { "file": "secret-provider-class-vault-database.yml", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "hideHiddenFiles": true,
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "minikube-running"
+  }
+}
