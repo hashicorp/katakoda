@@ -2,9 +2,9 @@
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
-Now to create the Nomad agent policy file, run `touch nomad-server-policy.hcl`{{execute}}
+Next, to create the Nomad agent policy file, run `touch nomad-server-policy.hcl`{{execute}}
 to create a blank file. Open `nomad-server-policy.hcl`{{open}} in the editor and
-add this content.
+add paste in the following contents.
 
 <pre class="file" data-filename="nomad-server-policy.hcl" data-target="replace">
 agent_prefix "" {
@@ -22,7 +22,7 @@ service_prefix "" {
 acl = "write"
 </pre>
 
-Create the Nomad server policy by uploading this file.
+Create the Nomad server policy with the Consul CLI.
 
 ```shell
 consul acl policy create \
