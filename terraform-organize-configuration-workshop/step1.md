@@ -17,11 +17,8 @@ so, you will need to export two environment variables in the terminal window.
 
 ```
 $ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-```{{copy}}
-
-```
 $ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-```{{copy}}
+```
 
 You will need to replace the values for the access key ID and secret access key
 values with credentials configured with the correct IAM policy.
