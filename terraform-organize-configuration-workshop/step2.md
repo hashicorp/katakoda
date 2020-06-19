@@ -21,7 +21,7 @@ blocks, remove these lines from `prod.tf`{{open}}.
 
 ```
 provider "aws" {
-  region = "us-west-2"
+  region = var.aws_region
 }
 
 resource "random_pet" "petname" {
@@ -124,7 +124,7 @@ are managed by the same Terraform workspace, and share both configuration and
 state. Because of this, a change that you intend to make in one environment can
 affect the other.
 
-## Trigger a hidden dependency
+## Trigger a Hidden Dependency
 
 Update the random_pet resource in `dev.tf`{{open}}, changing value of the
 `length` argument to "5".
