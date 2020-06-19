@@ -12,7 +12,7 @@ If you are having trouble finding the specific line in the collection, search fo
 
 ## Edit your mock data tags
 
-To create a failing scenario for your `bucket_tags` rule, replace the tag identifiers with different values. These tag identifiers search for an exact match so any additional text will cause a failure. 
+To create a failing scenario for your `bucket_tags` rule, replace the tag identifiers in the `resource_changes` collection with different values. These tag identifiers search for an exact match so any additional text will cause a failure. 
 
 If you have trouble finding the specific line, search for `<UPDATE_ID>` and replace it with `"FAIL-Environment"`{{copy}}
 
