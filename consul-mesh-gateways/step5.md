@@ -12,9 +12,11 @@ The `"consul.hashicorp.com/connect-inject": "true"` annotation in the configurat
 
 #### Deploy the service with kubectl
 
-You can deploy the `api` service using `kubectl`.
+First, make sure you set the right context for `kubectl`.
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc1/kubeconfig.yaml`{{execute}}
+
+Once the context is set, you can deploy the `api` service using `kubectl`.
 
 `kubectl apply -f ~/api.yml`{{execute}}
 
