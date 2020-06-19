@@ -44,7 +44,7 @@ main = rule {
 }
 ```{{copy}}
 
-## Run your first apply
+## Apply the policy
 
 To see Sentinel policy logic in action, run an `apply` with the `trace` flag in your terminal.
 
