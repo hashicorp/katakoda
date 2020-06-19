@@ -18,7 +18,7 @@ sentinel apply -trace restrict-s3-buckets.sentinel
 
 Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`. 
 
-Open the `~/terraform-sentinel/print.json`{{open}} file and paste the print output.
+Create a new file called `terraform-sentinel/print.json`{{touch}} and paste the print output there.
 
 Pipe the contents of this file to a `jq` command in your terminal to make this data easier to read.
 
@@ -34,7 +34,7 @@ Remove the print statement from your policy once you have reviewed the output.
 
 Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again.
 
-Copy and paste the `required_tags` variable below your print statement in `~/terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that are required to be returned from the data you just generated in the previous print statement.
+Copy and paste the `required_tags` variable below the `# Rule to require at least one tag` comment in `terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
 
 ```
 required_tags = [
@@ -49,9 +49,9 @@ Edit the `bucket_tags` rule to compare to your `require_tags` variable.
 
 ```
 bucket_tags = rule {
-	all s3_buckets as _, buckets {
-		all required_tags as rt {
-			buckets.change.after.tags contains rt
+all s3_buckets as _, buckets {
+	all required_tags as rt {
+		buckets.change.after.tags contains rt
 		}
 	}
 }
@@ -76,7 +76,7 @@ Copy and paste your ACL rule below your `allowed_acls` to evalute the ACL data i
 ```
 acl_allowed = rule {
 	all s3_buckets as _, buckets {
-		buckets.change.after.acl in allowed_acls
+	buckets.change.after.acl in allowed_acls
 	}
 }
 ```{{copy}}
@@ -92,7 +92,7 @@ main = rule {
 }
 ```{{copy}}
 
-## Run your apply 
+## Apply the policy 
 
 Run an apply in the Sentinel CLI again and evaluate the output. You should see that both the `acl_allowed` and `bucket_tags` rules evaluate to true, which allows your `main` rule to evaluate as true and the policy passes.
 

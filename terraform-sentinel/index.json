@@ -20,7 +20,7 @@
           "text": "step1.md"
         },
         {
-          "title": "Add additonal policy requirements",
+          "title": "Add additional policy requirements",
           "text": "step2.md"
         },
         {
@@ -39,6 +39,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
+    "exclusionPatterns": ["Desktop"],
     "hideHiddenFiles": true,
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },

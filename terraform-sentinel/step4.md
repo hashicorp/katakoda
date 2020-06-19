@@ -5,7 +5,7 @@ In this step, you will create testing files and run them in the Sentinel CLI. Se
 
 Now that you have created a plan in which your Sentinel policy will fail, you need to create a test file for a failing test.
 
-Open `~terraform-sentinel/test/restrict-s3-buckets/fail.json`{{open}} to add a path to the failing mock data.
+Open `terraform-sentinel/test/restrict-s3-buckets/fail.json`{{open}} to add a path to the failing mock data.
 
 Copy and paste the failing mock data in your test file relative to your `fail.json` file, in this case, two directories above the current folder in `mock-data`.
 
