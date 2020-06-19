@@ -5,7 +5,7 @@ dependencies and executes various container images.
 Start the Minikube cluster.
 
 ```shell
-minikube start
+minikube start --vm-driver none --bootstrapper kubeadm
 ```{{execute}}
 
 Verify the status of the Minikube cluster.
