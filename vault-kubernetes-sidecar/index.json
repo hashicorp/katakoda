@@ -17,7 +17,7 @@
         "text": "step2.md"
       },
       {
-        "title": "Install the Vault Helm chart",
+        "title": "Set a secret in Vault",
         "text": "step3.md"
       },
       {
@@ -59,15 +59,16 @@
     },
     "assets": {
       "host01": [
-        { "file": "pod-payroll.yml", "target": "~/" },
-        { "file": "patch-website.yml", "target": "~/" },
-        { "file": "service-account-internal-app.yml", "target": "~/" },
+        { "file": "deployment-issues.yml", "target": "~/" },
         { "file": "deployment-orgchart.yml", "target": "~/" },
+        { "file": "deployment-website.yml", "target": "~/" },
         { "file": "patch-inject-secrets.yml", "target": "~/" },
         { "file": "patch-inject-secrets-as-template.yml", "target": "~/" },
         { "file": "patch-issues.yml", "target": "~/" },
-        { "file": "deployment-website.yml", "target": "~/" },
-        { "file": "deployment-issues.yml", "target": "~/" }
+        { "file": "patch-website.yml", "target": "~/" },
+        { "file": "pod-payroll.yml", "target": "~/" },
+        { "file": "service-account-internal-app.yml", "target": "~/" },
+        { "file": "service-account-issues-app.yml", "target": "~/" }
       ]
     },
     "finish": {
