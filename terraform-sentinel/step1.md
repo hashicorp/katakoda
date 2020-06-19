@@ -22,7 +22,7 @@ s3_buckets = filter tfplan.resource_changes as _, rc {
 
 ## Create the bucket rule
 
-Your policy has a filter that will search the mock data, but no rule to evaluate this data against. Copy and paste the `bucket_tags` rule below the commented line `# Rule to require at least one tag`.
+Add a rule to evaluate mock data. Copy and paste the `bucket_tags` rule below the commented line `# Rule to require at least one tag`.
 
 ```
 bucket_tags = rule {
