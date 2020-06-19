@@ -1,4 +1,4 @@
-To test Consul service mesh you will deploy two simple services, `api` and `web`. The two services represent a simple two-tier application made of a backend api service and a frontend that communicates with the api service over HTTP and exposes the results in a web ui.
+To test the Consul service mesh you will deploy two simple services, `api` and `web`. The two services represent a simple two-tier application made of a backend api service and a frontend that communicates with the api service over HTTP and exposes the results in a web ui.
 
 #### Review the backend service configuration
 

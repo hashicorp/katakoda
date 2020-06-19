@@ -1,4 +1,4 @@
-Depending on the resources of the Kubernetes cluster the Consul pods might take some time to initialize completely.
+Depending on the resources of the Kubernetes cluster, the Consul pods might take some time to initialize completely.
 
 #### Wait until all pods are running
 
@@ -29,7 +29,6 @@ This will forward port `80` from `service/hashicorp-consul-ui` at port `80` to y
 
 You can now open the Consul UI tab to be redirected to the Consul UI. The Consul UI will list
 the `consul` service.
-
 
 
 

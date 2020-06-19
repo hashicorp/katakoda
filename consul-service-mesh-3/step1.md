@@ -5,7 +5,7 @@ Open [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.ka
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info: </strong>
   
-    In Consul 1.8.x a service deployed correctly into the service mesh will have "connected with proxy" in its description. Prior versions of Consul will have an additional service named "service_name-sidecar-proxy".
+    In Consul 1.8 a service deployed correctly into the service mesh will have "connected with proxy" in its description. Prior versions of Consul will have an additional service named "service_name-sidecar-proxy".
 
 </p></div>
 
