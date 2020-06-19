@@ -9,9 +9,11 @@ In addition to the `"consul.hashicorp.com/connect-inject": "true"` annotation, t
 
 #### Deploy app with kubectl
 
-You can deploy the `web` application using `kubectl`.
+First, make sure you set the right context for `kubectl`.
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc2/kubeconfig.yaml`{{execute}}
+
+Once the context is set, you can deploy the `web` application using `kubectl`.
 
 `kubectl apply -f ~/web.yml`{{execute}}
 
