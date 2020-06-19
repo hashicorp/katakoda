@@ -7,14 +7,14 @@ Verify that the Kubernetes service account named `internal-app` does not exist.
 kubectl get serviceaccounts
 ```{{execute}}
 
-This account does not exist but it is necessary for authentication.
+This account does not exist within the list of service accounts.
 
 View the service account defined in `service-account-internal-app.yml`{{open}}.
 
 This definition of the service account creates the account with the name
 `internal-app`.
 
-Apply the service account definition to create it.
+Create the service account.
 
 ```shell
 kubectl apply --filename service-account-internal-app.yml

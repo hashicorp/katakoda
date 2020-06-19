@@ -27,3 +27,5 @@ in the default namespace.
 ```shell
 kubectl describe SecretProviderClass vault-database
 ```{{execute}}
+
+This resource is ready to be mounted as a volume on a pod.

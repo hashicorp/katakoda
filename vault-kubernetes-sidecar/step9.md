@@ -1,7 +1,11 @@
-The annotations may patch these secrets into any deployment. Pods require that
-the annotations be included in their intitial definition.
+The annotations may patch deployments but pods require that the annotations be
+included in their intitial definition.
 
-View the pod definition for the `payroll` application in `pod-payroll.yml`{{open}}.
+Open the pod definition in `pod-payroll.yml`{{open}}.
+
+The name of this pod is `payroll`. The `spec.template.spec.serviceAccountName`
+defines the service account `internal-app` to run this container. The
+annotations are defined with the pod.
 
 Apply the pod defined in `pod-payroll.yml`.
 
@@ -9,16 +13,22 @@ Apply the pod defined in `pod-payroll.yml`.
 kubectl apply --filename pod-payroll.yml
 ```{{execute}}
 
-Get all the pods within the `default` namespace.
+Verify that the `payroll` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Finally, display the secret written to the `payroll` container.
+Wait until the `payroll` pod reports that
+it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`2/2`).
+
+Display the secret written to the `payroll` container.
 
 ```shell
 kubectl exec payroll --container payroll -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The PostgreSQL connection string is present on the container.
+The secrets are rendered in a PostgreSQL connection string is present on the
+container.

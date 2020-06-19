@@ -1,10 +1,9 @@
 
-The structure of the injected secrets may need to be structured in a way for
-an application to use. Before writing the secrets to the file system a
-template can structure the data. To apply this template a new set of annotations
-need to be applied.
+Injected secrets may need to be structured in a way for an application to use.
+The Vault injector annotations support templates to format the secret data.
 
-View the annotations file that contains a template definition in `patch-inject-secrets-as-template.yml`{{open}}
+Open the annotations file that contains a template definition in
+`patch-inject-secrets-as-template.yml`{{open}}
 
 This patch contains two new annotations:
 
@@ -23,18 +22,22 @@ Apply the updated annotations.
 kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets-as-template.yml)"
 ```{{execute}}
 
-Get all the pods within the `default` namespace.
+Verify that the `orgchart` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the redeployment is complete and the new pod reports `READY 2/2`.
+Wait until the re-deployed `orgchart` pod reports that
+it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`2/2`).
 
-Finally, display the secret written to the `orgchart` container.
+Display the secret written to the `orgchart` container.
 
 ```shell
 kubectl exec -it $(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") -c orgchart -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The PostgreSQL connection string is present on the container.
+The secrets are rendered in a PostgreSQL connection string is present on the
+container.

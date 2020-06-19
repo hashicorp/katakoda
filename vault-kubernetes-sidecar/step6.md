@@ -1,8 +1,7 @@
 We've created a sample application, published it to DockerHub, and created a
 Kubernetes deployment that launches this application.
 
-View the deployment for the `orgchart` application in
-`deployment-orgchart.yml`{{open}}.
+Open the deployment in `deployment-orgchart.yml`{{open}}.
 
 The name of this deployment is `orgchart`. The
 `spec.template.spec.serviceAccountName` defines the service account
@@ -14,18 +13,15 @@ Apply the deployment defined in `deployment-orgchart.yml`.
 kubectl apply --filename deployment-orgchart.yml
 ```{{execute}}
 
-The application runs as a pod within the `default` namespace.
-
-Get all the pods within the `default` namespace.
+Verify that the `orgchart` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-The orgchart pod is displayed here as the pod prefixed with `orgchart`.
-
-
-Wait until the `orgchart` pod status becomes **Running** and Ready (`1/1`).
+Wait until the `orgchart` pod reports that it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`1/1`).
 
 Verify that no secrets are written to the `orgchart` container in the pod.
 
