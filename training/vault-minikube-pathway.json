@@ -4,17 +4,17 @@
   "courses": [
     {
       "pathway_id": "hashicorp",
-      "title": "Vault on Minikube",
-      "id": "vault-minikube",
-      "course_id": "vault-minikube",
-      "description": "Use Vault on minikube."
-    },
-    {
-      "pathway_id": "hashicorp",
       "title": "Vault Kubernetes Sidecar",
       "id": "vault-kubernetes-sidecar",
       "course_id": "vault-kubernetes-sidecar",
-      "description": "Use Vault with Kubernetes."
+      "description": "Use Vault Agent with Kubernetes."
+    },
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault Kubernetes CSI Volumes",
+      "id": "vault-kubernetes-csi",
+      "course_id": "vault-kubernetes-csi",
+      "description": "Mount Vault secrets with Container Storage Interface (CSI) Volume."
     }
   ]
 }
