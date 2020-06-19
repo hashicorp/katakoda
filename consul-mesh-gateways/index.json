@@ -2,6 +2,8 @@
 	"title": "Consul Mesh Gateways on Kubernetes",
 	"icon": "fa-consul",
 	"description": "Consul Service Discovery and Secure Mesh across Multiple Kubernetes Clusters using Consul Mesh Gateways",
+	"difficulty": "Intermediate",
+        "time": "25 minutes",
 	"details": {
 		"steps": [
 			{
