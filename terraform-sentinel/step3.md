@@ -14,8 +14,6 @@ If you are having trouble finding the specific line in the collection, search fo
 
 To create a failing scenario for your `bucket_tags` rule, replace the tag identifiers in the `resource_changes` collection with different values. These tag identifiers search for an exact match so any additional text will cause a failure. 
 
-If you have trouble finding the specific line, search for `<UPDATE_ID>` and replace it with `"FAIL-Environment"`{{copy}}
-
-Search for `<UPDATE_ID>` and overwrite it with `"FAIL-Name"`{{copy}}
+If you have trouble finding the specific line, search for `<UPDATE_ID>`. Replace the first instance with `"FAIL-Environment"`{{copy}}, and the second with `"FAIL-Name"`{{copy}}.
 
 Now that you have failing mocked data, the next step will show you how to implement this in your failing tests.
