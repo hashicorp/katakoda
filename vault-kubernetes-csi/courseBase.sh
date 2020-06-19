@@ -1,5 +1,8 @@
-# Update minikube version
+# Hide the existing minikube
 sudo minikube delete
+mv /usr/local/bin/minikube /usr/local/bin/minikube-old
+
+# Update minikube version
 sudo apt install conntrack -y
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
   && chmod +x minikube
