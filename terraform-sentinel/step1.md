@@ -15,8 +15,8 @@ Create a filter for the s3_bucket resources in the Terraform Cloud plan. Copy an
 ```
 s3_buckets = filter tfplan.resource_changes as _, rc {
 	rc.type is "aws_s3_bucket" and
-		(rc.change.actions contains "create" or rc.change.actions is ["update"])
-		}
+	(rc.change.actions contains "create" or rc.change.actions is ["update"])
+}
 ```{{copy}}
 
 
@@ -27,9 +27,9 @@ Add a rule to evaluate mock data. Copy and paste the `bucket_tags` rule below th
 ```
 bucket_tags = rule {
 	all s3_buckets as _, buckets {
-		buckets.change.after.tags is not null
-		}
+	buckets.change.after.tags is not null
 	}
+}
 ```{{copy}}
 
 
