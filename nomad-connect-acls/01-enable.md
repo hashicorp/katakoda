@@ -1,7 +1,7 @@
 
 ### Enable ACLs in Consul configuration
 
-Open the `consul_config.hcl`{{open}} file and add this stanza anywhere in the
+Open the `consul_config.hcl`{{open}} file and paste the following stanza anywhere in the
 top level.
 
 <pre class="file" data-target="clipboard">

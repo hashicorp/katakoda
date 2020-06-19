@@ -2,7 +2,7 @@
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
-Open the `nomad_config.hcl`{{open}} file. Add a consul stanza with your token.
+Open the `nomad_config.hcl`{{open}} file. Add a `consul` stanza with your token.
 
 ```hcl
 consul {

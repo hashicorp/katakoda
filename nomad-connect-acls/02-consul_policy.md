@@ -2,7 +2,7 @@
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
-You need to create a policy for the Consul Agents.
+You need to create a policy for the Consul agents.
 
 First, load the management token out of your bootstrap file -
 `export CONSUL_HTTP_TOKEN=$(awk '/SecretID/ {print $2}' consul.bootstrap)`{{execute}}
@@ -22,7 +22,7 @@ host01  172.17.0.25:8301  alive   server  1.7.0  2         dc1  <all>
 
 Run `touch consul-agent-policy.hcl`{{execute}} to create a blank policy file.
 
-Now, open `consul-agent-policy.hcl`{{open}} in the editor and add this content.
+Now, open `consul-agent-policy.hcl`{{open}} in the editor and paste in the contents.
 
 <pre class="file" data-filename="consul-agent-policy.hcl" data-target="replace">
 node_prefix "" {
