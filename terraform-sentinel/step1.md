@@ -8,7 +8,7 @@ For your first policy, create a resource filter for your S3 buckets and a rule t
 
 ## Create a filter
 
-The stub of this policy is in `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}.
+Open the stub of this policy in `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}.
 
 The first step in this policy relies on creating a filter for the s3_bucket resources in the Terraform Cloud plan. Copy and paste the filter block below the commented line `# Filter S3 buckets`.
 
