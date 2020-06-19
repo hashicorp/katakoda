@@ -1,5 +1,5 @@
 
-Once the services are bot up and running you can access them using port `9090` of the lab machine.
+Once the services are both up and running you can access them using port `9090` of the lab machine.
 
 Open [Web frontend](https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/ui) to reach service `web` interface and make sure it can reach the `api` backend.
 
