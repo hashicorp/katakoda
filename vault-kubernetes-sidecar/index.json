@@ -67,8 +67,7 @@
         { "file": "patch-issues.yml", "target": "~/" },
         { "file": "patch-website.yml", "target": "~/" },
         { "file": "pod-payroll.yml", "target": "~/" },
-        { "file": "service-account-internal-app.yml", "target": "~/" },
-        { "file": "service-account-issues-app.yml", "target": "~/" }
+        { "file": "service-account-internal-app.yml", "target": "~/" }
       ]
     },
     "finish": {
