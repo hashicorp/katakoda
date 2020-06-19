@@ -7,7 +7,7 @@ the path `/secret`.
 First, start an interactive shell session on the `vault-0` pod.
 
 ```shell
-kubectl exec -it vault-0 /bin/sh
+kubectl exec -it vault-0 -- /bin/sh
 ```{{execute}}
 
 Your system prompt is replaced with a new prompt `/ $`. Commands issued at this
