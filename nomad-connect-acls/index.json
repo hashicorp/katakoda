@@ -57,6 +57,8 @@
   "files": [],
   "environment": {
     "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["Desktop"],
     "uimessage1": "\u001b[32mInteractive Bash Terminal.\u001b[m\r\n",
     "showdashboard": true,
     "dashboards": [
