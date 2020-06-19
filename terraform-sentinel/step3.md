@@ -8,7 +8,7 @@ Open `terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel`{{open}} and edi
 
 Your mock data contains the ACL for the configuration in the `resource_changes` collection. Instead of `public-read`, which is allowed in your policy, change this to `public-read-write` to create a failing scenario for your `acl_allowed` rule. 
 
-If you are having trouble finding the specific line in the collection, search for `<UPDATE_VALUE>` in the file and overwrite it with `"public-read-write",`{{copy}}
+If you are having trouble finding the specific line in the collection, search for `<UPDATE_VALUE>` in the file and overwrite it with `"public-read-write"`{{copy}}
 
 ## Edit your mock data tags
 
