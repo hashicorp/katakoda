@@ -14,5 +14,5 @@ Specifically you:
 
 # Next Steps
 
-To learn more about Consul service mesh, [understand Consul service mesh](https://learn.hashicorp.com/consul/gs-consul-service-mesh/understand-consul-service-mesh) provides a reference guide for the Consul service mesh based labs.
+To learn more about Consul service mesh, [Understand Consul Service Mesh](https://learn.hashicorp.com/consul/gs-consul-service-mesh/understand-consul-service-mesh) provides a reference guide for the Consul service mesh based labs.
 

@@ -1,10 +1,8 @@
-#### Deploy services into Consul service mesh
-
-The two services represent a simple two-tier application made of a backend api service and a frontend that communicates with the api service over HTTP and exposes the results in a web ui.
+To test Consul service mesh you will deploy two simple services, `api` and `web`. The two services represent a simple two-tier application made of a backend api service and a frontend that communicates with the api service over HTTP and exposes the results in a web ui.
 
 #### Review the backend service configuration
 
-This hands-on lab comes with a prepared configuration.
+This hands-on lab comes with a prepared configuration for the `api` service.
 
 `api.yml`{{open}}
 
@@ -26,4 +24,11 @@ Wait until the pod is marked as `Running` to continue. This might take up to a m
 
 ### Verify application status in Consul UI
 
-Open [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui/minidc/services) and ensure two services `api` and `api-sidecar-proxy` are registered and healthy in Consul.
+Open [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui) and ensure the services `api` is registered and healthy in Consul.
+
+<div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
+  <p><strong>Info: </strong>
+  
+  In Consul 1.8.x a service deployed correctly into the service mesh will have "connected with proxy" in its description. Prior versions of Consul will have an additional service named "service_name-sidecar-proxy".
+
+</p></div>

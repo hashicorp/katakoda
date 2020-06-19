@@ -47,7 +47,6 @@
     },
     "environment": {
         "showdashboard": true,
-        "dashboard": "Dashboard",
         "uilayout": "editor-terminal",
         "hideHiddenFiles": true,
         "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n",

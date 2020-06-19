@@ -1,3 +1,5 @@
+To access a service running inside a Kubernetes cluster you will have to expose the service to an external network.
+
 #### Configure port forwarding for your frontend service
 
 To access the app running inside your Consul service mesh, you will setup port forwarding.
