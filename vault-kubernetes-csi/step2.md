@@ -22,9 +22,7 @@ helm install vault hashicorp/vault \
     --set "injector.enabled=false"
 ```{{execute}}
 
-The Vault pods are deployed in the default namespace.
-
-To verify, get all the pods within the `default` namespace.
+Verify that the `vault-0` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
@@ -33,7 +31,7 @@ kubectl get pods
 The `vault-0` pod starts as a Vault service in development mode. A Vault server
 run in development mode is automatically initialized and unsealed.
 
-Wait until the server reports that they are
+Wait until the `vault-0` pod is
 [`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
 and ready (`1/1`).
 

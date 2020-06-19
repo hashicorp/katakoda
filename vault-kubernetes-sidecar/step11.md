@@ -1,5 +1,5 @@
-Similar to how the secrets are bound to a service account they are also bound
-to a namespace.
+Pods run in a namespace other than the ones defined in the Vault Kubernetes
+authentication role are **NOT** able to access the secrets defined at that path.
 
 Create the `offsite` namespace.
 
@@ -13,24 +13,23 @@ Set the current context to the offsite namespace.
 kubectl config set-context --current --namespace offsite
 ```{{execute}}
 
-Apply the `internal-app` service account defined in
-`service-account-internal-app.yml`{{{open}} to create it within the offsite
+Apply the `internal-app` service account to create it within the offsite
 namespace.
 
 ```shell
 kubectl apply --filename service-account-internal-app.yml
 ```{{execute}}
 
-View the deployment for the `issues` application in
+Open the deployment for the `issues` application in
 `deployment-issues.yml`{{open}}.
 
-Apply the deployment for the `issues` application.
+Apply the deployment.
 
 ```shell
 kubectl apply --filename deployment-issues.yml
 ```{{execute}}
 
-Get all the pods within the `offsite` namespace.
+Verify that the `issues` pod is **NOT** running in the `default` namespace.
 
 ```shell
 kubectl get pods
@@ -41,14 +40,14 @@ because you are now in a different namespace.
 
 The `issues` deployment creates a pod but it is **NEVER** ready.
 
-View the logs of the `vault-agent-init` container in the `issues` pod.
+Display the logs of the `vault-agent-init` container in the `issues` pod.
 
 ```shell
 kubectl logs $(kubectl get pod -l app=issues -o jsonpath="{.items[0].metadata.name}") --container vault-agent-init
 ```{{execute}}
 
-The initialization process fails because the **namespace is not authorized**. The
-namespace, `offsite` is not assigned to any Vault Kubernetes authentication
+The initialization process fails because the **namespace is not authorized**.
+The namespace, `offsite` is not assigned to any Vault Kubernetes authentication
 role. This failure to authenticate causes the deployment to fail initialization.
 
 Start an interactive shell session on the `vault-0` pod in the `default`
@@ -77,26 +76,30 @@ Exit the `vault-0` pod.
 exit
 ```{{execute}}
 
-View the deployment patch `patch-issues.yml`{{open}}.
+Open the deployment patch `patch-issues.yml`{{open}}.
 
 The patch performs an update to set the `vault.hashicorp.com/role` to the
 Vault Kubernetes role `offsite-app`.
 
-Patch the `issues` deployment defined in `patch-issues.yml`.
+Patch the `issues` deployment.
 
 ```shell
 kubectl patch deployment issues --patch "$(cat patch-issues.yml)"
 ```{{execute}}
 
-The original issues pod is terminated and a new issues pod is created.
+A new `issues` pod starts alongside the existing pod. When it is ready the
+original terminates and removes itself from the list of active pods.
 
-Get all the pods within the `offsite` namespace.
+Verify that the `issues` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-The `issues` pod displays that is ready.
+Wait until the re-deployed `issues` pod reports that
+it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`2/2`).
 
 Finally, display the secret written to the `issues` container in the `issues`
 pod.
@@ -107,4 +110,5 @@ kubectl exec \
     --container issues -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The PostgreSQL connection string is present on the `issues` container.
+The secrets are rendered in a PostgreSQL connection string is present on the
+container.

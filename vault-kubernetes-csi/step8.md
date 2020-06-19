@@ -6,8 +6,8 @@ View the definition of the pod in
 `pod-webapp.yml`{{open}}.
 
 The pod, named `webapp`, defines and mounts a read-only
-volume to `/mnt/secrets-store`. The objects defined in the `vault-database`
-*SecretProviderClass* are written as files within that path.
+volume to `/mnt/secrets-store`. The object defined in the `vault-database`
+*SecretProviderClass* is written as a file within that path.
 
 Apply a pod named `webapp`.
 
@@ -21,8 +21,12 @@ Verify that the webapp pod is running in the `default` namespace.
 kubectl get pods
 ```{{execute}}
 
+Wait until the `webapp` pod is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`1/1`).
+
 Finally, read the password secret written to the file system at
-`/mnt/secrets-store/db-pass` on the webapp pod.
+`/mnt/secrets-store/db-pass` on the `webapp` pod.
 
 ```shell
 kubectl exec webapp -- cat /mnt/secrets-store/db-pass ; echo

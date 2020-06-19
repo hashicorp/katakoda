@@ -1,55 +1,63 @@
 Pods run with a Kubernetes service account other than the ones defined in the
-Vault Kubernetes authentication role are not able to access the secrets defined
-at that path.
+Vault Kubernetes authentication role are **NOT** able to access the secrets
+defined at that path.
 
-View the deployment and service account for the `website` application in `deployment-website.yml`{{open}}.
+Open the deployment and service account definitions in
+`deployment-website.yml`{{open}}.
 
-Apply the deployment and service account defined in `deployment-website.yml`.
+This file defines a new deployment named `website` that the new `website`
+service account but relies on the same Vault Kubernetes role in the injector
+annotations.
+
+Apply the deployment and service account.
 
 ```shell
 kubectl apply --filename deployment-website.yml
 ```{{execute}}
 
-Get all the pods within the `default` namespace.
+Verify that the `website` pod is **NOT** running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-The website deployment creates a pod but it is **NEVER** ready.
+The `website` deployment creates a pod but it is **NEVER** ready.
 
-View the logs of the `vault-agent-init` container in the `website` pod.
+Display the logs of the `vault-agent-init` container in the `website` pod.
 
 ```shell
 kubectl logs $(kubectl get pod -l app=website -o jsonpath="{.items[0].metadata.name}") --container vault-agent-init
 ```{{execute}}
 
 The initialization process failed because the service account name is not
-authorized. The service account, `external-app` is not assigned to any Vault
+authorized. The service account, `website` is not assigned to any Vault
 Kubernetes authentication role. This failure to authenticate causes the
 deployment to fail initialization.
 
-View the deployment patch `patch-website.yml`{{open}}.
+Open the deployment patch `patch-website.yml`{{open}}.
 
 The patch modifies the deployment definition to use the service account
 `internal-app`. This Kubernetes service account is authorized by the Vault
 Kubernetes authentication role.
 
-Patch the `website` deployment defined in `patch-website.yml`.
+Patch the `website` deployment.
 
 ```shell
 kubectl patch deployment website --patch "$(cat patch-website.yml)"
 ```{{execute}}
 
-Get all the pods within the `default` namespace.
+Verify that the `website` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-The `website` pod displays that is ready.
+Wait until the `website` pod reports that
+it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`2/2`).
 
-Finally, display the secret written to the `website` container in the `website`
+Display the secret written to the `website` container in the `website`
 pod.
 
 ```shell
@@ -60,5 +68,6 @@ kubectl exec \
 
 The PostgreSQL connection string is present on the `website` container.
 
-Alternatively, you can define a new Vault Kubernetes role, that enables the
-original service account access, and patch the deployment.
+> Alternatively, you could have defined a new Vault Kubernetes role, that
+> enables the `website` service account and then patched the `website`
+> deployment annotations to use this new role.

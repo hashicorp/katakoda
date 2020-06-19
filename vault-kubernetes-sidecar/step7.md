@@ -3,7 +3,7 @@ account in the `default` namespace. The Vault Agent injector only modifies a
 deployment if it contains a specific set of annotations. An existing deployment
 may have its definition patched to include the necessary annotations.
 
-View the deployment patch `patch-inject-secrets.yml`{{open}}.
+Open the deployment patch `patch-inject-secrets.yml`{{open}}.
 
 These
 [annotations](https://www.vaultproject.io/docs/platform/k8s/injector/index.html#annotations)
@@ -22,29 +22,30 @@ Patch the `orgchart` deployment defined in `patch-inject-secrets.yml`.
 kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets.yml)"
 ```{{execute}}
 
-The original orgchart pod is terminated and a new orgchart pod is created.
+A new `orgchart` pod starts alongside the existing pod. When it is ready the
+original terminates and removes itself from the list of active pods.
 
-Get all the pods within the `default` namespace.
+Verify that the `orgchart` pod is running in the `default` namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-A new `orgchart` pod starts alongside the existing pod. When it is ready the
-original terminates and removes itself from the list of active pods.
-
-Wait until the redeployment is complete and the new pod reports `READY 2/2`.
+Wait until the re-deployed `orgchart` pod reports that
+it is
+[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
+and ready (`2/2`).
 
 This new pod now launches two containers. The application container, named
 `orgchart`, and the Vault Agent container, named `vault-agent`.
 
-View the logs of the `vault-agent` container in the new `orgchart` pod.
+Display the logs of the `vault-agent` container in the new `orgchart` pod.
 
 ```shell
 kubectl logs $(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") --container vault-agent
 ```{{execute}}
 
-Finally, view the secret written to the `orgchart` container.
+Display the secret written to the `orgchart` container.
 
 ```shell
 kubectl exec $(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") --container orgchart -- cat /vault/secrets/database-config.txt

@@ -1,7 +1,6 @@
-The Secrets Store CSI driver *secrets-store.csi.k8s.io* allows Kubernetes to
-mount multiple secrets, keys, and certs stored in enterprise-grade external
-secrets stores into their pods as a volume. Once the Volume is attached, the
-data in it is mounted into the container's file system.
+The Secrets Store CSI driver allows Kubernetes to mount multiple secrets, keys,
+and certs stored in enterprise-grade external secrets stores into their pods as
+a volume.
 
 Add the Secrets Store CSI driver Helm repository.
 
@@ -22,9 +21,6 @@ the `default` namespace.
 kubectl get pods
 ```{{execute}}
 
-The csi-secrets-store-csi-driver pod is displayed here as the pod prefixed with
-`csi-secrets-store-csi-driver`.
-
-Wait until the pod is
+Wait until the pods, prefixed with `csi-secrets-store-csi-driver` are
 [`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
 and ready (`3/3`).
