@@ -116,7 +116,7 @@ Open `dev/main.tf`{{open}} and remove the entire bucket resource block.
 
 ```
 resource "aws_s3_bucket" "web" {
-  bucket = "${var.prefix}-${random_pet.petname.id}"
+  bucket = "hc-digital-${var.prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
 # ...
@@ -134,7 +134,7 @@ Replace it with the following.
 module "website_s3_bucket" {
   source = "../modules/terraform-aws-s3-static-website-bucket"
 
-  bucket_name = "${var.prefix}-${random_pet.petname.id}"
+  bucket_name = "hc-digital-${var.prefix}-${random_pet.petname.id}"
 }
 ```{{copy}}
 
