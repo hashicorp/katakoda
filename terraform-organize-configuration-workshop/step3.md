@@ -56,9 +56,9 @@ argument to use the new `var.prefix` variable.
 
 ```
 - resource "aws_s3_bucket" "dev" {
-- bucket = "${var.dev_prefix}-${random_pet.petname.id}"
+- bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
 + resource "aws_s3_bucket" "web" {
-+ bucket = "${var.prefix}-${random_pet.petname.id}"
++ bucket = "hc-digital-${var.prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
   force_destroy = true
@@ -71,8 +71,8 @@ Also update the bucket resource name in the policy document to use the new
 
 ```
         "Resource": [
--           "arn:aws:s3:::${var.dev_prefix}-${random_pet.petname.id}/*"
-+           "arn:aws:s3:::${var.prefix}-${random_pet.petname.id}/*"
+-           "arn:aws:s3:::hc-digital-${var.dev_prefix}-${random_pet.petname.id}/*"
++           "arn:aws:s3:::hc-digital-${var.prefix}-${random_pet.petname.id}/*"
         ]
 ```
 
