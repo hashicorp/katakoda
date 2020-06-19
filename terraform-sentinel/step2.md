@@ -49,9 +49,9 @@ Edit the `bucket_tags` rule to compare to your `require_tags` variable.
 
 ```
 bucket_tags = rule {
-	all s3_buckets as _, buckets {
-		all required_tags as rt {
-			buckets.change.after.tags contains rt
+all s3_buckets as _, buckets {
+	all required_tags as rt {
+		buckets.change.after.tags contains rt
 		}
 	}
 }
@@ -76,7 +76,7 @@ Copy and paste your ACL rule below your `allowed_acls` to evalute the ACL data i
 ```
 acl_allowed = rule {
 	all s3_buckets as _, buckets {
-		buckets.change.after.acl in allowed_acls
+	buckets.change.after.acl in allowed_acls
 	}
 }
 ```{{copy}}
