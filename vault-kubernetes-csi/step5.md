@@ -14,13 +14,14 @@ Install the latest version of the Kubernetes-Secrets-Store-CSI-Driver.
 helm install csi secrets-store-csi-driver/secrets-store-csi-driver
 ```{{execute}}
 
-Verify that a secrets-store-csi-driver pod, prefixed with `csi`, is running in
-the default namespace.
+The Kubernetes-Secrets-Store-CSI-Driver pod is deployed in the default
+namespace.
+
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the pods, prefixed with `csi-secrets-store-csi-driver` are
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`3/3`).
+Wait until the `csi-secrets-store-csi-driver` pod is running and and ready
+(`3/3`).

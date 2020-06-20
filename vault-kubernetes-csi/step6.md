@@ -2,7 +2,7 @@ The Secrets Store CSI driver enables extension through providers. A provider
 is launched as a Kubernetes DaemonSet alongside of Secrets Store CSI driver
 DaemonSet.
 
-View the definition of the DaemonSet `daemon-set-provider-vault.yml`{{open}}.
+Open the definition of the DaemonSet `daemon-set-provider-vault.yml`{{open}}.
 
 This DaemonSet launches its own provider pod and mounts the executable in the
 existing csi-secrets-store-csi-driver pod.
@@ -14,16 +14,17 @@ Kubernetes-Secrets-Store-CSI-Driver.
 kubectl apply --filename daemon-set-provider-vault.yml
 ```{{execute}}
 
-Verify that a csi-secrets-store-provider-vault pod, prefixed with
-`csi-secrets-store-provider-vault`, is running in the default namespace.
+This DaemonSet launches its own provider pod with the name prefixed with
+`csi-secrets-store-provider-vault` and mounts the executable in the existing
+csi-secrets-store-csi-driver pod.
+
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until `csi-secrets-store-provider-vault` pod is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`1/1`).
+Wait until `csi-secrets-store-provider-vault` pod is running and ready (`1/1`).
 
 Verify that the `provider-vault` executable is present on the `secrets-store`
 container in the `csi-secrets-store-csi-driver` pod.

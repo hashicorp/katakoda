@@ -1,7 +1,7 @@
 The volume mounted to the pod in the **step 8** expects a secret stored at the
 path `secret/data/db-pass`.
 
-First, start an interactive shell session on the `vault-0` pod.
+Start an interactive shell session on the `vault-0` pod.
 
 ```shell
 kubectl exec -it vault-0 -- /bin/sh
@@ -22,7 +22,7 @@ Verify that the secret is readable at the path `secret/db-pass`.
 vault kv get secret/db-pass
 ```{{execute}}
 
-Lastly, exit the the `vault-0` pod.
+Exit the the `vault-0` pod.
 
 ```shell
 exit

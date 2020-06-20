@@ -1,7 +1,12 @@
-Vault provides a [Kubernetes
-authentication](https://www.vaultproject.io/docs/auth/kubernetes.html) method
-that enables clients to authenticate with a Kubernetes Service Account
-Token. This token is provided to each pod when it is created.
+Vault provides a Kubernetes authentication method that enables clients to
+authenticate with a Kubernetes Service Account Token. This token is provided to
+each pod when it is created.
+
+Start an interactive shell session on the `vault-0` pod.
+
+```shell
+kubectl exec -it vault-0 -- /bin/sh
+```{{execute}}
 
 Enable the Kubernetes authentication method.
 
@@ -44,7 +49,7 @@ The role connects the Kubernetes service account, `internal-app`, and namespace,
 `default`, with the Vault policy, `internal-app`. The tokens returned after
 authentication are valid for 24 hours.
 
-Lastly, exit the `vault-0` pod.
+Exit the `vault-0` pod.
 
 ```shell
 exit

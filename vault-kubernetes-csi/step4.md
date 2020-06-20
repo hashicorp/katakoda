@@ -1,9 +1,7 @@
-Vault provides a [Kubernetes
-authentication](https://www.vaultproject.io/docs/auth/kubernetes.html) method
-that enables clients to authenticate with a Kubernetes Service Account
-Token.
+Vault provides a Kubernetes authentication method that enables clients to
+authenticate with a Kubernetes Service Account Token.
 
-First, start an interactive shell session on the `vault-0` pod.
+Start an interactive shell session on the `vault-0` pod.
 
 ```shell
 kubectl exec -it vault-0 -- /bin/sh
@@ -58,7 +56,7 @@ The role connects the Kubernetes service account, `secrets-store-csi-driver`,
 and namespace, `default`, with the Vault policy, `internal-app-csi`. The tokens
 returned after authentication are valid for 20 minutes.
 
-Lastly, exit the `vault-0` pod.
+Exit the `vault-0` pod.
 
 ```shell
 exit

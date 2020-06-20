@@ -29,7 +29,7 @@ Apply the deployment.
 kubectl apply --filename deployment-issues.yml
 ```{{execute}}
 
-Verify that the `issues` pod is **NOT** running in the offsite namespace.
+Get all the pods within the offsite namespace.
 
 ```shell
 kubectl get pods
@@ -90,19 +90,15 @@ kubectl patch deployment issues --patch "$(cat patch-issues.yml)"
 A new `issues` pod starts alongside the existing pod. When it is ready the
 original terminates and removes itself from the list of active pods.
 
-Verify that the `issues` pod is running in the offsite namespace.
+Get all the pods within the offsite namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the re-deployed `issues` pod reports that
-it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`2/2`).
+Wait until the re-deployed `issues` pod is running and ready (`2/2`).
 
-Finally, display the secret written to the `issues` container in the `issues`
-pod.
+Display the secret written to the `issues` container in the `issues` pod.
 
 ```shell
 kubectl exec \

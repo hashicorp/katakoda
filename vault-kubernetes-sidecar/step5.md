@@ -20,7 +20,7 @@ Create the service account.
 kubectl apply --filename service-account-internal-app.yml
 ```{{execute}}
 
-Verify that the service account has been created.
+Get all the service accounts within the default namespace.
 
 ```shell
 kubectl get serviceaccounts

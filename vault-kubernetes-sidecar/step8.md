@@ -10,7 +10,7 @@ This patch contains two new annotations:
 - `agent-inject-status` set to `update` informs the injector reinject these
   values.
 - `agent-inject-template-FILEPATH` prefixes the file path. The value defines
-  the [Vault Agent template](https://www.vaultproject.io/docs/agent/template/index.html)
+  the Vault Agent template.
   to apply to the secret's data.
 
 The template formats the username and password as a PostgreSQL connection
@@ -22,16 +22,14 @@ Apply the updated annotations.
 kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets-as-template.yml)"
 ```{{execute}}
 
-Verify that the `orgchart` pod is running in the default namespace.
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the re-deployed `orgchart` pod reports that
-it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`2/2`).
+Wait until the re-deployed `orgchart` pod reports that it is running and ready
+(`2/2`).
 
 Display the secret written to the `orgchart` container.
 

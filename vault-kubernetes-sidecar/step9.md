@@ -13,16 +13,13 @@ Apply the pod defined in `pod-payroll.yml`.
 kubectl apply --filename pod-payroll.yml
 ```{{execute}}
 
-Verify that the `payroll` pod is running in the default namespace.
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the `payroll` pod reports that
-it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`2/2`).
+Wait until the `payroll` pod is running and ready (`2/2`).
 
 Display the secret written to the `payroll` container.
 

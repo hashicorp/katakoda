@@ -1,11 +1,8 @@
-The recommended way to run Vault on Kubernetes is via the [Helm
-chart](https://www.vaultproject.io/docs/platform/k8s/helm.html).
-[Helm](https://helm.sh/docs/helm/) is a package manager that installs and
-configures all the necessary components to run Vault in several different
-modes. A Helm chart includes
-[templates](https://helm.sh/docs/chart_template_guide/#the-chart-template-developer-s-guide)
-that enable conditional and parameterized execution. These parameters can be set
-through command-line arguments or defined in YAML.
+The recommended way to run Vault on Kubernetes is via the Helm chart. Helm is a
+package manager that installs and configures all the necessary components to run
+Vault in several different modes. A Helm chart includes templates that enable
+conditional and parameterized execution. These parameters can be set through
+command-line arguments or defined in YAML.
 
 Add the Hashicorp helm repository.
 
@@ -22,16 +19,15 @@ helm install vault hashicorp/vault \
     --set "injector.enabled=false"
 ```{{execute}}
 
-Verify that the `vault-0` pod is running in the default namespace.
+The Vault server runs in development mode on a single pod
+`server.dev.enabled=true`. By default the Helm chart starts a Vault Agent
+Injector pod but that is disabled `injector.enabled=false`.
+
+Display all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-The `vault-0` pod starts as a Vault service in development mode. A Vault server
-run in development mode is automatically initialized and unsealed.
-
-Wait until the `vault-0` pod is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`1/1`).
+Wait until the `vault-0` pod is running and ready (`1/1`).
 

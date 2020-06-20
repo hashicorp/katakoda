@@ -5,10 +5,8 @@ may have its definition patched to include the necessary annotations.
 
 Open the deployment patch `patch-inject-secrets.yml`{{open}}.
 
-These
-[annotations](https://www.vaultproject.io/docs/platform/k8s/injector/index.html#annotations)
-define a partial structure of the deployment schema and are prefixed with
-`vault.hashicorp.com`.
+These annotations define a partial structure of the deployment schema and are
+prefixed with `vault.hashicorp.com`.
 
 - `agent-inject` enables the Vault Agent injector service
 - `role` is the Vault Kubernetes authentication role
@@ -31,10 +29,7 @@ Verify that the `orgchart` pod is running in the default namespace.
 kubectl get pods
 ```{{execute}}
 
-Wait until the re-deployed `orgchart` pod reports that
-it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`2/2`).
+Wait until the re-deployed `orgchart` pod is running and ready (`2/2`).
 
 This new pod now launches two containers. The application container, named
 `orgchart`, and the Vault Agent container, named `vault-agent`.

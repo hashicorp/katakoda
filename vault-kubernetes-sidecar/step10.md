@@ -15,7 +15,7 @@ Apply the deployment and service account.
 kubectl apply --filename deployment-website.yml
 ```{{execute}}
 
-Verify that the `website` pod is **NOT** running in the default namespace.
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
@@ -46,16 +46,13 @@ Patch the `website` deployment.
 kubectl patch deployment website --patch "$(cat patch-website.yml)"
 ```{{execute}}
 
-Verify that the `website` pod is running in the default namespace.
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the `website` pod reports that
-it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`2/2`).
+Wait until the `website` pod is running and ready (`2/2`).
 
 Display the secret written to the `website` container in the `website`
 pod.

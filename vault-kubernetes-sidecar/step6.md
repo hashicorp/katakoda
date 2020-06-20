@@ -13,15 +13,13 @@ Apply the deployment defined in `deployment-orgchart.yml`.
 kubectl apply --filename deployment-orgchart.yml
 ```{{execute}}
 
-Verify that the `orgchart` pod is running in the default namespace.
+Get all the pods within the default namespace.
 
 ```shell
 kubectl get pods
 ```{{execute}}
 
-Wait until the `orgchart` pod reports that it is
-[`Running`](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase)
-and ready (`1/1`).
+Wait until the `orgchart` pod reports that it is running and ready (`1/1`).
 
 Verify that no secrets are written to the `orgchart` container in the pod.
 
