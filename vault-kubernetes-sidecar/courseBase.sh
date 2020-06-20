@@ -1,6 +1,6 @@
-# Hide the existing minikube
+# Remove the existing minikube
 sudo minikube delete
-mv /usr/local/bin/minikube /usr/local/bin/minikube-old
+rm /usr/local/bin/minikube
 
 # Update minikube version
 sudo apt install conntrack -y
