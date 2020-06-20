@@ -15,7 +15,7 @@ Apply the deployment and service account.
 kubectl apply --filename deployment-website.yml
 ```{{execute}}
 
-Verify that the `website` pod is **NOT** running in the `default` namespace.
+Verify that the `website` pod is **NOT** running in the default namespace.
 
 ```shell
 kubectl get pods
@@ -46,7 +46,7 @@ Patch the `website` deployment.
 kubectl patch deployment website --patch "$(cat patch-website.yml)"
 ```{{execute}}
 
-Verify that the `website` pod is running in the `default` namespace.
+Verify that the `website` pod is running in the default namespace.
 
 ```shell
 kubectl get pods
@@ -66,7 +66,8 @@ kubectl exec \
     --container website -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The PostgreSQL connection string is present on the `website` container.
+The secrets are rendered in a PostgreSQL connection string is present on the
+container.
 
 > Alternatively, you could have defined a new Vault Kubernetes role, that
 > enables the `website` service account and then patched the `website`

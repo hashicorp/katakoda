@@ -29,7 +29,7 @@ Apply the deployment.
 kubectl apply --filename deployment-issues.yml
 ```{{execute}}
 
-Verify that the `issues` pod is **NOT** running in the `default` namespace.
+Verify that the `issues` pod is **NOT** running in the offsite namespace.
 
 ```shell
 kubectl get pods
@@ -50,7 +50,7 @@ The initialization process fails because the **namespace is not authorized**.
 The namespace, `offsite` is not assigned to any Vault Kubernetes authentication
 role. This failure to authenticate causes the deployment to fail initialization.
 
-Start an interactive shell session on the `vault-0` pod in the `default`
+Start an interactive shell session on the `vault-0` pod in the default
 namespace.
 
 ```shell
@@ -90,7 +90,7 @@ kubectl patch deployment issues --patch "$(cat patch-issues.yml)"
 A new `issues` pod starts alongside the existing pod. When it is ready the
 original terminates and removes itself from the list of active pods.
 
-Verify that the `issues` pod is running in the `default` namespace.
+Verify that the `issues` pod is running in the offsite namespace.
 
 ```shell
 kubectl get pods

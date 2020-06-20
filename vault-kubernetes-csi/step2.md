@@ -22,7 +22,7 @@ helm install vault hashicorp/vault \
     --set "injector.enabled=false"
 ```{{execute}}
 
-Verify that the `vault-0` pod is running in the `default` namespace.
+Verify that the `vault-0` pod is running in the default namespace.
 
 ```shell
 kubectl get pods

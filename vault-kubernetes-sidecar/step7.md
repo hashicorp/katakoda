@@ -1,5 +1,5 @@
 The deployment is running the pod with the `internal-app` Kubernetes service
-account in the `default` namespace. The Vault Agent injector only modifies a
+account in the default namespace. The Vault Agent injector only modifies a
 deployment if it contains a specific set of annotations. An existing deployment
 may have its definition patched to include the necessary annotations.
 
@@ -25,7 +25,7 @@ kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets.yml)"
 A new `orgchart` pod starts alongside the existing pod. When it is ready the
 original terminates and removes itself from the list of active pods.
 
-Verify that the `orgchart` pod is running in the `default` namespace.
+Verify that the `orgchart` pod is running in the default namespace.
 
 ```shell
 kubectl get pods

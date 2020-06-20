@@ -16,9 +16,9 @@ Install the latest version of the Vault server running in development mode.
 helm install vault hashicorp/vault --set "server.dev.enabled=true"
 ```{{execute}}
 
-The Vault pods are deployed in the default namespace.
+The Vault pod and Vault Agent Injector pod are deployed in the default namespace.
 
-To verify, get all the pods within the `default` namespace.
+To verify, get all the pods within the default namespace.
 
 ```shell
 kubectl get pods

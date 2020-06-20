@@ -13,7 +13,7 @@ Apply the deployment defined in `deployment-orgchart.yml`.
 kubectl apply --filename deployment-orgchart.yml
 ```{{execute}}
 
-Verify that the `orgchart` pod is running in the `default` namespace.
+Verify that the `orgchart` pod is running in the default namespace.
 
 ```shell
 kubectl get pods

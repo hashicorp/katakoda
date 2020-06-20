@@ -15,7 +15,7 @@ kubectl apply --filename daemon-set-provider-vault.yml
 ```{{execute}}
 
 Verify that a csi-secrets-store-provider-vault pod, prefixed with
-`csi-secrets-store-provider-vault`, is running in the `default` namespace.
+`csi-secrets-store-provider-vault`, is running in the default namespace.
 
 ```shell
 kubectl get pods

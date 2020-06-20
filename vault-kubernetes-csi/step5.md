@@ -15,7 +15,7 @@ helm install csi secrets-store-csi-driver/secrets-store-csi-driver
 ```{{execute}}
 
 Verify that a secrets-store-csi-driver pod, prefixed with `csi`, is running in
-the `default` namespace.
+the default namespace.
 
 ```shell
 kubectl get pods

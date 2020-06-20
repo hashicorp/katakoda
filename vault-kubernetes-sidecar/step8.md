@@ -22,7 +22,7 @@ Apply the updated annotations.
 kubectl patch deployment orgchart --patch "$(cat patch-inject-secrets-as-template.yml)"
 ```{{execute}}
 
-Verify that the `orgchart` pod is running in the `default` namespace.
+Verify that the `orgchart` pod is running in the default namespace.
 
 ```shell
 kubectl get pods

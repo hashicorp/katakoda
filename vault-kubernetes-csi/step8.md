@@ -15,7 +15,7 @@ Apply a pod named `webapp`.
 kubectl apply --filename pod-webapp.yml
 ```{{execute}}
 
-Verify that the webapp pod is running in the `default` namespace.
+Verify that the webapp pod is running in the default namespace.
 
 ```shell
 kubectl get pods
