@@ -17,7 +17,7 @@ Enable kv-v2 secrets at the path `internal`.
 vault secrets enable -path=internal kv-v2
 ```{{execute}}
 
-Create a secret at path `secret/webapp/config` with a `username` and `password`.
+Create a secret at path `internal/database/config` with a `username` and `password`.
 
 ```shell
 vault kv put internal/database/config username="db-readonly-username" password="db-secret-password"
