@@ -31,9 +31,3 @@ Notice that a plan for your Vault workspace will be automatically queued once th
 Navigate to the Vault workspace, view the run plan, then click "Confirm & Apply". This will deploy Vault onto your cluster using the Helm provider and configure it to use Consul as the backend. The plan retrieves the Kubernetes namespace from the Consul workspace’s remote state and deploys Vault to the same workspace.
 
 This process will take about 2 minutes to complete.
-
-## Next steps
-
-Congratulations — you have successfully completed the scenario and applied some Terraform Cloud best practices. By keeping your infrastructure configuration modular and integrating workspaces together using run triggers, your Terraform configuration becomes extensible and easier to understand.
-
-Return to the main Zoom meeting for the group Q&A session.

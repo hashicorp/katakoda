@@ -1,5 +1,5 @@
 {
-  "title": "HashiConf Digital: Infrastructure Pipelines Workshop",
+  "title": "Infrastructure Pipelines",
   "description": "Use Terraform Cloud Run Triggers to deploy a Kubernetes cluster, Consul and Vault.",
   "difficulty": "Advanced",
   "time": "45",
