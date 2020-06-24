@@ -8,7 +8,7 @@ Create the following 3 workspaces in your Terraform Cloud organization.
 - `learn-terraform-pipelines-consul`
 - `learn-terraform-pipelines-vault`
 
-These will be your workspaces for the duration of this workshop.
+These will be your workspaces for the duration of this guide.
 
 ## Configure Kubernetes workspace
 
