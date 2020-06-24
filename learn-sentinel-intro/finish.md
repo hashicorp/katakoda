@@ -3,6 +3,8 @@ You've successfully run an infrastructure governance policy using the Sentinel C
 
 [Sign up for free a 30 day trial](https://www.hashicorp.com/blog/announcing-free-trials-for-hashicorp-terraform-cloud-paid-offerings/) of Terraform Cloud **Team & Governance**
 
+For more tutorials like this, visit [learn.hashicorp.com/terraform](https://learn.hashicorp.com/terraform/).
+
 ## Further reading
 
 - [Terraform Cloud Learn guide](https://learn.hashicorp.com/terraform/sentinel/sentinel-policies). 
