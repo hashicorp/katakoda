@@ -1,6 +1,6 @@
-This is the workspace for the Terraform **Infrastructure Pipelines Workshop** and contains the latest version of Terraform CLI and kubectl.
+This is the workspace for the Terraform [**Deploy Consul and Vault on Kubernetes with Run Triggers** Learn guide](https://learn.hashicorp.com/terraform/kubernetes/consul-vault-kubernetes-run-triggers) and contains the latest version of Terraform CLI and kubectl.
 
-This workshop comprises of six main steps, estimated to take a total of 45 minutes. The first 4 steps will be done using Terraform Cloud and GitHub.
+The learn guide comprises of six main steps, estimated to take a total of 45 minutes. The first 4 steps will be done using Terraform Cloud and GitHub.
 
 1. Setup Kubernetes workspace
 2. Setup Consul workspace
@@ -8,7 +8,6 @@ This workshop comprises of six main steps, estimated to take a total of 45 minut
 4. Deploy Kubernetes, Consul and Vault
 5. Verify deployments
 6. Clean up resources
-
 
 By the end of this scenario, you will accomplish three things using Terraform Cloud run triggers.
 

@@ -22,19 +22,17 @@ Copy the API token from Terraform Cloud and then paste it into the Katacoda term
 
 ## Configure kubectl
 
-Add the following configuration to your KataCoda `main.tf` file, replacing the `workspaces` value in [`main.tf`](https://github.com/hashicorp/learn-terraform-pipelines-k8s/blob/master/main.tf). 
-
-- `workspaces   = "{firstName}-{lastInitial}-k8s"`
+Add the following configuration to your KataCoda `main.tf` file.
 
 This will establish a connection to your Kubernetes workspace. 
 
 <pre class="file" data-filename="main.tf" data-target="replace">
 terraform {
   backend "remote" {
-    organization = "infrastructure-pipelines-workshop"
+    organization = "hashicorp-learn"
 
     workspaces {
-      name = "john-d-k8s"
+      name = "learn-terraform-pipelines-k8s"
     }
   }
 }
@@ -76,4 +74,28 @@ Open a new tab in the Katacoda terminal pane and forward port :8200 (Vault UI) t
 
 Go to the Vault UI tab in the Katacoda terminal pane or visit `[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com` in your browser to access the Vault UI.
 
-> **Note:** The Vault pods have warnings because Vault is sealed. Do **not** unseal Vault during this workshop. You can learn how to unseal Vault in the [CLI initialize and unseal documentation for Vault](https://www.vaultproject.io/docs/platform/k8s/helm/run#initialize-and-unseal-vault), and can try it on your own by reproducing this lab locally, following [this tutorial](https://learn.hashicorp.com/terraform/kubernetes/consul-vault-kubernetes-run-triggers).
+> **Note:** The Vault pods have warnings because Vault is sealed. You can learn how to unseal Vault in the [CLI initialize and unseal documentation for Vault](https://www.vaultproject.io/docs/platform/k8s/helm/run#initialize-and-unseal-vault), and can try it on your own by reproducing this lab locally, following [this tutorial](https://learn.hashicorp.com/terraform/kubernetes/consul-vault-kubernetes-run-triggers).
+
+## Clean up resources
+
+To clean up the resources and destroy the infrastructure you have provisioned in this track, go to each workspace in the reverse order you created them in, queue a destroy plan, and apply it. Then, delete the workspace from Terraform Cloud. Destroy and delete your workspaces in the following order:
+
+1. Vault workspace
+1. Consul workspace
+1. Kubernetes workspace
+
+For a more detailed guide on destroying resources on Terraform Cloud, reference the [Clean up Cloud Resources guide](https://learn.hashicorp.com/terraform/cloud-gettingstarted/tfc_cleanup).
+
+## Next steps
+
+Congratulations — you have successfully completed the scenario and applied some Terraform Cloud best practices. By keeping your infrastructure configuration modular and integrating workspaces together using run triggers, your Terraform configuration becomes extensible and easier to understand.
+
+To learn more about Terraform, visit [Terraform Learn](https://learn.hashicorp.com/terraform).
+
+## Related Links
+
+To watch a video of a demo similar to this guide, reference the [Infrastructure Pipelines with Terraform Cloud webinar](https://www.hashicorp.com/resources/infrastructure-pipelines-with-terraform-cloud/).
+
+To learn how to get started with Consul Service Mesh, visit the [Getting Started with Consul Service Mesh Learn track](https://learn.hashicorp.com/consul?track=gs-consul-service-mesh#gs-consul-service-mesh).
+
+To learn how to leverage Vault features on Kubernetes, visit the [Kubernetes Learn Vault track](https://learn.hashicorp.com/vault?track=kubernetes#kubernetes).
