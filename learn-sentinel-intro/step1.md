@@ -1,6 +1,6 @@
-In this scenario, you will apply the Sentinel Policy-as-Code principles to a Terraform specific deployment. You will create a policy that requires your configuration to have specific tags on your S3 buckets and restrict the level of access to your bucket objects.
+In this scenario, you will apply Sentinel Policy-as-Code to a Terraform specific deployment. You will create a policy that requires your configuration to have specific tags on S3 buckets and restrict the level of access to bucket objects.
 
-Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the configuration you are testing.
+Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the infrastructure configuration you are testing.
 
 This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. The `acl` attribute of the `"aws_s3_bucket" "bucket"` resource ensures this web app object is public but the viewer cannot write or edit it.
 
@@ -10,7 +10,7 @@ This policy creates a resource filter for your S3 buckets and a rule that requir
 
 Open the `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} file and review the policy for this scenario, which requires you to apply at least one tag to any new or updated S3 bucket.
 
-To see Sentinel policy logic in action, run an `apply` with the `trace` flag in your terminal.
+Run an `apply` with the `trace` flag in your terminal to apply the policy against data from the infrastructure configuration you just reviewed.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
@@ -45,4 +45,3 @@ all s3_buckets as _, buckets {
 	}
 }
 ```{{copy}}
-
