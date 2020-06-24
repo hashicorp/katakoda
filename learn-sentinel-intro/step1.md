@@ -2,9 +2,7 @@ In this scenario, you will apply Sentinel Policy-as-Code to a Terraform specific
 
 Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the infrastructure configuration you are testing.
 
-This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. The `acl` attribute of the `"aws_s3_bucket" "bucket"` resource ensures this web app object is public but the viewer cannot write or edit it.
-
-This policy creates a resource filter for your S3 buckets and a rule that requires that resource to have at least one tag. 
+This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. 
 
 ## Review the policy
 
