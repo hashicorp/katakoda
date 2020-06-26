@@ -4,7 +4,7 @@ Next, start a second terminal. You'll start the front-end `dashboard-service` on
 
 Click the **+** button in the tab bar and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal" title="New Terminal">
+!["New Terminal](./assets/images/ops-another-terminal.png)
 
 Consul is configured to look for the `dashboard-service` on port `9002`. You can see the configuration by looking at the configuration file at `/etc/consul.d/dashboard.json`.
 
