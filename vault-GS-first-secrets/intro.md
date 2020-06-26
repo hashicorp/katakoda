@@ -1,4 +1,4 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 One of the core features of Vault is the ability to read and write arbitrary secrets securely. This scenario uses the CLI, but there is also a complete [HTTP API](https://www.vaultproject.io/api/index.html) that can be used to programmatically do anything with Vault.
 

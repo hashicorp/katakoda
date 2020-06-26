@@ -8,7 +8,7 @@ Transform secrets engine configuration workflow:
   1. Create a template defining the rules for value matching if not using the built-in template
   1. Create a **transformation** to specify the nature of the data manipulation
 
-![Relationship](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-transform-2.png)
+![Relationship](./assets/vault-transform-2.png)
 
 **Alphabets** define a set of valid input/output UTF-8 characters to be used when you perform FPE. In this step, you are going to leverage one of the built-in alphabets.
 

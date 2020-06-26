@@ -6,7 +6,7 @@ In this tutorial, you are going to create a highly available (HA) Vault cluster 
 
 For the purpose of demonstration, you are going to run 3 Vault server instances each listens to a different port: **node1** listens to port `8200`, **node2** listens to port `2200` and **node3** listens to port `3200`.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/raft-storage.png)
+![](./assets/raft-storage.png)
 
 
 ### Start Vault Server 1 (node1)
@@ -68,7 +68,7 @@ Now, you need to initialize and unseal the Vault server (`node1`).
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal.png)
 
 In the **Terminal 2**, set the `VAULT_ADDR` environment variable:
 

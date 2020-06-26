@@ -30,7 +30,7 @@ vault kv get secret/myapp/db-config
 
 For the purpose of introducing the basics of AppRole, this guide walks you through a very simple scenario involving only two personas (admin and app).
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-approle-workflow.png)
+![](./assets/vault-approle-workflow.png)
 
 Execute the following command to enable the `approle` auth method:
 

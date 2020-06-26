@@ -1,6 +1,6 @@
 This scenario gave you a quick introduction to Vault Agent.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-secure-intro-5.png">
+![Scenario Diagram](./assets/vault-secure-intro-5.png)
 
 ### Resources:
 

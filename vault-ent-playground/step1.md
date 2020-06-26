@@ -21,6 +21,6 @@ vault login root
 
 Click on the **Vault UI** tab to launch the Vault UI.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
+![](./assets/katacoda-vault-ui.png)
 
 Enter **`root`** in the **Token** text field and then click **Sign In**.

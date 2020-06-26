@@ -1,4 +1,4 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 ## Overview
 
@@ -10,6 +10,6 @@ Before a client can interact with Vault, it must authenticate against an [auth m
 
 The [approle auth method](https://www.vaultproject.io/docs/auth/approle.html) allows machines or apps to authenticate with Vault-defined roles.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/7-approle.png)
+![](./assets/7-approle.png)
 
 This Katacoda scenario walks through the basics of AppRole auth method.

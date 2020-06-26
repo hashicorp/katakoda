@@ -8,4 +8,4 @@ Create a masking transformation to mask only the subscriber number (the last 7 d
 
 DO NOT FORGET to test your solution. You can add the transformations to the `payments` role, or create a new role.  
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/thinker.jpg)
+![](./assets/thinker.jpg)

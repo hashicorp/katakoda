@@ -36,7 +36,7 @@ When Vault is running in development mode, it runs entirely in-memory that the d
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal.png)
 
 In the **Terminal 2**, set the `VAULT_ADDR` environment variable:
 

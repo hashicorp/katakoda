@@ -33,7 +33,7 @@ vault server -config=config-vault-2.hcl
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to open third terminal window.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal.png)
 
 In the third terminal, initialize your second Vault server (**Vault 2**).
 

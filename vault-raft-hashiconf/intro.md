@@ -1,10 +1,10 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 # HA Cluster with Integrated Storage Workshop
 
 This hands-on exercise will walk you through the basic administrative operations for integrated storage. You are going to deploy an HA Vault cluster using integrated storage.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/raft-storage.png)
+![](./assets/raft-storage.png)
 
 <br />
 

@@ -4,4 +4,4 @@ For authentication Vault has multiple options or methods that can be enabled and
 
 There are some built-in policies that cannot be removed. For example, the `root` and `default` policies are required policies and cannot be deleted. The `default` policy provides a common set of permissions and is included on all tokens by default. The `root` policy gives a token super admin permissions, similar to a root user on a linux machine.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)

@@ -28,6 +28,6 @@ vault kv get secret/myapp/db-config
 
 In a real-world, you do not want to send the role ID and secret ID together over the network. The typical use case is to use two different mechanisms to deliver the role ID and secret ID separately to the expecting client.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-approle-workflow2.png)
+![](./assets/vault-approle-workflow2.png)
 
 To learn more, refer to the [AppRole with Terraform & Chef](https://learn.hashicorp.com/vault/identity-access-management/iam-approle-trusted-entities) guide which uses Terraform to inject the Role ID as an environment variable, and Chef to pull the Secret ID from Vault.
