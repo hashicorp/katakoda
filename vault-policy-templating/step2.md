@@ -1,6 +1,6 @@
 Let's create an entity, **`bob_smith`** with a user **`bob`** as its entity alias. Also, create an internal group, **`education`** and add the **`bob_smith`** entity as its group member.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-acl-templating.png" alt="Entity"/>
+![Entity](./assets/vault-acl-templating.png)
 
 **NOTE:** For the purpose of this tutorial, you are going to work with the `userpass` auth method to keep this simple.  
 

@@ -1,4 +1,4 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 > This scenario supplements the [Vault Agent Templates](https://learn.hashicorp.com/vault/identity-access-management/agent-templates) guide.
 
@@ -8,7 +8,7 @@ The adoption of Vault is an incremental journey. First, you move your secrets in
 
 In **Vault 1.3**, Vault Agent introduced [Vault Agent Templates](https://www.vaultproject.io/docs/agent/template/index.html) allowing Vault secrets to be rendered to files using the [Consul Template markup](https://github.com/hashicorp/consul-template#templating-language) language. This significantly simplifies the workflow when you are integrating your applications with Vault.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-agent-templates-2.png)
+![](./assets/vault-agent-templates-2.png)
 
 
 # Prerequisites

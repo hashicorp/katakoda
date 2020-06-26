@@ -1,6 +1,6 @@
 [HashiCorp Vault](https://www.vaultproject.io)は、クラウド化と共に分散されたインフラインフラ上で、機密情報を統合的に一貫して管理しアクセスコントロールするソフトウェアです。この際の機密情報とは、ユーザー名やパスワードはもちろん、APIキーや証明書など、外に漏れてしまったら多大な損害を被る可能性の高い情報を総称して呼んでいます。
 
-[![YouTube](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/Vault-Intro.png)](https://youtu.be/VYfl-DpZ5wM)
+[![YouTube](./assets/Vault-Intro.png)](https://youtu.be/VYfl-DpZ5wM)
 
 <br>
 
@@ -14,4 +14,4 @@
 - Rootトークンの生成
 - 暗号化キーの回転
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)

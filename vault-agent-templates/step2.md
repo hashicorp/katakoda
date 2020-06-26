@@ -1,7 +1,7 @@
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to open another terminal.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal-2.png)
 
 Execute the following command.
 

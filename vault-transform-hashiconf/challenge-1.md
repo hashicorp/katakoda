@@ -24,4 +24,4 @@ If you are not familiar with regex, refer to the [Regular Expression Quick Refer
 
 DO NOT FORGET to test your solution. You can add the transformations to the `payments` role, or create a new role.  
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/thinker.jpg)
+![](./assets/thinker.jpg)

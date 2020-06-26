@@ -25,15 +25,15 @@ vault policy read training
 
 1. Click on the **Vault UI** tab to launch the Vault UI.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/katacoda-vault-ui.png)
+  ![](./assets/katacoda-vault-ui.png)
 
 1. Select **Username** from the **Method** drop-down list, and enter `student` in the **Username** text field and `changeme` in the **Password** text field.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-userpass.png)
+  ![](./assets/vault-ui-userpass.png)
 
 1. Click **Sign In**. You should see that `kv-v2` and `transit` are listed.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-secrets.png)
+  ![](./assets/vault-ui-secrets.png)
 
 1. Select **transit > payment**. The Terraform enabled the `transit` secrets engine and created the `payment` key.
 
@@ -43,19 +43,19 @@ vault policy read training
 
 1. Click **Encode to base64**, and then **Encrypt**. This returns you the ciphertext.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-transit.png)
+  ![](./assets/vault-ui-transit.png)
 
   > **NOTE:** To learn more about the `transit` secrets engine, visit to the [Vault Encryption as a Service](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-secrets-0.png)
+  ![](./assets/vault-ui-secrets-0.png)
 
 1. Select `kv-v2` and click **Create secret**.
 
 1. Enter `training/course` in the **Path for this secret** text field. In the key text field under **Version data**, enter `Name`, and `Codify Management of Vault` in the value text field.
 
-  ![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-ui-kv-v2.png)
+  ![](./assets/vault-ui-kv-v2.png)
 
 1. Click **Save**.
 

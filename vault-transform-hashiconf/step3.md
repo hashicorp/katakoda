@@ -1,6 +1,6 @@
 British passport numbers have a pattern of 9 digit numbers.
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-transform-1.png)
+![](./assets/vault-transform-1.png)
 
 Use regex to define the matching pattern, `(\d{9})`. The matched values should be within a regex grouping (e.g. `(...)`). To create a template for British passports, the commands would look as below.
 

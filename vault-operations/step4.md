@@ -5,7 +5,7 @@ To initialize Vault use `vault operator init` operation.
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal.png)
 
 In the **Terminal 2**, set the `VAULT_ADDR`:
 
@@ -26,7 +26,7 @@ Every initialized Vault server starts in the **sealed** state. From the configur
 
 In order to prevent no one person from having complete access to the system, Vault employs [Shamir's Secret Sharing Algorithm](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing). Under this process, a secret is divided into a subset of parts such that a subset of those parts are needed to reconstruct the original secret. Vault makes heavy use of this algorithm as part of the unsealing process.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-autounseal.png" alt="Shamir's Secret Sharing"/>
+![Shamir's Secret Sharing](./assets/vault-autounseal.png)
 
 Typically each of these key shares is distributed to trusted parties in the organization. These parties must come together to "unseal" the Vault by entering their key share.
 

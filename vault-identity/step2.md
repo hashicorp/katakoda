@@ -22,7 +22,7 @@ If the identity, `bob`, is defined in LDAP and `bsmith` is defined in Okta, you 
 <br>
 ## Create bob-smith Entity
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-entity-1.png" alt="Entity"/>
+![Entity](./assets/vault-entity-1.png)
 
 Execute the following command to create a new entity named, `bob-smith` and save its ID in the `entity_id.txt` file:
 

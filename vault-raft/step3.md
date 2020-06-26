@@ -1,6 +1,6 @@
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to start fifth terminal (**Terminal 5**).
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png)
+![](./assets/ops-another-terminal-2.png)
 
 
 Open the `node3` server configuration file, `config-node3.hcl`{{open}}.
@@ -55,7 +55,7 @@ You can verify that the **Api Address** is `http://127.0.0.1:3200`.
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal** to start sixth terminal (**Terminal 6**).
 
-![](https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal-2.png)
+![](./assets/ops-another-terminal-2.png)
 
 In **Terminal 6**, set the VAULT_ADDR to `http://127.0.0.1:3200`.
 

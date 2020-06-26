@@ -1,4 +1,4 @@
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 > This scenario supplements the [Cubbyhole Response Wrapping](https://learn.hashicorp.com/vault/secrets-management/sm-cubbyhole) guide.
 

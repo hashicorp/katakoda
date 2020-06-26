@@ -24,7 +24,7 @@ To review the policy:  `team-eng.hcl`{{open}}
 
 ## Create Internal Group for Engineers
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-entity-3.png" />
+![Group](./assets/vault-entity-3.png)
 
 Execute the following command to create an internal group named, `engineers` and add `bob-smith` entity as a group member.  Also, assign the newly created `team-eng` policy to the group.
 

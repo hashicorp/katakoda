@@ -1,6 +1,6 @@
 To enable **Transit Auto-Unseal**, you would need **two** Vault servers.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/vault-autounseal-13.png">
+![](./assets/vault-autounseal-13.png)
 
 
 Open the `config-vault-1.hcl`{{open}} file to review the server configuration file for **Vault 1**:
@@ -47,7 +47,7 @@ Notice the output indicating that the **Storage** is set to `file` system, and t
 
 Click the **+** next to the opened Terminal, and select **Open New Terminal**.
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/screenshots/ops-another-terminal.png" alt="New Terminal"/>
+![New Terminal](./assets/ops-another-terminal.png)
 
 Execute the following command to initialize the Vault.
 

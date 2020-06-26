@@ -13,4 +13,4 @@ You may want to try the following tutorials:
 - [Control Groups](https://learn.hashicorp.com/vault/security/iam-control-groups)
 - [Secure Multi-Tenancy with Namespaces](https://learn.hashicorp.com/vault/security/namespaces)
 
-<img src="https://education-yh.s3-us-west-2.amazonaws.com/Vault_Icon_FullColor.png" alt="Logo"/>
+![Vault logo](./assets/Vault_Icon_FullColor.png)
