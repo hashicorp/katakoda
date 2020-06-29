@@ -1,0 +1,487 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2016
+
+
+export log_dir="/home/scrapbook/tutorial/.log"
+export terraform_version="0.12.28"
+export vault_version="1.4.2"
+
+mkdir -p "$log_dir"
+
+# ensure unzip and uuid-runtime are installed
+apt update && \
+apt install -y unzip uuid-runtime >> "$log_dir"/install.log
+
+# Download function
+download() {
+  curl --fail --location --silent --show-error --output "$HOME"/"${1}".zip https://releases.hashicorp.com/"${1}"/"${2}"/"${1}"_"${2}"_linux_amd64.zip  >> "$log_dir"/install.log
+}
+
+# Install function
+install() {
+  unzip -d  /usr/local/bin/ "$HOME"/"$1".zip  >> "$log_dir"/install.log && \
+  chmod +x /usr/local/bin/"$1" && \
+  rm -f "$HOME"/"$1".zip
+}
+
+download vault "$vault_version" && \
+download terraform "$terraform_version" && \
+install terraform && \
+install vault
+
+while [ ! -x /usr/local/bin/terraform ]; do 
+  sleep 1;
+  printf "."
+done
+
+mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
+
+# NOTE: Unable to get assets consistently working in docker environments
+#       after numerous attempts, so going to just write the files out with
+#       cat for now since that actually works.
+
+cat > /home/scrapbook/tutorial/main.tf << 'EOF'
+# =======================================================================
+# Vault Telemetry Lab (vtl)
+#
+# =======================================================================
+
+terraform {
+  required_version = ">= 0.12"
+}
+
+# -----------------------------------------------------------------------
+# Variables
+# -----------------------------------------------------------------------
+
+variable "docker_host" {
+  default = "tcp://docker:2345"
+}
+
+variable "splunk_version" {
+  default = "8.0.4.1"
+}
+
+variable "telegraf_version" {
+  default = "1.12.6"
+}
+
+variable "vault_version" {
+  default = "1.4.2"
+}
+
+variable "splunk_ip" {
+  default = "42c0ff33-c00l-7374-87bd-690ac97efc50"
+}
+
+# -----------------------------------------------------------------------
+# Global configuration
+# -----------------------------------------------------------------------
+
+terraform {
+  backend "local" {
+    path = "/home/scrapbook/tutorial/vtl/tfstate/terraform.tfstate"
+  }
+}
+
+# -----------------------------------------------------------------------
+# Provider configuration
+# -----------------------------------------------------------------------
+
+provider "docker" {
+  host = var.docker_host
+}
+
+# -----------------------------------------------------------------------
+# Custom network
+# -----------------------------------------------------------------------
+resource "docker_network" "vtl_network" {
+  name        = "vtl-network"
+  attachable  = true
+  ipam_config { subnet = "10.42.10.0/24" }
+}
+
+# -----------------------------------------------------------------------
+# Splunk resources
+# -----------------------------------------------------------------------
+
+resource "docker_image" "splunk" {
+  name         = "splunk/splunk:${var.splunk_version}"
+  keep_locally = true
+}
+
+resource "docker_container" "splunk" {
+  name  = "vtl-splunk"
+  image = docker_image.splunk.latest
+  env   = ["SPLUNK_START_ARGS=--accept-license", "SPLUNK_PASSWORD=vtl-password"]
+  upload {
+    content = (file("${path.cwd}/vtl/config/default.yml"))
+    file    = "/tmp/defaults/default.yml"
+  }
+  ports {
+    internal = "8000"
+    external = "8000"
+    protocol = "tcp"
+  }
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.100"
+  }
+}
+
+# -----------------------------------------------------------------------
+# Telegraf resources
+# -----------------------------------------------------------------------
+
+data "template_file" "telegraf_configuration" {
+  template = file(
+    "${path.cwd}/vtl/config/telegraf.conf",
+  )
+}
+
+resource "docker_image" "telegraf" {
+  name         = "telegraf:${var.telegraf_version}"
+  keep_locally = true
+}
+
+resource "docker_container" "telegraf" {
+  name  = "vtl-telegraf"
+  image = docker_image.telegraf.latest
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.101"
+  }
+  upload {
+    content = data.template_file.telegraf_configuration.rendered
+    file    = "/etc/telegraf/telegraf.conf"
+  }
+}
+
+# -----------------------------------------------------------------------
+# Vault data and resources
+# -----------------------------------------------------------------------
+
+data "template_file" "vault_configuration" {
+  template = (file("${path.cwd}/vtl/config/vault.hcl"))
+}
+
+resource "docker_image" "vault" {
+  name         = "vault:${var.vault_version}"
+  keep_locally = true
+}
+
+resource "docker_container" "vault" {
+  name     = "vtl-vault"
+  image    = docker_image.vault.latest
+  env      = ["SKIP_CHOWN", "VAULT_ADDR=http://127.0.0.1:8200"]
+  command  = ["vault", "server", "-log-level=trace", "-config=/vault/config"]
+  hostname = "vtl-vault"
+  must_run = true
+  capabilities {
+    add = ["IPC_LOCK"]
+  }
+  healthcheck {
+    test         = ["CMD", "vault", "status"]
+    interval     = "10s"
+    timeout      = "2s"
+    start_period = "10s"
+    retries      = 2
+  }
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.102"
+  }
+  ports {
+    internal = "8200"
+    external = "8200"
+    protocol = "tcp"
+  }
+  upload {
+    content = data.template_file.vault_configuration.rendered
+    file    = "/vault/config/main.hcl"
+  }
+}
+
+EOF
+
+cat > /home/scrapbook/tutorial/vtl/config/default.yml << 'EOF'
+---
+ansible_connection: local
+ansible_environment: {}
+ansible_post_tasks: null
+ansible_pre_tasks: null
+cert_prefix: https
+config:
+  baked: default.yml
+  defaults_dir: /tmp/defaults
+  env:
+    headers: null
+    var: SPLUNK_DEFAULTS_URL
+    verify: true
+  host:
+    headers: null
+    url: null
+    verify: true
+  max_delay: 60
+  max_retries: 3
+  max_timeout: 1200
+dmc_asset_interval: 3,18,33,48 * * * *
+dmc_forwarder_monitoring: false
+docker: true
+hide_password: false
+java_download_url: null
+java_update_version: null
+java_version: null
+retry_delay: 6
+retry_num: 60
+shc_sync_retry_num: 60
+splunk:
+  admin_user: admin
+  allow_upgrade: true
+  app_paths:
+    default: /opt/splunk/etc/apps
+    deployment: /opt/splunk/etc/deployment-apps
+    httpinput: /opt/splunk/etc/apps/splunk_httpinput
+    idxc: /opt/splunk/etc/master-apps
+    shc: /opt/splunk/etc/shcluster/apps
+  appserver:
+    port: 8065
+  asan: false
+  auxiliary_cluster_masters: []
+  build_url_bearer_token: null
+  cluster_master_url: null
+  connection_timeout: 0
+  deployer_url: null
+  dfs:
+    dfc_num_slots: 4
+    dfw_num_slots: 10
+    dfw_num_slots_enabled: false
+    enable: false
+    port: 9000
+    spark_master_host: 127.0.0.1
+    spark_master_webui_port: 8080
+  enable_service: false
+  exec: /opt/splunk/bin/splunk
+  group: splunk
+  hec:
+    cert: null
+    enable: true
+    password: null
+    port: 8088
+    ssl: false
+    token: 5e14336d-3a44-4db1-860d-4c9fe67fbc32
+  conf:
+    - key: inputs
+      value:
+        directory: /opt/splunk/etc/apps/splunk_httpinput/local
+        content:
+          http:
+            disabled: 0
+            enableSSL: 0
+    - key: indexes
+      value:
+        directory: /opt/splunk/etc/apps/search/local/
+        content:
+          vault-metrics:
+            coldPath: $SPLUNK_DB/vault-metrics/colddb
+            datatype: metric
+            enableDataIntegrityControl: 0
+            enableTsidxReduction: 0
+            homePath: $SPLUNK_DB/vault-metrics/db
+            maxTotalDataSizeMB: 2048
+            thawedPath: $SPLUNK_DB/vault-metrics/thaweddb
+            archiver.enableDataArchive: 0
+            bucketRebuildMemoryHint: 0
+            compressRawdata: 1
+            enableOnlineBucketRepair: 1
+            metric.enableFloatingPointCompression: 1
+            minHotIdleSecsBeforeForceRoll: 0
+            suspendHotRollByDeleteQuery: 0
+            syncMeta: 1
+    - key: inputs
+      value:
+        directory: /opt/splunk/etc/apps/splunk_httpinput/local
+        content:
+          http://Vault Metrics:
+            disabled: 0
+            index: vault-metrics
+            indexes: vault-metrics
+            token: 42c0ff33-c00l-7374-87bd-690ac97efc50
+            sourcetype: hashicorp_vault_telemetry
+  home: /opt/splunk
+  http_enableSSL: true
+  http_enableSSL_cert: null
+  http_enableSSL_privKey: null
+  http_enableSSL_privKey_password: null
+  http_port: 8000
+  idxc:
+    discoveryPass4SymmKey: P2sCPCanaj49BMRK5oC0dGXGd+YejlMD
+    label: idxc_label
+    pass4SymmKey: P2sCPCanaj49BMRK5oC0dGXGd+YejlMD
+    replication_factor: 3
+    replication_port: 9887
+    search_factor: 3
+    secret: P2sCPCanaj49BMRK5oC0dGXGd+YejlMD
+  ignore_license: false
+  kvstore:
+    port: 8191
+  launch: {}
+  license_download_dest: /tmp/splunk.lic
+  license_master_url: null
+  multisite_master_port: 8089
+  multisite_replication_factor_origin: 2
+  multisite_replication_factor_total: 3
+  multisite_search_factor_origin: 1
+  multisite_search_factor_total: 3
+  opt: /opt
+  pass4SymmKey: null
+  password: vss-password
+  pid: /opt/splunk/var/run/splunk/splunkd.pid
+  root_endpoint: null
+  s2s:
+    ca: null
+    cert: null
+    enable: true
+    password: null
+    port: 9997
+    ssl: false
+  search_head_captain_url: null
+  secret: null
+  service_name: null
+  set_search_peers: true
+  shc:
+    deployer_push_mode: null
+    label: shc_label
+    pass4SymmKey: LPZIns9px+aAyj7F8sjRbTp1tKCn1K5f
+    replication_factor: 3
+    replication_port: 9887
+    secret: LPZIns9px+aAyj7F8sjRbTp1tKCn1K5f
+  smartstore: null
+  ssl:
+    ca: null
+    cert: null
+    enable: true
+    password: null
+  svc_port: 8089
+  tar_dir: splunk
+  user: splunk
+  wildcard_license: false
+splunk_home_ownership_enforcement: true
+splunkbase_password: null
+splunkbase_token: null
+splunkbase_username: null
+wait_for_splunk_retry_num: 60
+EOF
+
+cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
+# Telegraf Configuration
+
+[global_tags]
+  index="vault-metrics"
+
+[agent]
+  interval = "10s"
+  round_interval = true
+  metric_batch_size = 1000
+  metric_buffer_limit = 10000
+  collection_jitter = "0s"
+  flush_interval = "10s"
+  flush_jitter = "0s"
+  precision = ""
+  hostname = ""
+  omit_hostname = false
+
+# An input plugin that listens on UDP/8125 for statsd compatible telemetry
+# messages using Datadog extensions which are emitted by Vault
+[[inputs.statsd]]
+  protocol = "udp"
+  service_address = ":8125"
+  metric_separator = "."
+  datadog_extensions = true
+
+# An output plugin that can transmit metrics over HTTP to Splunk
+# You must specify a valid Splunk HEC token as the Authorization value
+[[outputs.http]]
+  url = "http://10.42.10.100:8088/services/collector"
+  data_format="splunkmetric"
+  splunkmetric_hec_routing=true
+  [outputs.http.headers]
+    Content-Type = "application/json"
+    Authorization = "Splunk 42c0ff33-c00l-7374-87bd-690ac97efc50"
+
+# Read metrics about cpu usage using default configuration values
+[[inputs.cpu]]
+  percpu = true
+  totalcpu = true
+  collect_cpu_time = false
+  report_active = false
+
+# Read metrics about memory usage
+[[inputs.mem]]
+  # No configuration required
+
+# Read metrics about network interface usage
+[[inputs.net]]
+  # Uses default configuration
+
+# Read metrics about swap memory usage
+[[inputs.swap]]
+  # No configuration required
+
+# Read metrics about disk usage using default configuration values
+[[inputs.disk]]
+  ## By default stats will be gathered for all mount points.
+  ## Set mount_points will restrict the stats to only the specified mount points.
+  ## mount_points = ["/"]
+  ## Ignore mount points by filesystem type.
+  ignore_fs = ["tmpfs", "devtmpfs", "devfs", "iso9660", "overlay", "aufs", "squashfs"]
+
+[[inputs.diskio]]
+  # devices = ["sda", "sdb"]
+  # skip_serial_number = false
+
+[[inputs.kernel]]
+  # No configuration required
+
+[[inputs.linux_sysctl_fs]]
+  # No configuration required
+
+[[inputs.net]]
+  # Specify an interface or all
+  # interfaces = ["enp0s*"]
+
+[[inputs.netstat]]
+  # No configuration required
+
+[[inputs.processes]]
+  # No configuration required
+
+[[inputs.procstat]]
+ pattern = "(vault)"
+
+[[inputs.system]]
+  # No configuration required
+
+EOF
+
+cat > /home/scrapbook/tutorial/vtl/config/vault.hcl << 'EOF'
+log_level = "trace"
+ui        = true
+
+storage "file" {
+  path = "/vault/file"
+}
+
+listener "tcp" {
+  address     = "0.0.0.0:8200"
+  tls_disable = 1
+}
+
+telemetry {
+  dogstatsd_addr                 = "10.42.10.101:8125"
+  enable_hostname_label          = true
+  disable_hostname               = true
+  enable_high_cardinality_labels = "*"
+}
+
+EOF
