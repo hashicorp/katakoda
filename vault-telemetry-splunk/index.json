@@ -25,13 +25,11 @@
       {
         "title": "Perform actions to generate metrics",
         "text": "04-perform-actions-to-generate-metrics.md",
-        "code": "04-perform-actions-to-generate-metrics.terminal.sh",
         "verify": "04-perform-actions-to-generate-metrics.md.verify.sh"
       },
       {
         "title": "Analyze generated metrics",
         "text": "05-analyze-generated-metrics.md",
-        "code": "05-analyze-generated-metrics.terminal.sh",
         "verify": "05-analyze-generated-metrics.md.verify.sh"
       }
     ],
