@@ -50,7 +50,6 @@ Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk
 export splunk_ready=0
 while [ $splunk_ready = 0 ]
   do
-    sleep 5s
     if docker ps -f name=vtl-splunk --format "{{.Status}}" \
     | grep -q '(healthy)'
         then
@@ -59,6 +58,7 @@ while [ $splunk_ready = 0 ]
         else
             printf "."
     fi
+    sleep 5s
 done
 ```{{execute T1}}
 
