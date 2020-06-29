@@ -2,6 +2,7 @@
 # shellcheck disable=SC2143
 
 export log_dir="/root/.log"
+export VAULT_ADDR='http://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com'
 
 vault login "$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')" \
 >> "$log_dir"/04-perform-actions.log
