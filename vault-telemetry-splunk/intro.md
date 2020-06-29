@@ -1,8 +1,14 @@
-<small>Scenario version 0.8.6 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
+<small>Scenario version 0.9.20 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
 
 ----
 
 Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. One such stream of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
+
+<p align=center>
+    ![Diagram of Vault operational data](./assets/vault-operational-data.png)
+</p>
+
+<small>In addition to operational and audit logging, Vault can also export telemetry metrics.</small>
 
 You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for either exporting metrics or pulling metrics depending on the solution you use. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
 

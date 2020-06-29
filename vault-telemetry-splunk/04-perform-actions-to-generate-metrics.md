@@ -125,13 +125,4 @@ done
 echo
 ```{{execute T1}}
 
-Since you have most recently authenticated to Vault with the username and password auth method, you are no longer authenticated to Vault with the initial root token.
-
-Before continuing to the next step, login once again with the initial root token.
-
-```shell
-vault login -no-print \
-$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
-```{{execute T1}}
-
 Click **Continue** to proceed to step 5, where you can observe the new metrics around the activities you just performed.

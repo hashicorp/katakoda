@@ -8,7 +8,7 @@ This is done with 3 `terraform` commands, which accomplish the following tasks:
 1. Define a plan
 1. Apply the defined plan
 
-Once the plan is complete, the infrastructure will be fully configured and ready to go.
+Once the plan is applied, the infrastructure will be fully configured and ready to go.
 
 Begin by initializing the Terraform configuration.
 
@@ -16,7 +16,7 @@ Begin by initializing the Terraform configuration.
 terraform init
 ```{{execute T1}}
 
-Successful output includes the message "**Terraform has been successfully initialized!**".
+Successful output includes the message "**Terraform has been successfully initialized!**". If instead you encounter an error about terraform missing, try the command once again.
 
 Next, define a plan that will be written to the file `vault-metrics-lab.plan`.
 
@@ -26,7 +26,7 @@ terraform plan -out vault-metrics-lab.plan
 
 If this step is successful you will find the following message in the `terraform` output.
 
-```plaintext
+```shell
 This plan was saved to: vault-metrics-lab.plan
 ```
 
@@ -40,7 +40,7 @@ terraform apply vault-metrics-lab.plan
 
 If all goes according to plan, you should observe a message like this in the output.
 
-```plaintext
+```shell
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 

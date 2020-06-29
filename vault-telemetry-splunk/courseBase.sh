@@ -1,8 +1,18 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
+# cat > /usr/local/bin/await-install << 'EOF'
+# #!/usr/bin/env bash
+# printf "Awaiting completion of Terraform installation"
+# while [ ! -x /usr/local/bin/terraform ]; do
+#   sleep 2
+#   printf "."
+# done
+# clear
+# EOF
+# chmod +x /root/await-installation
 
-export log_dir="/home/scrapbook/tutorial/.log"
+export log_dir="/root/.log"
 export terraform_version="0.12.28"
 export vault_version="1.4.2"
 
@@ -24,23 +34,18 @@ install() {
   rm -f "$HOME"/"$1".zip
 }
 
-download vault "$vault_version" && \
 download terraform "$terraform_version" && \
 install terraform && \
+download vault "$vault_version" && \
 install vault
 
-while [ ! -x /usr/local/bin/terraform ]; do 
-  sleep 1;
-  printf "."
-done
-
-mkdir -p /home/scrapbook/tutorial/vtl/{config,tfstate}
+mkdir -p /root/vtl/{config,tfstate}
 
 # NOTE: Unable to get assets consistently working in docker environments
 #       after numerous attempts, so going to just write the files out with
 #       cat for now since that actually works.
 
-cat > /home/scrapbook/tutorial/main.tf << 'EOF'
+cat > /root/main.tf << 'EOF'
 # =======================================================================
 # Vault Telemetry Lab (vtl)
 #
@@ -55,7 +60,7 @@ terraform {
 # -----------------------------------------------------------------------
 
 variable "docker_host" {
-  default = "tcp://docker:2345"
+  default = "unix:///var/run/docker.sock"
 }
 
 variable "splunk_version" {
@@ -80,7 +85,7 @@ variable "splunk_ip" {
 
 terraform {
   backend "local" {
-    path = "/home/scrapbook/tutorial/vtl/tfstate/terraform.tfstate"
+    path = "/root/vtl/tfstate/terraform.tfstate"
   }
 }
 
@@ -204,7 +209,7 @@ resource "docker_container" "vault" {
 
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/default.yml << 'EOF'
+cat > /root/vtl/config/default.yml << 'EOF'
 ---
 ansible_connection: local
 ansible_environment: {}
@@ -373,7 +378,7 @@ splunkbase_username: null
 wait_for_splunk_retry_num: 60
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
+cat > /root/vtl/config/telegraf.conf << 'EOF'
 # Telegraf Configuration
 
 [global_tags]
@@ -464,7 +469,7 @@ cat > /home/scrapbook/tutorial/vtl/config/telegraf.conf << 'EOF'
 
 EOF
 
-cat > /home/scrapbook/tutorial/vtl/config/vault.hcl << 'EOF'
+cat > /root/vtl/config/vault.hcl << 'EOF'
 log_level = "trace"
 ui        = true
 

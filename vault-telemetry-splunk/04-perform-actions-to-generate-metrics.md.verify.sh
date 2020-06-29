@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2143
 
-export log_dir="/home/scrapbook/tutorial/.log"
+export log_dir="/root/.log"
+
+vault login "$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')" \
+>> "$log_dir"/04-perform-actions.log
 
 sleep 1
 
