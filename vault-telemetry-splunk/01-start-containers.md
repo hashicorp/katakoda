@@ -16,9 +16,9 @@ Begin by initializing the Terraform configuration.
 terraform init
 ```{{execute T1}}
 
-Successful output includes the message **Terraform has been successfully initialized!**.
+Successful output includes the message "**Terraform has been successfully initialized!**".
 
-Now, define a plan file with the filename `vault-metrics-lab.plan`.
+Next, define a plan that will be written to the file `vault-metrics-lab.plan`.
 
 ```shell
 terraform plan -out vault-metrics-lab.plan
@@ -26,7 +26,7 @@ terraform plan -out vault-metrics-lab.plan
 
 If this step is successful you will find the following message in the `terraform` output.
 
-```shell
+```plaintext
 This plan was saved to: vault-metrics-lab.plan
 ```
 
@@ -40,7 +40,7 @@ terraform apply vault-metrics-lab.plan
 
 If all goes according to plan, you should observe a message like this in the output.
 
-```shell
+```plaintext
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
 ```
 

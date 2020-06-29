@@ -8,7 +8,7 @@ For this example, you can use just 1 key share to speed up the manual unseal pro
 
 First, initialize Vault with 1 key share and a key threshold of 1 while saving the output to the file `.vault-init`.
 
-```
+```shell
 vault operator init \
     -key-shares=1 \
     -key-threshold=1 \
@@ -20,13 +20,13 @@ This command should produce no output when successful.
 
 Now, unseal Vault with the **Unseal Key 1** value from the `.vault-init` file.
 
-```
+```shell
 vault operator unseal $(grep 'Unseal Key 1'  .vault-init | awk '{print $NF}')
 ```{{execute T1}}
 
 Successful output from unsealing Vault should resemble this example:
 
-```
+```plaintext
 Key             Value
 ---             -----
 Seal Type       shamir
@@ -44,14 +44,14 @@ HA Enabled      false
 
 Finally, you can login to Vault with `vault login` by passing the **Initial Root Token** value from `.vault-init` file.
 
-```
+```shell
 vault login -no-print \
 $(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
 ```{{execute T1}}
 
 This command should produce no output when successful. If you want to confirm that the login was successful, try a token lookup and confirm that your tokenm policies contain **[root]**.
 
-```
+```shell
 vault token lookup | grep policies
 ```{{execute T1}}
 

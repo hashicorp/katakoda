@@ -28,6 +28,7 @@ Now, let's take a look at some of the Vault specific metrics, like the **runtime
 
 First, check out metrics about vault process memory usage.
 
+1. Scroll to the bottom of the metrics list.
 1. Click **vault** to expand the Vault related metrics.
 1. Click **runtime** to expand the runtime metrics.
 1. Click **alloc_bytes.value**.

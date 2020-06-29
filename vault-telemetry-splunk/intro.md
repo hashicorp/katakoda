@@ -1,12 +1,14 @@
-<small>Scenario version 0.8.5 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
+<small>Scenario version 0.8.6 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
 
 ----
 
 Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. One such stream of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
 
-You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for exporting metrics or pulling of metrics depending on the solution that you choose. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
+You can [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for either exporting metrics or pulling metrics depending on the solution you use. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
 
-This scenario helps you become familiar with Vault telemetry in Splunk. It uses Terraform to automate deployment of a simple Docker based infrastructure featuring a Vault server, a Telegraf agent, and a Splunk server. Assembling and using the solution in this scenario should give you a basic idea of what is possible and help inform your own telemetry aggregation and analysis solution.
+This scenario helps you become familiar with Vault telemetry in Splunk. It uses Terraform to automate deployment of a simple Docker based infrastructure featuring a Vault server, a Telegraf agent, and a Splunk server.
+
+You a will gain basic idea of what is possible and help inform your own telemetry aggregation and analysis solution by assembling and using the solution in this scenario.
 
 You will perform these tasks while you work through the scenario:
 
