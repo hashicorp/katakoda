@@ -8,6 +8,7 @@ For the purpose of demonstration, you are going to run 3 Vault server instances 
 
 ![](./assets/raft-storage.png)
 
+<br />
 
 ### Start Vault Server 1 (node1)
 
@@ -56,7 +57,7 @@ Scroll up the Terminal to locate the following output:
                    Mlock: supported: true, enabled: false
            Recovery Mode: false
                  Storage: raft (HA available)
-                 Version: Vault v1.4.0
+                 Version: Vault v1.4.2
 
 ==> Vault server started! Log data will stream in below:
 ```
@@ -109,8 +110,9 @@ Notice that right after `node1` was unsealed, it first goes into **standby** mod
 ```
 ...
 [INFO]  core: vault is unsealed
+[INFO]  storage.raft: entering follower state: follower="Node at 127.0.0.1:8201 [Follower]" leader=
 [INFO]  core: entering standby mode
-[INFO]  storage.raft: Node at 127.0.0.1:8201 [Follower] entering Follower state (Leader: "")
+[WARN]  storage.raft: heartbeat timeout reached, starting election: last-leader=
 ...
 ```
 
@@ -118,14 +120,12 @@ Since `node1` is currently the only cluster member, it gets elected to be the **
 
 ```
 ...
-[WARN]  storage.raft: Heartbeat timeout from "" reached, starting election
-[INFO]  storage.raft: Node at 127.0.0.1:8201 [Candidate] entering Candidate state in term 2
-[INFO]  storage.raft: Election won. Tally: 1
-[INFO]  storage.raft: Node at 127.0.0.1:8201 [Leader] entering Leader state
+[INFO]  storage.raft: entering candidate state: node="Node at 127.0.0.1:8201 [Candidate]" term=2
+[INFO]  storage.raft: election won: tally=1
+[INFO]  storage.raft: entering leader state: leader="Node at 127.0.0.1:8201 [Leader]"
 [INFO]  core: acquired lock, enabling active operation
 [INFO]  core: post-unseal setup starting
 ...
-[INFO]  core: post-unseal setup complete
 ```
 
 Now, `node1` is ready!
