@@ -40,3 +40,7 @@ To decode the value encoded with `payments` role, execute the following command.
 ```
 vault write transform/decode/payments value=$(cat card-encoded.txt)
 ```{{execute T1}}
+
+<br />
+
+This was too easy! 

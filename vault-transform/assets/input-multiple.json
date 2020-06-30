@@ -9,7 +9,7 @@
       "transformation": "uk-passport"
     },
     {
-      "value": "+1 123-345-5678",
+      "value": "+31 123456789",
       "transformation": "phone-number"
     }
   ]
