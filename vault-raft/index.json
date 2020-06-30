@@ -3,7 +3,7 @@
   "title": "Integrated Storage",
   "description": "Learn how to configure a Highly Available (HA) cluster backed by integrated storage.",
   "difficulty": "beginner",
-  "time": "25 minutes",
+  "time": "10 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
