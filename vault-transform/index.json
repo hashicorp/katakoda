@@ -1,9 +1,9 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "[Enterprise] Transform Secrets Engine",
+  "title": "[HashiConf EU Digital] Transform Secrets Engine Workshop",
   "description": "Learn how Transform Secrets Engine works to protect your application data.",
   "difficulty": "beginner",
-  "time": "10 minutes",
+  "time": "30 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
@@ -26,8 +26,24 @@
         "text": "step4.md"
       },
       {
+        "title": "Challenge #1 - Create an FPE Transformation",
+        "text": "challenge-1.md"
+      },
+      {
+        "title": "Challenge Sample Solution",
+        "text": "challenge-1-sol.md"
+      },
+      {
         "title": "Data masking",
         "text": "step5.md"
+      },
+      {
+        "title": "Challenge #2 - Mask Swiss Telephone Numbers",
+        "text": "challenge-2.md"
+      },
+      {
+        "title": "Challenge Sample Solution",
+        "text": "challenge-2-sol.md"
       },
       {
         "title": "Batch input processing",

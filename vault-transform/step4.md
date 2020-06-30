@@ -22,9 +22,3 @@ If the built-in alphabets do not match the allowed set of characters, create a n
 ```
 vault write transform/alphabet/non-zero-numeric alphabet="123456789"
 ```{{execute T1}}
-
-You can create alphabets for non-English language. For example:
-
-```
-vault write transform/alphabet/jp-hiragana alphabet="あいうえおかきくけこさしすせそたちつてとなにぬねの"
-```{{execute T1}}

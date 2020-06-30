@@ -14,7 +14,7 @@ vault write transform/template/uk-passport-tmpl type=regex \
 
 <br />
 
-## Verification
+## Test
 
 Create a transformation named "uk-passport" containing the `uk-passport-tmpl` template.
 
