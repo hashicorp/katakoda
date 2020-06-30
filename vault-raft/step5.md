@@ -1,6 +1,6 @@
 Currently, `node1` is the active (leader) node. Let's see what happens when `node1` steps down from its role as the active node.
 
-Return to the **Terminal2** and execute the following code against the `node1`.
+From **Terminal2** and execute the following code against the `node1`.
 
 ```
 vault operator step-down
@@ -22,6 +22,7 @@ node2    127.0.0.1:2201    leader      true
 node3    127.0.0.1:3201    follower    true
 ```
 
+<br />
 
 ## Leave the Cluster
 

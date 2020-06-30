@@ -1,9 +1,9 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault Integrated Storage",
-  "description": "Learn how to configure a HA cluster backed by integrated storage (Raft).",
+  "title": "[HashiConf EU Digital] Integrated Storage Workshop",
+  "description": "Learn how to configure a Highly Available (HA) cluster backed by integrated storage.",
   "difficulty": "beginner",
-  "time": "5 minutes",
+  "time": "25 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [
@@ -16,7 +16,7 @@
         "text": "step2.md"
       },
       {
-        "title": "Complete the Cluster",
+        "title": "Configure Retry Join",
         "text": "step3.md"
       },
       {
