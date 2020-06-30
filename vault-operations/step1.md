@@ -1,36 +1,30 @@
-Vault is distributed as a [binary package](https://www.vaultproject.io/downloads.html) for all supported platforms and architectures.
-
-To install Vault, find the appropriate package for your system and download it. (NOTE: Vault is packaged as a zip archive.)  
+This tutorial demonstrate the Vault installation on Ubuntu. For other operating systems, refer to [Install Vault](https://learn.hashicorp.com/vault/getting-started/install).
 
 > Enter the following command into the terminal, or click on the command (`⮐`) to automatically copy it into the terminal and execute to downloads the Vault binary for Linux.
 
+
+First, add the HashiCorp GPG key.
+
 ```
-export VAULT=1.4.2
-wget https://releases.hashicorp.com/vault/${VAULT}/vault_${VAULT}_linux_amd64.zip
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 ```{{execute}}
 
 
-After downloading Vault, unzip the package, and go ahead and remove the zip file:
+Add the official HashiCorp Linux repository.
 
 ```
-unzip vault_${VAULT}_linux_amd64.zip && rm vault_${VAULT}_linux_amd64.zip
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 ```{{execute}}
 
-Vault runs as a single binary named vault. Any other files in the package can be safely removed and Vault will still function.
+Finally, update and install Vault.
 
 ```
-ls -al | grep vault
-```{{execute}}
-
-Finally, make sure that the vault binary is available on the `PATH`:
-
-```
-install -c -m 0755 vault /usr/bin
+sudo apt-get update && sudo apt-get install vault
 ```{{execute}}
 
 **That's it!**
 
-Execute the following command to verify the vault version:
+Execute the following command to verify the vault version.
 
 ```
 vault version

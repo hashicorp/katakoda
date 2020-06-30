@@ -3,7 +3,7 @@
   "title": "[Enterprise] Transform Secrets Engine",
   "description": "Learn how Transform Secrets Engine works to protect your application data.",
   "difficulty": "beginner",
-  "time": "30 minutes",
+  "time": "15 minutes",
   "icon": "fa-vault",
   "details": {
     "steps": [

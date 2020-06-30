@@ -18,9 +18,9 @@ ui = true
 
 The `storage` and `listener` stanzas are **required**.
 
-In this example, the **file** storage backend stores Vault's data on the filesystem using a standard directory structure (`/data/vault`). It can be used for durable single server situations, or to develop locally where durability is not critical.  For production, you want to use scalable storage backend solution such as [Consul](https://www.vaultproject.io/docs/configuration/storage/consul.html).
+In this example, the **file** storage backend stores Vault's data on the filesystem using a standard directory structure (`/data/vault`). It can be used for durable single server situations, or to develop locally where durability is not critical.  For production, you want to use scalable storage backend solution such as Consul or integrated storage.
 
-To setup an highly available (HA) cluster using the integrated storage which requires Vault 1.4 or later, try the [Vault Integrated Storage](https://www.katacoda.com/hashicorp/scenarios/vault-raft) Katacoda scenario.
+To learn how to setup an highly available (HA) cluster using the integrated storage, try the [Vault Integrated Storage](https://www.katacoda.com/hashicorp/scenarios/vault-raft) Katacoda scenario.
 
 The `listener` stanza specifies the TCP address/port that Vault listens to for incoming requests.
 
