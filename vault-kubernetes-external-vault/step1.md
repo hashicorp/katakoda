@@ -3,6 +3,14 @@ pods as long as the Vault server is network addressable. Running Vault locally
 alongside of Minikube is possible if the Vault server is bound to the same
 network as the cluster.
 
+Verify the `vault` CLI is installed.
+
+```shell
+vault version
+```{{execute}}
+
+Wait until the `vault version` command returns a value.
+
 In **another terminal**, start a Vault dev server with `root` as the root
 token that listens for requests at `0.0.0.0:8200`.
 
