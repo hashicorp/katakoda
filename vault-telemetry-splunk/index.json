@@ -13,10 +13,10 @@
         "verify": "01-start-containers.md.verify.sh"
       },
       {
-        "title": "Initialize and unseal Vault",
-        "text": "02-initialize-and-unseal-vault.md",
-        "code": "02-initialize-and-unseal-vault.terminal.sh",
-        "verify": "02-initialize-and-unseal-vault.md.verify.sh"
+        "title": "Prepare Vault",
+        "text": "02-prepare-vault.md",
+        "code": "02-prepare-vault.terminal.sh",
+        "verify": "02-prepare-vault.md.verify.sh"
       },
       {
         "title": "Access Splunk Web",
