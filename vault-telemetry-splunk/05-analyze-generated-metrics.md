@@ -37,4 +37,4 @@ Check out the **cpu.usage.guest** metric
 
 To save a dashboard of all currently selected metrics, follow these steps.
 
-TODO: Dashboard steps
+TODO: Dashboard steps will be added when finished in guide!
