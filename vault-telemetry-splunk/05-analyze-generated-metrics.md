@@ -33,7 +33,6 @@ Check out the **cpu.usage.guest** metric
 1. Scroll to the metrics under **cpu.usage** and observe the updates there.
 1. Click **guest** under **cpu.usage**.
 
-
 ### Dashboard
 
 To save a dashboard of all currently selected metrics, follow these steps.
