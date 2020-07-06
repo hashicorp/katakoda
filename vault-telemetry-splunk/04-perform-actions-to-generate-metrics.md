@@ -28,7 +28,7 @@ Now, generate 10 secrets.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> 10-secrets.log 2>&1
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> /root/.log/10-secrets.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -39,7 +39,7 @@ Next, generate 25 secrets.
 for i in {1..25}
   do
     printf "."
-    vault kv put kv/$i-secret-25 id="$(uuidgen)" >> 25-secrets.log 2>&1
+    vault kv put kv/$i-secret-25 id="$(uuidgen)" >> /root/.log/25-secrets.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -50,7 +50,7 @@ Generate 50 secrets.
 for i in {1..50}
   do
     printf "."
-    vault kv put kv/$i-secret-50 id="$(uuidgen)" >> 50-secrets.log 2>&1
+    vault kv put kv/$i-secret-50 id="$(uuidgen)" >> /root/.log/50-secrets.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -61,7 +61,7 @@ Finally, update the first 10 secrets and change their values.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> 10-secrets.log 2>&1
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> /root/.log/10-secrets.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -91,7 +91,7 @@ for i in {1..10}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > 10-userpass.log 2>&1
+      password=vtl-password > /root/.log/10-userpass.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -105,7 +105,7 @@ for i in {1..25}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > 25-userpass.log 2>&1
+      password=vtl-password > /root/.log/25-userpass.log 2>&1
 done
 echo
 ```{{execute T1}}
@@ -120,18 +120,9 @@ for i in {1..50}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > 50-userpass.log 2>&1
+      password=vtl-password > /root/.log/50-userpass.log 2>&1
 done
 echo
-```{{execute T1}}
-
-Since you have most recently authenticated to Vault with the username and password auth method, you are no longer authenticated to Vault with the initial root token.
-
-Before continuing to the next step, login once again with the initial root token.
-
-```shell
-vault login -no-print \
-$(grep 'Initial Root Token' .vault-init | awk '{print $NF}')
 ```{{execute T1}}
 
 Click **Continue** to proceed to step 5, where you can observe the new metrics around the activities you just performed.

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2143
 
-export log_dir="/home/scrapbook/tutorial/.log"
+export log_dir="/root/.log"
 
 if docker ps -f name=vtl-vault --format "{{.Status}}" | grep -q healthy
   then

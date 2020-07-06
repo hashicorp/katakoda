@@ -1,5 +1,12 @@
 > Click the command (`⮐`) to automatically copy it into the terminal and execute it.
 
+Now it is time to prepare Vault. You will do the following tasks in this section.
+
+- [Initialize Vault](https://www.vaultproject.io/docs/commands/operator/init)
+- [Unseal Vault](https://www.vaultproject.io/docs/commands/operator/unseal)
+- [Login](https://www.vaultproject.io/docs/commands/login) with the initial root token
+- [Enable a file audit device](https://www.vaultproject.io/docs/audit/file)
+
 The default initialization without arguments results in Vault using the [Shamir's Secret Sharing algorithm](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing) to split the unseal key in to 5 key shares with a required quorum of 3 unseal keys needed to successfully unseal Vault.
 
 For this example, you can use just 1 key share to speed up the manual unseal process.
@@ -42,7 +49,7 @@ HA Enabled      false
 
 > **NOTE:** You will use a root token in this scenario for simplicity. However, in actual production environments, root tokens should be closely guarded and used only for tightly controlled purposes. Review the documentation on [root tokens](https://www.vaultproject.io/docs/concepts/tokens#root-tokens) for more details.
 
-Finally, you can login to Vault with `vault login` by passing the **Initial Root Token** value from `.vault-init` file.
+Now you can login to Vault with `vault login` by passing the **Initial Root Token** value from `.vault-init` file.
 
 ```shell
 vault login -no-print \
@@ -60,6 +67,12 @@ Successful output should contain the following.
 ```plaintext
 policies            [root]
 ```
+
+Finally, you need to enable a file audit device that Fluentd will read and send to Splunk.
+
+```shell
+vault audit enable file file_path=/vault/logs/vault-audit.log
+```{{execute T1}}
 
 You are now ready to check out the Splunk Web interface and existing Vault telemetry metric data.
 

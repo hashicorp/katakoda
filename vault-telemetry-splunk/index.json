@@ -9,13 +9,14 @@
       {
         "title": "Start containers",
         "text": "01-start-containers.md",
+        "code": "01-start-containers.md.terminal.sh",
         "verify": "01-start-containers.md.verify.sh"
       },
       {
-        "title": "Initialize and unseal Vault",
-        "text": "02-initialize-and-unseal-vault.md",
-        "code": "02-initialize-and-unseal-vault.terminal.sh",
-        "verify": "02-initialize-and-unseal-vault.md.verify.sh"
+        "title": "Prepare Vault",
+        "text": "02-prepare-vault.md",
+        "code": "02-prepare-vault.terminal.sh",
+        "verify": "02-prepare-vault.md.verify.sh"
       },
       {
         "title": "Access Splunk Web",
@@ -24,13 +25,11 @@
       {
         "title": "Perform actions to generate metrics",
         "text": "04-perform-actions-to-generate-metrics.md",
-        "code": "04-perform-actions-to-generate-metrics.terminal.sh",
         "verify": "04-perform-actions-to-generate-metrics.md.verify.sh"
       },
       {
         "title": "Analyze generated metrics",
         "text": "05-analyze-generated-metrics.md",
-        "code": "05-analyze-generated-metrics.terminal.sh",
         "verify": "05-analyze-generated-metrics.md.verify.sh"
       }
     ],
@@ -49,7 +48,7 @@
     "hidefinish": false,
     "hideHiddenFiles": true,
     "exclusionPatterns": [
-      "/home/scrapbook/tutorial/vtl/.terraform/*"
+      "/root/vtl/.terraform/*"
     ],
     "showdashboard": true,
     "dashboards": [
@@ -64,7 +63,7 @@
     ]
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "ubuntu:1804"
   },
   "finish": {
     "text": "finish.md",
