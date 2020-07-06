@@ -2,7 +2,7 @@
 
 ----
 
-Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. One such stream of data available from an operating Vault server are [Telemetry Metrics](https://www.vaultproject.io/docs/internals/telemetry).
+Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. Two such streams of data available from an operating Vault server through [telemetry metrics](https://www.vaultproject.io/docs/internals/telemetry) and [audit device](https://www.vaultproject.io/docs/audit) logs.
 
 <p align=center>
     ![Diagram of Vault operational data](./assets/vault-operational-data.png)
