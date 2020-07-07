@@ -50,13 +50,19 @@
     "exclusionPatterns": [
       "/root/vtl/.terraform/*"
     ],
-    "showdashboard": false,
-    "backend": {
-      "imageid": "ubuntu:1804"
-    },
-    "finish": {
-      "text": "finish.md",
-      "credits": "https://learn.hashicorp.com/vault"
-    }
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Splunk Web",
+        "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  },
+  "finish": {
+    "text": "finish.md",
+    "credits": "https://learn.hashicorp.com/vault"
   }
 }
