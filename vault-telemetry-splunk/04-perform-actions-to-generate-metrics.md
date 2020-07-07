@@ -2,11 +2,7 @@
 
 This step will help guide you to generate new data in Vault and as a result, updated telemetry metrics in Splunk.
 
-You will use the `vault` CLI for these steps, so run the following command to ensure that you are back in the **Terminal** tab.
-
-```shell
-echo "Welcome back to the terminal."
-```{{execute T1}}
+You will use the `vault` CLI for these steps.
 
 ## K/V version 2 secrets
 

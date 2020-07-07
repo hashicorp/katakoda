@@ -1,4 +1,4 @@
-Now that you have generated some leases, secrets, and tokens, click the **Splunk Web** tab and explore those updated metrics.
+Now that you have generated some leases, secrets, and tokens, go back to your **Splunk Web** browser tab and explore those updated metrics.
 
 First, click the **Refresh** button in the center section to provide you with the latest metrics you recently generated.. Note that due to interface scaling, it can appear abbreviated as **Ref...**.
 
