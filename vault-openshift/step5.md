@@ -4,13 +4,13 @@ leverages the Kubernetes mutating admission webhook to intercept pods that
 define specific annotations and inject a Vault Agent container to manage these
 secrets. An application needs:
 
-- an OpenShift service accont
+- a service accont
 - a Vault secret
 - a Vault policy to read the secret
 - a Kubernetes authentication role
 - a deployment with Vault Agent Injector annotations
 
-### Create the OpenShift service account
+### Create the service account
 
 Open the service account defined in `service-account-issues.yml`{{open}}.
 

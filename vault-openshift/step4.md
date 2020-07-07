@@ -1,12 +1,12 @@
 Applications on pods can directly communicate with Vault to authenticate and
 request secrets. An application needs:
 
-- an OpenShift service accont
+- a service accont
 - a Vault secret
 - a Vault policy to read the secret
 - a Kubernetes authentication role
 
-### Create the OpenShift service account
+### Create the service account
 
 Open the service account defined in `service-account-webapp.yml`{{open}}.
 
