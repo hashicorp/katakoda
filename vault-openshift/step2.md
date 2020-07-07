@@ -2,7 +2,7 @@ The recommended way to run Vault on OpenShift is via the Helm chart. Helm is a
 package manager that installs and configures all the necessary components to run
 Vault in several different modes.
 
-Add the Hashicorp helm repository.
+Add the Hashicorp Helm repository.
 
 ```shell
 helm repo add hashicorp https://helm.releases.hashicorp.com
@@ -16,7 +16,8 @@ helm install vault hashicorp/vault \
   --set "server.dev.enabled=true"
 ```{{execute}}
 
-The Vault pod and Vault Agent Injector pod are deployed in the default namespace.
+The Vault pod and Vault Agent Injector pod are deployed in the default
+namespace.
 
 Display all the pods within the default namespace.
 
@@ -28,6 +29,6 @@ The `vault-0` pod runs a Vault server in development mode. The
 `vault-agent-injector` pod performs the injection based on the annotations
 present or patched on a deployment.
 
-Wait until the `vault-0` pod and Vault injector pod are running and ready
+Wait until the `vault-0` pod and `vault-agent-injector` are running and ready
 (`1/1`).
 

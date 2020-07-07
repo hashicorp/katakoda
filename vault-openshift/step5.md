@@ -12,7 +12,7 @@ secrets. An application needs:
 
 ### Create the OpenShift service account
 
-View the service account defined in `service-account-issues.yml`{{open}}.
+Open the service account defined in `service-account-issues.yml`{{open}}.
 
 This definition of the service account creates the account with the name
 `issues`.
@@ -93,7 +93,7 @@ exit
 
 ### Deploy the application
 
-Display the issues deployment defined in `deployment-issues.yml`{{open}}.
+Open the issues deployment defined in `deployment-issues.yml`{{open}}.
 
 The Vault Agent Injector service reads the metadata annotations prefixed with
 `vault.hashicorp.com`.

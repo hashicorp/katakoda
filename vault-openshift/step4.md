@@ -8,7 +8,7 @@ request secrets. An application needs:
 
 ### Create the OpenShift service account
 
-View the service account defined in `service-account-webapp.yml`{{open}}.
+Open the service account defined in `service-account-webapp.yml`{{open}}.
 
 This definition of the service account creates the account with the name
 `webapp`.
@@ -89,7 +89,7 @@ exit
 
 ### Deploy the application
 
-Display the webapp deployment defined in `deployment-webapp.yml`{{open}}.
+Open the webapp deployment defined in `deployment-webapp.yml`{{open}}.
 
 The deployment deploys a pod with a web application running under the `webapp`
 service account that talks directly to the Vault service created by the Vault
