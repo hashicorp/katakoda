@@ -74,6 +74,12 @@ Finally, you need to enable a file audit device that Fluentd will read and send 
 vault audit enable file file_path=/vault/logs/vault-audit.log
 ```{{execute T1}}
 
-You are now ready to check out the Splunk Web interface and existing Vault telemetry metric data.
+Successful output should contain the following.
+
+```plaintext
+Success! Enabled the file audit device at: file/
+```
+
+You are now ready to access the Splunk Web interface and examine some of the existing Vault telemetry metric data.
 
 Click **Continue** to proceed to step 3.

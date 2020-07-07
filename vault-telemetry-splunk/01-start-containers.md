@@ -8,7 +8,7 @@ This is done with 3 `terraform` commands, which accomplish the following tasks:
 1. Define a plan
 1. Apply the defined plan
 
-Once the plan is applied, the infrastructure will be fully configured and ready to go.
+Once the plan is applied, the infrastructure will be fully configured and ready to go after the Splunk provisioning completes. The entire process usually requires approximately 4 minutes time.
 
 Begin by initializing the Terraform configuration.
 
@@ -32,7 +32,7 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, apply the plan.
 
-> **NOTE:** The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
+> **NOTE: The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
 
 ```shell
 terraform apply vault-metrics-lab.plan
