@@ -5,10 +5,9 @@
   "icon": "fa-terraform",
   "details": {
     "intro": {
-        "text": "intro.md",
-        "background": "intro-background.sh",
-        "foreground": "intro-foreground.sh",
-        "credits": "https://learn.hashicorp.com/terraform"
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
     },
     "steps": [
       {
@@ -22,7 +21,10 @@
     },
     "assets": {
       "host01": [
-        { "file": "main.tf", "target": "~/terraform-docker-demo" }
+        {
+          "file": "main.tf",
+          "target": "~/terraform-docker-demo"
+        }
       ]
     }
   },
@@ -31,13 +33,18 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
     "hideHiddenFiles": true,
     "uieditorpath": "/root/terraform-docker-demo",
-    "exclusionPatterns": ["./terraform/*"]
+    "exclusionPatterns": [
+      "./terraform/*"
+    ]
   },
   "backend": {
     "imageid": "hashicorp-hashistack",
     "showdashboard": true,
     "dashboards": [
-      { "name": "Nginx", "port": 80 }
+      {
+        "name": "Nginx",
+        "port": 80
+      }
     ]
   }
 }
