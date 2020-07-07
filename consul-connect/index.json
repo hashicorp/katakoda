@@ -1,18 +1,11 @@
 {
   "title": "Consul Connect Service Mesh",
   "description":
-    "Securely connect two services with Consul service mesh",
+    "Securly connect two services with Consul service mesh",
   "time": "15 minutes",
   "icon": "fa-consul",
   "details": {
     "steps": [
-      {
-        "title": "Provisioning Lab Infrastructure",
-        "text": "provision.md",
-        "courseData": "provision.courseData.sh",
-        "code": "provision.code.sh",
-        "verify": "provision.verify.sh"
-      },
       {
         "title": "Access the Consul UI and Start Backend Service",
         "text": "step1.md"
@@ -36,6 +29,7 @@
     ],
     "intro": {
       "text": "intro.md",
+      "code": "courseBase.sh",
       "credits": "https://learn.hashicorp.com/consul"
     },
     "finish": {
@@ -46,10 +40,10 @@
   "environment": {
     "uilayout": "terminal",
     "uimessage1":
-      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "ubuntu",
+    "imageid": "hashicorp-hashistack",
     "showdashboard": true,
     "dashboards": [
       { "name": "Counting", "port": 9003 },
