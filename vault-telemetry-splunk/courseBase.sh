@@ -446,6 +446,7 @@ cat > /root/vtl/config/fluent/fluent.conf << 'EOF'
   pos_file /vault/logs/vault-audit-log.pos
   <parse>
     @type json
+    time_format %iso8601
   </parse>
   tag vault_audit
 </source>
