@@ -1,29 +1,29 @@
 {
-  "title": "Consul Connect",
+  "title": "Consul Connect Service Mesh",
   "description":
-    "Run two services and connect them securely with Consul Connect",
+    "Securely connect two services with Consul service mesh",
   "time": "15 minutes",
   "icon": "fa-consul",
   "details": {
     "steps": [
       {
-        "title": "Start the backend counting service",
+        "title": "Access the Consul UI and Start Backend Service",
         "text": "step1.md"
       },
       {
-        "title": "Start the dashboard",
+        "title": "Start the Frondend Service",
         "text": "step2.md"
       },
       {
-        "title": "Start the proxies",
+        "title": "Start the Sidecar Proxies",
         "text": "step3.md"
       },
       {
-        "title": "Deny service connections",
+        "title": "Enforce a Zero-trust Network",
         "text": "step4.md"
       },
       {
-        "title": "Allow dashboard connection",
+        "title": "Allow Frontend Connections",
         "text": "step5.md"
       }
     ],
