@@ -51,11 +51,12 @@
       "/root/vtl/.terraform/*"
     ],
     "showdashboard": false,
-  "backend": {
-    "imageid": "ubuntu:1804"
-  },
-  "finish": {
-    "text": "finish.md",
-    "credits": "https://learn.hashicorp.com/vault"
+    "backend": {
+      "imageid": "ubuntu:1804"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
   }
 }

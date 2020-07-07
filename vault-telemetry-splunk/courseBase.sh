@@ -321,6 +321,15 @@ splunk:
           http:
             disabled: 0
             enableSSL: 0
+    - key: authorize
+      value:
+        directory: /opt/splunk/etc/system/local/
+        content:
+          role_admin:
+            grantableRoles: admin
+            srchIndexesAllowed: '*;_*;vault-audit;vault-metrics'
+            srchIndexesDefault: 'main;vault-audit;vault-metrics'
+            srchMaxTime: 8640000
     - key: indexes
       value:
         directory: /opt/splunk/etc/apps/search/local/
