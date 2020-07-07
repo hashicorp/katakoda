@@ -10,6 +10,9 @@ Start an interactive shell session on the `vault-0` pod.
 oc exec -it vault-0 -- /bin/sh
 ```{{execute}}
 
+Your system prompt is replaced with a new prompt `/ $`. Commands issued at this
+prompt are executed on the `vault-0` container.
+
 Enable the Kubernetes authentication method.
 
 ```shell
