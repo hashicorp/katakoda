@@ -57,7 +57,7 @@ Scroll up the Terminal to locate the following output:
                    Mlock: supported: true, enabled: false
            Recovery Mode: false
                  Storage: raft (HA available)
-                 Version: Vault v1.4.2
+                 Version: Vault v1.4.3
 
 ==> Vault server started! Log data will stream in below:
 ```
