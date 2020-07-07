@@ -1,5 +1,15 @@
-In this course you learnt about deploying an existing  container image to OpenShift.
+You launched Vault within OpenShift with a Helm chart. Learn more about
+the Vault Helm chart by reading the
+[documentation](https://www.vaultproject.io/docs/platform/k8s/) or exploring the
+[project source code](https://github.com/hashicorp/vault-helm).
 
-You can find a summary of the key commands covered below. To see more information on each ``oc`` command, run it with the ``--help`` option.
+Then you deployed a web application that authenticated and requested a secret
+directly from Vault. And finally, deployed a web application that injected
+secrets based on deployment annotations supported by the Vault Agent Injector
+service. Learn more by reading the blog post announcing the ["Injecting Vault
+Secrets into Kubernetes Pods via a
+Sidecar"](https://www.hashicorp.com/blog/injecting-vault-secrets-into-kubernetes-pods-via-a-sidecar),
+or the documentation for [Vault Agent
+Injector](https://www.vaultproject.io/docs/platform/k8s/injector/index.html)
+service.
 
-``oc new-app <docker-image> --name <name>``: Deploy an application from a container image found on an external image registry. If there is any ambiguity as to the source of the image, use the ``--docker-image`` option.
