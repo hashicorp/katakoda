@@ -41,9 +41,9 @@ Display the secrets written to the file `/vault/secrets/secret-credentials.txt`
 on the `devwebapp` pod.
 
 ```shell
-kubectl exec -it \
-  $(kubectl get pod -l app=devwebapp -o jsonpath="{.items[0].metadata.name}") \
-  -c app -- cat /vault/secrets/credentials.txt
+kubectl exec \
+  $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") \
+  -c app -- curl http://localhost:8080
 ```{{execute}}
 
 The unformatted secret data is present on the container.
