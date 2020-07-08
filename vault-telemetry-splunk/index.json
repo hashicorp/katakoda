@@ -1,7 +1,7 @@
 {
   "title": "[DRAFT] Vault Telemetry with Splunk",
   "description": "Discover Vault telemetry metrics in Splunk",
-  "private": true,
+  "private": false,
   "difficulty": "intermediate",
   "time": "30 minutes",
   "details": {
