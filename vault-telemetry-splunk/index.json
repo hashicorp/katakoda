@@ -50,7 +50,7 @@
     "exclusionPatterns": [
       "/root/vtl/.terraform/*"
     ],
-    "showdashboard": true,
+    "showdashboard": false,
     "dashboards": [
       {
         "name": "Splunk Web",

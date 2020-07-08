@@ -1,4 +1,4 @@
-Now that your infrastructure is ready, you can access [Splunk Web](https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com) in a separate browser tab to examine the initial Vault telemetry metrics present there.
+Now that your infrastructure is ready, you can access [Splunk Web](https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com) **in a separate browser tab** to examine the initial Vault telemetry metrics present there.
 
 Sign in to Splunk Web with these credentials:
 
