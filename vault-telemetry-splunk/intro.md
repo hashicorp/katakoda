@@ -1,4 +1,4 @@
-<small>Scenario v1.0.5 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
+<small>Scenario v1.0.6 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
 
 ----
 
