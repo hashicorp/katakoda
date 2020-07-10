@@ -4,6 +4,7 @@
   "private": false,
   "difficulty": "intermediate",
   "time": "30 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {
