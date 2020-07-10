@@ -1,0 +1,60 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Configure Vault as a Certificate Manager in Kubernetes with Helm",
+  "description": "Configure Vault as a certificate manager in Kubernetes with Helm.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Minikube",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step2.md"
+      },
+      {
+        "title": "Initialize and unseal Vault",
+        "text": "step3.md"
+      },
+      {
+        "title": "Configure PKI secrets engine",
+        "text": "step4.md"
+      },
+      {
+        "title": "Configure Kubernetes authentication",
+        "text": "step5.md"
+      },
+      {
+        "title": "Deploy Cert Manager",
+        "text": "step6.md"
+      },
+      {
+        "title": "Configure an issuer and generate a certificate",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": []
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "hideHiddenFiles": true,
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "minikube"
+  }
+}
