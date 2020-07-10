@@ -1,0 +1,49 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "User Configurable Password Generation for Secret Engines",
+  "description": "Learn how to configure how passwords are generated for secret engines.",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Vault",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Setup a RabbitMQ secrets engine without a password policy",
+        "text": "step2.md"
+      },
+      {
+        "title": "Define a password policy",
+        "text": "step3.md"
+      },
+      {
+        "title": "Setup a RabbitMQ secrets engine with a password policy",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "common_policy.hcl", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu1904"
+  }
+}
