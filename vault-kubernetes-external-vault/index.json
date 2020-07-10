@@ -1,0 +1,59 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Integrate a Kubernetes Cluster with an External Vault",
+  "description": "Integrate a Kubernetes cluster with an existing Vault service.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Start Vault",
+        "text": "step1.md",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Start Minikube",
+        "text": "step2.md"
+      },
+      {
+        "title": "Deploy application with hard-coded Vault address",
+        "text": "step3.md"
+      },
+      {
+        "title": "Deploy service and endpoints to address an external Vault",
+        "text": "step4.md"
+      },
+      {
+        "title": "Install the Vault Helm chart configured to address an external Vault",
+        "text": "step5.md"
+      },
+      {
+        "title": "Inject secrets into the pod",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "deployment-01-external-vault-service.yml", "target": "~/" },
+        { "file": "patch-02-inject-secrets.yml", "target": "~/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "hideHiddenFiles": true,
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}

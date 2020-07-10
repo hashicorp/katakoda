@@ -20,7 +20,7 @@ kubectl get pods
 ```{{execute}}
 
 
-The Vault pods are displayed as  `vault-0`, `vault-1` and `vault-2`.
+The Vault pods are displayed as `vault-0`, `vault-1` and `vault-2`.
 
 Wait until the pods report that they are `Running` and not ready (`0/1`).
 
