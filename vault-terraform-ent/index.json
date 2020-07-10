@@ -36,14 +36,14 @@
     },
     "assets": {
       "host01": [
-        { "file": "/enterprise/main.tf", "target": "~/enterprise/main.tf" },
-        { "file": "/enterprise/policies/admin-policy.hcl", "target": "~/enterprise/policies/admin-policy.hcl" },
-        { "file": "/enterprise/policies/fpe-client-policy.hcl", "target": "~/enterprise/policies/fpe-client-policy.hcl" },
-        { "file": "/oss/main.tf", "target": "~/oss/main.tf" },
-        { "file": "/oss/policies/admin-policy.hcl", "target": "~/oss/policies/admin-policy.hcl" },
-        { "file": "/oss/policies/eaas-client-policy.hcl", "target": "~/oss/policies/eaas-client-policy.hcl" }
+        { "file": "/enterprise/main.tf", "target": "~/enterprise" },
+        { "file": "/enterprise/policies/admin-policy.hcl", "target": "~/enterprise/policies" },
+        { "file": "/enterprise/policies/fpe-client-policy.hcl", "target": "~/enterprise/policies" },
+        { "file": "/oss/main.tf", "target": "~/oss" },
+        { "file": "/oss/policies/admin-policy.hcl", "target": "~/oss/policies" },
+        { "file": "/oss/policies/eaas-client-policy.hcl", "target": "~/oss/policies" }
       ]
-    },
+    }
   },
   "environment": {
       "uilayout": "editor-terminal",
