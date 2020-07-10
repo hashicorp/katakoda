@@ -1,0 +1,60 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Codify Management of Vault",
+  "description": "Learn how to codify the basic Vault setup operations.",
+  "difficulty": "beginner",
+  "time": "5 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Configure Vault OSS server",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
+      },
+      {
+        "title": "Verification",
+        "text": "step2.md"
+      },
+      {
+        "title": "Configure Vault Enterprise server with namespaces",
+        "text": "step3.md"
+      },
+      {
+        "title": "Verification",
+        "text": "step4.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "enterprise/main.tf", "target": "~/enterprise/main.tf" },
+        { "file": "enterprise/policies/admin-policy.hcl", "target": "~/policies/admin-policy.hcl" },
+        { "file": "enterprise/policies/fpe-client-policy.hcl", "target": "~/policies/fpe-client-policy.hcl" },
+        { "file": "oss/main.tf", "target": "~/oss/main.tf" },
+        { "file": "oss/policies/admin-policy.hcl", "target": "~/policies/admin-policy.hcl" },
+        { "file": "oss/policies/eaas-client-policy.hcl", "target": "~/policies/eaas-client-policy.hcl" }
+      ]
+    },
+  },
+  "environment": {
+      "uilayout": "editor-terminal",
+      "hideHiddenFiles": true,
+      "showdashboard": true,
+      "dashboards": [
+        { "name": "Vault UI", "port": 8200 }
+      ],
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack-ent"
+  }
+}
