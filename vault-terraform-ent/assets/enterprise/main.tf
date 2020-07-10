@@ -14,12 +14,12 @@
 #------------------------------------------------------------------------------
 # To leverate more than one namespace, define a vault provider per namespace
 #------------------------------------------------------------------------------
-provider "vault15" {
+provider "vault" {
   alias = "finance"
   namespace = "finance"
 }
 
-provider "vault15" {
+provider "vault" {
   alias = "engineering"
   namespace = "engineering"
 }
@@ -47,7 +47,7 @@ resource "vault_policy" "admin_policy" {
 
 # Create admin policy in the finance namespace
 resource "vault_policy" "admin_policy_finance" {
-  provider = vault15.finance
+  provider = vault.finance
   depends_on = [vault_namespace.finance]
   name   = "admins"
   policy = file("policies/admin-policy.hcl")
@@ -55,7 +55,7 @@ resource "vault_policy" "admin_policy_finance" {
 
 # Create admin policy in the engineering namespace
 resource "vault_policy" "admin_policy_engineering" {
-  provider = vault15.engineering
+  provider = vault.engineering
   depends_on = [vault_namespace.engineering]
   name   = "admins"
   policy = file("policies/admin-policy.hcl")
@@ -95,7 +95,7 @@ EOT
 # Enable kv-v2 secrets engine in the finance namespace
 resource "vault_mount" "kv-v2" {
   depends_on = [vault_namespace.finance]
-  provider = vault15.finance
+  provider = vault.finance
   path = "kv-v2"
   type = "kv-v2"
 }
