@@ -1,9 +1,11 @@
 {
+  "pathwayTitle": "Learn HashiCorp Vault",
   "title": "[DRAFT] Vault Telemetry with Splunk",
   "description": "Discover Vault telemetry metrics and audit device logs in Splunk",
   "private": false,
   "difficulty": "intermediate",
   "time": "30 minutes",
+  "icon": "fa-vault",
   "details": {
     "steps": [
       {
@@ -59,7 +61,7 @@
     ]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "ubuntu:1904"
   },
   "finish": {
     "text": "finish.md",

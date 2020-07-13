@@ -1,4 +1,4 @@
-<small>Scenario v1.0.6 accompanies the [Monitoring Telemetry with Splunk guide](#)</small>
+<small>Tutorial v1.0.7 accompanies the information in [Monitoring Telemetry with Splunk](https://learn.hashicorp.com/vault/monitoring/monitor-telemetry-audit-splunk)</small>
 
 ----
 
