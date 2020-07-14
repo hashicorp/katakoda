@@ -2,7 +2,7 @@
 
 The first step in this lab is to use Terraform to start the containers.
 
-This is done with 3 `terraform` commands, which accomplish the following tasks:
+You will do this with 3 `terraform` commands, which accomplish the following tasks:
 
 1. Initialize the Terraform configuration
 1. Define a plan
@@ -32,13 +32,13 @@ This plan was saved to: vault-metrics-lab.plan
 
 Finally, apply the plan.
 
-> **NOTE: The apply process will require a bit more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
+> **NOTE: The apply process can require more than 3 minutes to complete.** The moment after you apply the plan would be a great time to grab a fresh beverage or take a short break.
 
 ```shell
 terraform apply vault-metrics-lab.plan
 ```{{execute T1}}
 
-If all goes according to plan, you should observe a message like this in the output.
+If all goes according to plan, you should observe an "Apply complete!" message like this in the output.
 
 ```shell
 Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
