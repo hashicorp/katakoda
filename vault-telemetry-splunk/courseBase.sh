@@ -3,7 +3,7 @@
 
 export log_dir="/root/.log"
 export terraform_version="0.12.28"
-export vault_version="1.4.2"
+export vault_version="1.4.3"
 
 mkdir -p "$log_dir"
 

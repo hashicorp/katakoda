@@ -52,16 +52,16 @@
     "exclusionPatterns": [
       "/root/vtl/.terraform/*"
     ],
-    "showdashboard": false,
+    "showdashboard": true,
     "dashboards": [
       {
         "name": "Splunk Web",
-        "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
+        "href": "http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
       }
     ]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "ubuntu:1904"
   },
   "finish": {
     "text": "finish.md",
