@@ -55,7 +55,7 @@ variable "docker_host" {
 }
 
 variable "splunk_version" {
-  default = "latest"
+  default = "8.0.4.1"
 }
 
 variable "telegraf_version" {
@@ -63,7 +63,7 @@ variable "telegraf_version" {
 }
 
 variable "vault_version" {
-  default = "1.4.2"
+  default = "1.4.3"
 }
 
 variable "fluentd_splunk_hec_version" {
