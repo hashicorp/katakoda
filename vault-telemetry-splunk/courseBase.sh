@@ -28,9 +28,9 @@ install terraform && \
 download vault "$vault_version" && \
 install vault
 
-mkdir -p /root/vtl/{config,tfstate}
-mkdir /root/vault-audit-log
-mkdir /root/config/fluent
+mkdir -p /root/vtl/{config,tfstate} && \
+mkdir /root/vault-audit-log && \
+mkdir /root/config/fluent && \
 
 # NOTE: Unable to get assets consistently working in docker environments
 #       after numerous attempts, so going to just write the files out with
@@ -127,7 +127,8 @@ resource "docker_container" "splunk" {
 
 # -----------------------------------------------------------------------
 # Fluentd resources
-# (Uses @brianshumate's fluentd-splunk-hec image)
+# Uses @brianshumate's fluentd-splunk-hec image
+# https://github.com/brianshumate/fluentd-splunk-hec
 # -----------------------------------------------------------------------
 
 resource "docker_image" "fluentd_splunk_hec" {
