@@ -39,7 +39,7 @@ Start an interactive shell session on the `vault-0` pod.
 oc exec -it vault-0 -- /bin/sh
 ```{{execute}}
 
-Your system prompt is replaced with a new prompt `/ $`. Commands issued at this
+Your system prompt is replaced with a new prompt `/ #`. Commands issued at this
 prompt are executed on the `vault-0` container.
 
 Create a secret at path `secret/issues/config` with a `username` and `password`.
@@ -138,7 +138,7 @@ Display the secret written to the `issues` container.
 ```shell
 oc exec \
   $(oc get pod -l app=issues -o jsonpath="{.items[0].metadata.name}") \
-  --container issues -- cat /vault/secrets/issues-config.txt
+  --container issues -- cat /vault/secrets/issues-config.txt ; echo
 ```{{execute}}
 
 The secrets are rendered in a PostgreSQL connection string is present on the
