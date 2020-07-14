@@ -1,17 +1,6 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2016
 
-# cat > /usr/local/bin/await-install << 'EOF'
-# #!/usr/bin/env bash
-# printf "Awaiting completion of Terraform installation"
-# while [ ! -x /usr/local/bin/terraform ]; do
-#   sleep 2
-#   printf "."
-# done
-# clear
-# EOF
-# chmod +x /root/await-installation
-
 export log_dir="/root/.log"
 export terraform_version="0.12.28"
 export vault_version="1.4.2"
@@ -66,7 +55,7 @@ variable "docker_host" {
 }
 
 variable "splunk_version" {
-  default = "8.0.4.1"
+  default = "latest"
 }
 
 variable "telegraf_version" {
@@ -79,10 +68,6 @@ variable "vault_version" {
 
 variable "fluentd_splunk_hec_version" {
   default = "0.0.2"
-}
-
-variable "splunk_ip" {
-  default = "42c0ff33-c00l-7374-87bd-690ac97efc50"
 }
 
 # -----------------------------------------------------------------------
@@ -151,14 +136,14 @@ resource "docker_image" "fluentd_splunk_hec" {
 }
 
 resource "docker_container" "fluentd" {
-  name  = "vss-fluentd"
+  name  = "vtl-fluentd"
   image = docker_image.fluentd_splunk_hec.latest
   volumes {
     host_path      = "${path.cwd}/vault-audit-log"
     container_path = "/vault/logs"
   }
   volumes {
-    host_path      = "${path.cwd}/config/fluent"
+    host_path      = "${path.cwd}/vtl/config/fluent"
     container_path = "/fluentd/etc"
   }
   networks_advanced {
@@ -409,7 +394,7 @@ splunk:
   multisite_search_factor_total: 3
   opt: /opt
   pass4SymmKey: null
-  password: vss-password
+  password: vtl-password
   pid: /opt/splunk/var/run/splunk/splunkd.pid
   root_endpoint: null
   s2s:
