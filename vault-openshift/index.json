@@ -1,0 +1,80 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Injecting Secrets into OpenShift Pods via Vault Agent Injector",
+  "description": "Deploy Vault-unaware applications on Kubernetes that consume Vault Secrets.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Create an Initial Project",
+        "text": "step1.md"
+      },
+      {
+        "title": "Install the Vault Helm chart",
+        "text": "step2.md"
+      },
+      {
+        "title": "Configure Kubernetes authentication",
+        "text": "step3.md"
+      },
+      {
+        "title": "Deployment: Request secrets directly from Vault",
+        "text": "step4.md"
+      },
+      {
+        "title": "Deployment: Secrets through Annotations",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "deployment-issues.yml",
+          "target": "/root"
+        },
+        {
+          "file": "deployment-webapp.yml",
+          "target": "/root"
+        },
+        {
+          "file": "service-account-issues.yml",
+          "target": "/root"
+        },
+        {
+          "file": "service-account-webapp.yml",
+          "target": "/root"
+        },
+        {
+          "file": "vault-policy-issues.hcl",
+          "target": "/root"
+        },
+        {
+          "file": "vault-policy-webapp.hcl",
+          "target": "/root"
+        }
+      ]
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "dashboards": [
+      {
+        "name": "Console",
+        "href": "https://console-openshift-console-[[HOST_SUBDOMAIN]]-443-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "openshift-4-4"
+  }
+}
