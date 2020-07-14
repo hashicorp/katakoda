@@ -1,0 +1,11 @@
+global:
+    enabled: true
+    datacenter: dc1
+
+server:
+    replicas: 1
+    bootstrapExpect: 1
+    connect: true
+
+connectInject:
+    enabled: true

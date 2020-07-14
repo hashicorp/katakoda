@@ -1,0 +1,49 @@
+    # The certs section configures how the webhook TLS certs are configured.
+    # These are the TLS certs for the Kube apiserver communicating to the
+    # webhook. By default, the injector will generate and manage its own certs,
+    # but this requires the ability for the injector to update its own
+    # MutatingWebhookConfiguration. In a production environment, custom certs
+    # should probably be used. Configure the values below to enable this.
+    # certs:
+    #   # secretName is the name of the secret that has the TLS certificate and
+    #   # private key to serve the injector webhook. If this is null, then the
+    #   # injector will default to its automatic management mode that will assign
+    #   # a service account to the injector to generate its own certificates.
+    #   secretName: consul-ca-cert
+
+    #   # caBundle is a base64-encoded PEM-encoded certificate bundle for the
+    #   # CA that signed the TLS certificate that the webhook serves. This must
+    #   # be set if secretName is non-null.
+    #   caBundle: ""
+
+    #   # certName and keyName are the names of the files within the secret for
+    #   # the TLS cert and private key, respectively. These have reasonable
+    #   # defaults but can be customized if necessary.
+    #   certName: tls.crt
+    #   keyName: tls.key
+
+    # aclBindingRuleSelector accepts a query that defines which Service Accounts
+    # can authenticate to Consul and receive an ACL token during Connect injection.
+    # The default setting, i.e. serviceaccount.name!=default, prevents the
+    # 'default' Service Account from logging in.
+    # If set to an empty string all service accounts can log in.
+    # This only has effect if ACLs are enabled.
+    #
+    # See https://www.consul.io/docs/acl/acl-auth-methods.html#binding-rules
+    # and https://www.consul.io/docs/acl/auth-methods/kubernetes.html#trusted-identity-attributes
+    # for more details.
+    # Requires Consul >= v1.5 and consul-k8s >= v0.8.0.
+    # aclBindingRuleSelector: "serviceaccount.name!=default"
+
+
+
+    # aclInjectToken refers to a Kubernetes secret that you have created that contains
+    # an ACL token for your Consul cluster which allows the Connect injector the correct
+    # permissions. This is only needed if Consul namespaces [Enterprise only] and ACLs
+    # are enabled on the Consul cluster and you are not setting
+    # `global.acls.manageSystemACLs` to `true`.
+    # This token needs to have `operator = "write"` privileges to be able to
+    # create Consul namespaces.
+    # aclInjectToken:
+    #   secretName: null
+    #   secretKey: null
