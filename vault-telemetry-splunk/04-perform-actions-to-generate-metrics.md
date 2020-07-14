@@ -16,7 +16,7 @@ First, enable a K/V version 2 secrets engine at the default path `kv/`.
 
 ```shell
 vault secrets enable -version=2 kv
-```{{execute T1}}
+```{{execute}}
 
 Now, generate 10 secrets.
 
@@ -24,10 +24,10 @@ Now, generate 10 secrets.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> /root/.log/10-secrets.log 2>&1
+    vault kv put kv/$i-secret-10 id="$(uuidgen)"
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 Next, generate 25 secrets.
 
@@ -35,10 +35,10 @@ Next, generate 25 secrets.
 for i in {1..25}
   do
     printf "."
-    vault kv put kv/$i-secret-25 id="$(uuidgen)" >> /root/.log/25-secrets.log 2>&1
+    vault kv put kv/$i-secret-25 id="$(uuidgen)"
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 Generate 50 secrets.
 
@@ -46,10 +46,10 @@ Generate 50 secrets.
 for i in {1..50}
   do
     printf "."
-    vault kv put kv/$i-secret-50 id="$(uuidgen)" >> /root/.log/50-secrets.log 2>&1
+    vault kv put kv/$i-secret-50 id="$(uuidgen)"
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 Finally, update the first 10 secrets and change their values.
 
@@ -57,26 +57,41 @@ Finally, update the first 10 secrets and change their values.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> /root/.log/10-secrets.log 2>&1
+    vault kv put kv/$i-secret-10 id="$(uuidgen)"
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 ## Tokens & Leases
 
-Enable a [username and password](https://www.vaultproject.io/api-docs/auth/userpass) (userpass) auth method, and login with it to generate tokens and leases.
+Enable a [username and password](https://www.vaultproject.io/api-docs/auth/userpass) (userpass) auth method, and login with it to generate some example tokens and leases.
 
-First, enable the userpass auth method.
+First, write a "sudo" policy that will be attached to tokens created later.
+
+```shell
+$ vault policy write sudo - << EOT
+// Example policy: "sudo"
+path "*" {
+  capabilities = ["create", "read", "update", "delete", "list", "sudo"]
+}
+EOT
+```{{execute}}
+
+Then, enable the userpass auth method.
 
 ```shell
 vault auth enable userpass
-```{{execute T1}}
+```{{execute}}
 
 Next, add a learner user with the password **vtl-password**.
 
 ```shell
-vault write auth/userpass/users/learner password=vtl-password
-```{{execute T1}}
+vault write auth/userpass/users/learner \
+  password=vtl-password \
+  token_ttl=120m \
+  token_max_ttl=140m \
+  token_policies=sudo
+```{{execute}}
 
 Now, login to Vault 10 times as the learner user.
 
@@ -87,10 +102,10 @@ for i in {1..10}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > /root/.log/10-userpass.log 2>&1
+      password=vtl-password
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 Login 25 times as the learner user.
 
@@ -101,10 +116,10 @@ for i in {1..25}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > /root/.log/25-userpass.log 2>&1
+      password=vtl-password
 done
 echo
-```{{execute T1}}
+```{{execute}}
 
 
 Login 50 times as the learner user.
@@ -116,9 +131,20 @@ for i in {1..50}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password > /root/.log/50-userpass.log 2>&1
+      password=vtl-password
 done
 echo
-```{{execute T1}}
+```{{execute}}
+
+Now, for a change, use the token auth method directly to create 200 tokens with only the default policy attached and no default TTL values, which means they will inherit the system maximum of 32 days (768h).
+
+```shell
+for i in {1..200}
+  do
+    printf "."
+    vault token create -policy=default
+done
+echo
+```{{execute}}
 
 Click **Continue** to proceed to step 5, where you can observe the new metrics around the activities you just performed.
