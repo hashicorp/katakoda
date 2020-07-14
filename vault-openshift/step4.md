@@ -1,7 +1,7 @@
 Applications on pods can directly communicate with Vault to authenticate and
 request secrets. An application needs:
 
-- a service accont
+- a service account
 - a Vault secret
 - a Vault policy to read the secret
 - a Kubernetes authentication role
