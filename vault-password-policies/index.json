@@ -31,7 +31,7 @@
     },
     "assets": {
       "host01": [
-        { "file": "common_policy.hcl", "target": "~/" }
+        { "file": "example_policy.hcl", "target": "~/" }
       ]
     },
     "finish": {

@@ -11,7 +11,7 @@ vault write rabbitmq-with-policy/config/connection \
     connection_uri=http://localhost:15672 \
     username="learn_vault" \
     password="hashicorp" \
-    password_policy="common_policy"
+    password_policy="example_policy"
 ```{{execute}}
 
 Create a role named `example`.

@@ -1,9 +1,8 @@
-Vault can gen onfigurable password policies today and the impetus as to why we
-decided to do this. So, as you may know vault can generate dynamic usernames and
-passwords and we do that by randomly. Picking characters from a base 62
-character set right so when we decided to roll this out to certain customers.
-They came back and said, hey, this password that you're generating is to secure
-That means our older systems that we're connecting to like DB two systems have a
-very strict password character SEC requirement, they need A character password
-length of eight characters and has to be one uppercase one lowercase and one
-number one character only
+Vault's secret engines generate passwords that adhere to a default pattern that
+may not meet the standards required by your applications or within your
+organization.
+
+Vault 1.5 introduced support for configurable password generation defined by
+a password policy. A policy defines the rules and requirements that the password
+must adhere and can provide that password directly through a new endpoint or
+within secrets engines.
