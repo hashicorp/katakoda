@@ -61,7 +61,7 @@
     ]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "ubuntu:1904"
   },
   "finish": {
     "text": "finish.md",
