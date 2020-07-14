@@ -4,7 +4,7 @@ leverages the Kubernetes mutating admission webhook to intercept pods that
 define specific annotations and inject a Vault Agent container to manage these
 secrets. An application needs:
 
-- a service accont
+- a service account
 - a Vault secret
 - a Vault policy to read the secret
 - a Kubernetes authentication role

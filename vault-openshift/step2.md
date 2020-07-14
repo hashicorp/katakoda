@@ -2,7 +2,7 @@ The recommended way to run Vault on OpenShift is via the Helm chart. Helm is a
 package manager that installs and configures all the necessary components to run
 Vault in several different modes.
 
-Add the Hashicorp Helm repository.
+Add the HashiCorp Helm repository.
 
 ```shell
 helm repo add hashicorp https://helm.releases.hashicorp.com
