@@ -1,48 +1,45 @@
-First, login with root token.
-
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-```
-vault login root
-```{{execute T1}}
-
-
-## Configure Vault OSS
-
 **Scenario introduction**
 
 Vault administrators must manage multiple Vault environments. The test servers get destroyed at the end of each test cycle and a new set of servers must be provisioned for the next test cycle. To automate the Vault server configuration, you are going to use Terraform to provision the following Vault resources.
 
 | Type           | Name         | Description                           |
 |----------------|--------------|---------------------------------------|
+| namespace      | finance      | A namespace dedicated to the finance organization |
+| namespace      | engineering  | A namespace dedicated to the engineering organization |
 | ACL Policy     | admins       | Sets policies for the admin team  |
-| ACL Policy     | eaas-client  | Sets policies for clients to encrypt/decrypt data through transit secrets engine  |
+| ACL Policy     | fpe-client   | Sets policies for clients to encode/decode data through transform secrets engine  |
 | auth method    | userpass     | Enable and create a user, "student" with `admins` and `fpe-client` policies |
-| secrets engine | kv-v2        | Enable kv-v2 secrets engine at `kv-v2`  |
-| secrets engine | transit      | Enable transit secrets engine at `transit`  |
-| encryption key | payment      | Encryption key to encrypt/decrypt data |
+| secrets engine | kv-v2        | Enable kv-v2 secrets engine in the `finance` namespace  |
+| secrets engine | transform    | Enable transform secrets engine at `transform`  |
+| transformation | ccn-fpe      | Transformation to perform format preserving encryption (FPE) transformation on credit card numbers |
+| transformation template | ccn | Define the data format structure for credit card numbers  |
+| alphabet       | numerics     | Set of allowed characters    |
 
-It creates `admins` policy based on the `oss/policies/admin-policy.hcl`{{open}} file. Similarly, creates `eaas-client` policy based on the `oss/policies/eaas-client-policy.hcl`{{open}} file.
+The `admins` policy must be created in all namespaces: `root`, `finance`, and `engineering`. The expected admin tasks are the same across the namespaces.
 
-<br>
+
+## Examine provided Terraform files
+
+Following Terraform files are provided:
+
+- `main.tf`{{open}} defines two provider blocks each pointing to a different namespace: finance and engineering. This allows you to leverage multiple namespaces during the Vault configuration  
+
+- `policies.tf`{{open}} creates **admins** and **eaas-client** policies based on the `policies/admin-policy.hcl`{{open}} and `policies/fpe-client-policy.hcl`{{open}} file respectively. The admins policy gets created in the `root`, `finance`, and `engineering` namespaces. The fpe-client policy gets created in the `root` namespace
+
+- `auth.tf`{{open}} enables userpass auth method and creates a user, `student` with password, `changeme`
+
+- `secrets.tf`{{open}} enables `kv-v2` and `transform` secrets engines.
+
+> **NOTE:** Terraform Vault Provider **v2.12.0** or later is required.  The details about the transformation, template, alphabet, and role are out of scope for this tutorial. If you are not familiar with Transform secrets engine, go through the [Transform Secrets Engine tutorial](https://www.katacoda.com/hashicorp/scenarios/vault-transform).
+
 
 ## Run Terraform
-
-First, change the working directory to `oss`.
-
-```
-cd oss
-```{{execute T1}}
-
-Examine the `oss/main.tf`{{open}} file contents.
 
 Set the `VAULT_TOKEN` environment variable with value, `root`.
 
 ```
 export VAULT_TOKEN=root
 ```{{execute T1}}
-
-> **NOTE:** Terraform reads the `VAULT_ADDR` and `VAULT_TOKEN` environment variables to connect to your target Vault server/cluster.
 
 Execute the following Terraform command to pull the Vault provider plugin.
 
@@ -59,11 +56,8 @@ terraform plan
 The `plan` output reports what resources will be created, changed, or destroyed. Since this is the first time running Terraform against this Vault instance, there is nothing to change or destroy.
 
 ```
-Plan: 7 to add, 0 to change, 0 to destroy.
+Plan: 14 to add, 0 to change, 0 to destroy.
 ```
-
-The `terraform apply` command first executes the `plan` command. Therefore, this step is not necessary; however, very useful when you are working on the Terraform files to verify the actions.
-
 
 Finally, execute the plan using the `terraform apply` command.
 
@@ -74,7 +68,5 @@ terraform apply -auto-approve
 After the successful execution, the output should contain the following message:
 
 ```
-Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
 ```
-
-> **NOTE:** To apply the same configuration to another Vault server/cluster, simply update the `VAULT_ADDR` and `VAULT_TOKEN` values to point to the desired target server/cluster.
