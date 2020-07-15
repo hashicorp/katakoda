@@ -13,7 +13,7 @@ apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
 mkdir -p /root/vtl/{config,tfstate}
 mkdir /root/vault-audit-log
-mkdir -p /root/config/fluent
+#mkdir -p /root/config/fluent
 
 # NOTE: Unable to get assets consistently working in docker environments
 #       after numerous attempts, so going to just write the files out with
@@ -127,8 +127,8 @@ resource "docker_container" "fluentd" {
     container_path = "/vault/logs"
   }
   volumes {
-    host_path      = "${path.cwd}/vtl/config/fluent"
-    container_path = "/fluentd/etc"
+    host_path      = "${path.cwd}/vtl/config/fluent.conf"
+    container_path = "/fluentd/etc/fluent.conf"
   }
   networks_advanced {
     name         = "vtl-network"
@@ -213,6 +213,26 @@ resource "docker_container" "vault" {
   }
 }
 
+EOF
+
+cat > /root/vtl/config/fluent.conf << 'EOF'
+<source>
+@type tail
+  path /vault/logs/vault-audit.log
+  pos_file /vault/logs/vault-audit-log.pos
+  <parse>
+    @type json
+    time_format %iso8601
+  </parse>
+  tag vault_audit
+</source>
+
+<match vault_audit.**>
+  @type splunk_hec
+  host 10.42.10.100
+  port 8088
+  token 12b8a76f-3fa8-4d17-b67f-78d794f042fb
+</match>
 EOF
 
 cat > /root/vtl/config/default.yml << 'EOF'
@@ -415,26 +435,6 @@ splunkbase_token: null
 splunkbase_username: null
 wait_for_splunk_retry_num: 60
 
-EOF
-
-cat > /root/vtl/config/fluent/fluent.conf << 'EOF'
-<source>
-@type tail
-  path /vault/logs/vault-audit.log
-  pos_file /vault/logs/vault-audit-log.pos
-  <parse>
-    @type json
-    time_format %iso8601
-  </parse>
-  tag vault_audit
-</source>
-
-<match vault_audit.**>
-  @type splunk_hec
-  host 10.42.10.100
-  port 8088
-  token 12b8a76f-3fa8-4d17-b67f-78d794f042fb
-</match>
 EOF
 
 cat > /root/vtl/config/telegraf.conf << 'EOF'
