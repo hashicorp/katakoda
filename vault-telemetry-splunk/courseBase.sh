@@ -11,26 +11,9 @@ mkdir -p "$log_dir"
 apt update && \
 apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
-# Download function
-download() {
-  curl --fail --location --silent --show-error --output "$HOME"/"${1}".zip https://releases.hashicorp.com/"${1}"/"${2}"/"${1}"_"${2}"_linux_amd64.zip  >> "$log_dir"/install.log
-}
-
-# Install function
-install() {
-  unzip -d  /usr/local/bin/ "$HOME"/"$1".zip  >> "$log_dir"/install.log && \
-  chmod +x /usr/local/bin/"$1" && \
-  rm -f "$HOME"/"$1".zip
-}
-
-download terraform "$terraform_version" && \
-install terraform && \
-download vault "$vault_version" && \
-install vault
-
-mkdir -p /root/vtl/{config,tfstate} && \
-mkdir /root/vault-audit-log && \
-mkdir /root/config/fluent && \
+mkdir -p /root/vtl/{config,tfstate}
+mkdir /root/vault-audit-log
+mkdir -p /root/config/fluent
 
 # NOTE: Unable to get assets consistently working in docker environments
 #       after numerous attempts, so going to just write the files out with
