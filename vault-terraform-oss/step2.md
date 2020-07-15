@@ -26,17 +26,37 @@ vault secrets list
 
   ![](./assets/vault-ui-secrets.png)
 
-1. Select **transit > payment**. The Terraform enabled the `transit` secrets engine and created the `payment` key.
+1. Select **View configuration** of the **transit** secrets engine.
 
-1. Select the **Key action**.
+  ![Transit Secrets Engine](./assets/vault-codify-mgmt-11.png)
 
-1. With **Encrypt** selected, enter some text in the **Plaintext** field (e.g. `my-long-secrets`).
+1. Select **Keys** tab and verify that **payment** key exists.
 
-1. Click **Encode to base64**, and then **Encrypt**. This returns you the ciphertext.
+  ![Transit Secrets Engine](./assets/vault-codify-mgmt-12.png)
 
-  ![](./assets/vault-ui-transit.png)
+1. Select **payment** and then **Encrypt**.
 
-  > **NOTE:** To learn more about the `transit` secrets engine, visit to the [Vault Encryption as a Service](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
+  ![Transit Secrets Engine](./assets/vault-codify-mgmt-13.png)
+
+1. Enter `1111-2222-3333-4444` in the **Plaintext** field, and then click **Encrypt**.
+
+  ![Transit Secrets Engine](./assets/vault-codify-mgmt-14.png)
+
+1. Click **Copy & Close**.
+
+1. Now, select **Decrypt** tab and paste in the ciphertext you just copied.
+
+1. Click **Decrypt**.
+
+1. The returned plaintext is base64 encoded. Click **Copy & Close**.
+
+1. Execute the `base64 --decode` command to decode the returned plaintext.
+
+  **Example:**
+
+  ```
+  base64 --decode <<< "MTExMS0yMjIyLTMzMzMtNDQ0NAo="
+  ```
 
 1. Select **Secrets** to return to the **Secrets Engines** list.
 
