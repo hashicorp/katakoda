@@ -4,7 +4,7 @@ Terraform is an **Infrastructure as Code** tool, so treat your Terraform files a
 
 For example, `git commit` triggers the CircleCI to spin up a Docker image running Vault in development mode, and execute the Terraform against it. If the Vault configuration was successful, you can roll it out to the staging cluster, etc. Otherwise, fix the Terraform files and repeat the process.
 
-![](./assets/img/codify-mgmt-vault.png)
+![](./assets/codify-mgmt-vault.png)
 
 This significantly reduces human errors as well as inconsistencies across Vault environments. Terraform can be your working documentation of any change in the Vault server configuration.
 

@@ -11,7 +11,7 @@ Vault administrators must manage multiple Vault environments. The test servers g
 | secrets engine | transit      | Enable transit secrets engine at `transit`  |
 | encryption key | payment      | Encryption key to encrypt/decrypt data |
 
-It creates `admins` policy based on the `policies/admin-policy.hcl`{{open}} file. Similarly, creates `eaas-client` policy based on the `policies/eaas-client-policy.hcl`{{open}} file.
+
 
 <br>
 
@@ -23,7 +23,7 @@ Following Terraform files are provided:
 
   Within the file is a vault provider block. You can provide the server connection details inside this block (Vault server address, client tokens, etc.); however, it is strongly recommended to configure those target server specific information using environment variables.
 
-- `policies.tf`{{open}} creates **admins** and **eaas-client** policies
+- `policies.tf`{{open}} creates **admins** based on the `policies/admin-policy.hcl`{{open}} file. Similarly, creates `eaas-client` policy based on the `policies/eaas-client-policy.hcl`{{open}} file.
 
 - `auth.tf`{{open}} enables userpass auth method and creates a user, `student` with password, `changeme`
 
@@ -34,13 +34,6 @@ Following Terraform files are provided:
 ## Run Terraform commands
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-Set the `VAULT_ADDR` environment variable with value.
-
-```
-export VAULT_ADDR="http://127.0.0.1:8200"
-```{{execute T1}}
-
 
 Set the `VAULT_TOKEN` environment variable with value, `root`.
 
