@@ -1,12 +1,3 @@
-First, login with root token.
-
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-```
-vault login root
-```{{execute T1}}
-
-
 **Scenario introduction**
 
 Vault administrators must manage multiple Vault environments. The test servers get destroyed at the end of each test cycle and a new set of servers must be provisioned for the next test cycle. To automate the Vault server configuration, you are going to use Terraform to provision the following Vault resources.
@@ -41,6 +32,15 @@ Following Terraform files are provided:
 
 
 ## Run Terraform commands
+
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+Set the `VAULT_ADDR` environment variable with value.
+
+```
+export VAULT_ADDR="http://127.0.0.1:8200"
+```{{execute T1}}
+
 
 Set the `VAULT_TOKEN` environment variable with value, `root`.
 

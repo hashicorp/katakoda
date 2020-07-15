@@ -35,6 +35,15 @@ Following Terraform files are provided:
 
 ## Run Terraform
 
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+Set the `VAULT_ADDR` environment variable with value.
+
+```
+export VAULT_ADDR="http://127.0.0.1:8200"
+```{{execute T1}}
+
+
 Set the `VAULT_TOKEN` environment variable with value, `root`.
 
 ```
