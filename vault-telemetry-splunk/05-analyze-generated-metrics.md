@@ -26,12 +26,12 @@ Click **Continue** to proceed to step 4, where you will generate some new items 
 
 The Telegraf agent samples and maintains metrics for OS level details like CPU and memory usage. Feel free to explore these and more.
 
-#### Memory usage
+#### CPU usage
 
 Check out the **cpu.usage.guest** metric
 
 1. Scroll to the metrics under **cpu.usage** and observe the updates there.
-1. Click **guest** under **cpu.usage**.
+1. Click **user** under **cpu.usage**.
 
 ### Dashboard
 
