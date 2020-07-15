@@ -475,7 +475,7 @@ cat > /root/vtl/config/telegraf.conf << 'EOF'
 # An output plugin that can transmit metrics over HTTP to Splunk
 # You must specify a valid Splunk HEC token as the Authorization value
 [[outputs.http]]
-  url = "https://10.42.10.100:8088/services/collector"
+  url = "http://10.42.10.100:8088/services/collector"
   data_format="splunkmetric"
   splunkmetric_hec_routing=true
   [outputs.http.headers]
