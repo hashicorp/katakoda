@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "[Enterprise] Codify Management of Vault",
+  "title": "Codify Management of Vault",
   "description": "Learn how to codify the basic Vault setup operations.",
   "difficulty": "beginner",
   "time": "5 minutes",
@@ -12,8 +12,10 @@
     },
     "steps": [
       {
-        "title": "Configure Vault Enterprise server with namespaces",
-        "text": "step1.md"
+        "title": "Configure Vault OSS server",
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       },
       {
         "title": "Verification",
@@ -31,7 +33,7 @@
         { "file": "policies.tf", "target": "~/" },
         { "file": "secrets.tf", "target": "~/" },
         { "file": "/policies/admin-policy.hcl", "target": "~/policies" },
-        { "file": "/policies/fpe-client-policy.hcl", "target": "~/policies" }
+        { "file": "/policies/eaas-client-policy.hcl", "target": "~/policies" }
       ]
     }
   },
@@ -45,6 +47,6 @@
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack-ent"
+    "imageid": "hashicorp-hashistack"
   }
 }

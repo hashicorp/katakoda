@@ -1,71 +1,36 @@
-# Use Vault provider
+#------------------------------------------------------------------------------
+# The best practice is to use remote state file and encrypt it since your
+# state files may contains sensitive data (secrets).
+#------------------------------------------------------------------------------
+# terraform {
+#       backend "s3" {
+#             bucket = "remote-terraform-state-dev"
+#             encrypt = true
+#             key = "terraform.tfstate"
+#             region = "us-east-1"
+#       }
+# }
+
+#------------------------------------------------------------------------------
+# To leverate more than one namespace, define a vault provider per namespace
+#------------------------------------------------------------------------------
 provider "vault" {
+  alias = "finance"
+  namespace = "finance"
 }
 
-# Create a policy document
-data "vault_policy_document" "training" {
-  rule {
-    path         = "kv-v2/data/training/*"
-    capabilities = ["create", "read", "update", "delete", "list"]
-  }
-  rule {
-    path         = "kv-v2/*"
-    capabilities = ["list", "read"]
-  }
-  rule {
-    path         = "transit/encrypt/payment"
-    capabilities = ["update"]
-  }
-  rule {
-    path         = "transit/decrypt/payment"
-    capabilities = ["update"]
-  }
-  rule {
-    path         = "transit/*"
-    capabilities = ["read", "list"]
-  }
+provider "vault" {
+  alias = "engineering"
+  namespace = "engineering"
 }
 
-# Create 'training' policy
-resource "vault_policy" "training" {
-  name   = "training"
-  policy = data.vault_policy_document.training.hcl
+#------------------------------------------------------------------------------
+# Create namespaces: finance, and engineering
+#------------------------------------------------------------------------------
+resource "vault_namespace" "finance" {
+  path = "finance"
 }
 
-# Enable auth method
-resource "vault_auth_backend" "userpass" {
-  type = "userpass"
-}
-
-resource "vault_generic_endpoint" "student" {
-  depends_on           = [vault_auth_backend.userpass]
-  path                 = "auth/userpass/users/student"
-  ignore_absent_fields = true
-
-  data_json = <<EOT
-{
-  "policies": ["training"],
-  "password": "changeme"
-}
-EOT
-
-}
-
-# Enable K/V v2 secrets engine at 'kv-v2'
-resource "vault_mount" "kv-v2" {
-  path = "kv-v2"
-  type = "kv-v2"
-}
-
-# Enable Transit secrets engine
-resource "vault_mount" "transit" {
-  path = "transit"
-  type = "transit"
-}
-
-# Creating an encryption key named 'payment'
-resource "vault_transit_secret_backend_key" "key" {
-  depends_on = [vault_mount.transit]
-  backend    = "transit"
-  name       = "payment"
+resource "vault_namespace" "engineering" {
+  path = "engineering"
 }
