@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "[DRAFT] Vault Telemetry with Splunk",
+  "title": "Vault Telemetry with Splunk",
   "description": "Discover Vault telemetry metrics and audit device logs in Splunk",
   "private": false,
   "difficulty": "intermediate",
@@ -52,7 +52,7 @@
     "exclusionPatterns": [
       "/root/vtl/.terraform/*"
     ],
-    "showdashboard": true,
+    "showdashboard": false,
     "dashboards": [
       {
         "name": "Splunk Web",
