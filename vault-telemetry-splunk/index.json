@@ -61,7 +61,7 @@
     ]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "hashicorp-hashistack"
   },
   "finish": {
     "text": "finish.md",

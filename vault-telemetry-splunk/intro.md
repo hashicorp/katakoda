@@ -1,4 +1,4 @@
-<small>Tutorial v0.2.5 accompanies the information in [Monitoring Telemetry with Splunk](https://learn.hashicorp.com/vault/monitoring/monitor-telemetry-audit-splunk)</small>
+<small>Tutorial v0.9.0 accompanies the information in [Monitoring Telemetry with Splunk](https://learn.hashicorp.com/vault/monitoring/monitor-telemetry-audit-splunk)</small>
 
 ----
 
