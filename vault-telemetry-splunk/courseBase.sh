@@ -13,7 +13,6 @@ apt install -y unzip uuid-runtime >> "$log_dir"/install.log
 
 mkdir -p /root/vtl/{config,tfstate}
 mkdir /root/vault-audit-log
-#mkdir -p /root/config/fluent
 
 # NOTE: Unable to get assets consistently working in docker environments
 #       after numerous attempts, so going to just write the files out with

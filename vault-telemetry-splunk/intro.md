@@ -1,8 +1,8 @@
-<small>Tutorial v1.0.1 accompanies the information in [Monitoring Telemetry with Splunk](https://learn.hashicorp.com/vault/monitoring/monitor-telemetry-audit-splunk)</small>
+<small>Tutorial v1.0.2 accompanies the information in [Monitoring Telemetry with Splunk](https://learn.hashicorp.com/vault/monitoring/monitor-telemetry-audit-splunk)</small>
 
 ----
 
-Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. Two such streams of data available from an operating Vault server through [telemetry metrics](https://www.vaultproject.io/docs/internals/telemetry) and [audit device](https://www.vaultproject.io/docs/audit) logs.
+Vault emits rich operational and usage data to provide its users insight and intelligence about the server lifecycle. Two such streams of data available from an operating Vault server through telemetry metrics and audit device logs.
 
 <p align=center>
     ![Diagram of Vault operational data](./assets/vault-operational-data.png)
@@ -10,7 +10,7 @@ Vault emits rich operational and usage data to provide its users insight and int
 
 <small>In addition to operational and audit logging, Vault can also export operational data in the form of audit devices and telemetry metrics.</small>
 
-You can configure an agent like Fluentd to read a Vault file audit device log and export it to Splunk, and you can also [configure telemetry](https://www.vaultproject.io/docs/configuration/telemetry) for either exporting metrics or pulling metrics depending on the solution you use. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
+You can configure an agent like Fluentd to read a Vault file audit device log and export it to Splunk, and you can also configure telemetry for either exporting metrics or pulling metrics depending on the solution you use. Aggregated metrics can then be visually analyzed with dashboards and alerted on based on your business and operational criteria.
 
 This scenario helps you become familiar with Vault telemetry in Splunk. It uses Terraform to automate deployment of a simple Docker based infrastructure featuring a Vault server (v1.4.3), a Fluentd td-agent (v1.11), a Telegraf agent(v1.12.6), and a Splunk server (v8.0.4.1).
 

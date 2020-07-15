@@ -24,7 +24,7 @@ Now, generate 10 secrets.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)"
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -35,7 +35,7 @@ Next, generate 25 secrets.
 for i in {1..25}
   do
     printf "."
-    vault kv put kv/$i-secret-25 id="$(uuidgen)"
+    vault kv put kv/$i-secret-25 id="$(uuidgen)" >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -46,7 +46,7 @@ Generate 50 secrets.
 for i in {1..50}
   do
     printf "."
-    vault kv put kv/$i-secret-50 id="$(uuidgen)"
+    vault kv put kv/$i-secret-50 id="$(uuidgen)" >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -57,7 +57,7 @@ Finally, update the first 10 secrets and change their values.
 for i in {1..10}
   do
     printf "."
-    vault kv put kv/$i-secret-10 id="$(uuidgen)"
+    vault kv put kv/$i-secret-10 id="$(uuidgen)" >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -102,7 +102,7 @@ for i in {1..10}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password
+      password=vtl-password >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -116,7 +116,7 @@ for i in {1..25}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password
+      password=vtl-password >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -131,7 +131,7 @@ for i in {1..50}
     vault login \
       -method=userpass \
       username=learner \
-      password=vtl-password
+      password=vtl-password >> step4.log 2>&1
 done
 echo
 ```{{execute}}
@@ -142,7 +142,7 @@ Now, for a change, use the token auth method directly to create 200 tokens with 
 for i in {1..200}
   do
     printf "."
-    vault token create -policy=default
+    vault token create -policy=default >> step4.log 2>&1
 done
 echo
 ```{{execute}}
