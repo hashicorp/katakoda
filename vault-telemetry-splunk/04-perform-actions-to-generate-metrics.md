@@ -69,7 +69,7 @@ Enable a [username and password](https://www.vaultproject.io/api-docs/auth/userp
 First, write a "sudo" policy that will be attached to tokens created later.
 
 ```shell
-$ vault policy write sudo - << EOT
+vault policy write sudo - << EOT
 // Example policy: "sudo"
 path "*" {
   capabilities = ["create", "read", "update", "delete", "list", "sudo"]
