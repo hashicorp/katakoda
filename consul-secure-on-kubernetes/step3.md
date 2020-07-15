@@ -1,3 +1,12 @@
+<style>
+    pre.console {
+        background-color: #383732 !important;
+        font-family: "Fira Mono","DejaVu Sans Mono",Menlo,Consolas,"Liberation Mono",Monaco,"Lucida Console",monospace;
+        color: white;
+        padding: 5px;
+    }
+</style>
+
 ### Log server traffic
 
 Next, output `tcpdump` to a file so that you can test for cleartext RPC traffic.
@@ -18,9 +27,9 @@ Now, from **Terminal 1** you can search the log file for the CLI operation with 
 You are able to see the Key-Value store entry in cleartext. This proves that RPC traffic
 is not encrypted.
 
-```plaintext
+<pre class="console">
 ....Seqr.ServiceMethod.KVS.Apply..Datacenter.dc1.DirEnt..CreateIndex..Flags..Key.password=1234.LockIndex..ModifyIndex..Session..Value..Op.set.Token.
-```
+</pre>
 
 Exit the server container running in **Terminal 1**.
 

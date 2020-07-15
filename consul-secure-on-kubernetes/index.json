@@ -39,6 +39,10 @@
       {
         "title": "Verify that network traffic is encrypted",
         "text": "step7.md"
+      },
+      {
+        "title": "Deploy and test two services",
+        "text": "step8.md"
       }
     ],
     "intro": {
@@ -50,7 +54,9 @@
     "assets": {
 			"client": [
 			  { "file": "dc1.yaml", "target": "./" },
-			  { "file": "secure-dc1.yaml", "target": "./" }
+        { "file": "secure-dc1.yaml", "target": "./" },
+        { "file": "server.yaml", "target": "./" },
+			  { "file": "client.yaml", "target": "./" }
 			]
 		}
   },

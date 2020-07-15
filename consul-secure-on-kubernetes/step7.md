@@ -9,9 +9,7 @@ This will execute in **Terminal 2**.
 Next, since the containers were recycled during the helm upgrade, you will
 have to add tcp dump again.
 
-`apk update`{{execute T2}}
-
-`apk add tcpdump`{{execute T2}}
+`apk update && apk add tcpdump`{{execute T2}}
 
 Next, start `tcpdump` and observe the gossip traffic.
 

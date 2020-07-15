@@ -9,9 +9,7 @@ to it with the following command:
 The container images used by this hands-on lab are lightweight alpine images. They ship with
 limited tools. Run the following commands to install `tcpdump`:
 
-`apk update`{{execute T1}}
-
-`apk add tcpdump`{{execute T1}}
+`apk update && apk add tcpdump`{{execute T1}}
 
 Start `tcpdump` to view traffic to the server container.
 
