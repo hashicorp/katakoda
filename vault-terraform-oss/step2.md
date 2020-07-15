@@ -6,11 +6,6 @@ List existing policies to make sure that `admins` and `eaas-client` policies wer
 vault policy list
 ```{{execute T1}}
 
-List enabled secrets engines to verify that kv-v2 and transit secrets engines are enabled.
-
-```
-vault secrets list
-```{{execute T1}}
 
 ## Verify the student user
 
