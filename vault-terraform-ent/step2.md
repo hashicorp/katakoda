@@ -86,4 +86,3 @@ vault write transform/encode/payments value=1111-2222-3333-4444
 ```{{execute T1}}
 
 
-To access [Vault UI](https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com)
