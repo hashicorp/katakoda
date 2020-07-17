@@ -52,6 +52,7 @@ Stop the Vault server.
 ps aux | grep "vault server" | grep -v grep | awk '{print $2}' | xargs kill
 ```{{execute T2}}
 
+<br />
 
 ## Update the server configuration
 
