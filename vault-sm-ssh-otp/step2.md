@@ -1,4 +1,24 @@
 ```shell-session
+vault status
+```{{execute HOST1}}
+
+```shell-session
+vault server -dev -dev-root-token-id root -dev-listen-address=0.0.0.0:8200
+```{{execute T3}}
+
+```shell-session
+export VAULT_ADDR='http://0.0.0.0:8200'
+```{{execute HOST1}}
+
+```shell-session
+ufw allow 8200/tcp
+```{{execute HOST1}}
+
+```shell-session
+vault login root
+```{{execute HOST1}}
+
+```shell-session
 vault secrets enable ssh
 ```{{execute HOST1}}
 

@@ -1,3 +1,7 @@
+```shell-session
+useradd ubuntu -m
+```{{execute HOST2}}
+
 Download the `vault-ssh-helper`.
 
 ```shell-session
