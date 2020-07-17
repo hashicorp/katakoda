@@ -10,5 +10,5 @@ vault write ssh/creds/otp_key_role ip=[[HOST2_IP]]
 ```{{execute HOST1}}
 
 ```shell-session
-ssh -l root@[[HOST2_IP]]
+vault ssh -role otp_key_role -mode otp -strict-host-key-checking=no ubuntu@[[HOST2_IP]]
 ```{{execute HOST1}}
