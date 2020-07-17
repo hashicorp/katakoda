@@ -1,0 +1,4 @@
+- [One-Time SSH Passwords](https://www.vaultproject.io/docs/secrets/ssh/one-time-ssh-passwords.html)
+- [SSH Secrets Engine (API)](https://www.vaultproject.io/api/secret/ssh/index.html)
+- [Vault SSH Helper](https://github.com/hashicorp/vault-ssh-helper)
+- [Signed SSH Certificates](https://www.vaultproject.io/docs/secrets/ssh/signed-ssh-certificates.html)
