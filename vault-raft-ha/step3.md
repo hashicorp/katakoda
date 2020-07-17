@@ -11,6 +11,7 @@ mkdir raft-node3
 vault server -config=config-node3.hcl
 ```{{execute T5}}
 
+<br />
 
 ## Join the raft luster
 
