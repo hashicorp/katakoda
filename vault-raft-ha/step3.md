@@ -2,27 +2,6 @@ Click the **+** next to the opened Terminal, and select **Open New Terminal** to
 
 Open the `node3` server configuration file, `config-node3.hcl`{{open}}.
 
-```
-ha_storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node3/"
-  node_id = "node3"
-}
-
-storage "file" {
-    path = "/home/scrapbook/tutorial/vault-storage-file"
-}
-
-listener "tcp" {
-  address = "127.0.0.1:8230"
-  cluster_address = "127.0.0.1:8231"
-  tls_disable = true
-}
-
-disable_mlock = true
-api_addr = "http://127.0.0.1:8230"
-cluster_addr = "http://127.0.0.1:8231"
-```
-
 Notice that the `node_id` is set to `node3` and this server will listen to port **`8230`**.
 
 Execute the following command to start `node3`:
@@ -50,8 +29,6 @@ Unseal `node3`.
 vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T6}}
 
-> Remember that the server is using the file storage backend to persist Vault data; therefore, the shamir's unseal keys, encryption key and the initial root token are created and persisted at `/home/scrapbook/tutorial/vault-storage-file` when you initialized vault_1.
-
 Execute the `vault operator raft join` command to join `node3` to `node1` Raft cluster.
 
 ```
@@ -74,4 +51,4 @@ node3    127.0.0.1:8231    follower    true
 
 Now you have 3-node Vault cluster.
 
-![](./assets/vault-ha-raft-1.png)
+![](./assets/vault-ha-raft.png)

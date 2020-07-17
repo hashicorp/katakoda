@@ -1,7 +1,5 @@
 Let's enable K/V secrets engine.
 
-> **NOTE:** You can execute the CLI commands from any of the node; however, the request will always be routed to the active server which is `node1`.  
-
 ```
 vault secrets enable -path=secret kv-v2
 ```{{execute T2}}
@@ -44,4 +42,4 @@ node3    127.0.0.1:8231    follower    true
 
 Now, node2 becomes the leader.
 
-You have successfully converted a single-node Vault server (`node1`) into a three-nodes Vault cluster. 
+You have successfully converted a single-node Vault server (`node1`) into a three-nodes Vault cluster.

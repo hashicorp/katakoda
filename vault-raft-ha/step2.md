@@ -4,27 +4,6 @@ Click the **+** next to the opened Terminal, and select **Open New Terminal** to
 
 Open the `node2` server configuration file, `config-node2.hcl`{{open}}.
 
-```
-ha_storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node2/"
-  node_id = "node2"
-}
-
-storage "file" {
-    path = "/home/scrapbook/tutorial/vault-storage-file"
-}
-
-listener "tcp" {
-  address = "127.0.0.1:8220"
-  cluster_address = "127.0.0.1:8221"
-  tls_disable = true
-}
-
-disable_mlock = true
-api_addr = "http://127.0.0.1:8220"
-cluster_addr = "http://127.0.0.1:8221"
-```
-
 Notice that the `node_id` is set to `node2` and this server will listen to port **`8220`**.
 
 Execute the following command to start `node2`:
@@ -54,6 +33,7 @@ vault server -config=config-node2.hcl
 
 It shows **HA Storage** is `raft` and **Storage** is `file`.
 
+<br />
 
 ## Join the raft luster
 
@@ -70,7 +50,7 @@ Unseal `node2`.
 
 ```
 vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
-```{{execute T2}}
+```{{execute T4}}
 
 > Remember that the server is using the file storage backend to persist Vault data; therefore, the shamir's unseal keys, encryption key and the initial root token are created and persisted at `/home/scrapbook/tutorial/vault-storage-file` when you initialized vault_1.
 

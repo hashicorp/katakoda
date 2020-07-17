@@ -2,11 +2,7 @@
 Wait until the initial setup completes before start.
 -----
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-```
-clear
-```{{execute T1}}
+<br />
 
 
 You have a Vault server which uses filesystem as its storage backend. Since filesystem storage backend does not support HA, you have a single node deployment.
@@ -16,23 +12,11 @@ You have a Vault server which uses filesystem as its storage backend. Since file
 
 ### Start Vault Server 1 (node1)
 
+> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
+
+`clear`{{execute T1}}
+
 First review the server configuration file, `config-node1.hcl`{{open}}.
-
-```
-storage "file" {
-    path = "/home/scrapbook/tutorial/vault-storage-file"
-}
-
-listener "tcp" {
-  address = "127.0.0.1:8210"
-  cluster_address = "127.0.0.1:8211"
-  tls_disable = true
-}
-
-disable_mlock = true
-api_addr = "http://127.0.0.1:8210"
-cluster_addr = "http://127.0.0.1:8211"
-```
 
 The `storage` stanza is set to use `file`.
 
@@ -75,7 +59,7 @@ When you need to use a storage backend that does not support HA, `ha_storage` st
 
 > **NOTE:** The `ha_storage` must be an HA-supporting storage backend.
 
-Open `config_node1.hcl`{{open}} and add `raft` as your `ha_storage` for node1.
+Open `config-node1.hcl`{{open}} and add `raft` as your `ha_storage` for node1.
 
 <pre class="file" data-filename="config-node1.hcl" data-target="append">
 # Use the file system as storage backend
@@ -134,3 +118,7 @@ Node     Address           State     Voter
 ----     -------           -----     -----
 node1    127.0.0.1:8211    leader    true
 ```
+
+You successfully enabled HA storage to store the HA coordination information. 
+
+![](./assets/vault-ha-raft-3.png)
