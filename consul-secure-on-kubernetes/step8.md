@@ -11,8 +11,12 @@
 ### Deploy sample services
 
 Now that the network communications have been secured and ACLs have been applied,
-you will configure zero-trust networking using Consul intentions. Run the following
-command to deploy a sample backend service to the cluster.
+you will configure zero-trust networking using Consul intentions. Exit the terminal
+running on the container.
+
+`exit`{{execute interrupt T2}}
+
+Run the following command to deploy a sample backend service to the cluster.
 
 `kubectl apply -f server.yaml`{{execute T1}}
 
@@ -20,7 +24,7 @@ Now, deploy a downstream client.
 
 `kubectl apply -f client.yaml`{{execute T1}}
 
-Next, make sure all pods are running before proceeding to the next section.
+Next, make sure all pods have a status of `Running` before proceeding to the next section.
 
 `watch kubectl get pods`{{execute T1}}
 
@@ -41,7 +45,7 @@ command terminated with exit code 7
 
 Next, create an `allow` intention for client to server traffic.
 
-`consul intention create -ca-file consul-agent-ca.pem -allow static-client static-server`{{execute T1}}
+`consul intention create -ca-file ca.pem -allow static-client static-server`{{execute T1}}
 
 Finally, validate the intention allows traffic to from the client to the server.
 If this fails, wait a few seconds for the intention to be applied, and try again.

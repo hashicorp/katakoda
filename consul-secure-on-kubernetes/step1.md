@@ -9,7 +9,7 @@
 </style>
 ### Download Helm repo
 
-First, run the following command to download the Helm repo:
+First, click the box below to run the following command and download the Helm repo:
 
 `helm repo add hashicorp https://helm.releases.hashicorp.com`{{execute T1}}
 
@@ -20,7 +20,8 @@ options, review the official [documentation](https://www.consul.io/docs/k8s/helm
 
 ### Apply the chart
 
-Apply the chart using the following command. The install may take a minute or two to complete.
+Apply the chart using the following command. It will start the consul clients and servers
+and provision a persistent disk. The install may take a minute or two to complete.
 
 `helm install -f ./dc1.yaml katacoda hashicorp/consul --wait`{{execute T1}}
 
@@ -29,11 +30,6 @@ When the installation is complete, you should receive output similar to the foll
 <pre class="console">
 NAME: katacoda
 LAST DEPLOYED: Wed Jul  8 15:56:47 2020
-NAMESPACE: default
-STATUS: deployed
-REVISION: 1
-NOTES:
-Thank you for installing HashiCorp Consul!
 
 ...omitted
 
@@ -48,12 +44,12 @@ of running pods using the following command:
 
 `kubectl get pods`{{execute T1}}
 
-Once all pods have a status of Running, as illustrated in the following output,
+Once all pods have a status of `Running`, as illustrated in the following output,
 the installation is complete.
 
 <pre class="console">
-NAME                                                              READY   STATUS    RESTARTS   AGE
-katacoda-consul-7d4h2                                             1/1     Running   0          82s
-katacoda-consul-connect-injector-webhook-deployment-bd6c6dndk5b   1/1     Running   0          94s
-katacoda-consul-server-0                                          1/1     Running   0          93s
+NAME                                                 READY   STATUS    RESTARTS   AGE
+consul-7d4h2                                         1/1     Running   0          82s
+consul-connect-injector-webhook-deployment           1/1     Running   0          94s
+consul-server-0                                      1/1     Running   0          93s
 </pre>

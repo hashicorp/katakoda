@@ -1,32 +1,37 @@
+<style>
+    pre.console {
+        background-color: #383732 !important;
+        font-family: "Fira Mono","DejaVu Sans Mono",Menlo,Consolas,"Liberation Mono",Monaco,"Lucida Console",monospace;
+        color: white;
+        overflow: auto;
+        padding: 5px;
+    }
+</style>
 ### ACL enforcement validation
 
-Try inserting a value to the Key-Value store.
+Now, try running `consul debug`.
 
-`consul kv put -ca-file consul-agent-ca.pem password=1234`{{execute T1}}
+`consul debug -ca-file ca.pem`{{execute T1}}
 
 This command fails with the following message:
 
-`Error! Failed writing data: Unexpected response code: 403 (Permission denied)`
+<pre class="console">
+==> Capture validation failed: error querying target agent: Unexpected response code: 403 (Permission denied). verifyconnectivity and agent address
+</pre>
 
-You have not yet supplied an ACL token so the command fails.
-This proves ACLs are being enforced.
+This command is not permitted for the anonymous token. You must supply
+an ACL token with the proper permissions. This proves ACLs are being enforced.
 
 ### Setting an ACL Token
 
-List all Kubernetes secrets with the following command:
-
-`kubectl get secrets`{{execute T1}}
-
-One of the secrets is named `katacoda-consul-bootstrap-acl-token`. This
-secret contains the Consul ACL bootstrap token.
-
 Run the following command to set the `CONSUL_HTTP_TOKEN`
-environment variable from this secret.
+environment variable from the Kubernetes `consul-bootstrap-acl-token`
+secret.
 
-`export CONSUL_HTTP_TOKEN=$(kubectl get secrets/katacoda-consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)`{{execute interrupt T1}}
+`export CONSUL_HTTP_TOKEN=$(kubectl get secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)`{{execute interrupt T1}}
 
-Try to set a Key-Value store value again.
+Try to run `consul debug` again.
 
-`consul kv put -ca-file consul-agent-ca.pem password=1234`{{execute T1}}
+`consul debug -ca-file ca.pem`{{execute T1}}
 
 The command succeeds. You have proven that ACLs are being enforced.

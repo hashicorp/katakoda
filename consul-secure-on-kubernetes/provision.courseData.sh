@@ -1,4 +1,4 @@
-cat << 'EOFSRSLY' > /tmp/provision.sh
+cat << 'EOF' > /tmp/provision.sh
 #! /bin/bash
 
 log() {
@@ -65,6 +65,6 @@ rm -rf /tmp/provision
 
 finish
 
-EOFSRSLY
+EOF
 
 chmod +x /tmp/provision.sh
