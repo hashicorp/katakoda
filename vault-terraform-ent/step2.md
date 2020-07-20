@@ -24,6 +24,7 @@ Read the `ccn` transformation template definition.
 vault read transform/template/ccn
 ```{{execute T1}}
 
+<br />
 
 ## Launch Vault UI
 
@@ -31,7 +32,7 @@ Click on the **Vault UI** tab to launch the Vault UI.
 
 ![](./assets/katacoda-vault-ui.png)
 
-Enter `root` to sign in.
+Enter `root` in the **Token** text field and click **Sign in**.
 
 Verify that `finance` and `engineering` namespaces exist. The green check-mark indicates that you are currently logging into the `root` namespace.
 

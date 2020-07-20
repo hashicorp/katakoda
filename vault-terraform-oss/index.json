@@ -20,6 +20,10 @@
       {
         "title": "Verification",
         "text": "step2.md"
+      },
+      {
+        "title": "Clean up",
+        "text": "step3.md"
       }
     ],
     "finish": {
