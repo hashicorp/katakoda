@@ -1,52 +1,5 @@
 Verify to make sure that Vault has been configured as defined in the `main.tf`.
 
-List the existing namespaces.
-
-```
-vault namespace list
-```{{execute T1}}
-
-Verify that policies were created.
-
-```
-vault policy list
-```{{execute T1}}
-
-Check to make sure that `admins` policy was created under the `finance` namespace.
-
-```
-vault policy list -ns=finance
-```{{execute T1}}
-
-Similarly, check to make sure that `admins` policy was created under the `engineering` namespace.
-
-```
-vault policy list -ns=engineering
-```{{execute T1}}
-
-Verify that kv-v2 secrets engine is enabled in the `finance` namespace.
-
-```
-vault secrets list -ns=finance
-```{{execute T1}}
-
-Now, verify that you can log in with `userpass` auth method using the username, "student" and password, "changeme".
-
-```
-vault login -method=userpass username="student" password="changeme"
-```{{execute T1}}
-
-The generated token has `admins` and `fpe-client` policies attached. Now, take a look at the `fpe-client` policy definition.
-
-```
-vault policy read fpe-client
-```{{execute T1}}
-
-The `fpe-client` policy permits update operation against the `transform/encode/*` and `transform/decode/*` paths.
-
-
-Verify the transformation secrets engine configuration for credit card numbers.
-
 List existing transformations.
 
 ```
@@ -71,18 +24,45 @@ Read the `ccn` transformation template definition.
 vault read transform/template/ccn
 ```{{execute T1}}
 
-Now, verify that you can log in with `userpass` auth method using the username, "**student**" and password, "**changeme**".
 
-```
-vault login -method=userpass username="student" password="changeme"
-```{{execute T1}}
+## Launch Vault UI
 
-The `fpe-client` policy permits update operation against the `transform/encode/*` and `transform/decode/*` paths.
+Click on the **Vault UI** tab to launch the Vault UI.
 
-The student user should be able to perform format-preserving encryption (FPE) transformation.
+![](./assets/katacoda-vault-ui.png)
 
-```
-vault write transform/encode/payments value=1111-2222-3333-4444
-```{{execute T1}}
+Enter `root` to sign in.
 
+Verify that `finance` and `engineering` namespaces exist. The green check-mark indicates that you are currently logging into the `root` namespace.
 
+![Namespaces](./assets/vault-codify-mgmt-1.png)
+
+Switch to the **education** namespace and verify that `admins` policy exists.
+
+![Policies](./assets/vault-codify-mgmt-3.png)
+
+Switch to the **finance** namespace and verify that `kv-v2` secrets engine is enabled.
+
+![Secrets Engine](./assets/vault-codify-mgmt-4.png)
+
+Click the **Policies** tab to verify that `admin` policy exists.
+
+Now, return to the root namespace and verify that `transform` secrets engine is enabled.
+
+![Secrets Engine](./assets/vault-codify-mgmt-5.png)
+
+Click the **Policies** tab. Verify that `admins` and `fpe-client` policies exist.
+
+![Policies](./assets/vault-codify-mgmt-2.png)
+
+Sign out of the Vault UI.
+
+![Sign out](./assets/vault-codify-mgmt-7.png)
+
+In the sign in page, select **Username** auth method, enter `student` in the **Username** text field, and `changeme` in the **Password** text field.
+
+![Sign in](./assets/vault-codify-mgmt-8.png)
+
+Click the Vault CLI shell icon (`>_`) to open a command shell. Execute `vault write transform/encode/payments value=1111-2222-3333-4444` to verify that the user, `student` can encode a credit card number using the payment role.
+
+![Sign in](./assets/vault-codify-mgmt-9.png)
