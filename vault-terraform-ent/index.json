@@ -13,7 +13,9 @@
     "steps": [
       {
         "title": "Configure Vault Enterprise server with namespaces",
-        "text": "step1.md"
+        "text": "step1.md",
+        "code": "terminal.sh",
+        "courseData": "courseBase.sh"
       },
       {
         "title": "Verification",
