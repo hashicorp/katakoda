@@ -1,8 +1,6 @@
 ![Vault logo](./assets/Vault_Icon_FullColor.png)
 
 
-![](./assets/warning.png)
-
 One of the pillars behind the [Tao of Hashicorp](https://www.hashicorp.com/tao-of-hashicorp) is _automation through
 codification_.
 
