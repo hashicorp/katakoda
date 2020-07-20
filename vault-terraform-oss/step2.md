@@ -67,26 +67,3 @@ vault policy list
 
 > **NOTE:** The details about how transit secrets engine works are out of scope for this tutorial. If you are not familiar with transit secrets engine, read the [Encryption as a Service: Transit Secrets
 Engine](https://www.katacoda.com/hashicorp/scenarios/vault-transit) tutorial.
-
-
-## Clean up
-
-When you are done exploring, you can undo the configuration made by Terraform.
-
-First log back in with the client token used to run the terraform commnands.
-
-```
-vault login root
-```{{execute T1}}
-
-Destroy the Vault resources created by Terraform.
-
-```
-terraform destroy -auto-approve
-```{{execute T1}}
-
-Remove the terraform state files.
-
-```
-rm *.tfstate.*
-```{{execute T1}}
