@@ -19,9 +19,4 @@ spec:
       ports:
         - containerPort: 8080
           name: http
-    - name: server-tcpdump
-      image: ubuntu:xenial-20200514
-      command:
-        - /bin/sleep
-        - infinity
   serviceAccountName: static-server

@@ -16,9 +16,4 @@ spec:
       image: tutum/curl:latest
       command: [ "/bin/sh", "-c", "--" ]
       args: [ "while true; do sleep 30; done;" ]
-    - name: client-tcpdump
-      image: ubuntu:xenial-20200514
-      command:
-        - /bin/sleep
-        - infinity
   serviceAccountName: static-client
