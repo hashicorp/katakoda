@@ -13,7 +13,8 @@
       },
       {
         "title": "Setup the client authentication",
-        "text": "step2.md"
+        "text": "step2.md",
+        "courseData": "step2.courseData.sh"
       },
       {
         "title": "Remote host: Install vault-ssh-helper",
@@ -38,11 +39,11 @@
     "terminals": [
       {
         "name": "vault-server",
-        "target": "master"
+        "target": "HOST1"
       },
       {
         "name": "remote-host",
-        "target": "node"
+        "target": "HOST2"
       }
     ]
   },
