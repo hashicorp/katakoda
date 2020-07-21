@@ -1,6 +1,6 @@
 {
   "title": "Secure Consul on Kubernetes",
-  "description": "In this hands-on lab leads you will setup ACLs, TLS and gossip encryption for a Consul service mesh running inside a Kubernetes cluster.",
+  "description": "In this hands-on lab leads you will configure ACLs, TLS and gossip encryption for a Consul service mesh running inside a Kubernetes cluster.",
   "difficulty": "Intermediate",
   "time": "15 minutes",
   "details": {

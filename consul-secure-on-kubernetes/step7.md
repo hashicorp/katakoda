@@ -1,34 +1,34 @@
+Next, prove that gossip/RPC traffic is encrypted.
+
 ### Capture server traffic
 
-Now that you have proven that ACLs are enabled, and that TLS verification is being enforced,
-you will prove that gossip/RPC traffic is encrypted. First, start a server shell session.
+First, start a server shell session.
 This will execute in **Terminal 2**.
 
 `kubectl exec -it consul-server-0 -- /bin/sh`{{execute T2}}
 
-Next, since the containers were recycled during the helm upgrade, you will
-have to add tcp dump again.
+Since the containers were recycled during the upgrade, you
+need to add tcp dump again.
 
 `apk update && apk add tcpdump`{{execute T2}}
 
-Next, start `tcpdump` and observe the gossip traffic.
+Start `tcpdump` and observe the traffic.
 
 `tcpdump -an portrange 8300-8700 -A`{{execute T2}}
 
-Notice that, unlike before, none of the traffic is human readable. This
-proves that gossip traffic is now encrypted.
+Notice that, unlike before, none of the traffic is readable. This
+proves that gossip traffic is encrypted.
 
-Next, output `tcpdump` to a file so that you can test for cleartext RPC traffic.
+Output `tcpdump` to a file so that you can test for cleartext RPC traffic.
 
 `tcpdump -an portrange 8300-8700 -A > /tmp/tcpdump.log`{{execute interrupt T2}}
 
-Next, from a client agent in a different terminal, try to list Consul services with the Consul CLI.
-This will execute in **Terminal 1**
+From a client agent in **Terminal 1**, try to list Consul services.
 
 `kubectl exec $(kubectl get pods -l component=client -o jsonpath='{.items[0].metadata.name}') -- consul catalog services -token $(kubectl get secrets/consul-bootstrap-acl-token --template={{.data.token}} | base64 -d)`{{execute interrupt T1}}
 
-Finally, switch back to server in **Terminal 2**, stop tcpdump, and grep log for entry
+Finally, switch back to **Terminal 2** and grep the server log for RPC entries
 
 `grep 'ServiceMethod' /tmp/tcpdump.log`{{execute interrupt T2}}
 
-Notice that no rows were found this time. This proves that RPC traffic is now encrypted.
+No rows were found this time. This proves that RPC traffic is encrypted.

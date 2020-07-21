@@ -1,4 +1,4 @@
-In this hands-on lab, you will learn how to deploy and secure a Consul service mesh running in Kubernetes.
+In this hands-on lab, you will deploy and secure a Consul service mesh running in Kubernetes.
 This hands-on lab is designed to introduce you to the four core components of Consul
 service mesh security, and how they can be configured using the [Consul Helm chart](https://www.consul.io/docs/k8s/helm).
 
