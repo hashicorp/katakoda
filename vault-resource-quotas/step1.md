@@ -13,12 +13,6 @@ Let's begin!  First, login with root token.
 vault login root
 ```{{execute T1}}
 
-Execute the following command to enable the `transform` secrets engine at `transform/`.
-
-```
-vault secrets enable transform
-```{{execute T1}}
-
 <br />
 
 ## Configure rate limit resource quotas
