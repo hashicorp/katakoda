@@ -1,0 +1,86 @@
+# global holds values that affect multiple components of the chart.
+global:
+  # name sets the prefix used for all resources in the helm chart.
+  # If not set, the prefix will be "<helm release name>-consul".
+  name: consul
+  # enabled is the master enabled/disabled setting.
+  # If true, servers, clients, Consul DNS and the Consul UI will be enabled.
+  # Each component can override this default via its component-specific
+  # "enabled" config.
+  # If false, no components will be installed by default and per-component
+  # opt-in is required, such as by setting `server.enabled` to true.
+  enabled: true
+  # datacenter is the name of the datacenter that the agents should register
+  # as. This can't be changed once the Consul cluster is up and running
+  # since Consul doesn't support an automatic way to change this value
+  # currently: https://github.com/hashicorp/consul/issues/1858.
+  datacenter: dc1
+
+  # gossipEncryption configures which Kubernetes secret to retrieve Consul's
+  # gossip encryption key from (see https://www.consul.io/docs/agent/options.html#_encrypt).
+  # If secretName or secretKey are not set, gossip encryption will not be enabled.
+  # The secret must be in the same namespace that Consul is installed into.
+  #
+  # The secret can be created by running:
+  #    kubectl create secret generic consul-gossip-encryption-key \
+  #      --from-literal=key=$(consul keygen).
+  #
+  # In this case, secretName would be "consul-gossip-encryption-key" and
+  # secretKey would be "key".
+  gossipEncryption:
+    # secretName is the name of the Kubernetes secret that holds the gossip
+    # encryption key. The secret must be in the same namespace that Consul is installed into.
+    secretName: "consul-gossip-encryption-key"
+    # secretKey is the key within the Kubernetes secret that holds the gossip
+    # encryption key.
+    secretKey: "key"
+
+    # Enables TLS encryption across the cluster to verify authenticity of the
+  # servers and clients that connect. Note: It is HIGHLY recommended that you also
+  # enable Gossip encryption.
+  # See https://learn.hashicorp.com/consul/security-networking/agent-encryption
+  #
+  # Note: this relies on functionality introduced with Consul 1.4.1. Make sure
+  # your global.image value is at least version 1.4.1.
+  tls:
+    enabled: true
+
+    # enableAutoEncrypt turns on the auto-encrypt feature on
+    # clients and servers.
+    # It also switches consul-k8s components to retrieve the CA
+    # from the servers via the API.
+    # Requires Consul 1.7.1+ and consul-k8s 0.13.0
+    enableAutoEncrypt: true
+
+    # If verify is true, 'verify_outgoing', 'verify_server_hostname', and
+    # 'verify_incoming_rpc' will be set to true for Consul servers and clients.
+    # Set this to false to incrementally roll out TLS on an existing Consul cluster.
+    # Note: remember to switch it back to true once the rollout is complete.
+    # Please see this guide for more details:
+    # https://learn.hashicorp.com/consul/security-networking/certificates
+    verify: true
+
+    # If httpsOnly is true, Consul will disable the HTTP port on both
+    # clients and servers and only accept HTTPS connections.
+    httpsOnly: true
+
+  # Configure ACLs.
+  acls:
+
+    # If true, the Helm chart will automatically manage ACL tokens and policies
+    # for all Consul and consul-k8s components. This requires Consul >= 1.4 and consul-k8s >= 0.14.0.
+    manageSystemACLs:  true
+
+# Server, when enabled, configures a server cluster to run. This should
+# be disabled if you plan on connecting to a Consul cluster external to
+# the Kube cluster.
+server:
+  replicas: 1
+  bootstrapExpect: 1 # Should <= replicas count
+
+# ConnectInject will enable the automatic Connect sidecar injector.
+connectInject:
+  # True if you want to enable connect injection. Set to "-" to inherit from
+  # global.enabled.
+  # Requires consul-k8s >= 0.10.1.
+  enabled: true

@@ -1,0 +1,70 @@
+{
+  "title": "Secure Consul on Kubernetes",
+  "description": "In this hands-on lab leads you will configure ACLs, TLS and gossip encryption for a Consul service mesh running inside a Kubernetes cluster.",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Lab Infrastructure",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Install Consul service mesh in a Kubernetes cluster",
+        "text": "step1.md"
+      },
+      {
+        "title": "Verify that gossip traffic occurs in clear text",
+        "text": "step2.md"
+      },
+      {
+        "title": "Verify that RPC traffic occurs in clear text and ACLs are not enforced",
+        "text": "step3.md"
+      },
+      {
+        "title": "Enable gossip encryption, TLS, and ACLs",
+        "text": "step4.md"
+      },
+      {
+        "title": "Set required TLS configuration",
+        "text": "step5.md"
+      },
+      {
+        "title": "Retrieve and set an ACL token",
+        "text": "step6.md"
+      },
+      {
+        "title": "Verify that network traffic is encrypted",
+        "text": "step7.md"
+      },
+      {
+        "title": "Deploy and test two services",
+        "text": "step8.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+			"client": [
+			  { "file": "dc1.yaml", "target": "./" },
+        { "file": "secure-dc1.yaml", "target": "./" },
+        { "file": "server.yaml", "target": "./" },
+			  { "file": "client.yaml", "target": "./" }
+			]
+		}
+  },
+  "environment": {
+    "hideHiddenFiles": true,
+    "uilayout": "editor-terminal"
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  }
+}

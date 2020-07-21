@@ -1,0 +1,31 @@
+# global holds values that affect multiple components of the chart.
+global:
+  # name sets the prefix used for all resources in the helm chart.
+  # If not set, the prefix will be "<helm release name>-consul".
+  name: consul
+  # enabled is the master enabled/disabled setting.
+  # If true, servers, clients, Consul DNS and the Consul UI will be enabled.
+  # Each component can override this default via its component-specific
+  # "enabled" config.
+  # If false, no components will be installed by default and per-component
+  # opt-in is required, such as by setting `server.enabled` to true.
+  enabled: true
+  # datacenter is the name of the datacenter that the agents should register
+  # as. This can't be changed once the Consul cluster is up and running
+  # since Consul doesn't support an automatic way to change this value
+  # currently: https://github.com/hashicorp/consul/issues/1858.
+  datacenter: dc1
+
+# Server, when enabled, configures a server cluster to run. This should
+# be disabled if you plan on connecting to a Consul cluster external to
+# the Kube cluster.
+server:
+  replicas: 1
+  bootstrapExpect: 1 # Should <= replicas count
+
+# ConnectInject will enable the automatic Connect sidecar injector.
+connectInject:
+  # True if you want to enable connect injection. Set to "-" to inherit from
+  # global.enabled.
+  # Requires consul-k8s >= 0.10.1.
+  enabled: true
