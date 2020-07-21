@@ -1,11 +1,11 @@
+**Rate Limit Quotas** is available to all Vault versions, and **Lease Count Quotas** requires Vault Enterprise Platform.
+
 > **Important Note:** Without a valid license, Vault Enterprise server will be sealed after ***30 minutes***. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).
 
 
 <br />
 
 Let's begin!  First, login with root token.
-
-First, login with root token.
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
 
@@ -19,6 +19,7 @@ Execute the following command to enable the `transform` secrets engine at `trans
 vault secrets enable transform
 ```{{execute T1}}
 
+<br />
 
 ## Configure rate limit resource quotas
 

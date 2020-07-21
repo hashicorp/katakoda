@@ -22,8 +22,12 @@
         "text": "step3.md"
       },
       {
-        "title": "Test Resource Quotas",
+        "title": "Test Rate Limiting Quotas",
         "text": "step4.md"
+      },
+      {
+        "title": "Test Lease Count Quotas",
+        "text": "step5.md"
       }
     ],
     "intro": {
