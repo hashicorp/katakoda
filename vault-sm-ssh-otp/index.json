@@ -9,12 +9,12 @@
     "steps": [
       {
         "title": "Setup the SSH secrets engine",
-        "text": "step1.md"
+        "text": "step1.md",
+        "courseData": "step1.courseData.sh"
       },
       {
         "title": "Setup the client authentication",
-        "text": "step2.md",
-        "courseData": "step2.courseData.sh"
+        "text": "step2.md"
       },
       {
         "title": "Remote host: Install vault-ssh-helper",
