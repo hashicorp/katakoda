@@ -1,32 +1,82 @@
-The client must have permissions against the `ssh/creds/otp_key_role` path to
-request an OTP for `otp_key_role`. First, create a policy file named,
-`test.hcl`.
+### Create the ubuntu user
 
 ```shell-session
-tee test.hcl <<EOF
-path "ssh/creds/otp_key_role" {
-  capabilities = ["create", "read", "update"]
-}
+useradd ubuntu -m
+```{{execute HOST2}}
+
+### Install and configure vault-ssh-helper
+
+Download the `vault-ssh-helper`.
+
+```shell-session
+wget https://releases.hashicorp.com/vault-ssh-helper/0.1.6/vault-ssh-helper_0.1.6_linux_amd64.zip
+```{{execute HOST2}}
+
+Unzip the vault-ssh-helper in `/usr/local/bin`.
+
+```shell-session
+sudo unzip -q vault-ssh-helper_0.1.6_linux_amd64.zip -d /usr/local/bin
+```{{execute HOST2}}
+
+Set `vault-ssh-helper` to executable.
+
+```shell-session
+sudo chmod 0755 /usr/local/bin/vault-ssh-helper
+```{{execute HOST2}}
+
+Set the user and group of `vault-ssh-helper` to `root`.
+
+```shell-session
+sudo chown root:root /usr/local/bin/vault-ssh-helper
+```{{execute HOST2}}
+
+Create a directory to store the configuration file.
+
+```shell-session
+sudo mkdir /etc/vault-ssh-helper.d/
+```{{execute HOST2}}
+
+Create the configuration file `/etc/vault-ssh-helper.d/config.hcl`.
+
+```shell-session
+sudo tee /etc/vault-ssh-helper.d/config.hcl <<EOF
+vault_addr = "http://[[HOST_IP]]:8200"
+tls_skip_verify = true
+ssh_mount_point = "ssh"
+allowed_roles = "*"
 EOF
-```{{execute HOST1}}
+```{{execute HOST2}}
 
-Create a `test` policy on the Vault server.
+- `vault_addr` is the network address of the Vault server configured to generate the OTP.
+- `tls_skip_verify` enables or disables TLS verification.
+- `ssh_mount_point` is the Vault server path where the SSH secrets engine is enabled.
+- `allowed_roles` defines all `*` or a comma-separated list of allowed roles defined in the SSH secrets engines.
 
-```shell-session
-vault policy write test ./test.hcl
-```{{execute HOST1}}
+### Modify the PAM SSHD configuration
 
-For this guide, enable the `userpass` auth method and create a username `bob`
-with password, `training`.
-
-Enable the userpass auth method.
+Disable `common-auth`.
 
 ```shell-session
-vault auth enable userpass
-```{{execute HOST1}}
+sudo sed -i 's/@include common-auth/# @include common-auth/' /etc/pam.d/sshd
+```{{execute HOST2}}
 
-Create a user, `bob`.
+Add authentication verification through the `vault-ssh-helper`.
 
 ```shell-session
-vault write auth/userpass/users/bob password="training" policies="test"
-```{{execute HOST1}}
+echo -e "\nauth requisite pam_exec.so quiet expose_authtok log=/var/log/vault-ssh.log /usr/local/bin/vault-ssh-helper -dev -config=/etc/vault-ssh-helper.d/config.hcl
+auth optional pam_unix.so not_set_pass use_first_pass nodelay" | sudo tee -a /etc/pam.d/sshd
+```{{execute HOST2}}
+
+### Modify the SSHD configuration
+
+Enable `ChallengeResponseAuthentication`.
+
+```
+sudo sed -i 's/ChallengeResponseAuthentication no/ChallengeResponseAuthentication yes/' /etc/ssh/sshd_config
+```{{execute HOST2}}
+
+Restart the SSHD service.
+
+```
+sudo systemctl restart sshd
+```{{execute HOST2}}
