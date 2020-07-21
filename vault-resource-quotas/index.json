@@ -29,7 +29,7 @@
     "intro": {
       "text": "intro.md",
       "credits": "https://learn.hashicorp.com/vault"
-    }
+    },
     "finish": {
       "text": "finish.md",
       "credits": "https://learn.hashicorp.com/vault"
