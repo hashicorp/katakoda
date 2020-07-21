@@ -26,7 +26,7 @@ vault server -config=config-node2.hcl
                    Mlock: supported: true, enabled: false
            Recovery Mode: false
                  Storage: file
-                 Version: Vault v1.5.0-rc
+                 Version: Vault v1.5.0
 
 ==> Vault server started! Log data will stream in below:
 ```
@@ -74,7 +74,7 @@ Initialized            true
 Sealed                 false
 Total Shares           1
 Threshold              1
-Version                1.5.0-rc
+Version                1.5.0
 Cluster Name           vault-cluster-b0e1e848
 Cluster ID             8c351a6a-e77a-7dcc-6a80-1f80cb62d4ff
 HA Enabled             true
