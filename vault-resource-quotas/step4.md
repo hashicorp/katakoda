@@ -32,7 +32,7 @@ Run the script to see how the quota rule behaves.
 ./rate-limit-test.sh
 ```{{execute T1}}
 
-The first two commands complete successfully; however, you should see the following message for the third command in the script.
+The first command complete successfully; however, you should see the following message for the second and third commands in the script.
 
 ```
 Error writing data to test/data/creds3: Error making API request.
