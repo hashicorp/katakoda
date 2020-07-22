@@ -31,11 +31,11 @@ Run the script to see how the quota rule behaves.
 
 Three tokens were created successfully; however, the fourth request failed due to the lease count quota. Your output should look similar to follow.
 
-Also, you can find the `lease count quota exceeded` error in the audit log.
+You can find the `lease count quota exceeded` error in the audit log as well.
 
 ```
 more /var/log/vault-audit.log | jq
-```{{execute T1}}
+```{{execute T2}}
 
 If you revoke one of the tokens, you should be able to request a new one.
 
