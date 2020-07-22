@@ -35,17 +35,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
-    "terminals": [
-      {
-        "name": "vault-server",
-        "target": "HOST1"
-      },
-      {
-        "name": "remote-host",
-        "target": "HOST2"
-      }
-    ]
+    "uilayout": "terminal-terminal"
   },
   "backend": {
     "imageid": "hashicorp-hashistack-cluster"
