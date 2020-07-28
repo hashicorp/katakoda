@@ -5,7 +5,7 @@ Enter the following in the `config.hcl`{{open}} file:
 <pre class="file" data-filename="config.hcl" data-target="replace">
 # Use the file system as storage backend
 storage "raft" {
-  path    = "/root/vault/data"
+  path    = "./vault/data"
   node_id = "node1"
 }
 
