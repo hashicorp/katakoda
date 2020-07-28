@@ -30,13 +30,16 @@ Notice that audit logs contain the full request and response objects for every i
 
 ```
 {
-  "time": "2018-06-06T00:07:52.570688813Z",
+  "time": "2020-07-28T21:38:17.259695614Z",
   "type": "response",
   "auth": {
-    "client_token": "hmac-sha256:7f1faa30ae941a21f3705e6796a46ad82a3f8066eb365eb5d35d9a0e1f178ecd",
-    "accessor": "hmac-sha256:f0f449772db0c6128c2f940c44f581be34824545b00fec28d2269aa60fa15c37",
+    "client_token": "hmac-sha256:ac5a3ea6e4c6aa00899164ad7e7bfc66c9e934fb3c9d5f68f063e3e041e82b31",
+    "accessor": "hmac-sha256:881d80a80bd3f4ca21ec1a874e161bf04878e8f6e70b868912a0a5a2623e5be0",
     "display_name": "root",
     "policies": [
+      "root"
+    ],
+    "token_policies": [
       "root"
     ],
     ...
