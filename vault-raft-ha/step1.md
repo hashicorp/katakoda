@@ -98,6 +98,15 @@ Unseal `node1` with unseal key.
 vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
 ```{{execute T2}}
 
+In **Terminal**, wait until you see `core: post-unseal setup complete` message in the system log.
+
+```
+...
+[INFO]  core.raft: creating new raft TLS config
+[INFO]  core: usage gauge collection is disabled
+[INFO]  core: post-unseal setup complete
+```
+
 Now, `node1` is ready!
 
 ![](./assets/vault-ha-raft3.png)
@@ -120,6 +129,6 @@ Node     Address           State     Voter
 node1    127.0.0.1:8211    leader    true
 ```
 
-You successfully enabled HA storage to store the HA coordination information. 
+You successfully enabled HA storage to store the HA coordination information.
 
 ![](./assets/vault-ha-raft-3.png)
