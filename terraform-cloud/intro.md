@@ -6,7 +6,7 @@ This lab serves as a companion piece to the [Migrate State to Terraform Cloud Le
 
 In this demo, you'll perform three major tasks:
 
-- Initialize a local Terraform configuration (using the `random_pet` provider) in  your KataCoda session
+- Initialize a local Terraform configuration (using the `random_pet` provider) in  your Katacoda session
 - Configure a Terraform Cloud token on the local workstation
 - Migrate the existing Terraform workspace to Terraform Cloud
 
