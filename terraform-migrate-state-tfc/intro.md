@@ -2,6 +2,8 @@
 
 In this hands-on lab, you'll use the free tier of the hosted Terraform Cloud service to securely save state and execute Terraform remotely. This is a great way to collaborate and secure your Terraform deployments.
 
+This lab serves as a companion piece to the [Migrate State to Terraform Cloud Learn Tutorial](https://learn.hashicorp.com/terraform/state/tfc_migration#initiate-a-run-in-the-new-workspace).
+
 In this demo, you'll perform three major tasks:
 
 - Initialize a local Terraform configuration (using the `random_pet` provider)
