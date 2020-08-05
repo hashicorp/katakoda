@@ -1,0 +1,43 @@
+{
+  "title": "Migrate State to Terraform Cloud",
+  "description": "Migrate a local Terraform configuration to Terraform Cloud to leverage remote execution and state storage.",
+  "time": "15 minutes",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Initialize a Local Terraform Configuration",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure a Terraform Cloud token",
+        "text": "step2.md"
+      },
+      {
+        "title": "Migrate State to Terraform Cloud",
+        "text": "step3.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "intro-background.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "hideHiddenFiles": true,
+    "uieditorpath": "/root/random-pet-demo",
+    "exclusionPatterns": [
+      "./terraform/*"
+    ]
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
