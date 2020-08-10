@@ -14,7 +14,7 @@ client-1  172.18.0.3:8301  alive   client  1.7.3  2         dc1  <default>
 
 Having your bootstrap token used in daily activities or exposed as an environment variable is **strongly discouraged**. It exposes you to several security risks.
 
-A better approach would be to create a specific poliicy/token for each operator granting the minimum permissions required to perform their daily tasks.
+A better approach would be to create a specific policy/token for each operator granting the minimum permissions required to perform their daily tasks.
 
 For this lab, you can create a simple read-only policy to inspect the content of your Consul datacenter without the ability to make changes.
 
