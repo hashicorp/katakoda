@@ -2,7 +2,7 @@ Change your order by updating the order resource through Terraform. In your `mai
 
 Change the first coffee item from `2` to `3` and change the second coffee item from `2` to `1`.
 
-<pre class="file" data-filename="main.tf">
+```
 resource "hashicups_order" "edu" {
   items {
     coffee {
@@ -17,7 +17,7 @@ resource "hashicups_order" "edu" {
     quantity = 1
   }
 }
-</pre>
+```
 
 Run `terraform apply` to update the order. Notice how the execution plan reflects the order change. Terraform is able to determine that these changes could be done in place rather than destroying the current order and creating a new one. This is because the modified property ([quantity](https://github.com/hashicorp/terraform-provider-hashicups/blob/master/hashicups/resource_order.go#L63)) does not have `ForceNew` set to `true`.
 
