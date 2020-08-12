@@ -19,7 +19,7 @@ resource "hashicups_order" "edu" {
 }
 ```
 
-Run `terraform apply` to update the order. Notice how the execution plan reflects the order change. Terraform is able to determine that these changes could be done in place rather than destroying the current order and creating a new one. This is because the modified property ([quantity](https://github.com/hashicorp/terraform-provider-hashicups/blob/master/hashicups/resource_order.go#L63)) does not have `ForceNew` set to `true`.
+Run `terraform apply` to update the order. Notice how the execution plan reflects the order change. Terraform is able to determine that these changes could be done in place rather than destroying the current order and creating a new one. This is because the modified property ([quantity](https://github.com/hashicorp/terraform-provider-hashicups/blob/master/hashicups/resource_order.go#L63)) does not have `ForceNew` set to `true`. When `ForceNew` is set to `true`, it will destroy the existing instance and provision a instance with the updated attributes. An example of this is when you change an [AWS EC2 instance's AMI](https://github.com/terraform-providers/terraform-provider-aws/blob/a15140e1184d201c9cf4cfe46f154a48c4a08958/aws/resource_aws_instance.go#L45-L49).
 
 `terraform apply`{{execute T2}}
 
@@ -68,12 +68,40 @@ edu_order = {
 
 Verify the order was updated by retrieving the order details via the API.
 
-`curl -X GET  -H "Authorization: ${HASHICUPS_TOKEN}" localhost:19090/orders/1`{{execute T2}}
+`curl -X GET  -H "Authorization: ${HASHICUPS_TOKEN}" localhost:19090/orders/1 | jq`{{execute T2}}
 
 You should see something similar to the following:
 
 ```
-{"id":1,"items":[{"coffee":{"id":3,"name":"Nomadicano","teaser":"Drink one today and you will want to schedule another","description":"","price":150,"image":"/nomad.png","ingredients":null},"quantity":3},{"coffee":{"id":2,"name":"Vaulatte","teaser":"Nothing gives you a safe and secure feeling like a Vaulatte","description":"","price":200,"image":"/vault.png","ingredients":null},"quantity":1}]}
+{
+  "id": 1,
+  "items": [
+    {
+      "coffee": {
+        "id": 3,
+        "name": "Nomadicano",
+        "teaser": "Drink one today and you will want to schedule another",
+        "description": "",
+        "price": 150,
+        "image": "/nomad.png",
+        "ingredients": null
+      },
+      "quantity": 3
+    },
+    {
+      "coffee": {
+        "id": 2,
+        "name": "Vaulatte",
+        "teaser": "Nothing gives you a safe and secure feeling like a Vaulatte",
+        "description": "",
+        "price": 200,
+        "image": "/vault.png",
+        "ingredients": null
+      },
+      "quantity": 1
+    }
+  ]
+}
 ```
 
 The order's properties should be the same as that of your updated `hashicups_order.edu` resource. There should be `3` Nomadicano and `1` Vaulatte.

@@ -1,3 +1,3 @@
-In this scenario, you use a Terraform provider to interact with a fictional coffee-shop application, HashiCups. In the process, you will learn how providers map target APIs to Terraform in order to create, read, update and delete resources.
+In this scenario, you use a Terraform provider to interact with a fictional coffee-shop application, HashiCups. In the process, you will map target APIs to your Terraform provider in order to create, read, update and delete resources.
 
-This scenario is meant to serve as a companion lab for the [Perform CRUD operations with Providers Learn guide](https://learn.hashicorp.com/tutorials/terraform/provider-use?in=terraform/providers) and includes a pre-installed Terraform 0.13, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running.
+This scenario is a companion lab for the [Perform CRUD operations with Providers Learn guide](https://learn.hashicorp.com/tutorials/terraform/provider-use?in=terraform/providers) and includes a pre-installed Terraform 0.13, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running.
