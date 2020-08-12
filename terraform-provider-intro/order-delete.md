@@ -13,7 +13,7 @@ Verify the order was deleted by retrieving the order details via the API.
 
 `curl -X GET  -H "Authorization: ${HASHICUPS_TOKEN}" localhost:19090/orders/1 | jq`{{execute T2}}
 
-You should see something similar to the following:
+The response will look similar to the following.
 
 ```
 {}

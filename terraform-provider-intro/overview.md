@@ -1,4 +1,4 @@
-In this scenario, you use a Terraform provider to interact with a fictional coffee-shop application, HashiCups, by completing the following actions:
+In this scenario, you will use a Terraform provider to interact with a fictional coffee-shop application, HashiCups, by completing the following actions:
 
 1. Initialize Terraform Workspace
 1. Create a HashiCups order
@@ -6,23 +6,27 @@ In this scenario, you use a Terraform provider to interact with a fictional coff
 1. Read coffee ingredients (data source)
 1. Delete a HashiCups order
 
-This scenario includes a pre-installed Terraform 0.13, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running.
+This scenario includes a pre-installed Terraform 0.13, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running locally.
 
 Do not stop the HashiCups API running in the first terminal. You will reference these logs to verify the endpoints the HashiCups provider calls.
 
 ### Verify HashiCups API is running
 
-Once you see the HashiCups logs running in your terminal, verify that HashiCups is running.
+Once you see the HashiCups logs running in the KataCoda terminal window, verify that HashiCups is running.
 
 Click on the following command to send a request to HashiCup's health check endpoint in another terminal
 
 `curl localhost:19090/health`{{execute T2}} 
 
+You will see `ok` appear in the `Terminal 2` tab in response to the health check
+
 ### Create HashiCups user
 
-Create a user on HashiCups named `education` with the password `test123`.
+Use the demo HashiCups API to create a user on HashiCups named `education` with the password `test123`.
 
 `curl -X POST localhost:19090/signup -d '{"username":"education", "password":"test123"}' | jq`{{execute T2}}
+
+The response will look similar to the following.
 
 ```
 {
@@ -32,9 +36,11 @@ Create a user on HashiCups named `education` with the password `test123`.
 }
 ```
 
-Then, authenticate to HashiCups. This will return the userID, username, and a JWT token. Your JWT authorization token will be used later to retrieve your orders.
+Then, authenticate to HashiCups. This will return the userID, username, and a JSON Web Token (JWT) authorization token. You will use the JWT authorization token later to retrieve your orders.
 
 `curl -X POST localhost:19090/signin -d '{"username":"education", "password":"test123"}' | jq`{{execute T2}}
+
+The response will look similar to the following.
 
 ```
 {
@@ -60,10 +66,10 @@ Now that you have created a HashiCups user, you're ready to use the Terraform pr
 
 ### Initialize Terraform workspace
 
-Now that the HashiCups API is running, navigate to the `learn-terraform-hashicups-provider` directory before initializing your Terraform workspace.
+Navigate to the `learn-terraform-hashicups-provider` directory and initialize your Terraform workspace.
 
 `cd learn-terraform-hashicups-provider`{{execute T2}}
 
 `terraform init`{{execute T2}}
 
-This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. The HashiCups provider has already been downloaded and installed in its respective directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64`
+This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. This lab's initialization script downloaded the HashiCups provider installed to the following directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64`

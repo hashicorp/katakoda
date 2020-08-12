@@ -1,6 +1,6 @@
 # Install Terraform and init config
 
-# Install unzip - Katacoda docker image doesn't have unzip
+# Installs Terraform 0.13
 curl -O https://releases.hashicorp.com/terraform/0.13.0-rc1/terraform_0.13.0-rc1_linux_amd64.zip
 unzip terraform_0.13.0-rc1_linux_amd64.zip -d /usr/local/bin/
 
@@ -14,9 +14,8 @@ chmod +x terraform-provider-hashicups
 mkdir -p ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64
 mv terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64
 
+# Prevent `yes` command from accidentally being run
+alias yes=""
+
 # Run Docker Compose up
 docker-compose up
-
-clear
-
-echo "Ready!"

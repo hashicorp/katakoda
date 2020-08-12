@@ -1,3 +1,13 @@
+Navigate to the `learn-terraform-hashicups-provider` directory and initialize your Terraform workspace.
+
+`cd learn-terraform-hashicups-provider`{{execute T2}}
+
+`terraform init`{{execute T2}}
+
+This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. This lab's initialization script downloaded the HashiCups provider installed to the following directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64`
+
+### Create order
+
 Now that you have initialized your Terraform workspace, you will create the order using Terraform.
 
 Add the following to your `main.tf`{{open}} file.
@@ -28,9 +38,11 @@ output "edu_order" {
 }
 </pre>
 
-Run `terraform apply` to create the order. Notice how the execution plan shows a proposed order, with additional information about the order.
+Now apply this change to create the order.
 
 `terraform apply`{{execute T2}}
+
+Notice how the execution plan shows a proposed order, with additional information about the order.
 
 Remember to confirm the apply step with a `yes`{{execute T2}}.
 
@@ -46,7 +58,7 @@ Verify the order was created by retrieving the order details via the API.
 
 `curl -X GET  -H "Authorization: ${HASHICUPS_TOKEN}" localhost:19090/orders/1 | jq`{{execute T2}}
 
-You should see something similar to the following:
+The response will look similar to the following.
 
 ```
 {
