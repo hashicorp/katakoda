@@ -1,0 +1,66 @@
+{
+  "title": "L7 Observability with Consul Service Mesh, Prometheus, Grafana, and Kubernetes",
+  "description": "In this hands-on lab you will install Consul service mesh, Prometheus, and Grafana on Kubernetes.",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Lab Infrastructure",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Install Consul service mesh in a Kubernetes cluster",
+        "text": "step1.md"
+      },
+      {
+        "title": "Install Prometheus",
+        "text": "step2.md"
+      },
+      {
+        "title": "Install Grafana",
+        "text": "step3.md"
+      },
+      {
+        "title": "Install the demo application",
+        "text": "step4.md"
+      },
+      {
+        "title": "Generate traffic",
+        "text": "step5.md"
+      },
+      {
+        "title": "View the traffic in Grafana",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "hideHiddenFiles": true,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/consul-k8s-prometheus-grafana-hashicups-demoapp",
+    "showdashboard": true,
+    "dashboards": [
+        {
+          "name": "HashiCups UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Grafana UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  }
+}
