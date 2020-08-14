@@ -5,7 +5,7 @@ inter-service traffic, the proxy can also collect and expose data about the serv
 Consul service mesh is able to configure Envoy to expose layer 7 metrics, such as HTTP status
 codes or request latency, to monitoring tools like Prometheus.
 
-In this tutorial:
+In this tutorial you:
 
 - Deployed Consul using the official helm chart.
 - Deployed Prometheus and Grafana using their official Helm charts.
