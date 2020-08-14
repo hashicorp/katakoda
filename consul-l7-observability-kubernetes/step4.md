@@ -1,5 +1,5 @@
 
-Install Grafana with the following command.
+Install the application with the following command.
 
 `kubectl apply -f app`{{execute interrupt T1}}
 
@@ -30,7 +30,7 @@ products-api                                                 3/3     Running   0
 public-api                                                   3/3     Running   0          120m
 ```
 
-Next, in a different terminal, forward port `80` from the `frontend` pod hosting the UI to the development
+Next, issue the following command, which, in a separate terminal, will forward port `80` from the `frontend` pod hosting the UI to the development
 host's port `8080`.
 
 `kubectl port-forward deploy/frontend 8080:80 --address 0.0.0.0`{{execute T2}}
@@ -42,6 +42,6 @@ Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 ```
 
-Now, open the HashiCups UI tab. If the UI doesn't load immediately,
+Now, open the HashiCups UI tab next to the Terminal tab in the Katacoda environment. This will launch a new browser tab. If the UI doesn't load immediately,
 wait a minute and try again. The app take some time to initialize even
 after the pods are marked as running.
