@@ -1,5 +1,5 @@
 
-Start the traffic simulation pod with the following command.
+Start the traffic simulation pod with the following command. Be patient. It may take a moment to finish initializing.
 
 `kubectl apply -f traffic.yaml`{{execute interrupt T1}}
 
