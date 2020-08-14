@@ -42,7 +42,8 @@
       }
     ],
     "intro": {
-      "text": "intro.md"
+      "text": "intro.md",
+       "credits": "https://learn.hashicorp.com/consul"
     },
     "finish": {
       "text": "finish.md"
