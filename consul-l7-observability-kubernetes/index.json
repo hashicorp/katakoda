@@ -1,5 +1,5 @@
 {
-  "title": "L7 Observability with Consul Service Mesh, Prometheus, Grafana, and Kubernetes",
+  "title": "Consul Service Mesh L7 Observability on Kubernetes with Prometheus and Grafana",
   "description": "In this hands-on lab you will install Consul service mesh, Prometheus, and Grafana on Kubernetes.",
   "difficulty": "Intermediate",
   "time": "15 minutes",
