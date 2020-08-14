@@ -30,7 +30,7 @@ products-api                                                 3/3     Running   0
 public-api                                                   3/3     Running   0          120m
 ```
 
-Next, in a different terminal, forward port `80` from the `frontend` pod hosting the UI to the development
+Next, issue the following command, which, in a separate terminal, will forward port `80` from the `frontend` pod hosting the UI to the development
 host's port `8080`.
 
 `kubectl port-forward deploy/frontend 8080:80 --address 0.0.0.0`{{execute T2}}
