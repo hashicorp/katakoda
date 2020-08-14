@@ -42,6 +42,6 @@ Forwarding from 127.0.0.1:8080 -> 80
 Forwarding from [::1]:8080 -> 80
 ```
 
-Now, open the HashiCups UI tab. If the UI doesn't load immediately,
+Now, open the HashiCups UI tab next to the Terminal tab in the Katacoda environment. This will launch a new browser tab. If the UI doesn't load immediately,
 wait a minute and try again. The app take some time to initialize even
 after the pods are marked as running.
