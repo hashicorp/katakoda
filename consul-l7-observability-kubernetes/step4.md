@@ -1,5 +1,5 @@
 
-Install Grafana with the following command.
+Install the application with the following command.
 
 `kubectl apply -f app`{{execute interrupt T1}}
 
