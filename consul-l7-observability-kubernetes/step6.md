@@ -23,6 +23,6 @@ about how to upload Grafana dashboards. Click the "Import"
 button on the right hand side of the screen.
 
 Open the file called `grafana/hashicups-dashboard.json`{{open}}
-and copy the contents into the JSON window of the Grafana UI.
+and copy the contents into the JSON window of the Grafana UI. **Note**, this is an 862 line file, and you need to make sure you copy and paste all of it.
 Click through the rest of the options, and you will end up with
 a dashboard that shows your current cluster metrics.
