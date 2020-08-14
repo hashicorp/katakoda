@@ -13,7 +13,7 @@
         "verify": "provision.verify.sh"
       },
       {
-        "title": "Install Consul service mesh in a Kubernetes cluster",
+        "title": "Install Consul service mesh on Kubernetes",
         "text": "step1.md"
       },
       {
@@ -35,6 +35,10 @@
       {
         "title": "View the traffic in Grafana",
         "text": "step6.md"
+      },
+      {
+        "title": "View the service mesh in Consul",
+        "text": "step7.md"
       }
     ],
     "intro": {
@@ -57,6 +61,10 @@
         {
           "name": "Grafana UI",
           "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Consul UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"
         }
       ]
   },
