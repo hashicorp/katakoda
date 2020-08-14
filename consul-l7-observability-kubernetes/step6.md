@@ -10,6 +10,8 @@ Forwarding from 127.0.0.1:3000 -> 3000
 Forwarding from [::1]:3000 -> 3000
 ```
 
+## Login and import a dashboard
+
 Now, open the Grafana UI tab next to the Terminal tab in the Katacoda environment. This will launch a new browser tab. Login with
 username `admin` and password `password`. Once you
 have logged into the Grafana UI, hover over the dashboards
