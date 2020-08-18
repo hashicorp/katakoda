@@ -1,7 +1,5 @@
 This scenario gave you a quick introduction to Vault's Integrated Storage.
 
-![](https://education-yh.s3-us-west-1.amazonaws.com/screenshots/raft-cluster.png)
-
 ### Resources:
 
 - [Katacoda - Vault Operations](https://www.katacoda.com/hashicorp/scenarios/vault-operations) 
