@@ -38,5 +38,6 @@
     },
     "icon": "fa-terraform",
     "time": "5 minutes",
-    "title": "Sentinel Introduction"
+    "title": "Sentinel Introduction",
+    "private": true
 }

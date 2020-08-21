@@ -76,5 +76,6 @@
   },
   "backend": {
     "imageid": "openshift-4-4"
-  }
+  },
+  "private": true
 }

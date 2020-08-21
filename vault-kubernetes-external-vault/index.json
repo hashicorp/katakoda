@@ -55,5 +55,6 @@
   },
   "backend": {
     "imageid": "hashicorp-hashistack"
-  }
+  },
+  "private": true
 }

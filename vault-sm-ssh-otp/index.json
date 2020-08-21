@@ -39,5 +39,6 @@
   },
   "backend": {
     "imageid": "hashicorp-hashistack-cluster"
-  }
+  },
+  "private": true
 }
