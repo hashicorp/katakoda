@@ -46,5 +46,6 @@
         "port": 80
       }
     ]
-  }
+  },
+  "private": true
 }

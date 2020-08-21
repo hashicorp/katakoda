@@ -50,5 +50,6 @@
       { "name": "Dashboard", "port": 9002 },
       { "name": "Consul-UI", "port": 8500 }
     ]
-  }
+  },
+  "private": true
 }
