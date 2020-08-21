@@ -1,6 +1,7 @@
 {
   "title": "Best Practices: Securing Nomad",
   "description": "Scenarios that explore transport encryption and access control necessary to transition to a production Nomad configuration",
+  "private": true,
   "courses": [
     {
       "course_id": "encrypt-gossip",
