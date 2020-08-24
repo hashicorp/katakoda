@@ -6,11 +6,20 @@
   "time": "30 minutes",
   "icon": "fa-vault",
   "details": {
+    "assets": {
+      "host01": [
+        { "file": "scenario-policy.hcl", "target": "~/" }
+      ]
+    },
     "steps": [
       {
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
         "title": "Generate Root CA",
-        "text": "step1.md",
-        "courseData": "step1.setup.sh"
+        "text": "step1.md"
       },
       {
         "title": "Generate Intermediate CA",
@@ -43,7 +52,13 @@
   "environment": {
     "showdashboard": true,
     "uilayout": "terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "dashboards": [
+      {
+        "name": "UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+
   },
   "backend": {
     "imageid": "hashicorp-hashistack"
