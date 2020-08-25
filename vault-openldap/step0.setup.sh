@@ -23,7 +23,20 @@ sudo systemctl start vault
 
 sleep 5
 
-export VAULT_ADDR=http://0.0.0.0:8200
 ufw allow 8200/tcp
 
+export VAULT_ADDR=http://0.0.0.0:8200
+
+# Login as root and create a userauth endpoint for the admin of the scenario.
+
 vault login root
+
+vault policy write admin-policy admin-policy.hcl
+
+vault auth enable userpass
+
+vault write auth/userpass/users/admin \
+  password=admin-password \
+  policies=admin-policy
+
+rm /root/.vault-token
