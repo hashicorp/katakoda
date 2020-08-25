@@ -1,0 +1,70 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "OpenLDAP Secrets Engine",
+  "description": "Vault has a secrets engine designed to help manage OpenLDAP entry passwords for UNIX and Linux applications to use.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "assets": {
+      "host01": [
+        { "file": "admin-policy.hcl", "target": "~/" },
+        { "file": "alice-policy.hcl", "target": "~/" },
+        { "file": "learn-vault-example.ldif", "target": "~/" }
+      ]
+    },
+    "steps": [
+      {
+        "title": "Start OpenLDAP",
+        "text": "step-prereq.md",
+        "courseData": "step-prereq.setup.sh"
+      },
+      {
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Enable OpenLDAP Secrets Engine",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure OpenLDAP Secrets Engine",
+        "text": "step2.md"
+      },
+      {
+        "title": "Rotate Root Password",
+        "text": "step3.md"
+      },
+      {
+        "title": "Create a Role",
+        "text": "step4.md"
+      },
+      {
+        "title": "Request OpenLDAP credentials",
+        "text": "step5.md",
+        "courseData": "step5.setup.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "uilayout": "terminal",
+    "dashboards": [
+      {
+        "name": "UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
