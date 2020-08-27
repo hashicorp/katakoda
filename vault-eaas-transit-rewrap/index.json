@@ -1,0 +1,67 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Transit Secrets Re-wrapping",
+  "description": "Re-wrap data after encryption key with the transit secrets engine.",
+  "difficulty": "intermediate",
+  "time": "12 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "assets": {
+      "host01": [
+        { "file": "operator-policy.hcl", "target": "~/" }
+      ]
+    },
+    "steps": [
+      {
+        "title": "Prerequisites",
+        "text": "step-prereq.md",
+        "courseData": "step-prereq.setup.sh"
+      },
+      {
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Enable Transit Secrets Engine",
+        "text": "step1.md"
+      },
+      {
+        "title": "Generate a Token for Sample Application",
+        "text": "step2.md"
+      },
+      {
+        "title": "Run the Sample Application",
+        "text": "step3.md"
+      },
+      {
+        "title": "Rotate the Encryption Key",
+        "text": "step4.md"
+      },
+      {
+        "title": "Programmatically Re-Wrap the Data",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "uilayout": "terminal",
+    "dashboards": [
+      {
+        "name": "UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
