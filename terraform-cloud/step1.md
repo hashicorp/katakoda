@@ -1,12 +1,10 @@
 # Initialize a Local Terraform Configuration
 
-Start by running Terraform locally on a project we've created for you.
-
 This Terraform config uses the [random_pet](https://www.terraform.io/docs/providers/random/r/pet.html) provider to generate a random name like `endless-mastodon` or `feasible-cougar`. It doesn't require any credentials and it won't cost any money to run.
 
 Change into the project directory:
 
-`cd ~/random-pet-demo`{{execute}}
+`cd ~/learn-state-migration`{{execute}}
 
 Initialize the project:
 
@@ -33,4 +31,4 @@ Outputs:
 random_server_id = feasible-cougar
 ```
 
-In the next step, you'll execute this configuration on Terraform Cloud.
+In the next step, you'll migrate this configuration to Terraform Cloud to leverage remote execution and remote state storage.

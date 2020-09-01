@@ -1,14 +1,14 @@
 # Migrate State to Terraform Cloud
 
-Finally, let's migrate the project to Terraform Cloud and execute the configuration remotely. The steps include:
+Finally, migrate the project to Terraform Cloud and execute the configuration remotely. The steps include:
 
-- Run `init` on your local configuration
+- Initialize your local configuration
 - Delete your local `terraform.tfstate` file
-- Run `apply` to execute the configuration remotely
-- Make further changes and run `apply` again
+- Apply your configuration remotely
+- Update variables and run `apply` again
 - Logout
 
-## Run `init`
+## Initialize your local configuration`
 
 First, run `init` to migrate the existing state to Terraform Cloud.
 
@@ -30,13 +30,15 @@ Then, run `apply` to run the configuration in Terraform Cloud. This will also au
 
 Because the existing state was copied to Terraform Cloud, and because no changes were made to the Terraform configuration code, no changes need to be provisioned at this time.
 
-## Make changes
+## Update variables and apply
 
-To see the effect of a remotely executed command, make a change to `main.tf`. Change the `stage` variable to `development` instead of `production`. This will trigger the creation of a new random pet name.
+To see the effect of a remotely executed command, make a change to `main.tf`. Change the `name_length` variable default value to `2` instead of `3`. This will trigger the creation of a new random pet name.
 
-```
-variable "stage" {
-  default = "development"
+```diff
+variable "name_length" {
+  description = "The number of words in the pet name"
+- default     = "3"
++ default     = "2"
 }
 ```
 
@@ -48,7 +50,7 @@ As with a local Terraform run, you'll be asked to confirm. But this time, you'll
 
 You can scroll up to find the URL to this run within your organization and workspace in Terraform Cloud.
 
-Or, visit [Terraform Cloud](https://app.terraform.io/app) and select your organization. You'll see a workspace named `random-pet-demo`. Click the workspace to see that it has been run. You can examine the output from the run or view state, variables, or other settings.
+Or, visit [Terraform Cloud](https://app.terraform.io/app) and select your organization. You'll see a workspace named `state-migration`. Click the workspace to see that it has been run. You can examine the output from the run or view state, variables, or other settings.
 
 ## Destroy and Logout
 

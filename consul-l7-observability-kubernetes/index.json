@@ -1,0 +1,77 @@
+{
+  "title": "Consul Service Mesh L7 Observability on Kubernetes with Prometheus and Grafana",
+  "description": "In this hands-on lab you will install Consul service mesh, Prometheus, and Grafana on Kubernetes.",
+  "difficulty": "Intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Lab Infrastructure",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Install Consul service mesh on Kubernetes",
+        "text": "step1.md"
+      },
+      {
+        "title": "Install Prometheus",
+        "text": "step2.md"
+      },
+      {
+        "title": "Install Grafana",
+        "text": "step3.md"
+      },
+      {
+        "title": "Install the demo application",
+        "text": "step4.md"
+      },
+      {
+        "title": "Generate traffic",
+        "text": "step5.md"
+      },
+      {
+        "title": "View the traffic in Grafana",
+        "text": "step6.md"
+      },
+      {
+        "title": "View the service mesh in Consul",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+       "credits": "https://learn.hashicorp.com/consul"
+    },
+    "finish": {
+      "text": "finish.md",
+       "credits": "https://learn.hashicorp.com/consul"
+    }
+  },
+  "environment": {
+    "hideHiddenFiles": true,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root/consul-k8s-prometheus-grafana-hashicups-demoapp",
+    "showdashboard": true,
+    "dashboards": [
+        {
+          "name": "HashiCups UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Grafana UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"
+        },
+        {
+          "name": "Consul UI",
+          "href": "https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  },
+  "private": true
+}

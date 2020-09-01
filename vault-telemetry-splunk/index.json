@@ -66,5 +66,6 @@
   "finish": {
     "text": "finish.md",
     "credits": "https://learn.hashicorp.com/vault"
-  }
+  },
+  "private": true
 }

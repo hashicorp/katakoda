@@ -13,4 +13,4 @@ Remove the terraform state files.
 rm *.tfstate.*
 ```{{execute T1}}
 
--> **NOTE:** To learn more about Terraform, visit [Learn Terraform](/terraform).
+**NOTE:** To learn more about Terraform, visit [Learn Terraform](/terraform).

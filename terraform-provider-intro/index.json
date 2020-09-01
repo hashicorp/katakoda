@@ -1,0 +1,54 @@
+{
+  "title": "Perform CRUD operations with Providers",
+  "description": "Interact with APIs using Terraform providers. In this lab, use a provider as a bridge between Terraform and a target API.",
+  "difficulty": "Beginner",
+  "time": "20",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Overview",
+        "text": "overview.md",
+        "verify": "hashicups.verify.sh"
+      },
+      {
+        "title": "Create HashiCups order",
+        "text": "order-create.md"
+      },
+      {
+        "title": "Update HashiCups order",
+        "text": "order-update.md"
+      },
+      {
+        "title": "Read Coffee Ingredients",
+        "text": "read-coffee-ingredients.md"
+      },
+      {
+        "title": "Delete HashiCups order",
+        "text": "order-delete.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "hideHiddenFiles": true,
+    "uieditorpath": "/root/learn-terraform",
+    "exclusionPatterns": [
+      "./terraform/*"
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "private": true
+}

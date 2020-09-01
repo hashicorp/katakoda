@@ -1,36 +1,29 @@
+The client must have permissions against the `ssh/creds/otp_key_role` path to
+request an OTP for `otp_key_role`. First, create a policy file named,
+`test.hcl`.
+
 ```shell-session
-vault status
+tee test.hcl <<EOF
+path "ssh/creds/otp_key_role" {
+  capabilities = ["create", "read", "update"]
+}
+EOF
 ```{{execute HOST1}}
 
-```shell-session
-vault server -dev -dev-root-token-id root -dev-listen-address=0.0.0.0:8200
-```{{execute T3}}
+Create a policy named `test` with the policy defined in `test.hcl`.
 
 ```shell-session
-vault server -dev -dev-root-token-id root -dev-listen-address=0.0.0.0:8200
-```{{execute T4}}
-
-```shell-session
-export VAULT_ADDR='http://0.0.0.0:8200'
+vault policy write test ./test.hcl
 ```{{execute HOST1}}
 
-```shell-session
-ufw allow 8200/tcp
-```{{execute HOST1}}
+Enable the `userpass` auth method.
 
 ```shell-session
-vault login root
+vault auth enable userpass
 ```{{execute HOST1}}
+
+Create a user named `bob` with the password "training" assigned the `test` policy.
 
 ```shell-session
-vault secrets enable ssh
+vault write auth/userpass/users/bob password="training" policies="test"
 ```{{execute HOST1}}
-
-Next, create a role.
-
-```shell-session
-vault write ssh/roles/otp_key_role key_type=otp \
-      default_user=ubuntu \
-      cidr_list=0.0.0.0/0
-```{{execute HOST1}}
-

@@ -38,7 +38,7 @@ Verify that `finance` and `engineering` namespaces exist. The green check-mark i
 
 ![Namespaces](./assets/vault-codify-mgmt-1.png)
 
-Switch to the **education** namespace and verify that `admins` policy exists.
+Switch to the **engineering** namespace and verify that `admins` policy exists.
 
 ![Policies](./assets/vault-codify-mgmt-3.png)
 
@@ -48,7 +48,7 @@ Switch to the **finance** namespace and verify that `kv-v2` secrets engine is en
 
 Click the **Policies** tab to verify that `admin` policy exists.
 
-Now, return to the root namespace and verify that `transform` secrets engine is enabled.
+Now, return to the **root** namespace and verify that `transform` secrets engine is enabled.
 
 ![Secrets Engine](./assets/vault-codify-mgmt-5.png)
 

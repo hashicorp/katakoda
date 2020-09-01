@@ -60,5 +60,6 @@
     "backend": {
         "port": 8080,
         "imageid": "minikube"
-    }
+    },
+    "private": true
 }

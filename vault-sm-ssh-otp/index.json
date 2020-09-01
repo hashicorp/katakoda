@@ -9,7 +9,8 @@
     "steps": [
       {
         "title": "Setup the SSH secrets engine",
-        "text": "step1.md"
+        "text": "step1.md",
+        "courseData": "step1.courseData.sh"
       },
       {
         "title": "Setup the client authentication",
@@ -34,19 +35,10 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
-    "terminals": [
-      {
-        "name": "vault-server",
-        "target": "master"
-      },
-      {
-        "name": "remote-host",
-        "target": "node"
-      }
-    ]
+    "uilayout": "terminal-terminal"
   },
   "backend": {
     "imageid": "hashicorp-hashistack-cluster"
-  }
+  },
+  "private": true
 }

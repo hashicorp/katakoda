@@ -57,5 +57,6 @@
     "backend": {
         "port": 8080,
         "imageid": "docker"
-    }
+    },
+    "private": true
 }

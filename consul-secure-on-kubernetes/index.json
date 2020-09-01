@@ -67,5 +67,6 @@
   },
   "backend": {
     "imageid": "ubuntu:1804"
-  }
+  },
+  "private": true
 }

@@ -1,0 +1,67 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Build Your Own Certificate Authority (CA)",
+  "description": "Use the PKI secrets engine to generate dynamic X.509 certificates.",
+  "difficulty": "intermediate",
+  "time": "30 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "assets": {
+      "host01": [
+        { "file": "scenario-policy.hcl", "target": "~/" }
+      ]
+    },
+    "steps": [
+      {
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Generate Root CA",
+        "text": "step1.md"
+      },
+      {
+        "title": "Generate Intermediate CA",
+        "text": "step2.md"
+      },
+      {
+        "title": "Create a Role",
+        "text": "step3.md"
+      },
+      {
+        "title": "Request Certificates",
+        "text": "step4.md"
+      },
+      {
+        "title": "Revoke Certificates",
+        "text": "step5.md"
+      },
+      {
+        "title": "Remove Expired Certificates",
+        "text": "step6.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "uilayout": "terminal",
+    "dashboards": [
+      {
+        "name": "UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
+
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  },
+  "private": true
+}
