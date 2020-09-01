@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "title": "HashiCorp Tools Playground",
+  "description": "Sandbox environment with Terraform, Vault, Consul, and Nomad",
+  "icon": "fa-nomad",
+  "details": {
+    "intro": {
+      "credits": "https://learn.hashicorp.com"
+    },
+    "steps": [
+      {
+        "title": "Example Commands",
+        "text": "helpful.md",
+        "courseData": "courseBase.sh"
+      }
+    ]
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["Desktop"],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack-v2"
+  }
+}
