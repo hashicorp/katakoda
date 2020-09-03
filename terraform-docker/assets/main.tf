@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    docker = {
+      source = "terraform-providers/docker"
+    }
+  }
+  required_version = ">= 0.13"
+}
+
 resource "docker_image" "nginx" {
   name = "nginx:latest"
 }
