@@ -11,7 +11,7 @@ run: build
 	@echo "==> Running $(PROJECT) container..."
 	docker run \
 	  -d \
-	  -v /var/run/docker.sock:/var/run/docker.sock \
+	  --privileged \
 	  --name \
 	  $(PROJECT) \
 	  $(PROJECT)
