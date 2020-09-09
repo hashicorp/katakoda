@@ -26,7 +26,7 @@ Make sure your kubectl is configured to point to the right Kubernetes cluster:
 
 You will use `helm install` to deploy Consul using the configuration defined in `dc1-values.yml`. This should only take a few minutes.
 
-`helm install -f ./dc1-values.yml consul hashicorp/consul --timeout 10m`{{execute}}
+`helm install -f ./dc1-values.yml consul hashicorp/consul --version "0.22.0" --timeout 10m`{{execute}}
 
 #### Verify the Consul deployment
 
