@@ -2,8 +2,6 @@
 # shellcheck disable=SC2016
 
 export log_dir="/root/.log"
-export terraform_version="0.12.28"
-export vault_version="1.4.3"
 
 mkdir -p "$log_dir"
 
@@ -25,7 +23,7 @@ cat > /root/main.tf << 'EOF'
 # =======================================================================
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
 }
 
 # -----------------------------------------------------------------------
@@ -212,6 +210,20 @@ resource "docker_container" "vault" {
   }
 }
 
+EOF
+
+cat > /root/vtl/config/versions.tf << EOF
+terraform {
+  required_providers {
+    docker = {
+      source = "terraform-providers/docker"
+    }
+    template = {
+      source = "hashicorp/template"
+    }
+  }
+  required_version = ">= 0.13"
+}
 EOF
 
 cat > /root/vtl/config/fluent.conf << 'EOF'

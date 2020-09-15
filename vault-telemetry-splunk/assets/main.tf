@@ -4,7 +4,7 @@
 # =======================================================================
 
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.13"
 }
 
 # -----------------------------------------------------------------------
@@ -12,7 +12,7 @@ terraform {
 # -----------------------------------------------------------------------
 
 variable "docker_host" {
-  default = "tcp://docker:2345"
+  default = "unix:///var/run/docker.sock"
 }
 
 variable "splunk_version" {
@@ -24,11 +24,11 @@ variable "telegraf_version" {
 }
 
 variable "vault_version" {
-  default = "1.4.2"
+  default = "1.4.3"
 }
 
-variable "splunk_ip" {
-  default = "42c0ff33-c00l-7374-87bd-690ac97efc50"
+variable "fluentd_splunk_hec_version" {
+  default = "0.0.2"
 }
 
 # -----------------------------------------------------------------------
@@ -87,6 +87,34 @@ resource "docker_container" "splunk" {
 }
 
 # -----------------------------------------------------------------------
+# Fluentd resources
+# Uses @brianshumate's fluentd-splunk-hec image
+# https://github.com/brianshumate/fluentd-splunk-hec
+# -----------------------------------------------------------------------
+
+resource "docker_image" "fluentd_splunk_hec" {
+  name         = "brianshumate/fluentd-splunk-hec:${var.fluentd_splunk_hec_version}"
+  keep_locally = true
+}
+
+resource "docker_container" "fluentd" {
+  name  = "vtl-fluentd"
+  image = docker_image.fluentd_splunk_hec.latest
+  volumes {
+    host_path      = "${path.cwd}/vault-audit-log"
+    container_path = "/vault/logs"
+  }
+  volumes {
+    host_path      = "${path.cwd}/vtl/config/fluent.conf"
+    container_path = "/fluentd/etc/fluent.conf"
+  }
+  networks_advanced {
+    name         = "vtl-network"
+    ipv4_address = "10.42.10.101"
+  }
+}
+
+# -----------------------------------------------------------------------
 # Telegraf resources
 # -----------------------------------------------------------------------
 
@@ -106,7 +134,7 @@ resource "docker_container" "telegraf" {
   image = docker_image.telegraf.latest
   networks_advanced {
     name         = "vtl-network"
-    ipv4_address = "10.42.10.101"
+    ipv4_address = "10.42.10.102"
   }
   upload {
     content = data.template_file.telegraf_configuration.rendered
@@ -146,7 +174,7 @@ resource "docker_container" "vault" {
   }
   networks_advanced {
     name         = "vtl-network"
-    ipv4_address = "10.42.10.102"
+    ipv4_address = "10.42.10.103"
   }
   ports {
     internal = "8200"
@@ -156,5 +184,9 @@ resource "docker_container" "vault" {
   upload {
     content = data.template_file.vault_configuration.rendered
     file    = "/vault/config/main.hcl"
+  }
+  volumes {
+    host_path      = "${path.cwd}/vault-audit-log"
+    container_path = "/vault/logs"
   }
 }
