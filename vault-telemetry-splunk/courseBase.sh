@@ -212,7 +212,7 @@ resource "docker_container" "vault" {
 
 EOF
 
-cat > /root/vtl/config/versions.tf << EOF
+cat > /root/versions.tf << EOF
 terraform {
   required_providers {
     docker = {
