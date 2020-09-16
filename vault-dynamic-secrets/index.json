@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "Vault Dynamic Secrets - Database Secrets Engine",
-  "description": "Learn how to manage database credentials using Vault.",
+  "description": "Manage database credentials using Vault.",
   "difficulty": "beginner",
   "time": "10 minutes",
   "icon": "fa-vault",
@@ -12,22 +12,33 @@
     },
     "steps": [
       {
-        "title": "Setup Database secrets engine",
-        "text": "step1.md",
-        "code": "terminal.sh",
-        "courseData": "courseBase.sh"
+        "title": "Prerequisites",
+        "text": "step-prereq.md"
       },
       {
-        "title": "Request PostgreSQL credentials",
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Enable the database secrets engine",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure PostgreSQL secrets engine",
         "text": "step2.md"
       },
       {
-        "title": "Validation",
+        "title": "Create a role",
         "text": "step3.md"
       },
       {
-        "title": "Lease Management",
+        "title": "Request PostgreSQL credentials",
         "text": "step4.md"
+      },
+      {
+        "title": "Manage Leases",
+        "text": "step5.md"
       }
     ],
     "finish": {
@@ -36,6 +47,10 @@
     },
     "assets": {
       "host01": [
+        {
+          "file": "admin-policy.sql",
+          "target": "~/"
+        },
         {
           "file": "readonly.sql",
           "target": "~/"

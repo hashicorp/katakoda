@@ -1,27 +1,30 @@
-Let's connect to the `postgres` container.
+In the previous step you configured the PostgreSQL secrets engine with the
+allowed role named `readonly`. A role is a logical name within Vault that maps
+to database credentials. These credentials are expressed as SQL statements and
+assigned to the Vault role.
 
-```
-docker exec -it postgres bash
-```{{execute T1}}
+Display the SQL used to create credentials stored in `readonly.sql`.
 
-Start the PostgreSQL client CLI.
+```shell
+cat readonly.sql
+```{{execute}}
 
-```
-psql -U root
-```{{execute T1}}
+The SQL contains the templatized fields `{{name}}`, `{{password}}`, and
+`{{expiration}}`. These values are provided by Vault when the credentials are
+created. This creates a new role and then grants that role the permissions
+defined in the Postgres role named `ro`. This Postgres role was created when
+Postgres was started.
 
-Once you are in `psql`, execute `\du`{{execute T1}} to list users. You should find the Vault generated usernames.
+Create the role named `readonly` that creates credentials with the
+`readonly.sql`.
 
-**Example:**
+```shell
+vault write database/roles/readonly \
+    db_name=postgresql \
+    creation_statements=@readonly.sql \
+    default_ttl=1h \
+    max_ttl=24h
+```{{execute}}
 
-```
-root=# \du
-                                                       List of roles
-                    Role name                     |                         Attributes                         | Member of
---------------------------------------------------+------------------------------------------------------------+-----------
- root                                             | Superuser, Create role, Create DB, Replication, Bypass RLS | {}
- v-token-readonly-P4Rkmg3EUiqd6hNV5qNq-1589070089 | Password valid until 2020-05-10 01:21:34+00                | {}
- v-token-readonly-QBQAY9x6jMrNU13T4BH5-1589069184 | Password valid until 2020-05-10 01:06:29+00                | {}
-```
-
-Enter `\q`{{execute T1}} to quite the psql. Finally, enter `exit`{{execute T1}} to exit out of the Docker container shell.
+The role generates database credentials with a default TTL of 1 hour and max TTL
+of 24 hours.

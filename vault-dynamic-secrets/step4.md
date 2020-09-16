@@ -1,47 +1,53 @@
-The TTL for `readonly` role is set to 1 hour.
+The applications that require the database credentials read them from the secret
+engine's _readonly_ role.
 
-```
-vault read database/roles/readonly
-```{{execute T1}}
+View the policies required to perform the **apps** responsibilities in this
+scenario.
 
-Generate a new set of credentials and store the output in a file named, "new-lease.json"
+```shell
+cat apps-policy.hcl
+```{{execute}}
 
-```
-VAULT_TOKEN=$(cat app-token.txt) vault read -format=json database/creds/readonly > new-lease.json
-```{{execute T1}}
+Login with the `apps` user using the `userpass` authentication method.
 
-View the contents of the new-lease.json file.
+```shell
+vault login -method=userpass \
+  username=apps \
+  password=apps-password
+```{{execute}}
 
-```
-cat new-lease.json
-```{{execute T1}}
+Read credentials from the `readonly` database role.
 
-## Renew a lease
+```shell
+vault read database/creds/readonly
+```{{execute}}
 
-If you need to extend the lease TTL, execute the following command to renew the lease for this credential by passing its `lease_id`.
+The Postgres credentials are displayed as `username` and `password`. The
+credentials are identified within Vault by the `lease_id`.
 
-```
-vault lease renew $(cat new-lease.json | jq -r ".lease_id")
-```{{execute T1}}
+### Validation
 
-## Revoke a lease
+Connect to the Postgres database via the CLI within the `postgres` container.
 
-If the database credentials are not in use, you can revoke the lease before reaching its TTL.
+```shell
+docker exec -it postgres psql
+```{{execute}}
 
-Execute the following command to revoke the generated credentials.
+Your system prompt is replaced with a new prompt `root=#`. Commands issued at
+this prompt are executed against the Postgres database running within the
+container.
 
-```
-vault lease revoke $(cat new-lease.json | jq -r ".lease_id")
-```{{execute T1}}
+List all the database users.
 
-To revoke all leases for the `readonly` role, execute the command with `-prefix=true` flag.
+```shell
+SELECT usename, valuntil FROM pg_user;
+```{{execute}}
 
-```
-vault lease revoke -prefix database/creds/readonly
-```{{execute T1}}
+The output displays a table of all the database credentials generated. The
+credentials that were recently generated appear in this list.
 
-Once all the leases for the `readonly` role were revoked, the following command should return with "**No value found**" message.
+Disconnect from the Postgres database.
 
-```
-vault list sys/leases/lookup/database/creds/readonly
-```{{execute T1}}
+```shell
+\q
+```{{execute}}
