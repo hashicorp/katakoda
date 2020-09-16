@@ -48,7 +48,7 @@
     "assets": {
       "host01": [
         {
-          "file": "admin-policy.sql",
+          "file": "admin-policy.hcl",
           "target": "~/"
         },
         {
