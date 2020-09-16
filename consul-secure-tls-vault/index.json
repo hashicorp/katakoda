@@ -1,0 +1,92 @@
+{
+    "pathwayTitle": "Generate mTLS Certificates for Consul using Vault",
+    "icon": "fa-consul",
+    "title": "Generate mTLS Certificates for Consul using Vault",
+    "description": "Deploy a Consul datacenter that uses Vault to generate and manage certificates to secure agent communication",
+    "details": {
+        "steps": [
+            {
+                "title": "Provision Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Start Vault and enable the PKI secrets engine",
+                "code": "set-env.sh",
+                "text": "step0.md"
+            },
+            {
+                "title": "Configure Vault as CA",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },            
+            {
+                "title": "Configure Consul",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Start Consul",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            },
+            {
+                "title": " Configure consul-template",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            },
+            {
+                "title": "Start consul-template",
+                "code": "set-env.sh",
+                "text": "step5.md"
+            },
+            {
+                "title": "Verify certificates rotation",
+                "code": "set-env.sh",
+                "text": "step6.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "ca.crt.tpl", "target": "./" },
+          { "file": "agent.crt.tpl", "target": "./" },
+          { "file": "agent.key.tpl", "target": "./" },
+          { "file": "consul_template.hcl", "target": "./" },
+          { "file": "cli.crt.tpl", "target": "./" },
+          { "file": "cli.key.tpl", "target": "./" },
+          { "file": "server.json", "target": "./" },
+          { "file": "server-tls.json", "target": "./" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 8500},
+            {"name": "Vault UI", "port": 8200}
+        ],
+        "terminals": [
+            {"name": "consul-template", "target": "host01"},
+            {"name": "operator", "target": "host01"}
+        ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "ubuntu"
+    }
+}

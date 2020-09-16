@@ -1,0 +1,13 @@
+{
+  "datacenter": "dc1",
+  "log_level": "DEBUG",
+  "node_name": "server1",
+  "server": true,
+  "bootstrap_expect": 1,
+  "addresses": {
+    "https": "0.0.0.0"
+  },
+  "ports": {
+    "https": 8501
+  }
+}
