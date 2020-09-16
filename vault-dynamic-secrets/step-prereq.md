@@ -10,10 +10,12 @@ Create a Postgres database with a root user named `root` with the password
 `rootpassword`.
 
 ```shell
-docker run --name postgres \
-      -e POSTGRES_USER=root \
-      -e POSTGRES_PASSWORD=rootpassword \
-      -d -p 5432:5432 \
+docker run \
+      --name postgres \
+      --env POSTGRES_USER=root \
+      --env POSTGRES_PASSWORD=rootpassword \
+      --detach  \
+      --publish 5432:5432 \
       postgres
 ```{{execute}}
 
