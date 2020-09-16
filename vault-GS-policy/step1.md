@@ -23,7 +23,7 @@ To write a policy using the command line, specify the path to a policy file to u
 vault policy write my-policy my-policy.hcl
 ```{{execute T1}}
 
-To see the list of policies, execute the following command.
+To list all policies, execute the following command.
 
 ```
 vault policy list
@@ -42,17 +42,22 @@ vault policy read my-policy
 First, check to verify that KV v2 secrets engine has not been enabled at `secret/`.
 
 ```
-vault secrets list
+vault secrets list | grep 'secret/'
+```{{execute T1}}
+
+If this command produces no output (i.e. secret/ is not listed), enable the secrets engine before proceeding, otherwise skip this step.
+
+```
+vault secrets enable -path=secret/ kv-v2
 ```{{execute T1}}
 
 To use the policy, create a token and assign it to that policy.
 
 ```
-vault token create -policy=my-policy \
-   -format=json | jq -r ".auth.client_token" > token.txt
+vault token create -field=token -policy=my-policy > token.txt
 ```{{execute T1}}
 
-Copy the generated token value and authenticate with Vault.
+Use the generated token value to authenticate with Vault.
 
 ```
 vault login $(cat token.txt)
