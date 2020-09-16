@@ -42,8 +42,6 @@ vault write auth/userpass/users/admin \
 
 vault policy write apps-policy apps-policy.hcl
 
-vault auth enable userpass
-
 vault write auth/userpass/users/apps \
   password=apps-password \
   policies=apps-policy

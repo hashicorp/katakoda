@@ -8,6 +8,15 @@ path "database/*" {
   capabilities = [ "create", "read", "update", "delete", "list" ]
 }
 
+# Manage the leases
+path "sys/leases/+/database/creds/readonly/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
+path "sys/leases/+/database/creds/readonly" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
 # Write ACL policies
 path "sys/policies/acl/*" {
   capabilities = [ "create", "read", "update", "delete", "list" ]
