@@ -3,7 +3,7 @@
 We could move the configuration into a specific step and explain at the bottom that we are going to automate the config part using consul-template
 
 -->
-Now configure Consul using the `server.json`{{open}}
+Now configure Consul using the `server-tls.json`{{open}}
 configuration file provided with the lab.
 
 Example content:
