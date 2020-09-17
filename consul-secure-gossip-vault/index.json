@@ -65,5 +65,6 @@
     "backend": {
         "port": 8080,
         "imageid": "ubuntu"
-    }
+    },
+    "private": true
 }
