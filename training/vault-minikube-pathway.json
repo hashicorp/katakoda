@@ -1,6 +1,6 @@
 {
-  "title": "Vault Minikube Workshop",
-  "description": "Vault minikube",
+  "title": "Managing Secrets with Vault on Kubernes",
+  "description": "[Vault] HashiConf US Digital Workshop 2020",
   "courses": [
     {
       "pathway_id": "hashicorp",

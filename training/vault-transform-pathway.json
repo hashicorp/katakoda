@@ -1,6 +1,6 @@
 {
   "title": "Protecting Data with Transform Secrets Engine",
-  "description": "Vault workshop",
+  "description": "[Vault] HashiConf US Digital Workshop 2020",
   "courses": [
     {
       "pathway_id": "hashicorp",
@@ -8,6 +8,13 @@
       "id": "vault-transform-hashiconf",
       "course_id": "vault-transform-hashiconf",
       "description": "Use the transform secrets engine."
+    },
+    {
+      "pathway_id": "hashicorp",
+      "title": "Codify Vault Configuration using Terraform",
+      "id": "vault-terraform-ent",
+      "course_id": "vault-transform-hashiconf",
+      "description": "Use Terraform to setup Transform secrets engine."
     }
   ]
 }
