@@ -5,8 +5,8 @@
     {
       "pathway_id": "hashicorp",
       "title": "Vault on Raft",
-      "id": "vault-raft-hashiconf",
-      "course_id": "vault-raft-hashiconf",
+      "id": "vault-raft",
+      "course_id": "vault-raft",
       "description": "Use raft storage with Vault."
     },
     {
