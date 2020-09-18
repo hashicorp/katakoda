@@ -5,7 +5,7 @@
     {
       "pathway_id": "hashicorp",
       "title": "Vault Transform Secrets Engine",
-      "id": "vault-transform-hashiconf",
+      "id": "vault-transform",
       "course_id": "vault-transform",
       "description": "Use the transform secrets engine."
     },
