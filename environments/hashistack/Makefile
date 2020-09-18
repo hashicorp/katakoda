@@ -11,6 +11,7 @@ run: build
 	@echo "==> Running katacoda container..."
 	docker run \
 	  -d \
+	  --cap-add=IPC_LOCK \
 	  -v /var/run/docker.sock:/var/run/docker.sock \
 	  --name \
 	  $(PROJECT) \
