@@ -1,4 +1,4 @@
-Once configuration is created and certificates and key are in place you can start Consul.
+Once the agent configuration is created and thee certificates are distributed, you can start Consul.
 
 First create Consul data directory
 
@@ -10,8 +10,7 @@ First create Consul data directory
      -advertise '{{ GetInterfaceIP "ens3" }}' \
      -data-dir=/opt/consul/data`{{execute T1}}
 
-In the output, if the configuration was successful,
-you will get an indication in the output that TLS encryption is now enabled:
+The output will indicate that TLS encryption is now enabled:
 
 ```
 ...
@@ -29,12 +28,11 @@ you will get an indication in the output that TLS encryption is now enabled:
 ...
 ```
 
-At this point in the lab you have a Consul server with TLS encryption configured.
+At this point, you have a Consul server with TLS encryption configured.
 
 When you created the certificate you used as a parameter `ttl="24h"` meaning that this certificate will be valid only for 24 hours before expiring.
 
 Deciding the right trade-off for certificate lifespan is always a compromise between security and agility. A possible third way that does not require you to lower your security is to use consul-template to automate certificate renewal for Consul when the TTL is expired.
-
 
 
 

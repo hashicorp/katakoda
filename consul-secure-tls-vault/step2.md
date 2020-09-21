@@ -28,9 +28,9 @@ To configure TLS encryption for Consul, three files are required:
 * `cert_file` - Consul agent public certificate
 * `key_file`  - Consul agent private key
 
-For the first Consul startup you will use the certificate generated earlier.
+For the first Consul startup, you will use the certificate generated earlier.
 
-You can manually create the files using the output of the command before now stored in `certs.txt` or you can use the following commands to extract the content from the file and place it into the right file and location.
+Use the following commands to extract the two certificates and private key from the `certs.txt` and place them into the right file and location.
 
 `mkdir -p /opt/consul/agent-certs`{{execute T1}}
 

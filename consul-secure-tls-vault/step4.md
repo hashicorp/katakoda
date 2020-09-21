@@ -1,5 +1,5 @@
 You can use consul-template in your Consul datacenter to
-integrate with Vault's PKI Secrets Engine to generate
+integrate with Vault's PKI secrets engine to generate
 and renew dynamic X.509 certificates.
 
 ### Create and populate the templates directory
@@ -10,8 +10,8 @@ datacenter that will generate and retrieve certificates
 from Vault and configure the servers automatically.
 
 You need to create templates that consul-template can use
-to render the actual certificates and keys on the nodes in
-your cluster. In this lab, you will place these templates
+to render the actual certificates and keys on the agent in
+your datacenter. In this lab, you will place these templates
 in `/opt/consul/templates`.
 
 Create a directory called templates in `/opt/consul`.
@@ -38,7 +38,7 @@ Example content:
 {{ end }}
 ```
 
-The template will reach to the `pki_int/issue/consul-dc1` endpoint that Vault exposes to generate new certificates. It also mentions the common name and alternate names for the certificate.
+The template will use the `pki_int/issue/consul-dc1` endpoint that Vault exposes to generate new certificates. It also mentions the common name and alternate names for the certificate.
 
 Note that the TTL is now set to 2m meaning the certificates will be rotated every two minutes.
 
