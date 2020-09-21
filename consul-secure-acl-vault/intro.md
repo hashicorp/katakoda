@@ -4,7 +4,7 @@ In this hands-on lab, you will deploy a secure Consul
 datacenter using Vault to generate and manage ACL tokens.
 
 The lab will guide you through the steps necessary to deploy Consul
-with ACL enabled to secure access to the cluster data and define agents' permissions.
+with ACLs enabled to secure access to the cluster data and define agents' permissions.
 
 <!-- Suggestion
 I'm not sure "verify identity" is the correct phrasing. Maybe something like "deploy a Consul datacenter with ACLs enabled to secure access to the cluster data and agents". Cluster data meaning the catalog. Agents meaning accessing (managing) them with the UI/CLI/API.
@@ -15,7 +15,7 @@ Specifically, you will:
 - Start a Consul datacenter with ACL enabled
 - Bootstrap ACLs in Consul
 - Create a Consul policy for servers
-- Enable Consul secrets engine in Vault
+- Enable the Consul secrets engine in Vault
 - Create a management token for Vault
 - Create a Vault role to map Consul policy
 - Create a Vault token associated with the role

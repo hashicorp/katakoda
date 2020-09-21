@@ -6,7 +6,7 @@
     "details": {
         "steps": [
             {
-                "title": "Provisioning Lab Infrastructure",
+                "title": "Lab Infrastructure Provisioning",
                 "text": "provision.md",
                 "courseData": "provision.courseData.sh",
                 "code": "provision.code.sh",
@@ -23,22 +23,22 @@
                 "text": "step1.md"
             },
             {
-                "title": "Configure Consul secrets engine in Vault",
+                "title": "Configure the Consul secrets engine in Vault",
                 "code": "set-env.sh",
                 "text": "step2.md"
             },
             {
-                "title": "Create Consul server policy",
+                "title": "Create a Consul server policy",
                 "code": "set-env.sh",
                 "text": "step3.md"
             },
             {
-                "title": "Create Vault server role",
+                "title": "Create a Vault server role",
                 "code": "set-env.sh",
                 "text": "step4.md"
             },
             {
-                "title": "Obtain and test Consul token",
+                "title": "Obtain and test a Consul ACL token",
                 "code": "set-env.sh",
                 "text": "step5.md"
             }

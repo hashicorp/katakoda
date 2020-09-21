@@ -1,6 +1,5 @@
-Consul uses Access Control Lists (ACLs) to secure the UI, API, CLI,
-service communications, and agent communications.
-When securing your datacenter you should configure the ACLs first.
+Consul uses Access Control Lists (ACLs) to secure access to the UI, API, CLI,
+service registration, and agent communications.
 
 Open `server.hcl`{{open}} in the editor to inspect values required
 for a minimal configuration with the ACL system enabled.
@@ -15,7 +14,7 @@ acl = {
 ...
 ```
 
-In this lab, you will configure the "default-deny" policy, which
+In this lab, you will set the "default-deny" policy, which
 denies all operations by default. All operations will be evaluated
 against their token, and only operations granted by policy associated
 with the token will be allowed.
@@ -25,11 +24,11 @@ reloaded when an agent restarts.
 
 ### Start Consul server
 
-Once configuration is distributed on the nodes, start the Consul server.
+Once configuration is distributed on the agents, start the Consul server.
 
 `nohup sh -c "consul agent -config-file server.hcl -advertise '{{ GetInterfaceIP \"ens3\" }}' >~/log/consul.log 2>&1" > ~/log/nohup_consul.log &`{{execute T1}}
 
-### Check server logs
+### Check the server logs
 
 Verify the Consul server started correctly by checking the logs.
 
@@ -53,9 +52,9 @@ machine. You should be able to interact with it without having to be inside the 
 
 `export CONSUL_HTTP_ADDR=localhost:8500`{{execute T1}}
 
-### Bootstrap ACLs
+### Bootstrap the ACL system
 
-Bootstrap the ACL system to start using ACLs.
+Bootstrap the ACL system to start using tokens.
 
 Issue the following command to bootstrap the ACL system, generate your first token,
 and capture the output into the `consul.bootstrap` file.
@@ -117,7 +116,7 @@ server-1  172.18.0.2:8301  alive   server  1.7.3  2         dc1  <all>
 
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
   <p><strong>Production check: </strong>
-  At this time you only have one token in Consul, the *bootstrap token*. While it is possible to use only this token for all the configuration in a POC or dev environment, this is not recommended in a production environment. This token should only be used for the initial ACL tuning and to create tokens with lower permissions.
+  At this time you only have one token in Consul, the *bootstrap token*. While it is possible to use only this token for all the configuration in a testing or dev environment, this is not recommended in a production environment. This token should only be used for the initial ACL tuning and to create tokens with lower permissions.
 </p></div>
 
 You can now use the bootstrap token to create other ACL policies

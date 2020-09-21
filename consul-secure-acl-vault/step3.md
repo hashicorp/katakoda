@@ -1,7 +1,7 @@
 
-### Create Consul server policy
+### Create a Consul server policy
 
-Once the ACL system is initialized, if you check Consul logs again you should find some warnings in your logs:
+Once the ACL system is initialized, you should still find some warnings in your Consul logs:
 
 `cat ~/log/consul.log`{{execute T1}}
 
@@ -10,13 +10,13 @@ Once the ACL system is initialized, if you check Consul logs again you should fi
  [WARN]  agent: Coordinate update blocked by ACLs: accessorID=00000000-0000-0000-0000-000000000002
 ```
 
-These warnings are ACL logs from which you can infer the following: 
-- one node is trying to update its info in your Consul datacenter and gets denied access by the ACL system.
-- the node is not using any token to perform the request (because `00000000-0000-0000-0000-000000000002` is the anonymous policy used when no token is presented)
+These warnings indicate that: 
+- the agent is trying to update its info in your Consul datacenter, but denied by the ACL system because it does not have the correct permissions.
+- the agent does not have an assigned token to perform the request (because `00000000-0000-0000-0000-000000000002` is the anonymous policy used when no token is presented)
 
-First steps towards a more fine grained ACL configuration is to create tokens for the server nodes so that they could interact properly with the rest of the Consul datacenter, without assigning them an administrative token.
+The first step towards a more fine grained ACL approach is to create individual tokens for the server agents, so that they can interact properly with the rest of the Consul datacenter, without assigning them an administrative token.
 
-For the scope of this lab you are going to create a policy that will permit server nodes to register themselves using a name template of "server-<count_or_id>" and has permissions to locate other nodes and resolve services.
+For this lab, you will create a policy that permits server agents to register themselves, using a name template of "server-<count_or_id>", and have the permissions to locate other agents and discover services.
 
 This policy will be used by Vault when creating tokens for Consul.
 
@@ -51,5 +51,4 @@ Review [Secure Consul with Access Control Lists (ACLs)](https://learn.hashicorp.
 <!-- Follow the links in the last step to learn how. -->
 
 </p></div>
-
 

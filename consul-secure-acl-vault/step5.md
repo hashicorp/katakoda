@@ -1,4 +1,4 @@
-You can verify the Consul server started correctly by checking the logs.
+You can verify that the Consul server started correctly by checking the logs.
 
 `cat ~/log/consul.log`{{execute T1}}
 
@@ -47,7 +47,7 @@ Policies:
    6fa2c574-6951-51db-310a-672e328f2aba - consul-servers
 ```
 
-Any user or process with access to Vault can now obtain
+Any user or process with access to Vault can now create
 short lived Consul tokens in order to carry out operations,
 thus centralizing the access to Consul tokens.
 

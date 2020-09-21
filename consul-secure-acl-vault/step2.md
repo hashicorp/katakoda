@@ -1,5 +1,5 @@
 
-The Consul secrets engine generates Consul API tokens dynamically based on Consul ACL policies,
+The Consul secrets engine generates Consul tokens dynamically based on Consul ACL policies,
 and must be enabled before it can perform its functions.
 
 `vault secrets enable consul`{{execute T1}}
@@ -22,7 +22,7 @@ Export the management token as an environment variable:
 
 `export CONSUL_MGMT_TOKEN=$(cat consul.management  | grep SecretID  | awk '{print $2}')`{{execute T1}}
 
-Once you have the Consul secret backend enabled,
+Once you have the Consul secret engine enabled,
 configure access with Consul's address and management token:
 
 `vault write consul/config/access \
@@ -34,4 +34,3 @@ Example output:
 ```
 Success! Data written to: consul/config/access
 ```
-
