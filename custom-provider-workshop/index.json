@@ -1,0 +1,61 @@
+{
+  "title": "HashiConf Digital: Build a Custom Terraform Provider Workshop",
+  "description": "Providers map target APIs to Terraform to create, read, update and delete (CRUD) resources. In this workshop, modify an existing Terraform provider to add CRUD functionality to a new resource.",
+  "difficulty": "Advanced",
+  "time": "40",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Overview",
+        "text": "overview.md"
+      },
+      {
+        "title": "Define `order` schema",
+        "text": "order-schema.md"
+      },
+      {
+        "title": "Add create functionality",
+        "text": "order-create.md"
+      },
+      {
+        "title": "Add complex read functionality",
+        "text": "order-read.md"
+      },
+      {
+        "title": "Add update functionality",
+        "text": "order-update.md"
+      },
+      {
+        "title": "Add delete functionality",
+        "text": "order-delete.md"
+      },
+      {
+        "title": "Verity HashiCups provider functionality",
+        "text": "verify-hashicups-order.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "hideHiddenFiles": true,
+    "uieditorpath": "/root/terraform-provider-hashicups",
+    "exclusionPatterns": [
+      "./terraform/*"
+    ]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "private": false
+}
