@@ -76,7 +76,7 @@ This will generate an HTML and Command line report on the success and failure.
 You can execute the tests ( which also builds the container ) using:
 
 ```shell
-./inspec.sh
+./spec.sh
 ```
 
 ```
