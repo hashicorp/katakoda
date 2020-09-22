@@ -23,8 +23,6 @@ Notice that the `node_id` is set to `node3` and this server will listen to port 
 
 Inside the **storage** stanza, two-sets of **`retry_join`** parameters are defined. One points to the `node1` API address (`http://127.0.0.1:8200`), and another points to the `node2` API address (`http://127.0.0.1:2200`). If the connection details of all nodes are known beforehand, configure the `retry_join` so that the node will automatically join the raft cluster upon start up.
 
-> **NOTE:** When using the Shamir's secret sharing algorithm, the joined node will still need to be unsealed manually.
-
 
 Execute the following command to start `node3`:
 
@@ -44,7 +42,7 @@ vault server -config=config-node3.hcl -log-level=debug
                    Mlock: supported: true, enabled: false
            Recovery Mode: false
                  Storage: raft (HA available)
-                 Version: Vault v1.4.3
+                 Version: Vault v1.5.3
 
 ==> Vault server started! Log data will stream in below:
 ```
