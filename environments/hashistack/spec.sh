@@ -34,7 +34,7 @@ function inspec () {
        "$@"
 }
 
-# Setup our dependcies
+# Setup our dependencies
 setup
 
 # Execute the tests
