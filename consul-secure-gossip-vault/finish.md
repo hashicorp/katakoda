@@ -12,6 +12,7 @@ Specifically, you:
 - Stored the gossip key as a secret in Vault
 - Retrieved the gossip key from Vault
 - Configured and started Consul
+- Used consul-template to automate gossip key rotation
 
 ## Next Steps
 

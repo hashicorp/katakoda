@@ -11,6 +11,7 @@ Specifically, you will:
 - Store the gossip key as a secret in Vault
 - Retrieve the gossip key from Vault
 - Configure and start Consul
+- Use consul-template to automate gossip key rotation
 
 
 If you are already familiar with the basics of Consul,

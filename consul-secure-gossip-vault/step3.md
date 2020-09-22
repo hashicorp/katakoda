@@ -22,13 +22,22 @@ Next, create the data directory for Consul as configured in the `server.hcl` fil
 
 Finally, start Consul.
 
+`nohup sh -c "consul agent \
+  -config-file server.hcl \
+  -config-file gossip_encryption.hcl \
+  -advertise '{{ GetInterfaceIP \"ens3\" }}' >~/log/consul.log 2>&1" > ~/log/nohup_consul.log &`{{execute}}
+
+<!--
 `consul agent \
   -config-file server.hcl \
   -config-file gossip_encryption.hcl \
   -advertise '{{ GetInterfaceIP "ens3" }}'`{{execute}}
+--> 
 
 If the configuration was successful, you will get an
 indication in the output that gossip encryption is now enabled:
+
+`cat ./log/consul.log`{{execute}}
 
 ```
 ==> Starting Consul agent...

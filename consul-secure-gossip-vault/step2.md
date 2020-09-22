@@ -5,7 +5,7 @@ From your Consul server node, use the `vault kv get`
 command using the `-field` parameter to retrieve the
 key value only.
 
-`vault kv get -field=key kv-v1/consul/config/encryption | tee encryption.key`{{execute T1}}
+`vault kv get -field=key kv-v1/consul/config/encryption | tee encryption.key`{{execute}}
 
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
   <p><strong>Warning: </strong>

@@ -1,6 +1,6 @@
 {
     "pathwayTitle": "Use HashiCorp Vault to store Consul gossip key",
-    "icon": "fa-consul",
+    "icon": "fa-vault",
     "title": "Use HashiCorp Vault to store Consul gossip key",
     "description": "Use HashiCorp Vault to store Consul gossip key",
     "details": {
@@ -31,6 +31,16 @@
                 "title": "Configure and start Consul",
                 "code": "set-env.sh",
                 "text": "step3.md"
+            },
+            {
+                "title": "Retrieve key with consul-template",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            },
+            {
+                "title": "Rotate key with consul-template",
+                "code": "set-env.sh",
+                "text": "step5.md"
             }
         ],
     "intro": {
@@ -44,7 +54,11 @@
     },
     "assets": {
         "client": [
-          { "file": "server.hcl", "target": "./" }
+          { "file": "server.hcl", "target": "./" },
+          { "file": "gossip.key.tpl", "target": "./" },
+          { "file": "consul_template.hcl", "target": "./" },
+          { "file": "consul_template_autorotate.hcl", "target": "./" },
+          { "file": "rotate_key.sh", "target": "./" }
         ]
     }
     },
@@ -59,12 +73,12 @@
             {"name": "Vault UI", "port": 8200}
         ],
         "terminals": [
-            {"name": "server", "target": "host01"}
+            {"name": "consul-template", "target": "host01"}
         ]
     },
     "backend": {
         "port": 8080,
-        "imageid": "ubuntu"
+        "imageid": "hashicorp-hashistack"
     },
     "private": true
 }
