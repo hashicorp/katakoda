@@ -1,6 +1,7 @@
------
+<div style="background-color:#fbe5e5; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
+<p>
 Wait until the initial setup completes before start.
------
+</p></div>
 
 <br />
 
