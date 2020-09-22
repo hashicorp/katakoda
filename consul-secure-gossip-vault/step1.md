@@ -13,7 +13,18 @@ Success! Enabled the kv secrets engine at: kv-v1/
 Once the secret engine is enabled, verify it this using
 the following command:
 
-`vault secrets list -detailed`{{execute}}
+`vault secrets list`{{execute}}
+
+Example output:
+
+```
+Path          Type         Accessor              Description
+----          ----         --------              -----------
+...
+kv-v1/        kv           kv_5e0867f7           n/a
+secret/       kv           kv_b5027aee           key/value secret storage
+...
+```
 
 ### Generate Consul gossip key
 
@@ -22,7 +33,7 @@ generate the Consul gossip encryption key.
 
 There are multiple ways to generate a valid gossip encryption key.
 
-* **Method 1: Consul binary**
+#### Method 1: Consul binary
 
 The lab includes a Consul binary on the same virtual machine that
 you will use to test Consul gossip encryption. The `consul` binary
