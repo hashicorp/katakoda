@@ -16,6 +16,11 @@ The Vault data is stored in the filesystem as configured in the storage stanza (
 
 ![](./assets/file-storage.png)
 
+```
+cd vault-storage-file
+tree
+```{{execute T2}}
+
 <br>
 
 ## Step down node1
