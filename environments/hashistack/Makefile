@@ -22,6 +22,9 @@ run: build
 clean:
 	@echo "==> Restting kayakoda container..."
 	docker ps | grep $(PROJECT) && docker rm -f $(PROJECT)
+	docker kill $(PROJECT)
+	docker rm -f $(PROJECT)
+
 
 .DEFAULT_GOAL := run 
 
