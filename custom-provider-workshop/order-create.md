@@ -1,5 +1,7 @@
 Now that you have defined the `order` resource schema, you will define the `resourceOrderCreate` function.
 
+If you’re stuck, refer to the complete create function at the end of this step to see the changes implemented in this step.
+
 The create function:
 1. retrieves API Client from meta parameter
 1. maps the order `schema.Resource` to `[]hc.OrderItems{}`
@@ -11,6 +13,8 @@ In this step, you will complete the first three steps. The create function will 
 
 You will define `resourceOrderRead` in the next step.
 
+The complete 
+
 ## Retrieve API Client from meta parameter
 
 The create function uses the HashiCups API client to create a new order.
@@ -19,14 +23,14 @@ Add the following to your `resourceOrderCreate` function to retrieve the authent
 
 ```diff
 func resourceOrderCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-  c := m.(*hc.Client)
++  c := m.(*hc.Client)
 
   // Warning or errors can be collected in a slice type
-	var diags diag.Diagnostics
-
-	resourceOrderRead(ctx, d, m)
-
-	return diags
+  var diags diag.Diagnostics
+  
+  resourceOrderRead(ctx, d, m)
+  
+  return diags
 }
 ```
 
@@ -99,8 +103,8 @@ import (
 ```
 
 <details style="padding-bottom: 1em;">
-<summary>Complete `resourceOrderCreate` function</summary>
-
+<summary>Complete create function</summary>
+<br/>
 Replace the `resourceOrderCreate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will create a new HashiCups order and Terraform resource.
 
 ```

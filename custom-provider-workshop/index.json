@@ -31,6 +31,10 @@
         "text": "order-delete.md"
       },
       {
+        "title": "Build provider and start HashiCups",
+        "text": "setup-verification.md"
+      },
+      {
         "title": "Verity HashiCups provider functionality",
         "text": "verify-hashicups-order.md"
       }
