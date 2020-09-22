@@ -2,7 +2,7 @@ Now that you’ve built your Terraform provider and set up the HashiCups API, yo
 
 Navigate to the `examples` directory. This contains a sample Terraform configuration for the Terraform HashiCups provider.
 
-`cd examples`{{execute T2}}
+`cd ~/terraform-provider-hashicups/examples/`{{execute T2}}
 
 Initialize your Terraform workspace. This downloads all providers listed in the `required_providers` argument in `examples/main.tf`{{open}}.
 
@@ -68,7 +68,7 @@ The order's properties should be the same as that of your `hashicups_order.edu` 
 
 ## Update order
 
-Change your order by updating the order resource through Terraform. In your `main.tf`, update the coffee quantity in `hashicups_order.edu` block.
+Change your order by updating the order resource through Terraform. In your `examples/main.tf`{{open}}., update the coffee quantity in `hashicups_order.edu` block.
 
 Change the first coffee item from `2` to `3` and change the second coffee item from `2` to `1`.
 

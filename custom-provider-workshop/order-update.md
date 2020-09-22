@@ -1,5 +1,7 @@
 In this step, you will add update capabilities to the `order` resource.
 
+If you’re stuck, refer to the complete update function at the end of this step to see the changes implemented in this step.
+
 The update function:
 1. retrieves API Client from meta parameter
 1. retrieves order ID
@@ -26,8 +28,7 @@ Two keys difference between the update function and the create function is:
 1. the create function sets the resourceID; in most many cases, the update function **should not**
 
 ```
-if d.HasChange("items") {
-}
+if d.HasChange("items") {}
 ```
 
 If the `"items"` schema has changed, you should map the schema to a `[]hc.OrderItem{}`, a list of order items that the `UpdateOrder` function takes as an argument. Else, you should invoke the `resourceOrderRead` function to update the schema so it reflects the resource's current state.
@@ -75,7 +76,8 @@ if err != nil {
 Notice how the `UpdateOrder` response is disregarded, even though it returns the updated order information. The UpdateOrder function ends by invoking the read function, `resourceOrderRead(ctx, d, m)`. This verifies that the schema reflects the API's current state, and maps the response to the order `schema.Resource`.
 
 <details style="padding-bottom: 1em;">
-<summary>Complete `resourceOrderUpdate` function</summary>
+<summary>Complete update function</summary>
+<br/>
 Replace the `resourceOrderUpdate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will update the order resource if there are any changes to the order items.
 
 ```

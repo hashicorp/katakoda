@@ -1,10 +1,13 @@
 Schemas allow the providers to map the API response to a Terraform resource. In this step, you will define the schema for a HashiCups order.
 
+If you’re stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
+
 The [HashiCups API Client](https://github.com/hashicorp-demoapp/hashicups-client-go) defines a HashiCups order as the following.
 
 <details style="padding-bottom: 1em;" open>
 <summary>HashiCups Order Definition</summary>
-<pre>
+
+```
 // Order -
 type Order struct {
 	ID    int         `json:"id,omitempty"`
@@ -26,7 +29,7 @@ type Coffee struct {
 	Price       float64      `json:"price"`
 	Image       string       `json:"image"`
 }
-</pre>
+```
 </details>
 
 ## Define Order schema
@@ -68,19 +71,20 @@ Define the `coffee` schema inside the `item`'s `Elem` Property. The schema shoul
 
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
-```diff
+
+```
 items": &schema.Schema{
     Type:     schema.TypeList,
     Required: true,
     Elem: &schema.Resource{
-+     Schema: map[string]*schema.Schema{
-+       "coffee": &schema.Schema{
-+         Type:     schema.TypeList,
-+         MaxItems: 1,
-+         Required: true,
-+         Elem: &schema.Resource{}
-+       }
-+     }
+        Schema: map[string]*schema.Schema{
+            "coffee": &schema.Schema{
+                Type:     schema.TypeList,
+                MaxItems: 1,
+                Required: true,
+                Elem: &schema.Resource{}
+            }
+        }
     }
 }
 ```
@@ -96,45 +100,48 @@ Each property type maps to an appropriate `schema.Type`. To create a new order, 
 | name        | string  | schema.TypeString | Computed |
 | teaser      | string  | schema.TypeString | Computed |
 | description | string  | schema.TypeString | Computed |
-| price       | float64 | schema.TypeFloat  | Computed |
+| price       | float64 | schema.TypeInt    | Computed |
 | image       | string  | schema.TypeString | Computed |
+
 
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
-```diff
+
+```
 "coffee": &schema.Schema{
     Type:     schema.TypeList,
     MaxItems: 1,
     Required: true,
     Elem: &schema.Resource{
-+       Schema: map[string]*schema.Schema{
-+           "id": &schema.Schema{
-+               Type:     schema.TypeInt,
-+               Required: true,
-+           },
-+           "name": &schema.Schema{
-+               Type:     schema.TypeString,
-+               Computed: true,
-+           },
-+           "teaser": &schema.Schema{
-+               Type:     schema.TypeString,
-+               Computed: true,
-+           },
-+           "description": &schema.Schema{
-+               Type:     schema.TypeString,
-+               Computed: true,
-+           },
-+           "price": &schema.Schema{
-+               Type:     schema.TypeFloat,
-+               Computed: true,
-+           },
-+           "image": &schema.Schema{
-+               Type:     schema.TypeString,
-+               Computed: true,
-+           },
-+       },
+       Schema: map[string]*schema.Schema{
+           "id": &schema.Schema{
+               Type:     schema.TypeInt,
+               Required: true,
+           },
+           "name": &schema.Schema{
+               Type:     schema.TypeString,
+               Computed: true,
+           },
+           "teaser": &schema.Schema{
+               Type:     schema.TypeString,
+               Computed: true,
+           },
+           "description": &schema.Schema{
+               Type:     schema.TypeString,
+               Computed: true,
+           },
+           "price": &schema.Schema{
+               Type:     schema.TypeInt,
+               Computed: true,
+           },
+           "image": &schema.Schema{
+               Type:     schema.TypeString,
+               Computed: true,
+           },
+       },
     },
 },
+```
 </details>
 
 #### Define quantity schema
@@ -157,6 +164,7 @@ You have defined the HashiCups order schema. In the next step, you will use this
 
 <details style="padding-bottom: 1em;">
 <summary>Complete schema</summary>
+<br/>
 Replace the line `Schema: map[string]*schema.Schema{}`, in your resourceOrder function with the following schema. Notice how the order resource schema resembles the API client's `Order` type.
 
 ```
@@ -189,7 +197,7 @@ Schema: map[string]*schema.Schema{
                 Computed: true,
               },
               "price": &schema.Schema{
-                Type:     schema.TypeFloat,
+                Type:     schema.TypeInt,
                 Computed: true,
               },
               "image": &schema.Schema{

@@ -26,7 +26,7 @@ Navigate to `docker_compose` and initialize the application.
 
 Once you see the HashiCups logs running in the KataCoda terminal window, verify that HashiCups is running.
 
-Click on the following command to send a request to HashiCup's health check endpoint in another terminal
+Click on the following command to send a request to HashiCup's health check endpoint in another terminal.
 
 `curl localhost:19090/health`{{execute T2}} 
 
