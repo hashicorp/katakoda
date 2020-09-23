@@ -54,9 +54,6 @@ thus centralizing the access to Consul tokens.
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info: </strong>
 
-<!-- Suggestion
-I think it would be good to note in this step the relation between accessorId/secretID/token for Consul and Vault. Do they map to each other? Also we should note that the secretID for Consul is how you refer to the token on the cli/api and in files.
--->
 The way Vault and Consul refer to tokens in the command output is slightly different. The following table expresses the relations between the two outputs:
 <br/>
 
