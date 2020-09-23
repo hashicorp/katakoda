@@ -14,30 +14,37 @@ You will generate one using the previously saved output.
 
 `echo "encrypt = \""$(cat encryption.key)"\"" > gossip_encryption.hcl`{{execute}} 
 
+### Copy configuration into config folder
+
+We recommend using `/etc/consul.d` to store your Consul configuration.
+
+Copy the configuration files created into that folder:
+
+`cp server.hcl gossip_encryption.hcl /etc/consul.d/`{{execute}}
+
 ## Start Consul
 
 Next, create the data directory for Consul as configured in the `server.hcl` file.
 
-`mkdir /opt/consul`{{execute}}
+`mkdir -p /opt/consul/data`{{execute}}
+`mkdir -p /opt/consul/logs`{{execute}}
 
 Finally, start Consul.
 
 `nohup sh -c "consul agent \
-  -config-file server.hcl \
-  -config-file gossip_encryption.hcl \
-  -advertise '{{ GetInterfaceIP \"ens3\" }}' >~/log/consul.log 2>&1" > ~/log/nohup_consul.log &`{{execute}}
+  -config-dir /etc/consul.d >/opt/consul/logs/consul.log 2>&1" > /opt/consul/logs/nohup_consul.log &`{{execute}}
 
 <!--
-`consul agent \
+`nohup sh -c "consul agent \
   -config-file server.hcl \
   -config-file gossip_encryption.hcl \
-  -advertise '{{ GetInterfaceIP "ens3" }}'`{{execute}}
---> 
+  -advertise '{{ GetInterfaceIP \"ens3\" }}' /opt/consul/logs/consul.log 2>&1" > /opt/consul/logs/nohup_consul.log &`{{execute}}
+-->
 
 If the configuration was successful, you will get an
 indication in the output that gossip encryption is now enabled:
 
-`cat ./log/consul.log`{{execute}}
+`cat /opt/consul/logs/consul.log`{{execute}}
 
 ```
 ==> Starting Consul agent...
