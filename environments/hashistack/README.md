@@ -66,3 +66,46 @@ docker rm -f katacoda
 ```
 
 > All session state will be lost.
+
+# Running Automated tests
+
+The automated tests will run the [inspec](https://www.chef.io/products/chef-inspec) controls against the docker container built by `make`
+
+This will generate an HTML and Command line report on the success and failure.
+
+You can execute the tests ( which also builds the container ) using:
+
+```shell
+./spec.sh
+```
+
+```
+Profile: tests from ./controls/packer_contol.rb (tests from ..controls.packer_contol.rb)
+Version: (not specified)
+Target:  docker://0540aabbf4d6189a8466e4d40dc4eea125986db07aba06633f8246f9a73cd7ca
+
+  ✔  packer: Packer should be installed
+     ✔  System Package packer is expected to be installed
+
+
+Profile: tests from ./controls/terraform_contol.rb (tests from ..controls.terraform_contol.rb)
+Version: (not specified)
+Target:  docker://0540aabbf4d6189a8466e4d40dc4eea125986db07aba06633f8246f9a73cd7ca
+
+  ✔  terraform: Terraform should be installed
+     ✔  System Package terraform is expected to be installed
+     ✔  File /usr/local/bin/sentinel is expected to be executable
+
+
+Profile: tests from ./controls/vault_control.rb (tests from ..controls.vault_control.rb)
+Version: (not specified)
+Target:  docker://0540aabbf4d6189a8466e4d40dc4eea125986db07aba06633f8246f9a73cd7ca
+
+  ✔  vault: Vault should be installed
+     ✔  System Package vault is expected to be installed
+
+
+Profile Summary: 5 successful controls, 0 control failures, 0 controls skipped
+Test Summary: 12 successful, 0 failures, 0 skipped
+
+```
