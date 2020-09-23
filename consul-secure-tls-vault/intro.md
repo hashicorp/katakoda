@@ -2,13 +2,13 @@
 
 In this hands-on lab, you will deploy a Consul datacenter that uses Vault to generate and manage certificates to secure agent communication.
 
-The lab will guide you through the steps necessary to deploy Consul with TLS encryption enabled to secure agent-to-agent communication including RPC requests and the consensus protocol.
+This lab will guide you through the steps necessary to deploy Consul with TLS encryption enabled to secure agent-to-agent communication including RPC requests and the consensus protocol.
 
 Specifically, you will:
 
 - Start a Vault dev instance
 - Create a policy in Vault to allow certificate generation
-- Enable the PKI secret engine in Vault
+- Enable the PKI secrets engine in Vault
 - Initialize the CA and generate an intermediate certificate
 - Generate certificates for your Consul servers
 - Use consul-template to retrieve certificates at runtime

@@ -1,12 +1,12 @@
 {
-    "pathwayTitle": "Generate mTLS Certificates for Consul using Vault",
+    "pathwayTitle": "Generate Certificates with Vault's PKI Secrets Engine for Consul TLS Encryption",
     "icon": "fa-consul",
-    "title": "Generate mTLS Certificates for Consul using Vault",
-    "description": "Deploy a Consul datacenter that uses Vault to generate and manage certificates to secure agent communication",
+    "title": "Generate Certificates with Vault's PKI Secrets Engine for Consul TLS Encryption",
+    "description": "Deploy a Consul datacenter that uses Vault's PKI secrets engine to generate and manage certificates to secure agent communication",
     "details": {
         "steps": [
             {
-                "title": "Provision Lab Infrastructure",
+                "title": "Lab Infrastructure Provisioning",
                 "text": "provision.md",
                 "courseData": "provision.courseData.sh",
                 "code": "provision.code.sh",
@@ -18,7 +18,7 @@
                 "text": "step0.md"
             },
             {
-                "title": "Configure Vault as CA",
+                "title": "Configure Vault as Consul's CA",
                 "code": "set-env.sh",
                 "text": "step1.md"
             },            
