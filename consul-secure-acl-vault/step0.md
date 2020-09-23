@@ -1,4 +1,8 @@
 
+The Consul secret engine generates Consul tokens dynamically based on Consul ACL policies.
+
+## Start Vault
+
 First, create a directory to store the logging output of the Vault agent.
 
 `mkdir -p ~/log`{{execute T1}}

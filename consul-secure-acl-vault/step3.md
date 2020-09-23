@@ -11,12 +11,12 @@ Once the ACL system is initialized, you should still find some warnings in your 
 ```
 
 These warnings indicate that: 
-- the agent is trying to update its info in your Consul datacenter, but denied by the ACL system because it does not have the correct permissions.
+- the agent is trying to update its info in your Consul datacenter, but has been denied by the ACL system because it does not have the correct permissions.
 - the agent does not have an assigned token to perform the request (because `00000000-0000-0000-0000-000000000002` is the anonymous policy used when no token is presented)
 
-The first step towards a more fine grained ACL approach is to create individual tokens for the server agents, so that they can interact properly with the rest of the Consul datacenter, without assigning them an administrative token.
+The first step towards a more fine grained ACL approach is to create individual tokens for the server agents so that they can interact properly with the rest of the Consul datacenter without being assigned an administrative token.
 
-For this lab, you will create a policy that permits server agents to register themselves, using a name template of "server-<count_or_id>", and have the permissions to locate other agents and discover services.
+For this lab, you will create a policy that permits server agents to register themselves. The servers will follow the naming pattern `server-<count_or_id>`, and have the necessary permissions to locate other agents and discover services.
 
 This policy will be used by Vault when creating tokens for Consul.
 
@@ -51,4 +51,3 @@ Review [Secure Consul with Access Control Lists (ACLs)](https://learn.hashicorp.
 <!-- Follow the links in the last step to learn how. -->
 
 </p></div>
-
