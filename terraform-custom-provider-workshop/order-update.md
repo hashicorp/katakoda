@@ -1,6 +1,6 @@
 In this step, you will add update capabilities to the `order` resource.
 
-If you’re stuck, refer to the complete update function at the end of this step to see the changes implemented in this step.
+> If you’re stuck, refer to the complete update function at the end of this step to see the changes implemented in this step.
 
 The update function:
 1. retrieves API Client from meta parameter
@@ -9,19 +9,25 @@ The update function:
 1. invokes the `UpdateOrder` function on the HashiCups client
 1. maps response (hc.Order) to order schema.Resource (similar to resourceOrderRead)
 
-## Define `resourceOrderUpdate` function
+The update function is similar to the create function.
 
-The update function is similar to the create function. First, it retrieves the authenticated API client.
+## Retrieves API Client from meta parameter
+
+First, it retrieves the authenticated API client.
 
 ```
 c := m.(*hc.Client)
 ```
+
+## Retrieve order ID
 
 Then, the function retrieves the order ID. This is because the `UpdateOrder` function requires both the orderID and a list of updated order items.
 
 ```
 orderID := d.Id()
 ```
+
+## Detect if "items" schema was changed
 
 Two keys difference between the update function and the create function is:
 1. the update function checks to see if the schema has changed before proceeding; the create function does not
