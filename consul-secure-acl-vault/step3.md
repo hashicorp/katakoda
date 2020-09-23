@@ -3,7 +3,7 @@
 
 Once the ACL system is initialized, you should still find some warnings in your Consul logs:
 
-`cat ~/log/consul.log`{{execute T1}}
+`cat /opt/consul/logs/consul.log`{{execute T1}}
 
 ```
  [WARN]  agent: Node info update blocked by ACLs: node=c19d6af9-760b-a3cc-bbdd-b4f7209a79de accessorID=00000000-0000-0000-0000-000000000002

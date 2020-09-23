@@ -22,17 +22,34 @@ with the token will be allowed.
 By enabling token persistence, tokens will be persisted to disk and
 reloaded when an agent restarts.
 
+### Copy configuration into config folder
+
+We recommend using `/etc/consul.d` to store your Consul configuration.
+
+Copy the configuration files created into that folder:
+
+`cp server.hcl /etc/consul.d/`{{execute}}
+
 ### Start Consul server
 
-Once configuration is distributed on the agents, start the Consul server.
+Next, create the data directory for Consul as configured in the `server.hcl` file.
 
-`nohup sh -c "consul agent -config-file server.hcl -advertise '{{ GetInterfaceIP \"ens3\" }}' >~/log/consul.log 2>&1" > ~/log/nohup_consul.log &`{{execute T1}}
+`mkdir -p /opt/consul/data`{{execute}}
+
+`mkdir -p /opt/consul/logs`{{execute}}
+
+Finally, start Consul.
+
+`nohup sh -c "consul agent \
+  -config-dir /etc/consul.d >/opt/consul/logs/consul.log 2>&1" > /opt/consul/logs/nohup_consul.log &`{{execute}}
+
+Once configuration is distributed on the agents, start the Consul server.
 
 ### Check the server logs
 
 Verify the Consul server started correctly by checking the logs.
 
-`cat ~/log/consul.log`{{execute T1}}
+`cat /opt/consul/logs/consul.log`{{execute T1}}
 
 You should get a log message like the following when ACLs are enabled:
 

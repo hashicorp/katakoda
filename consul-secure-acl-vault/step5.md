@@ -1,6 +1,6 @@
 You can verify that the Consul server started correctly by checking the logs.
 
-`cat ~/log/consul.log`{{execute T1}}
+`cat /opt/consul/logs/consul.log`{{execute T1}}
 
 In the logs you should get some warning lines similar to the following:
 
@@ -101,7 +101,7 @@ ACL token "agent" set successfully
 
 Once the token is applied you can check once more the Consul logs and verify that the warning lines are not being logged anymore.
 
-`cat ~/log/consul.log`{{execute T1}}
+`cat /opt/consul/logs/consul.log`{{execute T1}}
 
 ```
 ...

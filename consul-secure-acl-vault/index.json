@@ -73,7 +73,7 @@
     },
     "backend": {
         "port": 8080,
-        "imageid": "ubuntu"
+        "imageid": "hashicorp-hashistack"
     },
     "private": true
 }
