@@ -1,6 +1,6 @@
 {
     "pathwayTitle": "Use HashiCorp Vault to store Consul gossip key",
-    "icon": "fa-vault",
+    "icon": "fa-consul",
     "title": "Use HashiCorp Vault to store Consul gossip key",
     "description": "Use HashiCorp Vault to store Consul gossip key",
     "details": {
