@@ -1,4 +1,4 @@
-You will need to configure an ingress gateway to use demo application.
+You will need to configure an ingress gateway to use the demo application.
 
 ### Create a config entry
 
