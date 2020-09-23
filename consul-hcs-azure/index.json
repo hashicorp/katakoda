@@ -1,0 +1,71 @@
+{
+  "title": "Deploy Production Workloads With Managed Consul and Kubernetes",
+  "description": "In this hands-on lab you will deploy a Consul service mesh on an existing Azure Kubernetes Service (AKS) cluster and connect it to an instance of a HashiCorp Consul Service (HCS) on Azure.",
+  "difficulty": "Intermediate",
+  "icon": "fa-consul",
+  "time": "20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Lab Infrastructure Provisioning",
+        "text": "provision.md",
+        "courseData": "provision.courseData.sh",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Login to Azure",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure Your Environment",
+        "text": "step2.md"
+      },
+      {
+        "title": "Configure HCS on Azure",
+        "text": "step3.md"
+      },
+      {
+        "title": "Configure and connect to Consul",
+        "text": "step4.md"
+      },
+      {
+        "title": "Deploy an App to AKS",
+        "text": "step5.md"
+      },
+      {
+        "title": "Install an Ingress Gateway",
+        "text": "step6.md"
+      },
+      {
+        "title": "Create Intentions",
+        "text": "step7.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+			"client": [
+        { "file": "frontend.yaml", "target": "./hashicups" },
+        { "file": "ingress-gateway.hcl", "target": "./" },
+        { "file": "products-api.yaml", "target": "./hashicups" },
+        { "file": "postgres.yaml", "target": "./hashicups" },
+        { "file": "public-api.yaml", "target": "./hashicups" }
+			]
+		}
+  },
+  "environment": {
+    "hideHiddenFiles": true,
+    "uilayout": "editor-terminal",
+    "uieditorpath": "/root",
+    "showdashboard": true
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  },
+  "private": true
+}
