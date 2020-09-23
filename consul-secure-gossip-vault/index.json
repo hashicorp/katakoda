@@ -1,0 +1,84 @@
+{
+    "pathwayTitle": "Use HashiCorp Vault to store Consul gossip key",
+    "icon": "fa-vault",
+    "title": "Use HashiCorp Vault to store Consul gossip key",
+    "description": "Use HashiCorp Vault to store Consul gossip key",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Start Vault",
+                "code": "set-env.sh",
+                "text": "step0.md"
+            },
+            {
+                "title": "Configure Vault secrets engine",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Retrieve gossip encryption key from Vault",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Configure and start Consul",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            },
+            {
+                "title": "Retrieve key with consul-template",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            },
+            {
+                "title": "Rotate key with consul-template",
+                "code": "set-env.sh",
+                "text": "step5.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "server.hcl", "target": "./" },
+          { "file": "gossip.key.tpl", "target": "./" },
+          { "file": "consul_template.hcl", "target": "./" },
+          { "file": "consul_template_autorotate.hcl", "target": "./" },
+          { "file": "rotate_key.sh", "target": "./" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 8500},
+            {"name": "Vault UI", "port": 8200}
+        ],
+        "terminals": [
+            {"name": "consul-template", "target": "host01"}
+        ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "hashicorp-hashistack"
+    },
+    "private": true
+}
