@@ -1,6 +1,6 @@
 Schemas allow the providers to map the API response to a Terraform resource. In this step, you will define the schema for a HashiCups order.
 
-If you’re stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
+> If you’re stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
 
 The [HashiCups API Client](https://github.com/hashicorp-demoapp/hashicups-client-go) defines a HashiCups order as the following.
 

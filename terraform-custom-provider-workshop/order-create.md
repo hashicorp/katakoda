@@ -1,6 +1,6 @@
 Now that you have defined the `order` resource schema, you will define the `resourceOrderCreate` function.
 
-If you’re stuck, refer to the complete create function at the end of this step to see the changes implemented in this step.
+> If you’re stuck, refer to the complete create function at the end of this step to see the changes implemented in this step.
 
 The create function:
 1. retrieves API Client from meta parameter
@@ -23,13 +23,19 @@ Add the following to your `resourceOrderCreate` function to retrieve the authent
 
 ```diff
 func resourceOrderCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+  // 1. Retrieve API client from meta parameter
 +  c := m.(*hc.Client)
 
   // Warning or errors can be collected in a slice type
   var diags diag.Diagnostics
-  
-  resourceOrderRead(ctx, d, m)
-  
+
+  // 2. Map the order schema.Resource to []hc.OrderItems{}
+
+	// 3. Invoke the CreateOrder function on the HashiCups client
+
+	// 4. Set order ID as resource ID
+
+	// 5. Map response (hc.Order) to order schema.Resource (done through resourceOrderRead)
   return diags
 }
 ```

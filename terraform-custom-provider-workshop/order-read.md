@@ -16,18 +16,22 @@ Notice how the function retrieves the resource ID using `d.Id()`. It uses this v
 
 ```
 func resourceOrderRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
+  // 1. Retrieve API client from meta parameter
   c := m.(*hc.Client)
 
   // Warning or errors can be collected in a slice type
   var diags diag.Diagnostics
-
+  
+  // 2. Retrieve order ID
   orderID := d.Id()
-
+  
+  // 3. Invoke the GetOrder function on the HashiCups client
   order, err := c.GetOrder(orderID)
   if err != nil {
     return diag.FromErr(err)
   }
-
+  
+  // 4. Maps response (hc.Order) to order schema.Resource through flattening functions
   orderItems := flattenOrderItems(&order.Items)
   if err := d.Set("items", orderItems); err != nil {
     return diag.FromErr(err)
@@ -74,7 +78,7 @@ func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
 
 Replace the `flattenCoffee` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This is called in the first flattening function. It takes a `hc.Coffee` and turns a slice with a single object. Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
 
-```
+<pre>
 func flattenCoffee(coffee hc.Coffee) []interface{} {
   c := make(map[string]interface{})
   c["id"] = coffee.ID
@@ -86,4 +90,4 @@ func flattenCoffee(coffee hc.Coffee) []interface{} {
 
   return []interface{}{c}
 }
-```
+</pre>
