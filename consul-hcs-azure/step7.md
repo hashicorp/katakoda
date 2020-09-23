@@ -1,5 +1,5 @@
 Next, you must enable intentions between each service
-and it's upstream starting with the ingress-gateway
+and its upstream starting with the ingress-gateway
 you configured in the last step. Issue the following
 command to add all necessary intentions.
 
