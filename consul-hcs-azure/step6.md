@@ -2,7 +2,7 @@ You will need to configure an ingress gateway to use the demo application.
 
 ### Create a config entry
 
-An ingress gateways in Consul belongs to a class of resources called
+An ingress gateway in Consul belongs to a class of resources called
 config entries. Open `ingress-gateway.hcl`{{open}} to review
 a baseline ingress gateway config entry. Specifically, note
 that the ingress gateway is configured to expose port `8080` to external
