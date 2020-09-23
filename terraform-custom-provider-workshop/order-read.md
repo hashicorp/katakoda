@@ -78,7 +78,7 @@ func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
 
 Replace the `flattenCoffee` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This is called in the first flattening function. It takes a `hc.Coffee` and turns a slice with a single object. Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
 
-<pre>
+```
 func flattenCoffee(coffee hc.Coffee) []interface{} {
   c := make(map[string]interface{})
   c["id"] = coffee.ID
@@ -90,4 +90,6 @@ func flattenCoffee(coffee hc.Coffee) []interface{} {
 
   return []interface{}{c}
 }
-</pre>
+```
+
+Now that you've implemented both flattening functions, you have implemented read to retrieve the resource current state.

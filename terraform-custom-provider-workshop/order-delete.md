@@ -14,7 +14,7 @@ The destroy function should never update any state on the resource. In addition,
 
 Replace the `resourceOrderDelete` function in `hashicups/resource_order.go`{{open}} with the code snippet below. This function will delete the HashiCups order and Terraform resource.
 
-<pre>
+```
 func resourceOrderDelete(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   c := m.(*hc.Client)
 
@@ -30,4 +30,6 @@ func resourceOrderDelete(ctx context.Context, d *schema.ResourceData, m interfac
 
   return diags
 }
-</pre>
+```
+
+You have added delete capabilities to the order resource.
