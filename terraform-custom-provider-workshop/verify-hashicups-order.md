@@ -4,13 +4,13 @@ Navigate to the `examples` directory. This contains a sample Terraform configura
 
 `cd ~/terraform-provider-hashicups/examples/`{{execute T2}}
 
-Initialize your Terraform workspace. This downloads all providers listed in the `required_providers` argument in `examples/main.tf`{{open}}.
+Initialize your Terraform workspace. This downloads all providers listed in the `required_providers` argument in `examples/terraform.tf`{{open}}.
 
 `terraform init`{{execute T2}}
 
 ### Create order
 
-Now that you have initialized your Terraform workspace, create an order using the provider. The `main.tf` file should already contain an example configuration to create a new order.
+Now that you have initialized your Terraform workspace, create an order using the provider. The `order.tf` file should already contain an example configuration to create a new order.
 
 `terraform apply`{{execute T2}}
 
@@ -68,7 +68,7 @@ The order's properties should be the same as that of your `hashicups_order.edu` 
 
 ## Update order
 
-Change your order by updating the order resource through Terraform. In your `examples/main.tf`{{open}}., update the coffee quantity in `hashicups_order.edu` block.
+Change your order by updating the order resource through Terraform. In your `examples/order.tf`{{open}}., update the coffee quantity in `hashicups_order.edu` block.
 
 Change the first coffee item from `2` to `3` and change the second coffee item from `2` to `1`.
 
