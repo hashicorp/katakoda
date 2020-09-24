@@ -1,0 +1,13 @@
+{
+  "title": "Terraform Custom Provider Workshop",
+  "description": "In this workshop, modify an existing Terraform provider to add CRUD functionality to a new resource.",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Custom Terraform Provider Workshop",
+      "id": "terraform-custom-provider-workshop",
+      "course_id": "terraform-custom-provider-workshop",
+      "description": "In this workshop, modify an existing Terraform provider to add CRUD functionality to a new resource."
+    }
+  ]
+}
