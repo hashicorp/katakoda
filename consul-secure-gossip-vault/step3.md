@@ -12,7 +12,7 @@ encrypt = "<insert gossip encryption here>"
 
 You will generate one using the previously saved output.
 
-`echo "encrypt = \""$(cat encryption.key)"\"" > gossip_encryption.hcl`{{execute}} 
+`echo "encrypt = \""$(cat encryption.key)"\"" > gossip_encryption.hcl`{{execute}}
 
 ### Copy configuration into config folder
 
@@ -20,14 +20,20 @@ We recommend using `/etc/consul.d` to store your Consul configuration.
 
 Copy the configuration files created into that folder:
 
-`cp server.hcl gossip_encryption.hcl /etc/consul.d/`{{execute}}
+```
+mkdir -p /etc/consul.d
+cp server.hcl gossip_encryption.hcl /etc/consul.d/
+```{{execute}}
+
 
 ## Start Consul
 
 Next, create the data directory for Consul as configured in the `server.hcl` file.
 
-`mkdir -p /opt/consul/data`{{execute}}
-`mkdir -p /opt/consul/logs`{{execute}}
+```
+mkdir -p /opt/consul/data
+mkdir -p /opt/consul/logs
+```{{execute}}
 
 Finally, start Consul.
 

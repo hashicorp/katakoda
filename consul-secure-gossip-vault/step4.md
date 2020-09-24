@@ -51,7 +51,7 @@ Example output:
 Success! Data written to: kv-v1/consul/config/encryption
 ```
 
-This will update the file: 
+This will update the file:
 
 `cat /opt/consul/gossip/gossip.key`{{execute T1}}
 
@@ -60,5 +60,7 @@ Example output:
 ```
 zHzhJvDyKMn+QJVNHDEhJYKUhnMu9pQw/4lQ82izTxc=
 ```
+
+If the key is not updated, wait for a few seconds and then read the `gossip.key` file again.
 
 In the next step you will learn how to automate the gossip key rotation for your Consul datacenter.
