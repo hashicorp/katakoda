@@ -57,7 +57,7 @@ Now, access the Consul UI.
 Copy the link in the output to access the **Consul UI** in a new
 browser tab.
 
-Next, retrieve a the bootstrap token.
+Next, retrieve the bootstrap token.
 
 `echo $CONSUL_HTTP_TOKEN`{{execute T1}}
 
