@@ -8,8 +8,6 @@ This may take a few minutes.
 
 ```plaintext
 - Installing Prerequisites
-- Installing Consul 1.8.2
-- Installing Azure CLI
 - Installing kubectl
 - Installing Helm 3
 - Downloading Helm Repositories
