@@ -64,8 +64,8 @@ Alternatively, you can visit the [Consul UI](https://[[HOST_SUBDOMAIN]]-8500-[[K
 
 First, configure your environment to be able to interact with the Consul agent.
 
-In this hands-on lab, the Docker container is forwarding port `8500` to the local
-machine. You should be able to interact with it without having to be inside the container.
+In this hands-on lab, the Consul process is listening to port `8500` of the local
+machine. You should be able to interact with it using `localhost` address.
 
 `export CONSUL_HTTP_ADDR=localhost:8500`{{execute T1}}
 

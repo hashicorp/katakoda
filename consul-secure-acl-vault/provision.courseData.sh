@@ -10,64 +10,83 @@ finish() {
   log "Complete!  Move on to the next step."
 }
 
-# log "Install prerequisites"
-# # apt-get install -y apt-utils > /dev/null
-# apt-get install -y unzip curl jq > /dev/null
+fix_journal() {
+  log "Fixing Journal"
+  if [ ! -f "/etc/machine-id" ]
+  then
+    systemd-machine-id-setup > /dev/null 2>&1
+    systemd-tmpfiles --create --prefix /var/log/journal
+    systemctl start systemd-journald.service
+  fi
+}
 
-# log Install Consul locally
+# Download and install a binary.
+#
+# Arguments:
+#     - Name of binary ("consul")
+#     - URL of zipfile ("https://example.com/consul.zip")
+#
+# Usage:
+#   install_from_zip "consul" "https://example.com/consul.zip"
+install_from_zip()
+{
+    NAME="$1"
+    DOWNLOAD_URL="$2"
 
-# # Retrieves lates version from checkpoint
-# # Substitute this with APP_VERSION=x.y.z to configure a specific version.
-# APP_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/consul | jq .current_version | tr -d '"')
+    mkdir -p /tmp
 
-# log Installing Consul ${APP_VERSION}
+    curl -L -o /tmp/$NAME.zip $DOWNLOAD_URL
+    sudo unzip -d /usr/local/bin/ /tmp/$NAME.zip
+    sudo chmod +x /usr/local/bin/$NAME
+    rm /tmp/$NAME.zip
+}
 
-# curl -s https://releases.hashicorp.com/consul/${APP_VERSION}/consul_${APP_VERSION}_linux_amd64.zip -o consul_${APP_VERSION}_linux_amd64.zip
+install_from_apt() {
+    curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+    set +v
+    CLI_REPO=$(lsb_release -cs)
+    sudo echo "deb [arch=amd64] https://apt.releases.hashicorp.com ${CLI_REPO} main" \
+        > /etc/apt/sources.list.d/hashicorp.list
+    sudo apt-get update
+    sudo apt-get install -y terraform=0.13.3 vault=1.5.2 consul=1.8.4 nomad=0.12.4 packer=1.6.2
+}
 
-# unzip consul_${APP_VERSION}_linux_amd64.zip > /dev/null
-# chmod +x consul
-# mv consul /usr/local/bin/consul
+install_consul_service_binaries() {
+    # Used by some Consul tutorials
+    curl -sL https://github.com/hashicorp/katakoda/raw/master/consul-connect/assets/bin/counting-service -o /usr/local/bin/counting-service
+    curl -sL https://github.com/hashicorp/katakoda/raw/master/consul-connect/assets/bin/dashboard-service -o /usr/local/bin/dashboard-service
+    chmod +x /usr/local/bin/*-service
+}
 
-# rm -rf consul_${APP_VERSION}_linux_amd64.zip > /dev/null
+# Create a user account, usually for a service that needs to run
+# a binary as that user, such as consul.
+#
+# Usage:
+#   create_user_account_for "consul"
+create_user_account_for() {
+    NAME="$1"
 
-# APP_VERSION="0.25.1"
+    useradd $NAME --create-home
+    mkdir -p /etc/$NAME.d
+    mkdir -p /home/$NAME/log
+    chown -R $NAME /home/$NAME
+}
 
+fix_journal
 
-# log Installing consul-template ${APP_VERSION}
-# # https://releases.hashicorp.com/consul-template/0.25.1/consul-template_0.25.1_linux_amd64.zip
+log "Install prerequisites"
 
-# curl -s https://releases.hashicorp.com/consul-template/${APP_VERSION}/consul-template_${APP_VERSION}_linux_amd64.zip -o consul-template_${APP_VERSION}_linux_amd64.zip
+# install_from_apt
 
-# unzip consul-template_${APP_VERSION}_linux_amd64.zip > /dev/null
-# chmod +x consul-template
-# mv consul-template /usr/local/bin/consul-template
+# install_from_zip "consul-template" "https://releases.hashicorp.com/consul-template/0.25.0/consul-template_0.25.0_linux_amd64.zip"
+# install_from_zip "envconsul" "https://releases.hashicorp.com/envconsul/0.9.3/envconsul_0.9.3_linux_amd64.zip"
+# install_from_zip "sentinel" "https://releases.hashicorp.com/sentinel/0.15.5/sentinel_0.15.5_linux_amd64.zip"
 
-# rm -rf consul_${APP_VERSION}_linux_amd64.zip > /dev/null
+# install_consul_service_binaries
+# create_user_account_for "consul"
 
-# log Installing Vault locally
-
-# # Retrieves lates version from checkpoint
-# # Substitute this with APP_VERSION=x.y.z to configure a specific version.
-# APP_VERSION=$(curl -s https://releases.hashicorp.com/vault/index.json | jq -r '.versions | to_entries[] | .value.version' | sort -r --version-sort | grep -E "[0-9]+\.[0-9]+\.[0-9]+(\.[0-9]+)*$" | head -1)
-
-# log Installing Vault ${APP_VERSION}
-
-# curl -sLf https://releases.hashicorp.com/vault/${APP_VERSION}/vault_${APP_VERSION}_linux_amd64.zip -o vault_${APP_VERSION}_linux_amd64.zip
-
-# unzip vault_${APP_VERSION}_linux_amd64.zip > /dev/null
-# chmod +x vault
-# mv vault /usr/local/bin/vault
-
-# rm -rf vault_${APP_VERSION}_linux_amd64.zip > /dev/null
-
-# # log Pulling Docker image for Consul ${APP_VERSION}
-# # docker pull consul:${APP_VERSION} > /dev/null
-
-# # log Creating Docker volumes
-# # docker volume create server_config > /dev/null
-# # docker volume create client_config > /dev/null
-# # docker container create --name volumes -v server_config:/server -v client_config:/client alpine > /dev/null
-
+# # Azure CLI
+# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
 finish
 

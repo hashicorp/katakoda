@@ -22,7 +22,7 @@ Export the management token as an environment variable:
 
 `export CONSUL_MGMT_TOKEN=$(cat consul.management  | grep SecretID  | awk '{print $2}')`{{execute T1}}
 
-Once you have the Consul secret engine enabled,
+Once you have the Consul secrets engine enabled,
 configure access with Consul's address and management token:
 
 `vault write consul/config/access \

@@ -6,11 +6,7 @@ next step.
 
 ```screenshot
  - Install prerequisites
- - Install Consul locally
- - Installing Consul x.y.z
- - Installing consul-template x.y.z
- - Installing Vault locally
- - Installing Vault x.y.z
+ - Fixing Journal
 ```
 
 and concluding with
