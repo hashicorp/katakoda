@@ -26,24 +26,8 @@
         "text": "step4.md"
       },
       {
-        "title": "Challenge #1 - Create an FPE Transformation",
-        "text": "challenge-1.md"
-      },
-      {
-        "title": "Challenge Sample Solution",
-        "text": "challenge-1-sol.md"
-      },
-      {
         "title": "Data masking",
         "text": "step5.md"
-      },
-      {
-        "title": "Challenge #2 - Mask Swiss Telephone Numbers",
-        "text": "challenge-2.md"
-      },
-      {
-        "title": "Challenge Sample Solution",
-        "text": "challenge-2-sol.md"
       },
       {
         "title": "Batch input processing",

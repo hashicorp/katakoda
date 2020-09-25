@@ -3,8 +3,6 @@
 
 <br />
 
-Let's begin!  First, login with root token.
-
 First, login with root token.
 
 > Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
@@ -64,7 +62,7 @@ vault write transform/transformation/card-number type=fpe \
 
 | Source      | Description                                               |
 |-------------|-----------------------------------------------------------|
-| supplied (default)   | User provide the tweak source which must be a base64-encoded string |
+| supplied (default)   | User provides the tweak source as a base64-encoded string |
 | generated   | Vault generates and returns the tweak source along with the encoded data. The user must securely store the tweak source which will be needed to decrypt the data |
 | internal    | Vault generates a tweak source for the transformation and the same tweak source will be used for every request |
 
