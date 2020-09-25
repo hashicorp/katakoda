@@ -80,5 +80,5 @@
         "port": 8080,
         "imageid": "hashicorp-hashistack"
     },
-    "private": true
+    "private": false
 }

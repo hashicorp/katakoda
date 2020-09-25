@@ -3,6 +3,8 @@
 In this hands-on lab, you enable gossip encryption
 in Consul using Vault to store and retrieve the encryption key.
 
+![KV secrets Engine](./assets/consul-vault-gossip.png)
+
 Specifically, you will:
 
 - Start a Vault dev instance

@@ -3,7 +3,7 @@
 In this hands-on lab, you will deploy a secure Consul
 datacenter using Vault to generate and manage ACL tokens.
 
-![Consul Secrets Engine](./assets/consul.vault.acl.png)
+![Consul Secrets Engine](./assets/consul-vault-acl.png)
 
 The lab will guide you through the steps necessary to deploy Consul
 with ACLs enabled to secure access to the cluster data and define agents' permissions.

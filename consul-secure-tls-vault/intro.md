@@ -4,6 +4,8 @@ In this hands-on lab, you will deploy a Consul datacenter that uses Vault to gen
 
 This lab will guide you through the steps necessary to deploy Consul with TLS encryption enabled to secure agent-to-agent communication including RPC requests and the consensus protocol.
 
+![PKI Secrets Engine](./assets/consul-vault-tls.png)
+
 Specifically, you will:
 
 - Start a Vault dev instance
