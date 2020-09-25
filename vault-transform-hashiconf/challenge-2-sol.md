@@ -20,6 +20,12 @@ vault write transform/template/swiss-phone-tmpl type=regex \
 
 ## Test
 
+Add the transformations to the `payments` role.
+
+```
+vault write transform/role/payments transformations=card-number,card-count,swiss-phone
+```{{execute T1}}
+
 Test the transformation with some dummy phone number.
 
 ```

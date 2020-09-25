@@ -23,7 +23,7 @@ Because `\d{13,15}` is inside the parentheses but `\d{2}` is _NOT_, only the las
 
 ## Test
 
-Add the transformations to the `payment` role.
+Add the transformations to the `payments` role.
 
 ```
 vault write transform/role/payments transformations=card-number,card-count
