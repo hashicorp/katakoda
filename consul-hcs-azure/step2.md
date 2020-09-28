@@ -6,7 +6,7 @@ Group.
 
 Click below to establish VNet peering.
 
-`./peering.sh`{{execute T1}}
+`bash peering.sh`{{execute T1}}
 
 ### Configure access to AKS
 
