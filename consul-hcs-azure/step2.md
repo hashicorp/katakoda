@@ -1,46 +1,14 @@
-### Setup the HCS on Azure CLI extension
+### Enable Peering
 
-First, set an environment variable for the `username` your
-instructor provided you and set an environment variable to the name of your resource group.
+You will need to enable VNet Peering between the VNet in the
+primary Resource Group and the VNet in the HCS Managed Resource
+Group.
 
-Copy the following command to your clipboard,
-then paste it into the console, and then **change the username**.
+Click below to establish VNet peering.
 
-`export USERNAME=username`{{copy}}
-
-Set the environment variable.
-
-`export RESOURCE_GROUP=dwcc-$USERNAME-rg && echo $RESOURCE_GROUP`{{execute T1}}
-
-Example output:
-
-```plaintext
-dwcc-username-rg
-```
-
-Now, review all the resources in your environment.
-
-`az resource list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name'`{{execute T1}}
-
-Example output:
-
-```plaintext
-dwcc-username--aks
-dwcc-username-vnet
-dwcc-username-managed-hcs
-```
+`./peering.sh`{{execute T1}}
 
 ### Configure access to AKS
-
-Next, set an environment variable to the name of your AKS cluster.
-
-`export AKS_CLUSTER=$(az aks list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name') && echo $AKS_CLUSTER`{{execute T1}}
-
-Example output:
-
-```plaintext
-dwcc-username-aks
-```
 
 Next, export the Azure AKS KUBECONFIG settings to the development host.
 
@@ -65,16 +33,4 @@ coredns-autoscaler-5b867494f-5hphv   1/1     Running   0          16h
 kube-proxy-8csmn                     1/1     Running   0          16h
 metrics-server-6cd7558856-fzvz2      1/1     Running   0          16h
 tunnelfront-76454d856b-hpcwb         2/2     Running   0          16h
-```
-
-### Configure accss to HCS on Azure
-
-Next, set an environment variable to the name of your HCS managed app.
-
-`export HCS_MANAGED_APP=$(az hcs list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name') && echo $HCS_MANAGED_APP`{{execute T1}}
-
-Example output:
-
-```plaintext
-dwcc-username-managed-hcs
 ```

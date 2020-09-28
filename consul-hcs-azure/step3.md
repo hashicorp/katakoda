@@ -1,4 +1,4 @@
-### Create the Kubernetes Secrets 
+### Create the Kubernetes Secrets
 
 Next, configure the necessary secrets to enable communication
 between the HCS cluster and the AKS cluster.
@@ -35,4 +35,3 @@ Now, open `config.yaml`{{open}} and review it's contents.
 Click below to uncomment line 29 so that gossip ports are exposed.
 
 `sed -i -e 's/^  # \(exposeGossipPorts\)/  \1/' config.yaml`{{execute T1}}
-

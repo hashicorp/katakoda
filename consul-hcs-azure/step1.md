@@ -1,34 +1,3 @@
-### Log into the Azure CLI
-
-First, you need to login to the Azure CLI using the login
-command provided by your instructor. The command will be similar
-to this example.
-
-```plaintext
-az login \
-  --service-principal
-  --username <appId> \
-  --password hashiconf \
-  --tenant <tenant>
-```
-
-You will receive output like the following.
-
-```plaintext
-[
-  {
-    "cloudName": "AzureCloud",
-    "homeTenantId": REDACTED,
-    "id": REDACTED,
-    "isDefault": true,
-    "managedByTenants": [
-      {
-        "tenantId": REDACTED
-      }
-    ],
-TRUNCATED
-```
-
 ### Install the HCS on Azure extension
 
 Click below to install the HCS on Azure extension for the Azure CLI.
@@ -39,3 +8,53 @@ This extension is required to manage HCS on Azure from the command line.
 Click below to when prompted to confirm installation.
 
 `y`{{execute T1}}
+
+### Personalize Your Environment
+
+Now, open `personalize.sh`{{open}}, and **set your username and login secret**
+on lines 1 and 2. Your personalized lab environment has been
+pre-provisioned with a Resource Group, an HCS Datacenter, an
+AKS Cluster, and a VNet. This script will login you into your
+personal Azure sandbox, and set several environment variables
+that enable parameterized scripts later in the lab to ensure you are
+interracting with your own sandboxed environment.
+
+Click below to run script.
+
+`sudo bash personalize.sh`{{execute T1}}
+
+Example Output:
+
+```shell-session
+export RESOURCE_GROUP=dwcc-username-rg
+[
+  {
+    "cloudName": "AzureCloud",
+...TRUNCATED
+]
+Command group 'hcs' is in preview. It may be changed/removed in a future release.
+export AKS_CLUSTER=dwcc-username-aks
+export HCS_MANAGED_APP=dwcc-username-managed-hcs
+```
+
+### Validate Environment
+
+Now, review your `.bashrc`{{open}} file to see
+the values set by that script.
+
+Source the updated `.bashrc` and make sure the
+environment variables are available to your shell.
+
+`source $HOME/.bashrc`{{execute T1}}
+
+Now, review all the resources in your environment.
+
+`az resource list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name'`{{execute T1}}
+
+Example output:
+
+```shell-session
+dwcc-username--aks
+dwcc-username-vnet
+dwcc-username-managed-hcs
+```
