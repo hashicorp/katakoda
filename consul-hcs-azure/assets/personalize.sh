@@ -1,5 +1,5 @@
 export UNAME=derek-s
-export SECRET=58d083d6-0f6a-4e67-a0cf-8e63fa05df2c
+export SECRET=<your-secret>
 export RESOURCE_GROUP=dwcc-$UNAME-rg
 
 sudo tee -a $HOME/.bashrc <<EOF
