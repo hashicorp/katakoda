@@ -1,33 +1,4 @@
-Now, setup virtual network peering between the HCS Datacenter's
-vnet and the AKS Cluster's vnet.
-
-### Configure peering from HCS on Azure to AKS
-
-First, create a peering from the HCS Datacenter's vnet to the AKS Cluster's vnet.
-
-`az network vnet peering create \
-  -g dwcc-$USERNAME-hcs-managed-rg \
-  -n hcs-to-aks \
-  --vnet-name $(az network vnet list \
-    --resource-group dwcc-$USERNAME-hcs-managed-rg | jq -r '.[0].name') \
-  --remote-vnet $(az network vnet list \
-    --resource-group dwcc-$USERNAME-rg | jq -r '.[0].id') \
-  --allow-vnet-access`{{execute T1}}
-
-### Configure peering from AKS to HCS on Azure
-
-Next, create a peering from the AKS Cluster's vnet to the HCS Datacenter's vnet.
-
-`az network vnet peering create \
-  -g dwcc-$USERNAME-rg \
-  -n aks-to-hcs \
-  --vnet-name $(az network vnet list \
-    --resource-group dwcc-$USERNAME-rg | jq -r '.[0].name') \
-  --remote-vnet $(az network vnet list \
-    --resource-group dwcc-$USERNAME-hcs-managed-rg | jq -r '.[0].id') \
-  --allow-vnet-access`{{execute T1}}
-
-### Deploy Consul clients 
+### Deploy Consul clients
 
 Now, deploy Consul to the the AKS cluster using the `config.yaml` file you generated.
 
