@@ -1,12 +1,12 @@
 The **Role ID** and **Secret ID** are like a username and password that a machine or app uses to authenticate.
 
-Now, you need to fetch the Role ID and Secret ID of a role. To read the role ID:
+Command to generate the role ID for a role:
 
 ```
 vault read auth/approle/role/<ROLE_NAME>/role-id
 ```
 
-Execute the following command to read the Role ID for `jenkins` and store the returned value in a file named, `role_id.txt`:
+Execute the following command to get the Role ID for `jenkins` and store the returned value in a file named, `role_id.txt`:
 
 ```
 vault read -format=json auth/approle/role/jenkins/role-id \
@@ -23,13 +23,13 @@ vault read auth/approle/role/jenkins/role-id
 more role_id.txt
 ```{{execute T1}}
 
-Next, to read the secret ID:
+Command to generate the secret ID for a role:
 
 ```
-vault read auth/approle/role/<ROLE_NAME>/secret-id
+vault write auth/approle/role/<ROLE_NAME>/secret-id
 ```
 
-To generate the secret ID for `jenkins` role and store the returned value in a file (`secret_id.txt`), execute the following command:
+Generate the secret ID for `jenkins` role and store the returned value in a file (`secret_id.txt`).
 
 ```
 vault write -f -format=json auth/approle/role/jenkins/secret-id \
