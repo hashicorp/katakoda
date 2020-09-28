@@ -1,4 +1,4 @@
-export UNAME=derek-s
+export UNAME=<your-user-name>
 export SECRET=<your-secret>
 export RESOURCE_GROUP=dwcc-$UNAME-rg
 
