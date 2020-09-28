@@ -19,7 +19,7 @@ personal Azure sandbox, and set several environment variables
 that enable parameterized scripts later in the lab to ensure you are
 interracting with your own sandboxed environment.
 
-Click below to run script.
+Click below to run the script.
 
 `sudo bash personalize.sh`{{execute T1}}
 
