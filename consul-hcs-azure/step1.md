@@ -21,7 +21,7 @@ interracting with your own sandboxed environment.
 
 Click below to run the script.
 
-`sudo bash personalize.sh`{{execute T1}}
+`sudo ./personalize.sh`{{execute T1}}
 
 Example Output:
 
