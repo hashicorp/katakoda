@@ -6,7 +6,7 @@ sudo tee -a $HOME/.bashrc <<EOF
 export RESOURCE_GROUP=$RESOURCE_GROUP
 EOF
 
-az login --service-principal --username $SECRET --password hashiconf --tenant 0e3e2e88-8caf-41ca-b4da-e3b33b6c52ec
+az login --service-principal --username $SECRET --password hashiconf --tenant <tenant_id>
 
 export AKS_CLUSTER=$(az aks list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name')
 export HCS_MANAGED_APP=$(az hcs list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name')
