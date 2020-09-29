@@ -1,36 +1,43 @@
-### Enable Peering
+### Configure the Consul CLI
 
-Enable VNet Peering between HCS and the AKS Cluster.
+Now, configure your development host so that you
+can issue commands with the Consul CLI. The following environment
+variables need to get to set so that your your development host
+can interact with Consul.
 
-`./peering.sh`{{execute T1}}
+- `CONSUL_HTTP_ADDR`
+- `CONSUL_HTTP_TOKEN`
+- `CONSUL_SSL_VERIFY`
 
-Now, your environment looks like this.
+For specifics, review `consul.sh`{{open}}.
 
-![VNet Peering](./assets/vnet_peering.png)
+`./consul.sh`{{execute T1}}
 
-### Configure access to AKS
+### Access Consul
 
-Export the Azure AKS KUBECONFIG settings to the development host.
+Now, verify that your development host is configured correctly
+to interact with your HCS Managed App.
 
-`az aks get-credentials --name $AKS_CLUSTER --resource-group $RESOURCE_GROUP`{{execute T1}}
+`consul members`{{execute T1}}
 
 Example output:
 
 ```plaintext
-Merged "dwcc-username-aks" as current context in /root/.kube/config
+Node                                               Address        Status  Type    Build      Protocol  DC       Segment
+11eaebe7-28cc-d041-894b-0242ac110006-vmss-1000000  10.0.0.4:8301  left    server  1.8.0+ent  2         westus2  <all>
 ```
 
-Verify the configuration by issuing the following command.
+### Access to the Consul UI
 
-`kubectl get pods -n kube-system`{{execute T1}}
+Now, access the Consul UI.
 
-```plaintext
-azure-cni-networkmonitor-8h9h8       1/1     Running   0          16h
-azure-ip-masq-agent-xjkhf            1/1     Running   0          16h
-coredns-869cb84759-4hwpj             1/1     Running   0          16h
-coredns-869cb84759-l8f7t             1/1     Running   0          16h
-coredns-autoscaler-5b867494f-5hphv   1/1     Running   0          16h
-kube-proxy-8csmn                     1/1     Running   0          16h
-metrics-server-6cd7558856-fzvz2      1/1     Running   0          16h
-tunnelfront-76454d856b-hpcwb         2/2     Running   0          16h
-```
+`echo $CONSUL_HTTP_ADDR`{{execute T1}}
+
+Copy the link in the output to access the **Consul UI** in a new
+browser tab.
+
+Next, retrieve the bootstrap token.
+
+`echo $CONSUL_HTTP_TOKEN`{{execute T1}}
+
+Copy that token, and use it to login to the Consul UI.

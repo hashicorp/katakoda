@@ -1,43 +1,34 @@
-### Configure the Consul CLI
+### Deploy Consul clients
 
-Now, configure your development host so that you
-can issue commands with the Consul CLI. The following environment
-variables need to get to set so that your your development host
-can interact with Consul.
+Now, deploy Consul to the the AKS cluster using the `config.yaml` file you generated.
 
-- `CONSUL_HTTP_ADDR`
-- `CONSUL_HTTP_TOKEN`
-- `CONSUL_SSL_VERIFY`
+`helm install hcs hashicorp/consul -f config.yaml --wait`{{execute T1}}
 
-For specifics, review `consul.sh`{{open}}.
-
-`./consul.sh`{{execute T1}}
-
-### Access Consul
-
-Now, verify that your development host is configured correctly
-to interact with your HCS Managed App.
-
-`consul members`{{execute T1}}
-
-Example output:
+Abbreviated example output:
 
 ```plaintext
-Node                                               Address        Status  Type    Build      Protocol  DC       Segment
-11eaebe7-28cc-d041-894b-0242ac110006-vmss-1000000  10.0.0.4:8301  left    server  1.8.0+ent  2         westus2  <all>
+NAME: hcs
+LAST DEPLOYED: Tue Sep  1 13:31:29 2020
+NAMESPACE: default
+...OMITTED
+  $ helm status hcs
+  $ helm get all hcs
 ```
 
-### Access to the Consul UI
+Next, check that Consul is deployed and running.
 
-Now, access the Consul UI.
+`watch kubectl get pods`{{execute T1}}
 
-`echo $CONSUL_HTTP_ADDR`{{execute T1}}
+The deployment is complete when all pods are Ready with a
+status of `Running`.
 
-Copy the link in the output to access the **Consul UI** in a new
-browser tab.
+```plaintext
+NAME                                         READY   STATUS    RESTARTS   AGE
+consul-5nmmx                                 1/1     Running   0          2m3s
+consul-connect-injector-webhook-deployment   1/1     Running   0          2m3s
+```
 
-Next, retrieve the bootstrap token.
+Now that your clients have been deployed, your environment looks
+like this:
 
-`echo $CONSUL_HTTP_TOKEN`{{execute T1}}
-
-Copy that token, and use it to login to the Consul UI.
+![Consul Clients](./assets/consul_clients.png)
