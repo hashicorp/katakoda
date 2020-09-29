@@ -22,7 +22,7 @@ personal Azure sandbox, and set environment variables
 required to ensure you are interracting with your own
 sandboxed environment.
 
-`bash personalize`{{execute T1}}
+`bash personalize.sh`{{execute T1}}
 
 Example Output:
 
