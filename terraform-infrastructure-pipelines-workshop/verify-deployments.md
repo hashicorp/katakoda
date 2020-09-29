@@ -16,7 +16,7 @@ First, login to Terraform Cloud using the CLI.
 The command output will ask you if you want to confirm that you want to generate
 a token and store it. Confirm when it prompts you.
 
-`y`{{execute}} 
+`yes`{{execute}}
 
 Terraform will prompt you to visit a [link to Terraform
 Cloud](https://app.terraform.io/app/settings/tokens?source=terraform-login) in
