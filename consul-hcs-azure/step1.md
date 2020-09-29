@@ -14,7 +14,12 @@ Click below to when prompted to confirm installation.
 Now, open `personalize.sh`{{open}}, and **set your username and login secret**
 on lines 1 and 2. Your personalized lab environment has been
 pre-provisioned with a Resource Group, an HCS Datacenter, an
-AKS Cluster, and a VNet. This script will login you into your
+AKS Cluster, and a VNet. The following diagram illustrates
+the starting state of your environment
+
+![Personal Sandbox](./assets/starting_point.png)
+
+The following script will login you into your
 personal Azure sandbox, and set several environment variables
 that enable parameterized scripts later in the lab to ensure you are
 interracting with your own sandboxed environment.

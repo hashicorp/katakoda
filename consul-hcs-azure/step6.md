@@ -31,7 +31,7 @@ ingressGateways:
 EOF
 ```{{execute T1}}
 
-Note, the configuration will auto-save. 
+Note, the configuration will auto-save.
 
 Now, use `helm upgrade` to apply the updated `config.yaml` file.
 
@@ -47,3 +47,7 @@ NAMESPACE: default
   $ helm status hcs
   $ helm get all hcs
 ```
+
+Now, your environment looks like this:
+
+![Ingress Gateway](./assets/ingress_gateway.png)
