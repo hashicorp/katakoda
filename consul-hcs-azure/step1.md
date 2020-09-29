@@ -12,19 +12,15 @@ Click below to when prompted to confirm installation.
 ### Personalize Your Environment
 
 Now, open `personalize.sh`{{open}}, and **set your username and login secret**
-on lines 1 and 2. Your personalized lab environment has been
-pre-provisioned with a Resource Group, an HCS Datacenter, an
-AKS Cluster, and a VNet. The following diagram illustrates
+on lines 1 and 2. The following diagram illustrates
 the starting state of your environment
 
 ![Personal Sandbox](./assets/starting_point.png)
 
-The following script will login you into your
-personal Azure sandbox, and set several environment variables
-that enable parameterized scripts later in the lab to ensure you are
-interracting with your own sandboxed environment.
-
-Click below to run the script.
+The script will login you into your
+personal Azure sandbox, and set environment variables
+required to ensure you are interracting with your own
+sandboxed environment.
 
 `sudo ./personalize.sh`{{execute T1}}
 
@@ -44,15 +40,11 @@ export HCS_MANAGED_APP=dwcc-username-managed-hcs
 
 ### Validate Environment
 
-Now, review your `.bashrc`{{open}} file to see
-the values set by that script.
-
-Source the updated `.bashrc` and make sure the
-environment variables are available to your shell.
+Source the updated `.bashrc`.
 
 `source $HOME/.bashrc`{{execute T1}}
 
-Now, review all the resources in your environment.
+Review all the resources in your environment.
 
 `az resource list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name'`{{execute T1}}
 

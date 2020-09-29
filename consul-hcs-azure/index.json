@@ -55,6 +55,15 @@
         { "file": "products-api.yaml", "target": "./hashicups" },
         { "file": "postgres.yaml", "target": "./hashicups" },
         { "file": "public-api.yaml", "target": "./hashicups" }
+        { "file": "personalize.sh", "target": "./" },
+        { "file": "consul.sh", "target": "./" },
+        { "file": "peering.sh", "target": "./" },
+        { "file": "starting_point.png", "target": "./" },
+        { "file": "consul_clients.png", "target": "./" },
+        { "file": "hashicups.png", "target": "./" },
+        { "file": "vnet_peering.png", "target": "./" },
+        { "file": "ingress_gateway.png", "target": "./" },
+        { "file": "application_architecture.png", "target": "./" }
 			]
 		}
   },

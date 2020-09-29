@@ -1,21 +1,16 @@
 ### Enable Peering
 
-You will need to enable VNet Peering between the VNet in the
-primary Resource Group and the VNet in the HCS Managed Resource
-Group.
-
-Click below to establish VNet peering.
+Enable VNet Peering between HCS and the AKS Cluster.
 
 `./peering.sh`{{execute T1}}
 
-Now, your environment looks like this. The dotted
-lines indicated the VNet peering.
+Now, your environment looks like this.
 
 ![VNet Peering](./assets/vnet_peering.png)
 
 ### Configure access to AKS
 
-Next, export the Azure AKS KUBECONFIG settings to the development host.
+Export the Azure AKS KUBECONFIG settings to the development host.
 
 `az aks get-credentials --name $AKS_CLUSTER --resource-group $RESOURCE_GROUP`{{execute T1}}
 
