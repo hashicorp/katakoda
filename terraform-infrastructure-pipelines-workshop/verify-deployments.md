@@ -25,11 +25,11 @@ the output. Visit that page now.
 In Terraform Cloud, click the "Create API token" button. Terraform Cloud will
 generate an API token and display it.
 
-Copy the API token from Terraform Cloud and paste it into your Katacoda
-terminal where prompted (`Token for app.terraform.io:`).
+Copy the API token from Terraform Cloud and paste it into your Katacoda terminal
+where prompted (`Token for app.terraform.io:`). The terminal will not display
+the token, so be sure to only paste your token once.
 
-Press enter to confirm. The terminal will not display the token, so be sure to
-only paste your token once. If needed, you can re-run the `terraform login`
+Press Enter to confirm. If needed, you can re-run the `terraform login`
 command until the token is accepted.
 
 ## Configure kubectl
