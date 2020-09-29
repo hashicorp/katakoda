@@ -54,7 +54,7 @@
         { "file": "ingress-gateway.hcl", "target": "./" },
         { "file": "products-api.yaml", "target": "./hashicups" },
         { "file": "postgres.yaml", "target": "./hashicups" },
-        { "file": "public-api.yaml", "target": "./hashicups" }
+        { "file": "public-api.yaml", "target": "./hashicups" },
         { "file": "personalize.sh", "target": "./" },
         { "file": "consul.sh", "target": "./" },
         { "file": "peering.sh", "target": "./" },
