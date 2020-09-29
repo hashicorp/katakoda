@@ -2,7 +2,7 @@
 
 Enable VNet Peering between HCS and the AKS Cluster.
 
-`./peering.sh`{{execute T1}}
+`bash peering`{{execute T1}}
 
 Now, your environment looks like this.
 

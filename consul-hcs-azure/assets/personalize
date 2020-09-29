@@ -1,12 +1,13 @@
 export UNAME=<your-user-name>
 export SECRET=<your-secret>
+export TENANT_ID=<your-tenant-id>
 export RESOURCE_GROUP=dwcc-$UNAME-rg
 
 sudo tee -a $HOME/.bashrc <<EOF
 export RESOURCE_GROUP=$RESOURCE_GROUP
 EOF
 
-az login --service-principal --username $SECRET --password hashiconf --tenant <your-tenant-id>
+az login --service-principal --username $SECRET --password hashiconf --tenant $TENANT_ID
 
 export AKS_CLUSTER=$(az aks list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name')
 export HCS_MANAGED_APP=$(az hcs list --resource-group $RESOURCE_GROUP | jq -r '.[] | .name')
