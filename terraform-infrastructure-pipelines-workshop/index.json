@@ -1,0 +1,61 @@
+{
+  "title": "HashiConf Digital: Infrastructure Pipelines Workshop",
+  "description": "Use Terraform Cloud Run Triggers to deploy a Kubernetes cluster, Consul and Vault.",
+  "difficulty": "Advanced",
+  "time": "45",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Setup Kubernetes workspace",
+        "text": "setup-k8s-workspace.md"
+      },
+      {
+        "title": "Setup Consul workspace",
+        "text": "setup-consul-workspace.md"
+      },
+      {
+        "title": "Setup Vault workspace",
+        "text": "setup-vault-workspace.md"
+      },
+      {
+        "title": "Deploy Kubernetes, Consul and Vault",
+        "text": "deploy-k8s-consul-vault.md"
+      },
+      {
+        "title": "Verify deployments",
+        "text": "verify-deployments.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Consul UI",
+        "port": 8500
+      },
+      {
+        "name": "Vault UI",
+        "port": 8200
+      }
+    ],
+    "hideHiddenFiles": true,
+    "exclusionPatterns": [
+      "./terraform/*"
+    ],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "minikube"
+  },
+  "private": true
+}
