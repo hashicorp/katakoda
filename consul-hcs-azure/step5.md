@@ -28,6 +28,11 @@ consul-5nmmx                                 1/1     Running   0          2m3s
 consul-connect-injector-webhook-deployment   1/1     Running   0          2m3s
 ```
 
+Now that your clients have been deployed, your environment looks
+like this:
+
+![Consul Clients](./assets/consul_clients.png)
+
 ### Deploy the HashiCups Application
 
 Now, deploy a demo production workload to the AKS cluster.
@@ -63,3 +68,6 @@ products-api                                 3/3     Running   0          2m5s
 public-api                                   3/3     Running   0          2m4s
 ```
 
+Now, your environment looks like this:
+
+![HashiCups](./assets/hashicups.png)

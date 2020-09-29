@@ -8,6 +8,11 @@ Click below to establish VNet peering.
 
 `./peering.sh`{{execute T1}}
 
+Now, your environment looks like this. The dotted
+lines indicated the VNet peering.
+
+![VNet Peering](./assets/vnet_peering.png)
+
 ### Configure access to AKS
 
 Next, export the Azure AKS KUBECONFIG settings to the development host.
