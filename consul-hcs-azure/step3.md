@@ -1,3 +1,13 @@
+### Enable Peering
+
+Enable VNet Peering between HCS and the AKS Cluster.
+
+`./peering.sh`{{execute T1}}
+
+Now, your environment looks like this.
+
+![VNet Peering](./assets/vnet_peering.png)
+
 ### Create the Kubernetes Secrets
 
 Next, configure the necessary secrets to enable communication

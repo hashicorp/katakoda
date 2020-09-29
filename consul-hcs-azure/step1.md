@@ -55,3 +55,7 @@ dwcc-username--aks
 dwcc-username-vnet
 dwcc-username-managed-hcs
 ```
+
+Verify you can connect to AKS by issuing the following command.
+
+`kubectl get pods -n kube-system`{{execute T1}}

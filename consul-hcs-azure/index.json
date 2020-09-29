@@ -14,11 +14,11 @@
         "verify": "provision.verify.sh"
       },
       {
-        "title": "Login to Azure",
+        "title": "Configure Your Environment",
         "text": "step1.md"
       },
       {
-        "title": "Configure Your Environment",
+        "title": "Configure and connect to Consul",
         "text": "step2.md"
       },
       {
@@ -26,7 +26,7 @@
         "text": "step3.md"
       },
       {
-        "title": "Configure and connect to Consul",
+        "title": "Deploy HCS Clients on Azure",
         "text": "step4.md"
       },
       {
