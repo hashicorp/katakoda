@@ -1,43 +1,35 @@
-### Configure the Consul CLI
+### Enable Peering
 
-Now, configure your development host so that you
-can issue commands with the Consul CLI. The following environment
-variables need to get to set so that your your development host
-can interact with Consul.
+Enable VNet Peering between HCS and the AKS Cluster.
 
-- `CONSUL_HTTP_ADDR`
-- `CONSUL_HTTP_TOKEN`
-- `CONSUL_SSL_VERIFY`
+`bash peering.sh`{{execute T1}}
 
-For specifics, review `consul`{{open}}.
+Now, your environment looks like this.
 
-`bash consul.sh`{{execute T1}}
+![VNet Peering](./assets/img/vnet_peering.png)
 
-### Access Consul
+### Create the Kubernetes Secrets
 
-Now, verify that your development host is configured correctly
-to interact with your HCS Managed App.
+Next, configure the necessary secrets to enable communication
+between the HCS cluster and the AKS cluster.
 
-`consul members`{{execute T1}}
+First, start by bootstrapping Consul ACLs and storing the token
+as a Kubernetes secret.
+
+`az hcs create-token --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP --output-kubernetes-secret | kubectl apply -f -`{{execute T1}}
 
 Example output:
 
 ```plaintext
-Node                                               Address        Status  Type    Build      Protocol  DC       Segment
-11eaebe7-28cc-d041-894b-0242ac110006-vmss-1000000  10.0.0.4:8301  left    server  1.8.0+ent  2         westus2  <all>
+secret/dwcc-username-managed-hcs-bootstrap-token created
 ```
 
-### Access to the Consul UI
+Next, generate a Kubernetes secret with credentials for the HCS cluster.
 
-Now, access the Consul UI.
+`az hcs generate-kubernetes-secret --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP | kubectl apply -f -`{{execute T1}}
 
-`echo $CONSUL_HTTP_ADDR`{{execute T1}}
+Example output:
 
-Copy the link in the output to access the **Consul UI** in a new
-browser tab.
-
-Next, retrieve the bootstrap token.
-
-`echo $CONSUL_HTTP_TOKEN`{{execute T1}}
-
-Copy that token, and use it to login to the Consul UI.
+```plaintext
+secret/dwcc-username-managed-hcs created
+```

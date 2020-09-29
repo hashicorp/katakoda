@@ -18,11 +18,11 @@
         "text": "step1.md"
       },
       {
-        "title": "Configure and connect to Consul",
+        "title": "Configure HCS on Azure",
         "text": "step2.md"
       },
       {
-        "title": "Configure HCS on Azure",
+        "title": "Configure and connect to Consul",
         "text": "step3.md"
       },
       {
