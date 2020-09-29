@@ -35,7 +35,11 @@ like this:
 
 ### Deploy the HashiCups Application
 
-Now, deploy a demo production workload to the AKS cluster.
+The HashiCups application consists of the following services:
+
+![Application Architecture](./assets/application_architecture.png)
+
+Click below to deploy the workload to the AKS cluster.
 
 `kubectl apply -f hashicups/ --wait`{{execute interrupt T1}}
 
