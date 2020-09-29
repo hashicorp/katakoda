@@ -10,11 +10,11 @@ and look for "APPLIED" in the Run Status column for your Kubernetes workspace.
 
 ## Enable Consul and Vault
 
-Now that your Kubernetes cluster has been provisioned, you will deploy Consul and Vault on your cluster.
+Now that your Kubernetes cluster has been provisioned, you will deploy Consul
+and Vault on your cluster.
 
-In Terraform Cloud, navigate to your Kubernetes workspace. Click on "Configure
-variables", and then set the Terraform variable `enable_consul_and_vault` to
-`true`.
+In Terraform Cloud, navigate to your Kubernetes workspace. Click on "Variables",
+and then set the Terraform variable `enable_consul_and_vault` to `true`.
 
 1. Click on the "three dots" icon next to the "enable_consul_and_vault"
    variable.
