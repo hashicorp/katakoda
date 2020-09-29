@@ -11,7 +11,7 @@ can interact with Consul.
 
 For specifics, review `consul`{{open}}.
 
-`bash consul`{{execute T1}}
+`bash consul.sh`{{execute T1}}
 
 ### Access Consul
 

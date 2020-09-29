@@ -2,11 +2,11 @@
 
 Enable VNet Peering between HCS and the AKS Cluster.
 
-`bash peering`{{execute T1}}
+`bash peering.sh`{{execute T1}}
 
 Now, your environment looks like this.
 
-![VNet Peering](./assets/vnet_peering.png)
+![VNet Peering](./assets/img/vnet_peering.png)
 
 ### Create the Kubernetes Secrets
 
