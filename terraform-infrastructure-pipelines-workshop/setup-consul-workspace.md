@@ -90,6 +90,9 @@ Terraform Cloud will trigger an apply run on the consul workspace.
 
 ## Next steps
 
-You have successfully configured your Consul workspace. The pipeline will retrieve the Kubernetes credentials from the Kubernetes workspace to authenticate to the Kubernetes and Helm provider.
+You have successfully configured your Consul workspace. The pipeline will
+retrieve the Kubernetes credentials from the Kubernetes workspace to
+authenticate to the Kubernetes and Helm provider.
 
-In the next step, you will configure your Vault workspace.
+In the next step, you will configure your Vault workspace. You don't need to
+wait for the Consul workspace before moving on.
