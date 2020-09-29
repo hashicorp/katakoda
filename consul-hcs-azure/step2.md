@@ -9,9 +9,9 @@ can interact with Consul.
 - `CONSUL_HTTP_TOKEN`
 - `CONSUL_SSL_VERIFY`
 
-For specifics, review `consul.sh`{{open}}.
+For specifics, review `consul`{{open}}.
 
-`./consul.sh`{{execute T1}}
+`bash consul`{{execute T1}}
 
 ### Access Consul
 

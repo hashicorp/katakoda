@@ -11,7 +11,7 @@ Click below to when prompted to confirm installation.
 
 ### Personalize Your Environment
 
-Now, open `personalize.sh`{{open}}, and **set your username and login secret**
+Now, open `personalize`{{open}}, and **set your username and login secret**
 on lines 1 and 2. The following diagram illustrates
 the starting state of your environment
 
@@ -22,7 +22,7 @@ personal Azure sandbox, and set environment variables
 required to ensure you are interracting with your own
 sandboxed environment.
 
-`sudo ./personalize.sh`{{execute T1}}
+`bash personalize`{{execute T1}}
 
 Example Output:
 
@@ -32,9 +32,6 @@ export RESOURCE_GROUP=dwcc-username-rg
   {
     "cloudName": "AzureCloud",
 ...TRUNCATED
-]
-Command group 'hcs' is in preview. It may be changed/removed in a future release.
-export AKS_CLUSTER=dwcc-username-aks
 export HCS_MANAGED_APP=dwcc-username-managed-hcs
 ```
 
