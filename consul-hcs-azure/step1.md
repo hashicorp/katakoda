@@ -11,7 +11,7 @@ Click below to when prompted to confirm installation.
 
 ### Personalize Your Environment
 
-Now, open `personalize`{{open}}, and **set your username and login secret**
+Now, open `personalize.sh`{{open}}, and **set your username and login secret**
 on lines 1 and 2. The following diagram illustrates
 the starting state of your environment
 
