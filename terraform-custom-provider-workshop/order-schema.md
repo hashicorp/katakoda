@@ -87,9 +87,7 @@ items": &schema.Schema{
                 Required: true,
                 Elem: &schema.Resource{
                   // ** | Coffee attributes
-                  Schema: map[string]*schema.Schema{
-                      ...
-                  },
+                  Schema: map[string]*schema.Schema{},
                 }
             }
         }
@@ -111,6 +109,7 @@ Each property type maps to an appropriate `schema.Type`. To create a new order, 
 | image       | string  | schema.TypeString | Computed |
 
 
+<br/>
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
@@ -145,6 +144,8 @@ Schema: map[string]*schema.Schema{
 },
 </pre>
 </details>
+
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file.
 
 ## Next Steps
 

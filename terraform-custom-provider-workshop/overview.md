@@ -17,6 +17,6 @@ Your development environment contains the following.
 ## Katacoda Notes
 
 - Any changes to the file using the file editor will be automatically saved.
-- To format your code, run `go fmt ./…`{{execute}} then close and reopen your file.
+- To format your code, run `go fmt ./...`{{execute}} then close and reopen your file.
 - Clicking on code snippets with a `Copy to Editor` command will automatically add the code snippet to the correct spot in the file. Use this to speed up your implementation process.
 - Click on KataCoda commands to run them automatically in your terminal.

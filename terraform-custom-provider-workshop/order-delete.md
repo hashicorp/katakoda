@@ -38,7 +38,11 @@ If the delete function returns:
 - **without** an error, the provider assumes the resource is destroyed and all state is removed.
 - **with** an error, the provider assumes the resource still exists and all prior state is preserved.
 
-The delete function should never update any state on the resource. In addition, the delete callback should always handle the case where the resource might already be destroyed. If the resource is already destroyed, the delete function should not return an error. If the target API doesn't have this functionality, the delete function should verify the resource exists; if the resource does not exist, set the resource ID to "". This behavior allows Terraform users to manually delete resources without breaking Terraform.
+The delete function should never update any state on the resource. 
+
+In addition, the delete callback should always handle the case where the resource might already be destroyed.
+
+If the resource is already destroyed, the delete function should not return an error. If the target API doesn't have this functionality, the delete function should verify the resource exists; if the resource does not exist, set the resource ID to "". This behavior allows Terraform users to manually delete resources without breaking Terraform.
 
 ## Next steps
 
