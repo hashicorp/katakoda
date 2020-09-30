@@ -1,26 +1,25 @@
 ### Install the HCS on Azure extension
 
-Click below to install the HCS on Azure extension for the Azure CLI.
-This extension is required to manage HCS on Azure from the command line.
+Click below to install the HCS Azure CLI extension.
+This is required to manage HCS on Azure from the command line.
 
 `az extension add --source https://releases.hashicorp.com/hcs/0.3.0/hcs-0.3.0-py2.py3-none-any.whl`{{execute T1}}
 
-Click below to when prompted to confirm installation.
+Click below when prompted.
 
 `y`{{execute T1}}
 
 ### Personalize Your Environment
 
-Now, open `personalize.sh`{{open}}, and **set your username and login secret**
-on lines 1 and 2. The following diagram illustrates
-the starting state of your environment
+This diagram shows the starting state of your environment:
 
 ![Personal Sandbox](./assets/starting_point.png)
 
-The script will login you into your
-personal Azure sandbox, and set environment variables
-required to ensure you are interracting with your own
-sandboxed environment.
+Open `personalize.sh`{{open}} and **set your username, login secret, and tenant id**
+on lines 1-3.
+
+The script will login you into Azure, and set environment
+variables to ensure you are connected to your own sandbox.
 
 `bash personalize.sh`{{execute T1}}
 
@@ -28,9 +27,6 @@ Example Output:
 
 ```shell-session
 export RESOURCE_GROUP=dwcc-username-rg
-[
-  {
-    "cloudName": "AzureCloud",
 ...TRUNCATED
 export HCS_MANAGED_APP=dwcc-username-managed-hcs
 ```
@@ -53,6 +49,6 @@ dwcc-username-vnet
 dwcc-username-managed-hcs
 ```
 
-Verify you can connect to AKS by issuing the following command.
+Verify you can connect to AKS.
 
 `kubectl get pods -n kube-system`{{execute T1}}

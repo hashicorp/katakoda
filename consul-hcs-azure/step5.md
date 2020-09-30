@@ -4,7 +4,7 @@ The HashiCups application consists of the following services:
 
 ![Application Architecture](./assets/application_architecture.png)
 
-Click below to deploy the workload to the AKS cluster.
+Deploy the workload to AKS.
 
 `kubectl apply -f hashicups/ --wait`{{execute interrupt T1}}
 
@@ -13,12 +13,10 @@ Example output:
 ```plaintext
 service/frontend created
 serviceaccount/frontend created
-configmap/nginx-configmap created
-deployment.apps/frontend created
 ...TRUNCATED
 ```
 
-Next, check that the workload is deployed and running.
+Check that the workload is deployed and running.
 
 `watch kubectl get pods`{{execute T1}}
 
@@ -37,6 +35,6 @@ products-api                                 3/3     Running   0          2m5s
 public-api                                   3/3     Running   0          2m4s
 ```
 
-Now, your environment looks like this:
+Now your environment looks like this:
 
 ![HashiCups](./assets/hashicups.png)
