@@ -33,6 +33,25 @@ go build -o terraform-provider-hashicups
 mv terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.3/linux_amd64
 ```
 
+<details style="padding-bottom: 1em;">
+<summary>Error compiling provider binary</summary>
+<br/>
+
+If you get the following error: `hashicups/resource_order.go:104:10: undefined: strconv`, you add `"strcov"` to the top of your import statement in `hashicups/resource_order.go`{{open}.
+
+```
+import (
+  "context"
++ "strconv"
+
+  hc "github.com/hashicorp-demoapp/hashicups-client-go"
+  "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+  "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+)
+```
+
+</details>
+
 ## Deploy HashiCups locally
 
 You will need HashiCups running locally to test your HashiCups provider.
@@ -43,7 +62,11 @@ Navigate to `docker_compose` and initialize the application.
 
 ### Verify HashiCups API is running
 
-Once you see the HashiCups logs running in the KataCoda terminal window, verify that HashiCups is running.
+Once you see the following message in the HashiCups logs, verify that HashiCups is running.
+
+```
+api_1  | 2020-10-12T07:34:02.377Z [INFO]  Starting service: bind=0.0.0.0:9090 metrics=localhost:9102
+```
 
 Click on the following command to send a request to HashiCup's health check endpoint in another terminal.
 
