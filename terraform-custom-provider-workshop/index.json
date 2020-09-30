@@ -60,9 +60,5 @@
   "backend": {
     "imageid": "ubuntu"
   },
-  "files": [
-    "hashicups/provider.go",
-    "hashicups/resource_order.go"
-  ],
   "private": true
 }

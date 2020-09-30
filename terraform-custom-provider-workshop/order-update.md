@@ -48,23 +48,23 @@ Add the following code snippet to line 155. This loops through the order items d
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
 // ** | Map the order schema.Resource to []hc.OrderItems{}
-items := d.Get("items").([]interface{})
-ois := []hc.OrderItem{}
+    items := d.Get("items").([]interface{})
+    ois := []hc.OrderItem{}
 
-for _, item := range items {
-  i := item.(map[string]interface{})
+    for _, item := range items {
+      i := item.(map[string]interface{})
 
-  co := i["coffee"].([]interface{})[0]
-  coffee := co.(map[string]interface{})
+      co := i["coffee"].([]interface{})[0]
+      coffee := co.(map[string]interface{})
 
-  oi := hc.OrderItem{
-    Coffee: hc.Coffee{
-      ID: coffee["id"].(int),
-    },
-    Quantity: i["quantity"].(int),
-  }
-  ois = append(ois, oi)
-}
+      oi := hc.OrderItem{
+        Coffee: hc.Coffee{
+          ID: coffee["id"].(int),
+        },
+        Quantity: i["quantity"].(int),
+      }
+      ois = append(ois, oi)
+    }
 </pre>
 
 

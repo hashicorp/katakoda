@@ -68,7 +68,7 @@ Because order ID is returned as an integer, you must convert it to a string befo
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Set order ID as resource ID">
 // ** | Set order ID as resource ID
-d.SetId(strconv.Itoa(o.ID))
+  d.SetId(strconv.Itoa(o.ID))
 </pre>
 
 ## Add dependencies
