@@ -1,8 +1,27 @@
 Now that you’ve added create, read, update and delete capabilities to the order resource, you will build the provider and set up HashiCups to test it in the next step.
 
+## Initialize your developer environment 
+
+First, run the `go mod init` command to define this directory as the root of a module.
+
+`go mod init terraform-provider-hashicups`{{execute}}
+
+Then, run go mod vendor to create a vendor directory that contains all the provider's dependencies.
+
+`go mod vendor`{{execute}}
+
+## Add `order` resource to provider
+
+Open `hashicups/provider.go`{{open}}.  Add the `order` resource to the provider's `ResourceMap` (line 32).
+
+<pre class="file" data-filename="hashicups/provider.go" data-target="insert" data-marker="// Add HashiCups order here">
+// Add HashiCups order here
+"hashicups_order": resourceOrder(),
+</pre>
+
 ## Build provider
 
-First, you will need to build the binary and move it into your user Terraform plugins directory. This allows you to sideload and test your custom providers.
+Next, you will need to build the binary and move it into your user Terraform plugins directory. This allows you to sideload and test your custom providers.
 
 The `make install` command automates these two steps.
 

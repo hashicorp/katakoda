@@ -1,6 +1,8 @@
-Schemas allow the providers to map the API response to a Terraform resource. In this step, you will define the schema for a HashiCups order.
+Schemas allow the providers to map the API response to a Terraform resource. In this step, you will complete the HashiCups order schema.
 
 > If you’re stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
+
+## Explore existing schema
 
 The [HashiCups API Client](https://github.com/hashicorp-demoapp/hashicups-client-go) defines a HashiCups order as the following.
 
@@ -32,65 +34,70 @@ type Coffee struct {
 ```
 </details>
 
-## Define Order schema
-
 Open `hashicups/resource_order.go`{{open}}.
 
-An `Order` is comprised of an ID and `items`. The order ID will be set to the resource's ID, so you only need to define `items`.
+An `Order` is comprised of an ID and `items`.
+- The order ID will be set to the resource's ID. 
+- `items`, a required list of `OrderItems`, has been defined for you
 
-`items` is a required list of `OrderItems`. 
+On line 18, items is defined as a `schema.TypeList` and its `Required` attribute is set to `true`. 
 
-Define the `items` schema (line 17). It should be type `schema.TypeList` with required set to `true`.
-
-<details style="padding-bottom: 1em;">
-<summary>Hint</summary>
 ```
 "items": &schema.Schema{
     Type:     schema.TypeList,
     Required: true,
-    Elem: &schema.Resource{}
+    Elem: &schema.Resource{
+      ...
+    }
 }
 ```
-</details>
 
-### Define OrderItems schema
+`OrderItems` contains two items: `quantity` and `coffee`.
 
-`OrderItems` contains two items: `coffee` and `quantity`. 
+`quantity` is a required integer and a property of `OrderItems`.
 
-#### Define Coffee schema
+On line 23, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the item's `Elem` attribute.
+
+```
+"quantity": &schema.Schema{
+    Type:     schema.TypeInt,
+    Required: true,
+},
+```
+
+### Define Coffee schema
 
 `coffee` is a nested object (an object inside another object, i.e. `OrderItems`). 
 
 There are two ways to nest objects using the Terraform Plugin SDK v2.
 
-1. The first is to define the nested object as an `schema.TypeList` with 1 item. This is currently the closest way to emulate a nested object, and **what you will do in this workshop**.
-
-1. The second is to use a `schema.TypeMap`. This method may be preferable if you only require a key value map of primitive types. However, you should use a validation function to enforce required keys.
-
-Define the `coffee` schema inside the `item`'s `Elem` Property. The schema should be type `schema.List` with a maximum of one item.
-
-<details style="padding-bottom: 1em;">
-<summary>Hint</summary>
+On line 28, `coffee` is defined as a `schema.TypeList` with 1 item. This is one of two ways to nest objects using the Terraform Plugin SDK v2, and is the closest way to emulate a nested object.
 
 ```
 items": &schema.Schema{
     Type:     schema.TypeList,
     Required: true,
     Elem: &schema.Resource{
+        ...
+        // Define Coffee Schema
         Schema: map[string]*schema.Schema{
             "coffee": &schema.Schema{
                 Type:     schema.TypeList,
                 MaxItems: 1,
                 Required: true,
-                Elem: &schema.Resource{}
+                Elem: &schema.Resource{
+                  // ** | Coffee attributes
+                  Schema: map[string]*schema.Schema{
+                      ...
+                  },
+                }
             }
         }
     }
 }
 ```
-</details>
 
-Then, define each coffee properties inside the `coffee`'s `Elem` property.
+Define each coffee properties inside the `coffee`'s `Elem` property.
 
 Each property type maps to an appropriate `schema.Type`. To create a new order, only the coffee ID is required. The other properties are computed.
 
@@ -100,74 +107,59 @@ Each property type maps to an appropriate `schema.Type`. To create a new order, 
 | name        | string  | schema.TypeString | Computed |
 | teaser      | string  | schema.TypeString | Computed |
 | description | string  | schema.TypeString | Computed |
-| price       | float64 | schema.TypeInt    | Computed |
+| price       | float64 | schema.TypeFloat  | Computed |
 | image       | string  | schema.TypeString | Computed |
 
 
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-```
-"coffee": &schema.Schema{
-    Type:     schema.TypeList,
-    MaxItems: 1,
-    Required: true,
-    Elem: &schema.Resource{
-       Schema: map[string]*schema.Schema{
-           "id": &schema.Schema{
-               Type:     schema.TypeInt,
-               Required: true,
-           },
-           "name": &schema.Schema{
-               Type:     schema.TypeString,
-               Computed: true,
-           },
-           "teaser": &schema.Schema{
-               Type:     schema.TypeString,
-               Computed: true,
-           },
-           "description": &schema.Schema{
-               Type:     schema.TypeString,
-               Computed: true,
-           },
-           "price": &schema.Schema{
-               Type:     schema.TypeInt,
-               Computed: true,
-           },
-           "image": &schema.Schema{
-               Type:     schema.TypeString,
-               Computed: true,
-           },
-       },
+Replace the schema on line 31 with the following code snippet. This defines each properties in the coffee object.
+
+<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="Schema: map[string]*schema.Schema{},">
+Schema: map[string]*schema.Schema{
+    "id": &schema.Schema{
+        Type:     schema.TypeInt,
+        Required: true,
+    },
+    "name": &schema.Schema{
+        Type:     schema.TypeString,
+        Computed: true,
+    },
+    "teaser": &schema.Schema{
+        Type:     schema.TypeString,
+        Computed: true,
+    },
+    "description": &schema.Schema{
+        Type:     schema.TypeString,
+        Computed: true,
+    },
+    "price": &schema.Schema{
+        Type:     schema.TypeFloat,
+        Computed: true,
+    },
+    "image": &schema.Schema{
+        Type:     schema.TypeString,
+        Computed: true,
     },
 },
-```
+</pre>
 </details>
 
-#### Define quantity schema
+## Next Steps
 
-`quantity` is a required integer and a property of `OrderItems`.
+You have defined the HashiCups order schema. 
 
-Define the `quantity` schema inside the `items` element schema. It should be type `schema.TypeInt` with required set to `true`.
+In the next step, you will use this schema to add create functionality to the HashiCups provider. 
 
-<details style="padding-bottom: 1em;">
-<summary>Hint</summary>
-```
-"quantity": &schema.Schema{
-    Type:     schema.TypeInt,
-    Required: true,
-},
-```
-</details>
-
-You have defined the HashiCups order schema. In the next step, you will use this schema to add create functionality to the HashiCups provider. You can view the complete schema below to confirm your work.
+You can view the complete schema below to confirm your work.
 
 <details style="padding-bottom: 1em;">
 <summary>Complete schema</summary>
 <br/>
 Replace the line `Schema: map[string]*schema.Schema{}`, in your resourceOrder function with the following schema. Notice how the order resource schema resembles the API client's `Order` type.
 
-```
+```{{copy}}
 Schema: map[string]*schema.Schema{
   "items": &schema.Schema{
     Type:     schema.TypeList,
