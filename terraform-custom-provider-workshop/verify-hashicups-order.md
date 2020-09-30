@@ -68,26 +68,32 @@ The order's properties should be the same as that of your `hashicups_order.edu` 
 
 ## Update order
 
-Change your order by updating the order resource through Terraform. In your `examples/order.tf`{{open}}., update the coffee quantity in `hashicups_order.edu` block.
+Change your order by updating the order resource through Terraform. 
+
+Open your `examples/order.tf`{{open}}, update the coffee quantity in `hashicups_order.edu` block.
 
 Change the first coffee item from `2` to `3` and change the second coffee item from `2` to `1`.
 
-```
+<pre class="file" data-filename="examples/order.tf" data-target="replace">
 resource "hashicups_order" "edu" {
   items {
     coffee {
       id = 3
     }
-    quantity = 3
+    quantity = 2
   }
   items {
     coffee {
       id = 2
     }
-    quantity = 1
+    quantity = 2
   }
 }
-```
+
+output "edu_order" {
+  value = hashicups_order.edu
+}
+</pre>
 
 Run `terraform apply` to update the order. 
 

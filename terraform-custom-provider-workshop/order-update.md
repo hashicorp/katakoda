@@ -48,9 +48,6 @@ Add the following code snippet to line 155. This loops through the order items d
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
 // ** | Map the order schema.Resource to []hc.OrderItems{}
-    items := d.Get("items").([]interface{})
-    ois := []hc.OrderItem{}
-
     for _, item := range items {
       i := item.(map[string]interface{})
 

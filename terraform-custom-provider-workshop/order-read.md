@@ -98,12 +98,12 @@ Add teh following code snippet to line 233. This maps `coffee` to the `c` interf
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map Coffee attributes">
 ```
 // ** | Map Coffee attributes
-	c["id"] = coffee.ID
-	c["name"] = coffee.Name
-	c["teaser"] = coffee.Teaser
-	c["description"] = coffee.Description
-	c["price"] = coffee.Price
-	c["image"] = coffee.Image
+c["id"] = coffee.ID
+c["name"] = coffee.Name
+c["teaser"] = coffee.Teaser
+c["description"] = coffee.Description
+c["price"] = coffee.Price
+c["image"] = coffee.Image
 ```
 </pre>
 </details>
