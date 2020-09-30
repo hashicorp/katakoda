@@ -41,7 +41,7 @@ Example output:
 
 ```plaintext
 NAME: hcs
-...OMITTED
+...TRUNCATED
   $ helm get all hcs
 ```
 
