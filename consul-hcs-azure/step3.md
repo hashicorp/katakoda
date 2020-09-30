@@ -1,8 +1,7 @@
 ### Configure the Consul CLI
 
-Now, configure your development host so that you
-can issue commands with the Consul CLI. The following environment
-variables need to get to set so that your your development host
+Configure the dev host by setting the following environment
+variables so that your your development host
 can interact with Consul.
 
 - `CONSUL_HTTP_ADDR`
@@ -13,10 +12,13 @@ For specifics, review `consul.sh`{{open}}.
 
 `bash consul.sh`{{execute T1}}
 
+Source the updated `.bashrc`.
+
+`source $HOME/.bashrc`{{execute T1}}
+
 ### Access Consul
 
-Now, verify that your development host is configured correctly
-to interact with your HCS Managed App.
+Verify that your dev host is configured correctly.
 
 `consul members`{{execute T1}}
 
@@ -29,14 +31,14 @@ Node                                               Address        Status  Type  
 
 ### Access to the Consul UI
 
-Now, access the Consul UI.
+Get the Consul UI URL.
 
 `echo $CONSUL_HTTP_ADDR`{{execute T1}}
 
 Copy the link in the output to access the **Consul UI** in a new
 browser tab.
 
-Next, retrieve the bootstrap token.
+Retrieve the bootstrap token.
 
 `echo $CONSUL_HTTP_TOKEN`{{execute T1}}
 

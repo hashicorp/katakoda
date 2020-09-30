@@ -1,9 +1,10 @@
-Next, you must enable intentions between each service
+You must enable intentions between each service
 and its upstream starting with the ingress-gateway
-you configured in the last step. Issue the following
-command to add all necessary intentions.
+you configured in the last step.
 
 ### Allow communication
+
+Issue this command to add intentions.
 
 `consul intention create ingress-gateway frontend && \
 consul intention create frontend public-api && \
@@ -30,7 +31,6 @@ Example output:
 ```plaintext
 NAME                          TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)                         AGE
 consul-connect-injector-svc   ClusterIP      10.0.53.153   <none>           443/TCP                         4h43m
-consul-ingress-gateway        LoadBalancer   10.0.55.177   40.125.122.123   8080:32296/TCP,8443:30997/TCP   76m
 ...TRUNCATED
 ```
 
@@ -47,8 +47,7 @@ Example output:
 40.125.122.123
 ```
 
-Set the `INGRESS_PORT` environment variable. This is so that the
-Katacoda environment can load the UI.
+Set the `INGRESS_PORT` environment variable.
 
 `export INGRESS_PORT=$(kubectl get svc/consul-ingress-gateway -o jsonpath='{.spec.ports[0].port}') && echo $INGRESS_PORT`{{execute T1}}
 
@@ -58,8 +57,8 @@ Example output:
 8080
 ```
 
-Now, generate a clickable link in the console.
+Generate a clickable link in the console.
 
 `echo http://$INGRESS_IP:$INGRESS_PORT`{{execute T1}}
 
-Now, click on the link in the console to visit the HashiCups UI.
+Click on the link in the console to visit the HashiCups UI.
