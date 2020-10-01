@@ -40,7 +40,7 @@ An `Order` is comprised of an ID and `items`.
 - The order ID will be set to the resource's ID. 
 - `items`, a required list of `OrderItems`, has been defined for you
 
-On line 18, items is defined as a `schema.TypeList` and its `Required` attribute is set to `true`. 
+On line 19, items is defined as a `schema.TypeList` and its `Required` attribute is set to `true`. 
 
 ```
 "items": &schema.Schema{
@@ -56,7 +56,7 @@ On line 18, items is defined as a `schema.TypeList` and its `Required` attribute
 
 `quantity` is a required integer and a property of `OrderItems`.
 
-On line 23, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the item's `Elem` attribute.
+On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the item's `Elem` attribute.
 
 ```
 "quantity": &schema.Schema{
@@ -71,7 +71,7 @@ On line 23, `quantity` is defined as a `schema.TypeInt` and its `Required` attri
 
 There are two ways to nest objects using the Terraform Plugin SDK v2.
 
-On line 28, `coffee` is defined as a `schema.TypeList` with 1 item. This is one of two ways to nest objects using the Terraform Plugin SDK v2, and is the closest way to emulate a nested object.
+On line 29, `coffee` is defined as a `schema.TypeList` with 1 item. This is one of two ways to nest objects using the Terraform Plugin SDK v2, and is the closest way to emulate a nested object.
 
 ```
 items": &schema.Schema{
@@ -115,7 +115,7 @@ Each property type maps to an appropriate `schema.Type`. To create a new order, 
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-Replace the schema on line 31 with the following code snippet. This defines each properties in the coffee object.
+Replace the schema on line 34 with the following code snippet. This defines each properties in the coffee object.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="Schema: map[string]*schema.Schema{},">
 Schema: map[string]*schema.Schema{
@@ -160,7 +160,8 @@ You can view the complete schema below to confirm your work.
 <details style="padding-bottom: 1em;">
 <summary>Complete schema</summary>
 <br/>
-Replace the line `Schema: map[string]*schema.Schema{}`, in your resourceOrder function with the following schema. Notice how the order resource schema resembles the API client's `Order` type.
+
+Replace the schema in your resourceOrder function with the following schema (line 18). Notice how the order resource schema resembles the API client's `Order` type.
 
 <pre class="file" data-target="clipboard">
 Schema: map[string]*schema.Schema{

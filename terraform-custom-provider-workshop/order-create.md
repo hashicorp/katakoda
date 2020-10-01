@@ -9,19 +9,19 @@ The create function:
 1. **set order ID as resource ID**
 1. maps response (`hc.Order`) to order `schema.Resource` (similar to `resourceOrderRead`)
 
-The create function is named `resourceOrderCreate` and starts on line 71. Most of these steps have been implemented, you will only set the order ID as the resource ID.
+The create function is named `resourceOrderCreate` and starts on line 72. Most of these steps have been implemented, you will only set the order ID as the resource ID.
 
 ## Explore `resourceOrderCreate` function
 
 The create function uses the HashiCups API client to create a new order.
 
-On line 73, the function first retrieves the API client from the meta parameter.
+On line 74, the function first retrieves the API client from the meta parameter.
 
 ```
 c := m.(*hc.Client)
 ```
 
-Then, the function retrieves the `OrderItems` from the schema's `items` (line 79). 
+Then, the function retrieves the `OrderItems` from the schema's `items` (line 80). 
 
 ```
 items := d.Get("items").([]interface{})
@@ -49,7 +49,7 @@ for _, item := range items {
 }
 ```
 
-Next, the create function invokes the `CreateOrder` function with `ois`, the mapped `[]hc.OrderItems{}`, as an argument (line 99).
+Next, the create function invokes the `CreateOrder` function with `ois`, the mapped `[]hc.OrderItems{}`, as an argument (line 100).
 
 If the `CreateOrder` function fails, return the error.
 
