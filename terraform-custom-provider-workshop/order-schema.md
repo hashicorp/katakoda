@@ -95,6 +95,8 @@ items": &schema.Schema{
 }
 ```
 
+> Interactive Code Portion
+
 Define each coffee properties inside the `coffee`'s `Elem` property.
 
 Each property type maps to an appropriate `schema.Type`. To create a new order, only the coffee ID is required. The other properties are computed.
@@ -145,7 +147,7 @@ Schema: map[string]*schema.Schema{
 </pre>
 </details>
 
-To format your code, run `go fmt ./...`{{execute}} then close and reopen your file.
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Next Steps
 
@@ -160,7 +162,7 @@ You can view the complete schema below to confirm your work.
 <br/>
 Replace the line `Schema: map[string]*schema.Schema{}`, in your resourceOrder function with the following schema. Notice how the order resource schema resembles the API client's `Order` type.
 
-```{{copy}}
+<pre class="file" data-target="clipboard">
 Schema: map[string]*schema.Schema{
   "items": &schema.Schema{
     Type:     schema.TypeList,
@@ -208,5 +210,5 @@ Schema: map[string]*schema.Schema{
     },
   },
 },
-```
+</pre>
 </details>

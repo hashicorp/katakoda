@@ -44,6 +44,8 @@ items := d.Get("items").([]interface{})
 ois := []hc.OrderItem{}
 ```
 
+> Interactive Code Portion
+
 Add the following code snippet to line 155. This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
@@ -64,6 +66,7 @@ Add the following code snippet to line 155. This loops through the order items d
     }
 </pre>
 
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Invoke UpdateOrder function
 
@@ -93,7 +96,7 @@ You can view the complete update function below to confirm your work.
 <br/>
 Replace the `resourceOrderUpdate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will update the order resource if there are any changes to the order items.
 
-```{{copy}}
+<pre class="file" data-target="clipboard">
 func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   c := m.(*hc.Client)
 
@@ -126,7 +129,7 @@ func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 
   return resourceOrderRead(ctx, d, m)
 }
-```
+</pre>
 
 The function determines whether there are discrepancies in the `items` property between the configuration and the state.
 

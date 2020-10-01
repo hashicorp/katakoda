@@ -16,7 +16,7 @@ Now that you have initialized your Terraform workspace, create an order using th
 
 Notice how the execution plan shows a proposed order, with additional information about the order.
 
-Remember to confirm the apply step with a `yes`{{execute T2}}.
+Remember to confirm the apply step with a `yes`.
 
 Once the apply completes, the provider saves the resource's state. If you're running Terraform locally, your `terraform.tfstate` file contains this state. You can also view the state by running `terraform state show <resource_name>`.
 
@@ -99,7 +99,7 @@ Run `terraform apply` to update the order.
 
 `terraform apply`{{execute T2}}
 
-Remember to confirm the apply step with a `yes`{{execute T2}}.
+Remember to confirm the apply step with a `yes`.
 
 Once the apply completes, view the output. Notice that while the `order_id` remained the same (`1`), the provider updated the order's coffee quantity.
 
@@ -151,7 +151,7 @@ Finally, you can delete resources in Terraform. Run `terraform destroy`.
 
 `terraform destroy`{{execute T2}}
 
-Remember to confirm the apply step with a `yes`{{execute T2}}.
+Remember to confirm the apply step with a `yes`.
 
 When the destroy step completes, the provider has destroyed the order resource, reflected by an empty state file.
 

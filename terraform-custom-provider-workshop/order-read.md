@@ -86,6 +86,8 @@ The second flattening function, `flattenCoffee`, is declared on line 229 of the 
 
 The `flattenCoffee` function is called in the first flattening function. It takes a `hc.Coffee` and turns a slice with a single object. Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
 
+> Interactive Code Portion
+
 Map the `coffee` `hc.Coffee` input type to the `c` interface type.
 
 The coffee object has the following attributes: `ID`, `Name`, `Teaser`, `Description`, `Price` and `Image`.
@@ -93,7 +95,7 @@ The coffee object has the following attributes: `ID`, `Name`, `Teaser`, `Descrip
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-Add teh following code snippet to line 233. This maps `coffee` to the `c` interface type.
+Add the following code snippet to line 233. This maps `coffee` to the `c` interface type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map Coffee attributes">
 ```
@@ -107,6 +109,8 @@ c["image"] = coffee.Image
 ```
 </pre>
 </details>
+
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Next steps
 

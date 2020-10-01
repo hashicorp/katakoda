@@ -62,6 +62,8 @@ if err != nil {
 
 ## Set order ID as resource ID
 
+> Interactive Code Portion
+
 Next, use `SetID` to set the resource ID to the order ID. The resource ID must be a non-blank string that can be used to read the resource again. If no ID is set, Terraform assumes the resource was not created successfully; as a result, no state will be saved for that resource.
 
 Because order ID is returned as an integer, you must convert it to a string before setting it as your resource ID.
@@ -71,20 +73,20 @@ Because order ID is returned as an integer, you must convert it to a string befo
   d.SetId(strconv.Itoa(o.ID))
 </pre>
 
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
+
 ## Add dependencies
+
+> Interactive Code Portion
 
 Since the `resourceOrderCreate` function uses `strconv` to convert the ID into a string, remember to import the `strconv` library. Remember to also import the HashiCups API client library.
 
-```
-import (
-  "context"
-+ "strconv"
+<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker='// Add "strconv" package'>
+// Add "strconv" package
+  "strconv"
+</pre>
 
-  hc "github.com/hashicorp-demoapp/hashicups-client-go"
-  "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
-  "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-)
-```
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Next steps
 
@@ -97,9 +99,17 @@ You can view the complete create function below to confirm your work.
 <details style="padding-bottom: 1em;">
 <summary>Complete create function</summary>
 <br/>
+
+Since the `resourceOrderCreate` function uses `strconv` to convert the ID into a string, remember to import the `strconv` library. Remember to also import the HashiCups API client library.
+
+<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker='// Add "strconv" package'>
+// Add "strconv" package
+  "strconv"
+</pre>
+
 Replace the `resourceOrderCreate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will create a new HashiCups order and Terraform resource.
 
-```{{copy}}
+<pre class="file" data-target="clipboard">
 func resourceOrderCreate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   c := m.(*hc.Client)
 
@@ -134,5 +144,5 @@ func resourceOrderCreate(ctx context.Context, d *schema.ResourceData, m interfac
 
   return diags
 }
-```
+</pre>
 </details>
