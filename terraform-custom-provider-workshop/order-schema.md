@@ -4,7 +4,7 @@ Schemas allow the providers to map the API response to a Terraform resource. In 
 
 ## Explore existing schema
 
-The [HashiCups API Client](https://github.com/hashicorp-demoapp/hashicups-client-go) defines a HashiCups order as the following.
+The [HashiCups API Client](https://github.com/hashicorp-demoapp/hashicups-client-go) defines a HashiCups order as the following. You'll use this as a reference to define the order schema using the Terraform Plugins SDK.
 
 <details style="padding-bottom: 1em;" open>
 <summary>HashiCups Order Definition</summary>
@@ -56,7 +56,7 @@ On line 19, items is defined as a `schema.TypeList` and its `Required` attribute
 
 `quantity` is a required integer and a property of `OrderItems`.
 
-On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the item's `Elem` attribute.
+On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the `"items"`'s `Elem` attribute.
 
 ```
 "quantity": &schema.Schema{
@@ -67,7 +67,7 @@ On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attri
 
 ### Define Coffee schema
 
-`coffee` is a nested object (an object inside another object, i.e. `OrderItems`). 
+`coffee` is a nested object (an object inside another object, e.g. `items`). 
 
 There are two ways to nest objects using the Terraform Plugin SDK v2.
 
