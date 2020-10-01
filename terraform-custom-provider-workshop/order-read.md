@@ -8,11 +8,11 @@ The read function:
 
 Since `hc.Order` is a nested object, you will use flattening functions to map `hc.Order` to the Terraform order schema.
 
-The read function is named `resourceOrderRead` and starts on line 115. `resourceOrderRead` has already been implemented for you. You will define one of the flattening functions in this step.
+The read function is named `resourceOrderRead` and starts on line 116. `resourceOrderRead` has already been implemented for you. You will define one of the flattening functions in this step.
 
 ## Explore `resourceOrderRead` function
 
-First, the read function retrieves the API client from the meta parameter (line 117).
+First, the read function retrieves the API client from the meta parameter (line 118).
 
 ```
 c := m.(*hc.Client)
@@ -55,7 +55,7 @@ The first flattening function has been implemented for you. You will implement `
 
 ### `flattenOrderItems` function 
 
-You can find the  `flattenOrderItems` function on line 205 of the `hashicups/resource_order.go`{{open}}. 
+You can find the  `flattenOrderItems` function on line 206 of the `hashicups/resource_order.go`{{open}}. 
 
 This is the first flattening function to return a list of order items. The `flattenOrderItems` function takes an `*[]hc.OrderItem` as `orderItems`. If `orderItems` is not `nil`, it will iterate through the slice and map its values into a `map[string]interface{}`.
 
@@ -82,9 +82,11 @@ func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
 
 ### `flattenCoffee` function 
 
-The second flattening function, `flattenCoffee`, is declared on line 229 of the `hashicups/resource_order.go`{{open}} file. 
+The second flattening function, `flattenCoffee`, is declared on line 230 of the `hashicups/resource_order.go`{{open}} file. 
 
 The `flattenCoffee` function is called in the first flattening function. It takes a `hc.Coffee` and turns a slice with a single object. Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
+
+> Interactive Code Portion
 
 Map the `coffee` `hc.Coffee` input type to the `c` interface type.
 
@@ -93,7 +95,7 @@ The coffee object has the following attributes: `ID`, `Name`, `Teaser`, `Descrip
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-Add teh following code snippet to line 233. This maps `coffee` to the `c` interface type.
+Add the following code snippet to line 234. This maps `coffee` to the `c` interface type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map Coffee attributes">
 ```
@@ -107,6 +109,8 @@ c["image"] = coffee.Image
 ```
 </pre>
 </details>
+
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Next steps
 

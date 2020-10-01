@@ -9,7 +9,7 @@ The update function:
 1. invokes the `UpdateOrder` function on the HashiCups client
 1. maps response (hc.Order) to order schema.Resource (similar to resourceOrderRead)
 
-The update function is named `resourceOrderUpdate` and starts on line 142. Most of these steps have been implemented, you will only map the order `schema.Resource` to `[]hc.OrderItems{}`.
+The update function is named `resourceOrderUpdate` and starts on line 143. Most of these steps have been implemented, you will only map the order `schema.Resource` to `[]hc.OrderItems{}`.
 
 ## Explore `resourceOrderUpdate` function
 
@@ -44,7 +44,9 @@ items := d.Get("items").([]interface{})
 ois := []hc.OrderItem{}
 ```
 
-Add the following code snippet to line 155. This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
+> Interactive Code Portion
+
+Add the following code snippet to line 156. This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
 // ** | Map the order schema.Resource to []hc.OrderItems{}
@@ -64,12 +66,13 @@ Add the following code snippet to line 155. This loops through the order items d
     }
 </pre>
 
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Invoke UpdateOrder function
 
 Next, the update function invokes the `UpdateOrder` function with the order ID and `ois`, the mapped `[]hc.OrderItems{}`, as arguments. If the `UpdateOrder` function fails, return the error.
 
-This can be found on line 171.
+This can be found on line 172.
 
 ```
 _, err := c.UpdateOrder(orderID, ois)
@@ -93,7 +96,7 @@ You can view the complete update function below to confirm your work.
 <br/>
 Replace the `resourceOrderUpdate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will update the order resource if there are any changes to the order items.
 
-```{{copy}}
+<pre class="file" data-target="clipboard">
 func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   c := m.(*hc.Client)
 
@@ -126,7 +129,7 @@ func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 
   return resourceOrderRead(ctx, d, m)
 }
-```
+</pre>
 
 The function determines whether there are discrepancies in the `items` property between the configuration and the state.
 

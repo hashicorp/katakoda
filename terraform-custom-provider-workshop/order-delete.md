@@ -7,7 +7,7 @@ The delete function:
 
 The delete function retrieves the order ID using `d.ID()` and deletes the order.
 
-The delete function is named `resourceOrderDelete` and starts on line 182. This function has been implemented for you.
+The delete function is named `resourceOrderDelete` and starts on line 183. This function has been implemented for you.
 
 ## Explore `resourceOrderDelete` function
 
