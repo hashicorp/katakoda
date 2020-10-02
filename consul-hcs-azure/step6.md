@@ -15,8 +15,8 @@ Now, register the config entry with Consul.
 ### Upgrade Consul to use the ingress gateway
 
 To register the ingress gateway with Kubernetes, you must
-update the `config.yaml`{{open}}, and add a top level `ingressGateways`
-stanza. Click below to add stanza.
+update the `config.yaml`, and add a top level `ingressGateways`
+stanza. Click below to add the stanza.
 
 ```shell-session
 sudo tee -a ./config.yaml <<EOF
@@ -31,9 +31,9 @@ ingressGateways:
 EOF
 ```{{execute T1}}
 
-Note, the configuration will auto-save.
+Open `config.yaml`{{open}} and review its contents.
 
-Now, use `helm upgrade` to apply the updated `config.yaml` file.
+Use `helm upgrade` to apply the updated `config.yaml` values.
 
 `helm upgrade -f ./config.yaml hcs hashicorp/consul --wait`{{execute T1}}
 
@@ -41,13 +41,10 @@ Example output:
 
 ```plaintext
 NAME: hcs
-LAST DEPLOYED: Tue Sep  1 13:31:29 2020
-NAMESPACE: default
-...OMITTED
-  $ helm status hcs
+...TRUNCATED
   $ helm get all hcs
 ```
 
-Now, your environment looks like this:
+Now your environment looks like this:
 
 ![Ingress Gateway](./assets/ingress_gateway.png)

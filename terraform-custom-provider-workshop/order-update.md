@@ -5,29 +5,25 @@ In this step, you will add update capabilities to the `order` resource.
 The update function:
 1. retrieves API Client from meta parameter
 1. retrieves order ID
-1. maps the order `schema.Resource` to `[]hc.OrderItems{}` **if changes to "items" are detected**
+1. **maps the order `schema.Resource` to `[]hc.OrderItems{}` if changes to "items" are detected**
 1. invokes the `UpdateOrder` function on the HashiCups client
 1. maps response (hc.Order) to order schema.Resource (similar to resourceOrderRead)
 
-The update function is similar to the create function.
+The update function is named `resourceOrderUpdate` and starts on line 143. Most of these steps have been implemented, you will only map the order `schema.Resource` to `[]hc.OrderItems{}`.
 
-## Retrieves API Client from meta parameter
+## Explore `resourceOrderUpdate` function
 
-First, it retrieves the authenticated API client.
+First, the update function retrieves the authenticated API client.
 
 ```
 c := m.(*hc.Client)
 ```
 
-## Retrieve order ID
-
-Then, the function retrieves the order ID. This is because the `UpdateOrder` function requires both the orderID and a list of updated order items.
+Next, the function retrieves the order ID. This is because the `UpdateOrder` function requires both the orderID and a list of updated order items.
 
 ```
 orderID := d.Id()
 ```
-
-## Detect if "items" schema was changed
 
 Two keys difference between the update function and the create function is:
 1. the update function checks to see if the schema has changed before proceeding; the create function does not
@@ -41,36 +37,42 @@ If the `"items"` schema has changed, you should map the schema to a `[]hc.OrderI
 
 ## Map the order `schema.Resource` to `[]hc.OrderItems{}`
 
-Add the following code snippet to the `resourceOrderUpdate` function in `hashicups/resource_order.go`{{open}}. This should be triggered whenever the `"items"` schema changes.
-
-This is similar to how the schema was mapped in the create function.
+If the `"items"` schema changes, the update function retrieves the updated `item` schema.
 
 ```
 items := d.Get("items").([]interface{})
 ois := []hc.OrderItem{}
-
-for _, item := range items {
-  i := item.(map[string]interface{})
-
-  co := i["coffee"].([]interface{})[0]
-  coffee := co.(map[string]interface{})
-
-  oi := hc.OrderItem{
-    Coffee: hc.Coffee{
-      ID: coffee["id"].(int),
-    },
-    Quantity: i["quantity"].(int),
-  }
-  ois = append(ois, oi)
-}
 ```
 
+> Interactive Code Portion
+
+Add the following code snippet to line 156. This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
+
+<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
+// ** | Map the order schema.Resource to []hc.OrderItems{}
+    for _, item := range items {
+      i := item.(map[string]interface{})
+
+      co := i["coffee"].([]interface{})[0]
+      coffee := co.(map[string]interface{})
+
+      oi := hc.OrderItem{
+        Coffee: hc.Coffee{
+          ID: coffee["id"].(int),
+        },
+        Quantity: i["quantity"].(int),
+      }
+      ois = append(ois, oi)
+    }
+</pre>
+
+To format your code, run `go fmt ./...`{{execute}} then close and reopen your file (`hashicups/resource_order.go`{{open}}). This allows KataCoda to refresh your file in the editor.
 
 ## Invoke UpdateOrder function
 
-Next, invoke the `UpdateOrder` function with the order ID and `ois`, the mapped `[]hc.OrderItems{}`, as arguments.
+Next, the update function invokes the `UpdateOrder` function with the order ID and `ois`, the mapped `[]hc.OrderItems{}`, as arguments. If the `UpdateOrder` function fails, return the error.
 
-If the `UpdateOrder` function fails, return the error.
+This can be found on line 172.
 
 ```
 _, err := c.UpdateOrder(orderID, ois)
@@ -81,12 +83,20 @@ if err != nil {
 
 Notice how the `UpdateOrder` response is disregarded, even though it returns the updated order information. The UpdateOrder function ends by invoking the read function, `resourceOrderRead(ctx, d, m)`. This verifies that the schema reflects the API's current state, and maps the response to the order `schema.Resource`.
 
+## Next steps
+
+You have implemented the update function. 
+
+In the next step, you implement the delete function.
+
+You can view the complete update function below to confirm your work.
+
 <details style="padding-bottom: 1em;">
 <summary>Complete update function</summary>
 <br/>
 Replace the `resourceOrderUpdate` function in `hashicups/resource_order.go`{{open}} with the following code snippet. This function will update the order resource if there are any changes to the order items.
 
-```
+<pre class="file" data-target="clipboard">
 func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
   c := m.(*hc.Client)
 
@@ -119,7 +129,7 @@ func resourceOrderUpdate(ctx context.Context, d *schema.ResourceData, m interfac
 
   return resourceOrderRead(ctx, d, m)
 }
-```
+</pre>
 
 The function determines whether there are discrepancies in the `items` property between the configuration and the state.
 

@@ -1,41 +1,10 @@
-### Deploy Consul clients
-
-Now, deploy Consul to the the AKS cluster using the `config.yaml` file you generated.
-
-`helm install hcs hashicorp/consul -f config.yaml --wait`{{execute T1}}
-
-Abbreviated example output:
-
-```plaintext
-NAME: hcs
-LAST DEPLOYED: Tue Sep  1 13:31:29 2020
-NAMESPACE: default
-...OMITTED
-  $ helm status hcs
-  $ helm get all hcs
-```
-
-Next, check that Consul is deployed and running.
-
-`watch kubectl get pods`{{execute T1}}
-
-The deployment is complete when all pods are Ready with a
-status of `Running`.
-
-```plaintext
-NAME                                         READY   STATUS    RESTARTS   AGE
-consul-5nmmx                                 1/1     Running   0          2m3s
-consul-connect-injector-webhook-deployment   1/1     Running   0          2m3s
-```
-
-Now that your clients have been deployed, your environment looks
-like this:
-
-![Consul Clients](./assets/consul_clients.png)
-
 ### Deploy the HashiCups Application
 
-Now, deploy a demo production workload to the AKS cluster.
+The HashiCups application consists of the following services:
+
+![Application Architecture](./assets/application_architecture.png)
+
+Deploy the workload to AKS.
 
 `kubectl apply -f hashicups/ --wait`{{execute interrupt T1}}
 
@@ -44,12 +13,10 @@ Example output:
 ```plaintext
 service/frontend created
 serviceaccount/frontend created
-configmap/nginx-configmap created
-deployment.apps/frontend created
 ...TRUNCATED
 ```
 
-Next, check that the workload is deployed and running.
+Check that the workload is deployed and running.
 
 `watch kubectl get pods`{{execute T1}}
 
@@ -68,6 +35,6 @@ products-api                                 3/3     Running   0          2m5s
 public-api                                   3/3     Running   0          2m4s
 ```
 
-Now, your environment looks like this:
+Now your environment looks like this:
 
 ![HashiCups](./assets/hashicups.png)

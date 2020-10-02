@@ -14,19 +14,19 @@
         "verify": "provision.verify.sh"
       },
       {
-        "title": "Login to Azure",
+        "title": "Configure Your Environment",
         "text": "step1.md"
       },
       {
-        "title": "Configure Your Environment",
+        "title": "Configure VNet and HCS Secrets",
         "text": "step2.md"
       },
       {
-        "title": "Configure HCS on Azure",
+        "title": "Configure and connect to Consul",
         "text": "step3.md"
       },
       {
-        "title": "Configure and connect to Consul",
+        "title": "Deploy HCS Clients on Azure",
         "text": "step4.md"
       },
       {
@@ -54,7 +54,10 @@
         { "file": "ingress-gateway.hcl", "target": "./" },
         { "file": "products-api.yaml", "target": "./hashicups" },
         { "file": "postgres.yaml", "target": "./hashicups" },
-        { "file": "public-api.yaml", "target": "./hashicups" }
+        { "file": "public-api.yaml", "target": "./hashicups" },
+        { "file": "personalize.sh", "target": "./" },
+        { "file": "consul.sh", "target": "./" },
+        { "file": "peering.sh", "target": "./" }
 			]
 		}
   },

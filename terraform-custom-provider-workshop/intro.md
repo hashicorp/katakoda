@@ -11,4 +11,12 @@ In this workshop, you will modify an existing Terraform provider to add CRUD fun
 1. Apply configuration with new resource to test implementation
 <!-- 1. \[Optional\] Publish to Terraform Registry -->
 
+Most of the implementation for each step are provided for you. This workshop and the commented code will guide you to complete the remaining portion of each step.
+
+These sections will start the following in a code comment.
+
+```
+\\ ** |
+```
+
 By the end of this workshop, you should understand how to use the Terraform Plugin SDK v2 to map target APIs to Terraform to create, read, update and delete (CRUD) resources.

@@ -1,43 +1,42 @@
-### Configure the Consul CLI
+### Create Helm configuration
 
-Now, configure your development host so that you
-can issue commands with the Consul CLI. The following environment
-variables need to get to set so that your your development host
-can interact with Consul.
+Generate the helm config file that you will apply to AKS.
 
-- `CONSUL_HTTP_ADDR`
-- `CONSUL_HTTP_TOKEN`
-- `CONSUL_SSL_VERIFY`
+`az hcs generate-helm-values --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP --aks-cluster-name $AKS_CLUSTER > config.yaml`{{execute T1}}
 
-For specifics, review `consul.sh`{{open}}.
+Uncomment line 29 so that gossip ports are exposed.
 
-`./consul.sh`{{execute T1}}
+`sed -i -e 's/^  # \(exposeGossipPorts\)/  \1/' config.yaml`{{execute T1}}
 
-### Access Consul
+Review the `config.yaml`{{open}} file.
 
-Now, verify that your development host is configured correctly
-to interact with your HCS Managed App.
+### Deploy Consul clients
 
-`consul members`{{execute T1}}
+Deploy Consul to AKS using the `config.yaml`.
+
+`helm install hcs hashicorp/consul -f config.yaml --wait`{{execute T1}}
 
 Example output:
 
 ```plaintext
-Node                                               Address        Status  Type    Build      Protocol  DC       Segment
-11eaebe7-28cc-d041-894b-0242ac110006-vmss-1000000  10.0.0.4:8301  left    server  1.8.0+ent  2         westus2  <all>
+NAME: hcs
+...TRUNCATED
+  $ helm get all hcs
 ```
 
-### Access to the Consul UI
+Verify that Consul is deployed and running.
 
-Now, access the Consul UI.
+`watch kubectl get pods`{{execute T1}}
 
-`echo $CONSUL_HTTP_ADDR`{{execute T1}}
+The deployment is complete when all pods are `Ready` with a
+status of `Running`.
 
-Copy the link in the output to access the **Consul UI** in a new
-browser tab.
+```plaintext
+NAME                                         READY   STATUS    RESTARTS   AGE
+consul-5nmmx                                 1/1     Running   0          2m3s
+consul-connect-injector-webhook-deployment   1/1     Running   0          2m3s
+```
 
-Next, retrieve the bootstrap token.
+Now your environment looks like this:
 
-`echo $CONSUL_HTTP_TOKEN`{{execute T1}}
-
-Copy that token, and use it to login to the Consul UI.
+![Consul Clients](./assets/consul_clients.png)

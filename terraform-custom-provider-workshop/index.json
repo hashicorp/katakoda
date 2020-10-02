@@ -41,8 +41,7 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "courseBase.sh",
-      "credits": "https://learn.hashicorp.com/terraform"
+      "code": "courseBase.sh"
     },
     "finish": {
       "text": "finish.md",

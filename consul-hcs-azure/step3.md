@@ -1,37 +1,46 @@
-### Create the Kubernetes Secrets
+### Configure the Consul CLI
 
-Next, configure the necessary secrets to enable communication
-between the HCS cluster and the AKS cluster.
+Configure the dev host by setting the following environment
+variables so that your your development host
+can interact with Consul.
 
-First, start by bootstrapping Consul ACLs and storing the token
-as a Kubernetes secret.
+- `CONSUL_HTTP_ADDR`
+- `CONSUL_HTTP_TOKEN`
+- `CONSUL_SSL_VERIFY`
 
-`az hcs create-token --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP --output-kubernetes-secret | kubectl apply -f -`{{execute T1}}
+For specifics, review `consul.sh`{{open}}.
+
+`bash consul.sh`{{execute T1}}
+
+Source the updated `.bashrc`.
+
+`source $HOME/.bashrc`{{execute T1}}
+
+### Access Consul
+
+Verify that your dev host is configured correctly.
+
+`consul members`{{execute T1}}
 
 Example output:
 
 ```plaintext
-secret/dwcc-username-managed-hcs-bootstrap-token created
+Node                                               Address        Status  Type    Build      Protocol  DC       Segment
+11eaebe7-28cc-d041-894b-0242ac110006-vmss-1000000  10.0.0.4:8301  left    server  1.8.0+ent  2         westus2  <all>
 ```
 
-Next, generate a Kubernetes secret with credentials for the HCS cluster.
+### Access to the Consul UI
 
-`az hcs generate-kubernetes-secret --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP | kubectl apply -f -`{{execute T1}}
+Get the Consul UI URL.
 
-Example output:
+`echo $CONSUL_HTTP_ADDR`{{execute T1}}
 
-```plaintext
-secret/dwcc-username-managed-hcs created
-```
+Copy the link in the output to access the **Consul UI** in a new
+browser tab.
 
-### Create Helm configuration
+Retrieve the bootstrap token.
 
-Next, generate the helm configuration file that you will apply to your AKS cluster.
+`echo $CONSUL_HTTP_TOKEN`{{execute T1}}
 
-`az hcs generate-helm-values --name $HCS_MANAGED_APP --resource-group $RESOURCE_GROUP --aks-cluster-name $AKS_CLUSTER > config.yaml`{{execute T1}}
+Copy that token, and use it to login to the Consul UI.
 
-Now, open `config.yaml`{{open}} and review it's contents.
-
-Click below to uncomment line 29 so that gossip ports are exposed.
-
-`sed -i -e 's/^  # \(exposeGossipPorts\)/  \1/' config.yaml`{{execute T1}}
