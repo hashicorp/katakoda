@@ -20,7 +20,7 @@ these changes.
 ### Bootstrap Consul ACLs
 
 Next, bootstrap the Consul ACL subsystem. Run
-`consul acl bootstrap | tee consul.bootstrap`{{execute}}
+`consul acl bootstrap | tee ~/consul.bootstrap`{{execute}}
 to bootstrap the ACL system, generate your first token, and capture the output
 into the `consul.bootstrap` file.
 
@@ -33,7 +33,7 @@ try the command again.
 **Example Output**
 
 ```screenshot
-$ consul acl bootstrap | tee consul.bootstrap
+$ consul acl bootstrap | tee ~/consul.bootstrap
 AccessorID:       e57b446b-2da0-bce2-f01c-6c0134d8e19b
 SecretID:         bba19e7c-9f47-2b08-f0ea-e1bca43ba9c5
 Description:      Bootstrap Token (Global Management)

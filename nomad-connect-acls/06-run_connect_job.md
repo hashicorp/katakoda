@@ -2,7 +2,7 @@
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
-Create a blank job file by running `touch countdash.nomad`{{execute}}. Open
+Create a blank job file by running `touch ~/countdash.nomad`{{execute}}. Open
 `countdash.nomad`{{open}} in the editor and copy-and-paste this job
 specification into the file.
 
@@ -85,7 +85,7 @@ Created: count-dashboard => count-api (allow)
 
 ### Run the job
 
-Run the job by calling `nomad run countdash.nomad`{{execute}}.
+Run the job by calling `nomad run ~/countdash.nomad`{{execute}}.
 
 **Example Output**
 
