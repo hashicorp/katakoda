@@ -28,8 +28,15 @@ Create the Nomad server policy with the Consul CLI.
 consul acl policy create \
   -name "nomad-server-token" \
   -description "Nomad Server Token Policy" \
-  -rules @~nomad-server-policy.hcl
+  -rules @nomad-server-policy.hcl
 ```{{execute}}
+
+<div class="alert-info alert">
+
+If you receive an error with "no such file or directory", make sure that you are
+in your home directory by running `cd ~`{{execute}}
+
+</div>
 
 **Example Output**
 
@@ -37,7 +44,7 @@ consul acl policy create \
 $ consul acl policy create \
   -name "nomad-server-token" \
   -description "Nomad Server Token Policy" \
-  -rules @~nomad-server-policy.hcl
+  -rules @nomad-server-policy.hcl
 ID:           aec3686a-e475-060e-5a39-263a5c0f298b
 Name:         nomad-server-token
 Description:  Nomad Server Token Policy

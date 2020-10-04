@@ -99,21 +99,3 @@ $ nomad run countdash.nomad
     Evaluation status changed: "pending" -> "complete"
 ==> Evaluation "3e7ebb57" finished with status "complete"
 ```
-
-Open the Countdash interface by clicking the "Countdash UI" tab above the 
-terminal.
-
-Once you are done, run `nomad stop countdash`{{execute}} to prepare for the next
-step.
-
-**Example Output**
-
-```screenshot
-$ nomad stop countdash
-==> Monitoring evaluation "d4796df1"
-    Evaluation triggered by job "countdash"
-    Evaluation within deployment: "18b25bb6"
-    Evaluation status changed: "pending" -> "complete"
-==> Evaluation "d4796df1" finished with status "complete"
-```
-

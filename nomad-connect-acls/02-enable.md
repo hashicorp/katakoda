@@ -1,10 +1,14 @@
+<style type="text/css">
+.alert { position: relative; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; }
+.alert-info { color: #0c5460; background-color: #d1ecf1; border-color: #bee5eb; }
+</style>
 
 ### Enable ACLs in Consul configuration
 
 Open the `consul_config.hcl`{{open}} file and paste the following stanza anywhere in the
 top level.
 
-<pre class="file" data-target="clipboard">
+<pre class="file" data-filename="consul_config.hcl" data-target="append">
 acl {
   enabled                  = true
   default_policy           = "deny"

@@ -1,4 +1,6 @@
 <style type="text/css">
+.alert { position: relative; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; }
+.alert-info { color: #0c5460; background-color: #d1ecf1; border-color: #bee5eb; }
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
@@ -39,8 +41,15 @@ Create the Consul ACL policy by running
 consul acl policy create \
   -name "consul-agent-token" \
   -description "Consul Agent Token Policy" \
-  -rules @~/consul-agent-policy.hcl
+  -rules @consul-agent-policy.hcl
 ```{{execute}}
+
+<div class="alert-info alert">
+
+If you receive an error with "no such file or directory", make sure that you are
+in your home directory by running `cd ~`{{execute}}
+
+</div>
 
 This will upload your policy file to the server and return information about
 the generated policy.
