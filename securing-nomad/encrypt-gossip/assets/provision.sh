@@ -62,7 +62,7 @@ maybe_postprovision() {
   fi
 }
 
-provision_namespace() {
+maybe_provision_namespace() {
   if [ ! -f /provision/namespace_done ]
   then
     while [ ! -x /usr/local/bin/provision_ns.sh ]
@@ -78,7 +78,7 @@ finish() {
   log "Complete!  Move on to the next step."
 }
 
-provision() {
+maybe_provision_base() {
   if [ ! -f /provision/provision_done ]
   then
     fix_journal
@@ -96,6 +96,5 @@ mkdir -p /provision /etc/nomad.d /opt/nomad/data
 maybe_provision_base
 maybe_preprovision
 maybe_provision_namespace
-maybe_provision
 maybe_postprovision
 finish
