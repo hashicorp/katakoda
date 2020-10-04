@@ -48,7 +48,7 @@
       },
       {
         "title": "Run a service-mesh job with a token",
-        "text": "09-run_connect_job_w_token.md"
+        "text": "10-run_connect_job_w_token.md"
       }
     ],
     "intro": {
