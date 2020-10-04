@@ -9,7 +9,7 @@ of the user's roles.
 
 ## Meet the personas
 
-### Application Developers
+**Application Developers**
 
 Application developers need to be able to deploy applications into the
 Nomad cluster and control their lifecycles. They should not be able to perform any
@@ -19,7 +19,7 @@ Application developers are allowed to fetch logs from their running containers,
 but should not be allowed to run commands inside of them or access the
 filesystem for running workloads.
 
-### Production Operators
+**Production Operators**
 
 Production operators need to be able to perform cluster
 maintenance and view workloads, including attached resources like

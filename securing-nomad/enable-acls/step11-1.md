@@ -7,7 +7,7 @@ policy, you will need to repopulate it from your bootstrap token file.
 Switch back to the bootstrap token.
 
 ```
-export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' bootstrap.token)
+export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' ~/bootstrap.token)
 ```{{execute}}
 
 

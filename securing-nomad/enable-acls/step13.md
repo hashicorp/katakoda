@@ -5,7 +5,7 @@ First, set the active token to your test app-dev token. You can extract it from
 the files that you created earlier.
 
 ```
-export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' app-dev.token)
+export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' ~/app-dev.token)
 ```{{execute}}
 
 Create the short sample job with `nomad init`.
@@ -76,7 +76,7 @@ ID        Node ID   Task Group  Version  Desired  Status   Created  Modified
 Switch to the prod-ops token.
 
 ```
-export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' prod-ops.token)
+export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' ~/prod-ops.token)
 ```{{execute}}
 
 Try to stop the job; note that you are unable to do so.
@@ -95,7 +95,7 @@ Error deregistering job: Unexpected response code: 403 (Permission denied)
 Switch back to the app-dev token.
 
 ```
-export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' app-dev.token)
+export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' ~/app-dev.token)
 ```{{execute}}
 
 Try again to stop the job; note that this time you are successful.

@@ -8,14 +8,14 @@ to save it as `app-dev.token`.
 
 ```
 nomad acl token create -name="Test app-dev token" \
-  -policy=app-dev -type=client | tee app-dev.token
+  -policy=app-dev -type=client | tee ~/app-dev.token
 ```{{execute}}
 
 **Example Output**
 
 ```
 $ nomad acl token create -name="Test app-dev token" \
-  -policy=app-dev -type=client | tee app-dev.token
+  -policy=app-dev -type=client | tee ~/app-dev.token
 Accessor ID  = b8c67cb8-cc3b-2a7c-182a-0bc5dfc3a6ff
 Secret ID    = 17cadb8b-e8a8-2f47-db62-fea0c6a19602
 Name         = Test app-dev token
@@ -32,14 +32,14 @@ it as `prod-ops.token`.
 
 ```
 nomad acl token create -name="Test prod-ops token" \
-  -policy=prod-ops -type=client | tee prod-ops.token
+  -policy=prod-ops -type=client | ~/tee prod-ops.token
 ```{{execute}}
 
 **Example Output**
 
 ```
 $ nomad acl token create -name="Test prod-ops token" \
-  -policy=prod-ops -type=client | tee prod-ops.token
+  -policy=prod-ops -type=client | tee ~/prod-ops.token
 Accessor ID  = 4e3c1ac7-52d0-6c68-94a2-5e75f17e657e
 Secret ID    = 0be3c623-cc90-3645-c29d-5f0629084f68
 Name         = Test prod-ops token

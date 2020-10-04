@@ -18,6 +18,8 @@ First, define the policy in terms of required capabilities. What capabilities
 from the available options will this policy need to provide to Production
 Operators?
 
+<details><summary>View Answer</summary>
+
 | Capability | Desired |
 | --- |   ---   |
 | **deny** - When multiple policies are associated with a token, deny will take precedence and prevent any capabilities. | N/A |
@@ -54,9 +56,15 @@ capabilities.
 | `list` | (grants listing plugin metadata only) |
 <!-- markdownlint-restore -->
 
+</details>
+
 Express this in policy form. Create an file named `prod-ops_policy.hcl`{{open}}
-to hold your policy. The capabilities required for the "default" Namespace the
-Namespace API are captured with the `read` coarse-grained policy disposition.
+to hold your policy.
+
+<details><summary>View policy content</summary>
+
+The capabilities required for the "default" Namespace the Namespace API are
+captured with the `read` coarse-grained policy disposition.
 
 <pre class="file" data-filename="prod-ops_policy.hcl" data-target="replace">
 namespace "default" {
@@ -87,5 +95,7 @@ plugin {
 </pre>
 
 Add all of these policy elements to your `prod-ops_policy.hcl` file.
+
+</details>
 
 [`namespace` rules]: /nomad/acls/policies#namespace-rules

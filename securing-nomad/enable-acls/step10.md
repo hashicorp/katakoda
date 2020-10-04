@@ -21,6 +21,8 @@ First, define the policy in terms of required capabilities. What capabilities
 from the available options will this policy need to provide to Application
 Developers?
 
+<details><summary>View Answer</summary>
+
 | Capability | Desired |
 | --- |   ---   |
 | **deny** - When multiple policies are associated with a token, deny will take precedence and prevent any capabilities. | N/A |
@@ -57,8 +59,12 @@ capabilities.
 | `list` | (grants listing plugin metadata only) |
 <!-- markdownlint-restore -->
 
+</details>
+
 Express this in policy form. Create a file named `app-dev_policy.hcl`{{open}} to write
 your policy.
+
+<details><summary>View policy content</summary>
 
 <pre class="file" data-filename="app-dev_policy.hcl" data-target="replace">
 namespace "default" {
@@ -70,5 +76,7 @@ namespace "default" {
 Note that the namespace rule has `policy = "read"`. The **write** policy is not
 suitable because it is overly permissive, granting "read-fs", "alloc-exec", and
 "alloc-lifecycle".
+
+</details>
 
 [`namespace` rules]: https://learn.hashicorp.com/nomad/acls/policies#namespace-rules

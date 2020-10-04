@@ -18,7 +18,7 @@ management token out of your bootstrap file into the NOMAD_TOKEN environment
 variable with this one-liner.
 
 ```
-export NOMAD_TOKEN=$(awk '/Secret ID/ {print $4}' bootstrap.token)
+export NOMAD_TOKEN=$(awk '/Secret ID/ {print $4}' ~/bootstrap.token)
 ```{{execute}}
 
 Running the `nomad status` command will now complete successfully.

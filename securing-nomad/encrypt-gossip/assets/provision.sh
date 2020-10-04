@@ -79,14 +79,14 @@ finish() {
 }
 
 maybe_provision_base() {
-  if [ ! -f /provision/provision_done ]
+  if [ ! -f /provision/provision_base_done ]
   then
     fix_journal
     install_apt_deps
     install_pyhcl
     install_zip "consul" "https://releases.hashicorp.com/consul/1.8.4/consul_1.8.4_linux_amd64.zip"
     install_zip "nomad" "https://releases.hashicorp.com/nomad/0.12.5/nomad_0.12.5_linux_amd64.zip"
-
+    touch /provision/provision_base_done
   fi
 }
 

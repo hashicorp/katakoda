@@ -50,5 +50,5 @@ $ curl --cert ${NOMAD_CLIENT_CERT} \
   ${NOMAD_ADDR}/v1/nodes
 
 [{"Address":"172.17.0.21","ID":"ea6a87a7-4d23-b43a-2a7b-eb5cce62f853",
-... remainder of JSON result has been elided ...
+... response trimmed ... ]
 ```

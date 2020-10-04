@@ -1,7 +1,7 @@
 if [ ! -f ~/tls_environment ]
 then
 echo "Additional scenario specific provisioning..."
-if [ -d /opt/nomad/ca ] then; echo "Resetting TLS configuration"; rm -rf /opt/nomad/ca; fi
+if [ -d /opt/nomad/ca ]; then echo "Resetting TLS configuration"; rm -rf /opt/nomad/ca; fi
 
 mkdir -p /opt/nomad/ca
 cd /opt/nomad/ca
@@ -15,10 +15,10 @@ cp global-client-nomad-0* /etc/nomad.d/tls
 
 for I in {1..3}; do
   sed "s/{{NODE}}/server$I/g" /tmp/server.hcl.template > /opt/nomad/server$I/nomad.hcl
-  restart-server$I
+  restart_server$I
 done
 sed "s/{{NODE}}/client/g" /tmp/client.hcl.template > /opt/nomad/client/nomad.hcl
-restart-client
+restart_client
 
 cat > ~/tls_environment <<EOF
 echo "Preloading TLS Environment Variables..."
