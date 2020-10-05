@@ -32,7 +32,7 @@ it as `prod-ops.token`.
 
 ```
 nomad acl token create -name="Test prod-ops token" \
-  -policy=prod-ops -type=client | ~/tee prod-ops.token
+  -policy=prod-ops -type=client | tee ~/prod-ops.token
 ```{{execute}}
 
 **Example Output**
