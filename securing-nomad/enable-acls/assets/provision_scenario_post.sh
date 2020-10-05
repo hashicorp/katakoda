@@ -15,7 +15,7 @@ cp global-client-nomad-0* /etc/nomad.d/tls
 
 for I in {1..3}; do
   sed "s/{{NODE}}/server$I/g" /tmp/server.hcl.template > /opt/nomad/server$I/nomad.hcl
-  restart_server$I
+  restart_server$I 
 done
 sed "s/{{NODE}}/client/g" /tmp/client.hcl.template > /opt/nomad/client/nomad.hcl
 restart_client

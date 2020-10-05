@@ -76,6 +76,7 @@ maybe_provision_namespace() {
 
 finish() {
   log "Complete!  Move on to the next step."
+  touch /provision_complete
 }
 
 maybe_provision_base() {
