@@ -17,14 +17,6 @@ cp global-client-nomad-0* /etc/nomad.d/tls
 cp nomad-agent-ca.pem ~/tls
 cp global-cli-nomad-0* ~/tls
 
-
-for I in {1..3}; do
-  sed "s/{{NODE}}/server$I/g" /tmp/server.hcl.template > /opt/nomad/server$I/nomad.hcl
-  restart_server$I 
-done
-sed "s/{{NODE}}/client/g" /tmp/client.hcl.template > /opt/nomad/client/nomad.hcl
-restart_client
-
 cat > ~/tls_environment <<EOF
 echo "Preloading TLS Environment Variables..."
 export NOMAD_CACERT="/etc/nomad.d/tls/nomad-agent-ca.pem"
@@ -38,3 +30,12 @@ echo '$ export NOMAD_ADDR="https://127.0.0.1:4646"'
 EOF
 
 fi
+
+echo "Resetting configuration..."
+for I in {1..3}; do
+  sed "s/{{NODE}}/server$I/g" /tmp/server.hcl.template > /opt/nomad/server$I/nomad.hcl
+  restart_server$I
+done
+sed "s/{{NODE}}/client/g" /tmp/client.hcl.template > /opt/nomad/client/nomad.hcl
+restart_client
+echo "Done resetting configuration."
