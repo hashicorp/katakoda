@@ -66,7 +66,7 @@ Open `config-node1.hcl`{{open}} and add `raft` as your `ha_storage` for node1.
 <pre class="file" data-filename="config-node1.hcl" data-target="append">
 # Use the file system as storage backend
 ha_storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node1/"
+  path    = "/root/raft-node1/"
   node_id = "node1"
 }
 </pre>
@@ -108,7 +108,10 @@ In **Terminal**, wait until you see `core: post-unseal setup complete` message i
 [INFO]  core: post-unseal setup complete
 ```
 
-Now, `node1` is ready!
+<div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
+<p><strong>NOTE: </strong>
+Wait until you see the log message, `[INFO]  core: post-unseal setup complete` to continue.
+</p></div>
 
 ![](./assets/vault-ha-raft3.png)
 

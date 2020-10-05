@@ -1,5 +1,5 @@
 storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node3/"
+  path    = "/root/raft-node3/"
   node_id = "node3"
 
   retry_join {
