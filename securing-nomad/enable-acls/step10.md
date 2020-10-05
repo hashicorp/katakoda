@@ -50,7 +50,7 @@ Developers?
     <tr><td><strong>sentinel-override</strong> - Allows soft mandatory policies to be overridden. </td><td> 🚫 </td></tr>
   </tbody>
 </table>
-
+<br /><br />
 Remember that the course-grained `policy` value of a namespace rule is a list of
 capabilities.
 
