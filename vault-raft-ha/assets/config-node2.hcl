@@ -1,10 +1,10 @@
 ha_storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node2/"
+  path    = "/root/raft-node2/"
   node_id = "node2"
 }
 
 storage "file" {
-    path = "/home/scrapbook/tutorial/vault-storage-file"
+    path = "/root/vault-storage-file"
 }
 
 listener "tcp" {

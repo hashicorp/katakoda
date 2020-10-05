@@ -129,7 +129,10 @@ Since `node1` is currently the only cluster member, it gets elected to be the **
 ...
 ```
 
-Now, `node1` is ready!
+<div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
+<p><strong>NOTE: </strong>
+Wait until you see the log message, `[INFO]  core: post-unseal setup complete` to continue.
+</p></div>
 
 <br />
 
