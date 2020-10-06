@@ -27,7 +27,7 @@ Then, the function retrieves the `OrderItems` from the schema's `items` (line 79
 items := d.Get("items").([]interface{})
 ```
 
-It map these properties into `[]hc.OrderItem{}` which will be used to invoke the HashiCups API client's `CreateOrder` function. Notice how each coffee object (`co`) is the first element of a `[]interface{}`. This is because coffee is represented as a `schema.TypeList` of one object in the schema.
+It maps these properties into `[]hc.OrderItem{}` which will be used to invoke the HashiCups API client's `CreateOrder` function. Notice how each coffee object (`co`) is the first element of a `[]interface{}`. This is because coffee is represented as a `schema.TypeList` of one object in the schema.
 
 ```
 ois := []hc.OrderItem{}
