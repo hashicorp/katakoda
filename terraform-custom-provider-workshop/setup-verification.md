@@ -50,9 +50,9 @@ import (
 
 </details>
 
-## Deploy HashiCups locally
+## Deploy HashiCups locally (in Katacoda)
 
-You will need the HashiCups API running locally to test your HashiCups provider.
+You will need the HashiCups API running locally (in Katacoda) to test your HashiCups provider.
 
 Navigate to `docker_compose` and initialize the application.
 
@@ -60,7 +60,7 @@ Navigate to `docker_compose` and initialize the application.
 
 ### Verify HashiCups API is running
 
-When the HashiCups API is running, you will see log messages in your terminal window
+When the HashiCups API is running, you will see log messages in your terminal window.
 
 Once you see the following message in the HashiCups logs, verify that HashiCups is running.
 
