@@ -8,7 +8,7 @@ The `resourceOrderCreate` function:
 1. retrieves HashiCups API Client from meta parameter
 1. maps the order `schema.Resource` to `[]hc.OrderItems{}`
 1. invokes the `CreateOrder` function on the HashiCups client
-1. **set order ID as resource ID**
+1. **sets order ID as resource ID**
 1. maps response (`hc.Order`) to order `schema.Resource` (similar to `resourceOrderRead`)
 
 The create function is named `resourceOrderCreate` and starts on line 72 in `hashicups/resource_order.go`{{open}}. Most of these steps have been implemented, you will only set the order ID as the resource ID.
@@ -79,10 +79,10 @@ To format your code, run `go fmt ./...`{{execute}} then close and reopen your fi
 
 > Interactive Code Portion
 
-Since the `resourceOrderCreate` function uses `strconv` to convert the ID into a string, you will need to import the `strconv` library.
+Since the `resourceOrderCreate` function uses `strconv` to convert the ID into a string, you will need to import the `strconv` library. The import statement will be found at the top of your `hashicups/resource_order.go`{{open}} file.
 
-<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker='// Add "strconv" package'>
-// Add "strconv" package
+<pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker='// ** | Add "strconv" package'>
+// ** | Add "strconv" package
   "strconv"
 </pre>
 

@@ -36,7 +36,8 @@ type Coffee struct {
 
 Open `hashicups/resource_order.go`{{open}}.
 
-An `Order` represents a customer ordering coffee from the Hashicups API. Each `Order` is made up of an ID and `items`.
+An order represents a customer ordering coffee from the Hashicups API. Each order is made up of an ID and `items`.
+
 - The order ID will be set to the resource's ID. 
 - `items`, a required list of `OrderItems`, has been defined for you
 
@@ -67,7 +68,7 @@ On line 24, `quantity` is defined as a `schema.TypeInt`, its `Required` attribut
 
 ### Define Coffee schema
 
-`coffee` is a nested object — an object inside another object (in this case, `coffee` is nested inside of `items`).
+`coffee` is a nested object — an object inside another object. In this case, `coffee` is nested inside of `items`.
 
 The Terraform Plugin SDK v2 currently does not support nested objects; however, you can emulate one using a list of 1 item.
 
@@ -116,6 +117,8 @@ The keys will be the property names, and the values will be `&schema.Schema` obj
 <summary>Hint</summary>
 
 Replace the schema on line 35 with the following code snippet. This defines each properties in the coffee object.
+
+Clicking on "Copy to Editor" will automatically replace the schema. 
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="Schema: map[string]*schema.Schema{},">
 Schema: map[string]*schema.Schema{
