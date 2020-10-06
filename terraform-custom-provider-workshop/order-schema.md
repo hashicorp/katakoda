@@ -1,6 +1,6 @@
-Schemas allow the providers to map the API response to a Terraform resource. In this step, you will complete the HashiCups order schema.
+Schemas allow Terraform providers to map the API response to a Terraform resource. In this step, you will complete the HashiCups order schema.
 
-> If you’re stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
+> If you get stuck, refer to the complete schema at the end of this step to see the changes implemented in this step.
 
 ## Explore existing schema
 
@@ -36,7 +36,7 @@ type Coffee struct {
 
 Open `hashicups/resource_order.go`{{open}}.
 
-An `Order` is comprised of an ID and `items`.
+An `Order` represents a customer ordering coffee from the Hashicups API. Each `Order` is made up of an ID and `items`.
 - The order ID will be set to the resource's ID. 
 - `items`, a required list of `OrderItems`, has been defined for you
 
@@ -56,7 +56,7 @@ On line 19, items is defined as a `schema.TypeList` and its `Required` attribute
 
 `quantity` is a required integer and a property of `OrderItems`.
 
-On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attribute is set to `true`. Notice how the quantity is nested in the `"items"`'s `Elem` attribute.
+On line 24, `quantity` is defined as a `schema.TypeInt`, its `Required` attribute is set to `true`, and it is nested in the `"items"`'s `Elem` attribute.
 
 ```
 "quantity": &schema.Schema{
@@ -67,11 +67,11 @@ On line 24, `quantity` is defined as a `schema.TypeInt` and its `Required` attri
 
 ### Define Coffee schema
 
-`coffee` is a nested object (an object inside another object, e.g. `items`). 
+`coffee` is a nested object — an object inside another object (in this case, `coffee` is nested inside of `items`).
 
-There are two ways to nest objects using the Terraform Plugin SDK v2.
+The Terraform Plugin SDK v2 currently does not support nested objects; however, you can emulate one using a list of 1 item.
 
-On line 29, `coffee` is defined as a `schema.TypeList` with 1 item. This is one of two ways to nest objects using the Terraform Plugin SDK v2, and is the closest way to emulate a nested object.
+On line 29, `coffee` is defined as a `schema.TypeList` with 1 item.
 
 ```
 items": &schema.Schema{
@@ -97,9 +97,9 @@ items": &schema.Schema{
 
 > Interactive Code Portion
 
-Define each coffee properties inside the `coffee`'s `Elem` property.
+Define each coffee properties inside the `coffee`'s `Elem` property by adding properties to the empty map found on line 35. 
 
-Each property type maps to an appropriate `schema.Type`. To create a new order, only the coffee ID is required. The other properties are computed.
+The keys will be the property names, and the values will be `&schema.Schema` objects defining the `Type` and `Required`/`Computed` values, as shown in the table below. Each of these entries will be similar to the definition of `"quantity"` found on lines 24-27.
 
 | Property    | Type    | SchemaType        | Other    |
 | ----------- | ------- | ----------------- | -------- |
@@ -115,7 +115,7 @@ Each property type maps to an appropriate `schema.Type`. To create a new order, 
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-Replace the schema on line 34 with the following code snippet. This defines each properties in the coffee object.
+Replace the schema on line 35 with the following code snippet. This defines each properties in the coffee object.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="Schema: map[string]*schema.Schema{},">
 Schema: map[string]*schema.Schema{
@@ -161,7 +161,7 @@ You can view the complete schema below to confirm your work.
 <summary>Complete schema</summary>
 <br/>
 
-Replace the schema in your resourceOrder function with the following schema (line 18). Notice how the order resource schema resembles the API client's `Order` type.
+Replace the schema in your resourceOrder function with the following schema (line 18). Notice how the order resource schema resembles the HashiCups API client's `Order` type.
 
 <pre class="file" data-target="clipboard">
 Schema: map[string]*schema.Schema{

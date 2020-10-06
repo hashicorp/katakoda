@@ -2,17 +2,17 @@ Now that you’ve added create, read, update and delete capabilities to the orde
 
 ## Initialize your developer environment 
 
-First, run the `go mod init` command to define this directory as the root of a module.
+Initialize a new Go module, with this directory as its root.
 
 `go mod init terraform-provider-hashicups`{{execute}}
 
-Then, run go mod vendor to create a vendor directory that contains all the provider's dependencies.
+Then, create a vendor directory that contains all the provider’s dependencies.
 
 `go mod vendor`{{execute}}
 
 ## Add `order` resource to provider
 
-Open `hashicups/provider.go`{{open}}.  Add the `order` resource to the provider's `ResourceMap` (line 32).
+Open `hashicups/provider.go`{{open}}.  Add the `order` resource to the provider's `ResourcesMap` (line 32).
 
 <pre class="file" data-filename="hashicups/provider.go" data-target="insert" data-marker="// Add HashiCups order here">
 // Add HashiCups order here
@@ -21,9 +21,7 @@ Open `hashicups/provider.go`{{open}}.  Add the `order` resource to the provider'
 
 ## Build provider
 
-Next, you will need to build the binary and move it into your user Terraform plugins directory. This allows you to sideload and test your custom providers.
-
-The `make install` command automates these two steps.
+Next, run `make install` to build the binary and move your new provider into your users Terraform plugins directory. This allows you to sideload and test your custom providers.
 
 `make install`{{execute}}
 
@@ -37,7 +35,7 @@ mv terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicu
 <summary>Error compiling provider binary</summary>
 <br/>
 
-If you get the following error: `hashicups/resource_order.go:104:10: undefined: strconv`, you add `"strcov"` to the top of your import statement in `hashicups/resource_order.go`{{open}.
+If you get the following error: `hashicups/resource_order.go:104:10: undefined: strconv`, you need to add `"strconv"` to the top of your import statement in `hashicups/resource_order.go`{{open}}.
 
 ```
 import (
@@ -54,13 +52,15 @@ import (
 
 ## Deploy HashiCups locally
 
-You will need HashiCups running locally to test your HashiCups provider.
+You will need the HashiCups API running locally to test your HashiCups provider.
 
 Navigate to `docker_compose` and initialize the application.
 
 `cd docker_compose && docker-compose up`{{execute}}
 
 ### Verify HashiCups API is running
+
+When the HashiCups API is running, you will see log messages in your terminal window
 
 Once you see the following message in the HashiCups logs, verify that HashiCups is running.
 
@@ -105,6 +105,6 @@ The response will look similar to the following.
 }
 ```
 
-Set `HASHICUPS_TOKEN` to the token you retrieved from invoking the `/signin` endpoint. You will use this later in the tutorial to verify your HashiCups order has been created, updated and deleted.
+Set the `HASHICUPS_TOKEN` environment variable to the token you retrieved from invoking the `/signin` endpoint. You will use this later in the tutorial to verify your HashiCups order has been created, updated and deleted.
 
 `export HASHICUPS_TOKEN=$(curl -X POST localhost:19090/signin -d '{"username":"education", "password":"test123"}' | jq --raw-output '.token')`{{execute T2}}
