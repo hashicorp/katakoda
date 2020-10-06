@@ -2,7 +2,7 @@
 .lang-screenshot { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 </style>
 
-Create a blank job file by running `touch countdash.nomad`{{execute}}. Open
+Create a blank job file by running `touch ~/countdash.nomad`{{execute}}. Open
 `countdash.nomad`{{open}} in the editor and copy-and-paste this job
 specification into the file.
 
@@ -85,7 +85,7 @@ Created: count-dashboard => count-api (allow)
 
 ### Run the job
 
-Run the job by calling `nomad run countdash.nomad`{{execute}}.
+Run the job by calling `nomad run ~/countdash.nomad`{{execute}}.
 
 **Example Output**
 
@@ -99,21 +99,3 @@ $ nomad run countdash.nomad
     Evaluation status changed: "pending" -> "complete"
 ==> Evaluation "3e7ebb57" finished with status "complete"
 ```
-
-Open the Countdash interface by clicking the "Countdash UI" tab above the 
-terminal.
-
-Once you are done, run `nomad stop countdash`{{execute}} to prepare for the next
-step.
-
-**Example Output**
-
-```screenshot
-$ nomad stop countdash
-==> Monitoring evaluation "d4796df1"
-    Evaluation triggered by job "countdash"
-    Evaluation within deployment: "18b25bb6"
-    Evaluation status changed: "pending" -> "complete"
-==> Evaluation "d4796df1" finished with status "complete"
-```
-

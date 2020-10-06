@@ -1,10 +1,14 @@
+<style type="text/css">
+.alert { position: relative; padding: .75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: .25rem; }
+.alert-info { color: #0c5460; background-color: #d1ecf1; border-color: #bee5eb; }
+</style>
 
 ### Enable ACLs in Consul configuration
 
 Open the `consul_config.hcl`{{open}} file and paste the following stanza anywhere in the
 top level.
 
-<pre class="file" data-target="clipboard">
+<pre class="file" data-filename="consul_config.hcl" data-target="append">
 acl {
   enabled                  = true
   default_policy           = "deny"
@@ -20,7 +24,7 @@ these changes.
 ### Bootstrap Consul ACLs
 
 Next, bootstrap the Consul ACL subsystem. Run
-`consul acl bootstrap | tee consul.bootstrap`{{execute}}
+`consul acl bootstrap | tee ~/consul.bootstrap`{{execute}}
 to bootstrap the ACL system, generate your first token, and capture the output
 into the `consul.bootstrap` file.
 
@@ -33,7 +37,7 @@ try the command again.
 **Example Output**
 
 ```screenshot
-$ consul acl bootstrap | tee consul.bootstrap
+$ consul acl bootstrap | tee ~/consul.bootstrap
 AccessorID:       e57b446b-2da0-bce2-f01c-6c0134d8e19b
 SecretID:         bba19e7c-9f47-2b08-f0ea-e1bca43ba9c5
 Description:      Bootstrap Token (Global Management)

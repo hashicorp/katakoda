@@ -29,7 +29,7 @@ You can supply the token in a few ways:
 
 Reload your management token into the CONSUL_HTTP_TOKEN environment variable.
 
-`export CONSUL_HTTP_TOKEN=$(awk '/SecretID/ {print $2}' consul.bootstrap)`{{execute}}
+`export CONSUL_HTTP_TOKEN=$(awk '/SecretID/ {print $2}' ~/consul.bootstrap)`{{execute}}
 
 Now, try running countdash.nomad again. This time it will succeed.
 

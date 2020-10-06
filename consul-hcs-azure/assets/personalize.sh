@@ -1,9 +1,12 @@
 export UNAME=<your-user-name>
 export SECRET=<your-secret>
 export TENANT_ID=<your-tenant-id>
+
+
 export RESOURCE_GROUP=dwcc-$UNAME-rg
 
 sudo tee -a $HOME/.bashrc <<EOF
+export UNAME=$UNAME
 export RESOURCE_GROUP=$RESOURCE_GROUP
 EOF
 

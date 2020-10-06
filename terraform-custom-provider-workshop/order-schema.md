@@ -37,6 +37,7 @@ type Coffee struct {
 Open `hashicups/resource_order.go`{{open}}.
 
 An order represents a customer ordering coffee from the Hashicups API. Each order is made up of an ID and `items`.
+
 - The order ID will be set to the resource's ID. 
 - `items`, a required list of `OrderItems`, has been defined for you
 

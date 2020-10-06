@@ -30,3 +30,5 @@ E..;.e@.@......
 ```
 
 Notice items like "Payload", "Adjustment", and "Node" are human readable.
+
+Press `Ctrl-C` to exit tcpdump and return to the shell.

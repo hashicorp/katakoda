@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+  nomad1:
+    image: hashistack
+    restart: always
+    hostname: nomad-1
+    privileged: true
+    ports:
+      - 8200:8200
+      - 8500:8500
+      - 4646:4646
+    environment:
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+
+  nomad2:
+    image: hashistack
+    restart: always
+    hostname: nomad-2
+    privileged: true
+    ports:
+    environment:
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+
+  nomad3:
+    image: hashistack
+    restart: always
+    hostname: nomad-3
+    privileged: true
+    environment:
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181

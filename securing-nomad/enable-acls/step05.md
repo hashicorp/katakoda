@@ -9,7 +9,7 @@ this scenario, we will also direct the output of this command into a file using
 `tee`.
 
 ```shell
-nomad acl bootstrap | tee bootstrap.token
+nomad acl bootstrap | tee ~/bootstrap.token
 ```{{execute}}
 
 <div class="alert-info alert">
@@ -21,7 +21,7 @@ second for the client to completely start and try again.
 **Example Output**
 
 ```
-$ nomad acl bootstrap | tee bootstrap.token
+$ nomad acl bootstrap | tee ~/bootstrap.token
 Accessor ID  = 5b7fd453-d3f7-6814-81dc-fcfe6daedea5
 Secret ID    = 9184ec35-65d4-9258-61e3-0c066d0a45c5
 Name         = Bootstrap Token

@@ -13,42 +13,38 @@
       },
       {
         "title": "Introduction to Nomad ACLs",
-        "text": "step1.md"
+        "text": "step02.md"
       },
       {
         "title": "Configure your nodes",
-        "text": "step2.md"
+        "text": "step03.md"
       },
       {
         "title": "Restart to enable ACLs",
-        "text": "step3.md"
+        "text": "step04.md"
       },
       {
         "title": "Bootstrapping the ACL system",
-        "text": "step4.md"
+        "text": "step05.md"
       },
       {
         "title": "Create the anonymous policy definition",
-        "text": "step5.md"
+        "text": "step06.md"
       },
       {
         "title": "Create anonymous policy",
-        "text": "step6.md"
+        "text": "step07.md"
       },
       {
         "title": "Test the anonymous policy",
-        "text": "step7.md"
+        "text": "step08.md"
       },
       {
         "title": "Policy fundamentals",
-        "text": "step8.md"
+        "text": "step09.md"
       },
       {
         "title": "Developing policies - Scenario",
-        "text": "step9.md"
-      },
-      {
-        "title": "Developing policies",
         "text": "step10.md"
       },
       {
@@ -56,28 +52,32 @@
         "text": "step11.md"
       },
       {
-        "title": "Upload policies",
-        "text": "step11-1.md"
-      },
-      {
-        "title": "Create test tokens",
+        "title": "Developing policies",
         "text": "step12.md"
       },
       {
-        "title": "Test job submission",
+        "title": "Upload policies",
         "text": "step13.md"
       },
       {
-        "title": "Test the nodes API",
+        "title": "Create test tokens",
         "text": "step14.md"
       },
       {
-        "title": "Challenge: Restrict anonymous users",
+        "title": "Test job submission",
         "text": "step15.md"
       },
       {
-        "title": "Explore the scenario environment",
+        "title": "Test the nodes API",
         "text": "step16.md"
+      },
+      {
+        "title": "Challenge: Restrict anonymous users",
+        "text": "step17.md"
+      },
+      {
+        "title": "Explore the scenario environment",
+        "text": "step18.md"
       }
     ],
     "intro": {

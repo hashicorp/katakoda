@@ -17,7 +17,7 @@ you created in the previous step.
 cat <<EOF >> ~/nomad_config.hcl
 
 consul {
-  token = "$(awk '/SecretID/ {print $2}' nomad-agent.token)"
+  token = "$(awk '/SecretID/ {print $2}' ~/nomad-agent.token)"
 }
 EOF
 ```{{execute}}

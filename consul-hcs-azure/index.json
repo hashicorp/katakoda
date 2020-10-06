@@ -18,7 +18,7 @@
         "text": "step1.md"
       },
       {
-        "title": "Configure HCS on Azure",
+        "title": "Configure VNet and HCS Secrets",
         "text": "step2.md"
       },
       {
@@ -70,5 +70,5 @@
   "backend": {
     "imageid": "hashicorp-hashistack"
   },
-  "private": true
+  "private": false
 }
