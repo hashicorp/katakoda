@@ -8,13 +8,6 @@
       "id": "vault-raft",
       "course_id": "vault-raft",
       "description": "Use raft storage with Vault."
-    },
-    {
-      "pathway_id": "hashicorp",
-      "title": "Integrated Storage for HA Coordination",
-      "id": "vault-raft-ha",
-      "course_id": "vault-raft-ha",
-      "description": "Use raft storage with Vault."
     }
   ]
 }
