@@ -6,13 +6,12 @@ This workspace is an Ubuntu image with Terraform 0.13, Go, and a custom environm
 
 Your development environment contains the following.
 
-- `Makefile`{{open}} contains helper functions used to build, package and install the HashiCups provider. The `OS_ARCH` has been updated to `linux_amd64` to match the workspace's.
-- `docker_compose` directory contains the files required to initialize a local instance of HashiCups.
-- `examples` directory contains sample Terraform configuration that can be used to test the HashiCups provider.
-- `main.go`{{open}} is the main entry point. This file creates a valid, executable Go binary that Terraform Core can consume.
-- `hashicups` directory contains the main provider code. This will be where the provider's resources and data source implementations will be defined.
-
-`hashicups/resource_order.go`{{open}} defines `resourceOrder()` and contains boilerplate and comments to guide you through adding CRUD capabilities to an existing provider.
+- The `Makefile`{{open}} file contains helper functions used to build, package and install the HashiCups provider. The `OS_ARCH` is `linux_amd64`, which matches the katacoda workspace you are building.
+- The `docker_compose` directory contains the files required to initialize a local instance of HashiCups.
+- The `examples` directory contains sample Terraform configuration that can be used to test the HashiCups provider.
+- The `main.go`{{open}} file is the provider's entry point. You will compile this file into a valid, executable Go binary that Terraform Core can consume.
+- The `hashicups` directory contains the main provider code. This will be where the provider's resources and data source implementations will be defined.
+    - `hashicups/resource_order.go`{{open}} defines `resourceOrder()` and contains boilerplate and comments to guide you through adding CRUD capabilities to an existing provider.
 
 ## Katacoda Notes
 

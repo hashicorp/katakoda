@@ -1,18 +1,18 @@
-Now that you have implemented create, you must implement read to retrieve the resource current state. This will be run during the `plan` process to determine whether the resource needs to be updated.
+Now that you have implemented the create functionality, you must implement read to retrieve the resource current state. Terraform will run this function during the `plan` process to determine whether the resource needs to be updated.
 
-The read function:
-1. retrieves API Client from meta parameter
+The `resourceOrderRead` function:
+1. retrieves HashiCups API Client from meta parameter
 1. retrieves order ID
-1. invokes the GetOrder function on the HashiCups client
+1. invokes the `GetOrder` function on the HashiCups client
 1. maps response (`hc.Order`) to order `schema.Resource`
 
 Since `hc.Order` is a nested object, you will use flattening functions to map `hc.Order` to the Terraform order schema.
 
-The read function is named `resourceOrderRead` and starts on line 116. `resourceOrderRead` has already been implemented for you. You will define one of the flattening functions in this step.
+The read function is named `resourceOrderRead` and starts on line 116 in `hashicups/resource_order.go`{{open}}. `resourceOrderRead` has already been implemented for you. You will define one of the flattening functions in this step.
 
-## Explore `resourceOrderRead` function
+## Explore the `resourceOrderRead` function
 
-First, the read function retrieves the API client from the meta parameter (line 118).
+First, the read function retrieves the authenticated HashiCups API client from the meta parameter (line 118).
 
 ```
 c := m.(*hc.Client)
@@ -24,7 +24,7 @@ Then, the read function retrieves the resource ID using `d.Id()`.
 orderID := d.Id()
 ```
 
-The read function uses this value as an argument in `GetOrder` to retrieve the order's information. If `GetOrder` fails, the provider will error with the API Client's API error message.
+The read function uses this value as an argument in `GetOrder` to retrieve the order's information. If `GetOrder` fails, the provider will error with the HashiCups API Client's API error message.
 
 ```
 order, err := c.GetOrder(orderID)
@@ -44,7 +44,7 @@ if err := d.Set("items", orderItems); err != nil {
 
 ## Explore flattening functions
 
-The API Client's `GetOrder` function returns an order object that needs to be "flattened" so the provider can accurately map it to the order `schema`. An order consists of an order ID and a list of coffee objects and their respective quantities.
+The HashiCups API Client's `GetOrder` function returns an order object that needs to be "flattened" so the provider can accurately map it to the order `schema`. An order consists of an order ID and a list of coffee objects and their respective quantities.
 
 As a result, it must go through two flattening functions:
 
@@ -53,11 +53,11 @@ As a result, it must go through two flattening functions:
 
 The first flattening function has been implemented for you. You will implement `flattenCoffee`, the second flattening function.
 
-### `flattenOrderItems` function 
+### Explore the `flattenOrderItems` function 
 
-You can find the  `flattenOrderItems` function on line 206 of the `hashicups/resource_order.go`{{open}}. 
+You can find the  `flattenOrderItems` function on line 206 of the `hashicups/resource_order.go`{{open}} file. 
 
-This is the first flattening function to return a list of order items. The `flattenOrderItems` function takes an `*[]hc.OrderItem` as `orderItems`. If `orderItems` is not `nil`, it will iterate through the slice and map its values into a `map[string]interface{}`.
+This function takes a list of OrderItems (`*[]hc.OrderItem`) from the HashiCups API Client and returns a flattened list of order items in the same structure as defined in the resourceOrder schema (`[]interface{}`).
 
 ```
 func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
@@ -80,11 +80,11 @@ func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
 }
 ```
 
-### `flattenCoffee` function 
+### Implement the `flattenCoffee` function 
 
 The second flattening function, `flattenCoffee`, is declared on line 230 of the `hashicups/resource_order.go`{{open}} file. 
 
-The `flattenCoffee` function is called in the first flattening function. It takes a `hc.Coffee` and turns a slice with a single object. Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
+The `flattenCoffee` function is called in the first flattening function. This function takes a coffee (`hc.Coffee`) and turns returns a flattened list of coffee attributes (`[]interface{}{c}`). Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
 
 > Interactive Code Portion
 
