@@ -13,5 +13,3 @@ unzip terraform_0.13.3_linux_amd64.zip -d /usr/local/bin/
 touch main.tf
 
 clear 
-
-echo "Katacoda terminal configured."
