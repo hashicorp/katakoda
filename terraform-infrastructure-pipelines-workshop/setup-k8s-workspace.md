@@ -75,13 +75,18 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
 Next, click on "Variables" in the workspace UI. Both the Terraform Variables and
 Environment Variables will already be set for you.
 
-Verify that these variables are set correctly before moving on.
-
 #### Terraform Variables
 
-These correspond to the variables declared in
+These variables correspond to the variables declared in
 [`variables.tf`](https://github.com/hashicorp/learn-terraform-pipelines-k8s/blob/master/variables.tf).
 
+- **username** — Username for Kubernetes cluster<br/>
+  This can be anything, but defaults to `hashicorp`.
+- **enable_consul_and_vault** — Enable Consul and Vault for the secrets cluster<br/>
+  This will be set to `false`. This variable dictates whether Consul and Vault
+  should be deployed on your Kubernetes cluster.
+- **cluster_name** — Name of Kubernetes cluster<br/>
+  This will be set to `tfc-pipelines`.
 - **region** — GCP region to deploy clusters<br/>
   This will be set to `europe-west4`. For a full list of GCP regions, refer to [Google’s Region and Zones documentation](https://cloud.google.com/compute/docs/regions-zones).
 - **password** — Password for Kubernetes cluster<br/>
@@ -90,16 +95,9 @@ These correspond to the variables declared in
   Terraform will set this when it creates your Kubernetes cluster and will
   distribute it as necessary when creating your Consul and Vault clusters. You
   will not need to manually input this value.
-- **enable_consul_and_vault** — Enable Consul and Vault for the secrets cluster<br/>
-  This will be set to `false`. This variable dictates whether Consul and Vault
-  should be deployed on your Kubernetes cluster.
-- **username** — Username for Kubernetes cluster<br/>
-  This can be anything, but defaults to `hashicorp`.
 - **google_project** — Google Project to deploy cluster<br/>
   This is the Google Cloud project for your infrastructure, and will be set to
   something similar to `{firstName}-{lastInitial}-{randomString}`.
-- **cluster_name** — Name of Kubernetes cluster<br/>
-  This will be set to `tfc-pipelines`.
 
 #### Environment Variables
 

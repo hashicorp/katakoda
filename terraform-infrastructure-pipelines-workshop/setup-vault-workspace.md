@@ -58,14 +58,13 @@ Your Terraform Variables will already be set for you. These correspond with the
 variables in
 [`variables.tf`](https://github.com/hashicorp/learn-terraform-pipelines-vault/blob/master/variables.tf).
 
-Verify that these variables are set correctly before moving on.
-
 #### Terraform Variables
 
+- **consul_workspace** —Terraform Cloud Workspace for the Consul cluster. 
+  This will be set to something similar to `{firstName}-{lastInitial}-consul`
+  (`john-d-consul`).
 - **organization** — Organization of workspace that created the Kubernetes cluster
   This will be set to `infrastructure-pipelines-workshop`.
-- **consul_workspace** —Terraform Cloud Workspace for the Consul cluster. 
-  This will be set to something similar to `{firstName}-{lastInitial}-consul` (`john-d-consul`).
 - **cluster_workspace** — Terraform Cloud Workspace for the Kubernetes cluster.
   This will be set to something similar to `{firstName}-{lastInitial}-k8s` (`john-d-k8s`).
 

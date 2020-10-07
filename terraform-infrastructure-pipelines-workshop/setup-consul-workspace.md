@@ -58,15 +58,13 @@ Next, click on "Variables". Your Terraform Variables will already be set for
 you. These correspond with the variables in
 [`variables.tf`](https://github.com/hashicorp/learn-terraform-pipelines-consul/blob/master/variables.tf).
 
-Verify that these variables are set correctly before moving on.
-
 #### Terraform Variables
 
+- **organization** - Organization of workspace that created the Kubernetes cluster<br/>
+  This will be set to `infrastructure-pipelines-workshop`.
 - **namespace** — Kubernetes namespace to deploy the Consul Helm chart<br/>
   This will be set to `hashicorp-learn`. You will use this to access your Consul
   and Vault instances later.
-- **organization** - Organization of workspace that created the Kubernetes cluster<br/>
-  This will be set to `infrastructure-pipelines-workshop`.
 - **release_name** — Helm Release name for Consul chart<br/>
   This will be set to `hashicorp-learn`. Your Vault pods will start with this
   release name.
