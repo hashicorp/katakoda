@@ -29,6 +29,7 @@ the Kubernetes ("john-d-k8s") workspace.
    your own GitHub account using the `fork` interface in GitHub.
 1. In your forked repository, navigate to `main.tf`.
 1. Use the "pencil"/edit button to edit the file.
+  ![GitHub edit button](./assets/github-edit.png)
 1. Replace the `organization` and `workspaces` values with the organization set
    up for this workshop ("infrastructure-pipelines-workshop"), and your unique
    workspace name ("{firstName}-{lastInitial}-k8s").<br/>
@@ -65,7 +66,7 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
 1. Select "Github".
   - If this is your first time using Terraform Cloud with GitHub, it will ask
     you to authorize Terraform Cloud to access GitHub.
-1. Select your **forked** Kubernetes repo:
+1. Select your forked Kubernetes repo:
   `{your-github-username}/learn-terraform-pipelines-k8s`
 1. Click "Update VCS settings" to connect this workspace to your forked GitHub
    repository.
@@ -110,7 +111,10 @@ with the Google Cloud API.
 
 ## Deploy the Kubernetes cluster
 
-Use the `Queue Plan` interface to queue a plan for your workspace.
+Use the `Queue Plan` interface in Terraform Cloud to queue a plan for your
+workspace.
+
+![Queue plan interface](./assets/queue-plan.png)
 
 If the plan is successful, Terraform Cloud will ask you to confirm and apply.
 
@@ -126,7 +130,7 @@ You have successfully configured your Kubernetes workspace. Terraform Cloud will
 use the configuration provided in your GitHub repository to deploy your
 Kubernetes cluster. The Kubernetes workspace will output the Kubernetes
 credentials for the Helm charts to consume in the Consul and Vault workspaces.
-These values are specified in the Kubernetes GitHub repository in
+These output values are defined in the Kubernetes GitHub repository in
 [`outputs.tf`](https://github.com/hashicorp/learn-terraform-pipelines-k8s/blob/master/outputs.tf).
 
 In the next step, you will configure your Consul workspace in a similar fashion.
