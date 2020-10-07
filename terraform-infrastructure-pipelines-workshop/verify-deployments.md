@@ -105,19 +105,9 @@ Click on the "Vault UI" tab in the Katacoda terminal pane or visit
 `[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com` in your
 browser to access the Vault UI.
 
-> **Note:** The Vault pods have warnings because Vault is sealed. Do **not**
-  unseal Vault during this workshop. You can learn how to unseal Vault in the
-  [CLI initialize and unseal documentation for
+> **Note:** The Vault pods have warnings because Vault is sealed. There is no
+  need to unseal Vault for this workshop. You can learn how to unseal Vault in
+  the [CLI initialize and unseal documentation for
   Vault](https://www.vaultproject.io/docs/platform/k8s/helm/run#initialize-and-unseal-vault),
   and can try it on your own by reproducing this lab locally, following [this
   tutorial](https://learn.hashicorp.com/terraform/kubernetes/consul-vault-kubernetes-run-triggers).
-
-## Next steps
-
-Congratulations — you have successfully completed the scenario and deployed a
-pipeline of Terraform Cloud workspaces to implement a Kubernetes cluster with
-Consul and Vault deployed within it. By keeping your infrastructure
-configuration modular and creating a pipeline of workspaces using run triggers,
-your Terraform configuration becomes extensible and easier to understand.
-
-Return to the main Zoom meeting for the group Q&A session.
