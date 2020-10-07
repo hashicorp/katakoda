@@ -44,11 +44,37 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
 1. Select "Github".
 1. Select your **forked** Vault repo:
   `{your-github-username}/learn-terraform-pipelines-vault`
+  - **Note:** If you have already authorized Terraform Cloud to access selected
+    GitHub repositories, but not all of your repositories, the Vault
+    repository may not appear on this list. If so, follow the instructions under
+    "Grant access to specific GitHub repositories" below.
 1. Click "Update VCS settings" to connect this workspace to your forked GitHub
    repository.
 1. Just as you did for the Consult workspace, select "Include submodules on
    clone", and then click on "Update VCS settings". 
   ![Include submodules interface](./assets/include-submodules.png)
+
+<details style="padding-bottom: 1em;">
+<summary>Grant access to specific GitHub repositories</summary>
+<br/>
+If your forked repository does not appear in the list of repositories above,
+follow these steps to grant Terraform Cloud access to the repository.
+
+1. Log in to [GitHub](https://github.com).
+1. Navigate to your user profile settings by clicking on your profile picture in
+   the upper right, and choosing "Settings" from the menu.
+1. On the settings page, select "Applications" from the menu on the left.
+1. "Terraform Cloud" should be listed here. Click the "Configure" button next to
+   it.
+  - If "Terraform Cloud" does not appear, then Terraform Cloud has not been
+    configured to access GitHub. Return to Terraform Cloud to connect it to
+    GitHub as described above.
+1. On the next page, you can either grant Terraform Cloud access to all of your
+   GitHub repositories, or use the "Only select repositories" interface to
+   select the repository you forked earlier.
+1. If you only grant access to select repositories, you will need to repeat the
+   last step for all three of the repositories used in this workshop.
+</details>
 
 ### Verify variables
 
