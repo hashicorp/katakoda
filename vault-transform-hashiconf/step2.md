@@ -31,7 +31,11 @@ vault write -format=json transform/encode/payments value=1111-2222-3333-4444 \
    | jq -r ".data.encoded_value" > card-encoded.txt
 ```{{execute T1}}
 
-Open the `card-encoded.txt`{{open}} to see the returned encoded value.
+Open the `card-encoded.txt` to see the returned encoded value.
+
+```
+cat card-encoded.txt
+```{{execute T1}}
 
 ## Decode secrets
 
@@ -43,4 +47,4 @@ vault write transform/decode/payments value=$(cat card-encoded.txt)
 
 <br />
 
-This was too easy! 
+This was too easy!
