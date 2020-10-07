@@ -1,0 +1,78 @@
+{
+    "pathwayTitle": "Load balancing in Consul service mesh with Envoy",
+    "icon": "fa-consul",
+    "title": "Load balancing in Consul service mesh with Envoy",
+    "description": "Configure different load balancing policies to share load across services in your service mesh configuring Envoy automatically",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Test environment and default load balancing policy",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Configure sticky-bit with hash policy",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Configure least_req policy",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            },
+            {
+                "title": "Load balancing and ingress gateways",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            }
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+          { "file": "server.hcl", "target": "./" },
+          { "file": "agent.hcl", "target": "./" },
+          { "file": "default.hcl", "target": "./" },
+          { "file": "hash-resolver.hcl", "target": "./" },
+          { "file": "least-req-resolver.hcl", "target": "./" },
+          { "file": "svc-client.hcl", "target": "./" },
+          { "file": "svc-clone.hcl", "target": "./" },
+          { "file": "svc-main.hcl", "target": "./" },
+          { "file": "igw-backend.hcl", "target": "./" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 8500},
+            {"name": "Ingress GW", "port": 8080}
+        ],
+        "terminals": [
+            {"name": "server", "target": "host01"},
+            {"name": "client", "target": "host01"}
+        ]
+    },
+    "backend": {
+        "port": 8080,
+        "imageid": "ubuntu"
+    }
+}
