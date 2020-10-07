@@ -46,13 +46,11 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
 1. Click "Update VCS settings" to connect this workspace to your forked GitHub
    repository.
 
-In addition to the steps above, which you followed for the Kubernetes workspace,
-you will need to include submodules from the consul repository.
+The Consul repository uses a GitHub submodule for Helm. In addition to the steps
+above, configure Terraform Cloud to load this submodule.
 
-1. Select "Include submodules on clone", and then click on "Update VCS
-   settings". 
-
-![Click on "Include submodules on clone" then click on "Update VCS settings"](./assets/include-submodules.png)
+1. Select "Include submodules on clone", and then click "Update VCS settings". 
+  ![Include submodules interface](./assets/include-submodules.png)
 
 ### Verify variables
 

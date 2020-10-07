@@ -48,6 +48,7 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
    repository.
 1. Just as you did for the Consult workspace, select "Include submodules on
    clone", and then click on "Update VCS settings". 
+  ![Include submodules interface](./assets/include-submodules.png)
 
 ### Verify variables
 
