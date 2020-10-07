@@ -1,0 +1,13 @@
+{
+  "title": "Deploy Production Workloads With Managed Consul and Kubernetes",
+  "description": "Deploy a Consul service mesh on an existing Azure Kubernetes Service (AKS) cluster and connect it to an instance of a HashiCorp Consul Service (HCS) on Azure.",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Deploy Production Workloads With Managed Consul and Kubernetes",
+      "id": "consul-hcs-azure",
+      "course_id": "consul-hcs-azure",
+      "description": "Deploy a Consul service mesh on an existing Azure Kubernetes Service (AKS) cluster and connect it to an instance of a HashiCorp Consul Service (HCS) on Azure."
+    }
+  ]
+}
