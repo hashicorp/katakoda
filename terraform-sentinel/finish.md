@@ -5,7 +5,8 @@ You've successfully written and tested infrastructure policies using the Sentine
 
 ## Further reading
 
-- [Terraform Cloud Learn guide](https://learn.hashicorp.com/terraform/sentinel/sentinel-policies). 
+- [Sentinel Modules](https://docs.hashicorp.com/sentinel/extending/modules/)
+- [Terraform Cloud Learn guide](https://learn.hashicorp.com/terraform/sentinel/sentinel-policies).
 - [Sentinel Policies in Vault](https://learn.hashicorp.com/vault/security/iam-sentinel)
 - [Mock data](https://www.terraform.io/docs/cloud/sentinel/mock.html)
 - [Policy Sets in Terraform Cloud](https://www.terraform.io/docs/cloud/sentinel/manage-policies.html)

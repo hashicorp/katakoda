@@ -4,7 +4,7 @@ Open the file `terraform-sentinel/tf-config/main.tf`{{open}} and review the conf
 
 This configuration builds a publicly-readable S3 bucket with a unique name and deploys an example web app as a bucket object. The `acl` attribute of the `"aws_s3_bucket" "bucket"` resource ensures this web app object is public but the viewer cannot write or edit it.
 
-For your first policy, create a resource filter for your S3 buckets and a rule that requires that resource to have at least one tag. 
+For your first policy, create a resource filter for your S3 buckets and a rule that requires that resource to have at least one tag.
 
 ## Create a filter
 
@@ -46,7 +46,7 @@ main = rule {
 
 ## Apply the policy
 
-To see Sentinel policy logic in action, run an `apply` with the `trace` flag in your terminal.
+Run an `apply` with the `trace` flag in your terminal.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
@@ -56,17 +56,11 @@ Review the trace information. You will find that this policy passed because the 
 
 ## Create a failing policy
 
-To see the failure behavior of your Sentinel policy, change the `bucket_tags` rule to a `null` statement.
+To test the failure behavior of your Sentinel policy, change the `bucket_tags` rule to a `null` statement.
 
-```
-bucket_tags = rule {
-all s3_buckets as _, buckets {
-	buckets.change.after.tags is null
-	}
-}
-```{{copy}}
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is not null">buckets.change.after.tags is null</pre>
 
-Run an apply in the Sentinel CLI again and evaluate the output. You changed the `bucket_tags` rule to require that NO tags are applied to the S3 bucket. Because your plan information already contains these tags, your policy failed.
+Run an apply in the Sentinel CLI again and evaluate the output. Your policy will fail.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
@@ -74,12 +68,6 @@ sentinel apply -trace restrict-s3-buckets.sentinel
 
 After reviewing the failing output, change the `bucket_tags` rule to evaluate correctly.
 
-```
-bucket_tags = rule {
-all s3_buckets as _, buckets {
-	buckets.change.after.tags is not null
-	}
-}
-```{{copy}}
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is null">buckets.change.after.tags is not null</pre>
 
 In the next step, you will build on this policy with more specific and restrictive policy information.

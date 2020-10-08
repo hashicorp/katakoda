@@ -1,4 +1,4 @@
-Now that you have created a policy, you will add some additional restrictions. 
+Now that you have created a policy, you will add some additional restrictions.
 
 Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}, and add a print statement.
 
@@ -10,15 +10,15 @@ The print statement is a helpful tool for debugging and discovery when you are w
 print(s3_buckets)
 ```{{copy}}
 
-Run your Sentinel CLI apply again to see what data your filter contains. 
+Run your Sentinel CLI apply again to return the filter data in your terminal.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
 ```{{execute}}
 
-Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`. 
+Copy the print statement output from your Sentinel apply, which will begin with `"{aws_bucket.bucket:..."` and end with `"..."type":"aws_s3_bucket")}"`.
 
-Create a new file called `terraform-sentinel/print.json`{{touch}} and paste the print output there.
+Create a new file called `terraform-sentinel/print.json`{{open}} and paste the print output there.
 
 Pipe the contents of this file to a `jq` command in your terminal to make this data easier to read.
 
@@ -34,18 +34,18 @@ Remove the print statement from your policy once you have reviewed the output.
 
 Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again.
 
-Copy and paste the `required_tags` variable below the `# Rule to require at least one tag` comment in `terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
+Copy and paste the `required_tags` variable above the `bucket_tags` rule in `terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
 
 ```
 required_tags = [
-	"Name",
+    "Name",
     "Environment",
 ]
 ```{{copy}}
 
 ## Create a rule for your required tags
 
-Edit the `bucket_tags` rule to compare to your `require_tags` variable.
+Replace the `bucket_tags` rule with a new requirement to compare to your `require_tags` variable.
 
 ```
 bucket_tags = rule {
@@ -57,10 +57,9 @@ all s3_buckets as _, buckets {
 }
 ```{{copy}}
 
-
 ## Add an ACL restriction
 
-For S3 buckets, AWS allows you to restrict the level of access to the objects to prevent unauthorized editing. Copy this list of allowed ACLs for your S3 bucket and paste it below your `bucket_tags` rule
+Copy this list of allowed ACLs for your S3 bucket and paste it below your `bucket_tags` rule
 
 ```
 allowed_acls = [
@@ -84,7 +83,7 @@ acl_allowed = rule {
 
 ## Edit the main rule to evaluate both rules
 
-Your main rule must evaluate both the `acl_allowed` and `bucket_tags` rule. Copy and paste this as your main rule.
+Your main rule must evaluate both the `acl_allowed` and `bucket_tags` rule. Edit your main rule with these new requirements.
 
 ```
 main = rule {
@@ -92,9 +91,15 @@ main = rule {
 }
 ```{{copy}}
 
-## Apply the policy 
+## Format and apply the policy
 
-Run an apply in the Sentinel CLI again and evaluate the output. You should see that both the `acl_allowed` and `bucket_tags` rules evaluate to true, which allows your `main` rule to evaluate as true and the policy passes.
+Run the `fmt` command to format your policy for clarity.
+
+```
+sentinel fmt restrict-s3-buckets.sentinel
+```{{execute}}
+
+Close and reopen the `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} file for your changes to reflect in your editor.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
