@@ -7,8 +7,8 @@ mv kubectl /usr/local/bin
 
 # Install Terraform and init config
 cd ~
-curl -O https://releases.hashicorp.com/terraform/0.13.3/terraform_0.13.3_linux_amd64.zip
-unzip terraform_0.13.3_linux_amd64.zip -d /usr/local/bin/
+curl -O https://releases.hashicorp.com/terraform/0.13.4/terraform_0.13.4_linux_amd64.zip
+unzip terraform_0.13.4_linux_amd64.zip -d /usr/local/bin/
 
 touch main.tf
 
