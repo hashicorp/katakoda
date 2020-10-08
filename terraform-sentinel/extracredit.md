@@ -2,6 +2,8 @@ In this extra credit scenario, you will refactor your existing policy into a mod
 
 Modules allow you to re-use Sentinel code as an import. This allows you to package code that is useful across multiple policies, making final policy code simpler.
 
+Your module will move the `bucket` and `acl` rules into a separate file so they can be used in other policies.
+
 # Create a modules directory
 
 Create a new `modules` directory.
@@ -70,6 +72,8 @@ sentinel apply -trace root.sentinel
 Functions allow you to create reusable code within your policies. Sentinel has several built-in functions, like `print`; however, you can also create your own custom functions.
 
 Instead of hard-coding a specific resource, you will create a function to find resources based on the type you define.
+
+The function you will create in this section will replace the `s3_buckets` filter with a function to search for any resource you define and then call that function in other policies.
 
 Create a new file `terraform-sentinel/modules/find_resources.sentinel`{{open}}. Paste the function below.
 
