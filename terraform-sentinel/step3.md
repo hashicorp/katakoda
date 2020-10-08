@@ -20,10 +20,8 @@ Scroll to line 133 and edit the `Name` tag key to `Organization`.
 
 <pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#Name">Organization</pre>
 
-On line 134, edit the `Environment` tag key to `Conference`.
+On line 134, edit the `Environment` tag key to `Workspace`.
 
-<pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#Environment">Conference</pre>
-
-The tag keys you replaced are not what your policy requires.
+<pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#Environment">Workspace</pre>
 
 Now that you have failing mocked data, the next step will show you how to implement this in your failing tests.

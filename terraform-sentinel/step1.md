@@ -10,40 +10,43 @@ For your first policy, create a resource filter for your S3 buckets and a rule t
 
 Open the stub of this policy in `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}.
 
-Create a filter for the s3_bucket resources in the Terraform Cloud plan.
+Create a filter for the s3_bucket resources in the Terraform Cloud plan. Copy and paste the filter block below the commented line `# Filter S3 buckets`.
 
-<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Filter S3 buckets">
-# Filter S3 buckets
+```
 s3_buckets = filter tfplan.resource_changes as _, rc {
 	rc.type is "aws_s3_bucket" and
 	(rc.change.actions contains "create" or rc.change.actions is ["update"])
-}</pre>
+}
+```{{copy}}
+
 
 ## Create the bucket rule
 
-Add a rule to evaluate mock data.
+Add a rule to evaluate mock data. Copy and paste the `bucket_tags` rule below the commented line `# Rule to require at least one tag`.
 
-<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Rule to require at least one tag">
-# Rule to require at least one tag
+```
 bucket_tags = rule {
 	all s3_buckets as _, buckets {
 	buckets.change.after.tags is not null
 	}
-}</pre>
+}
+```{{copy}}
+
 
 ## Create main rule
 
-Your filter and bucket rule will be evaluated in the main rule.
+Your filter and bucket rule will be evaluated in the main rule. Copy and paste the main rule below the commented line `# Main rule`
 
-<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Main rule">
-# Main rule
+
+```
 main = rule {
     bucket_tags else false
-}</pre>
+}
+```{{copy}}
 
 ## Apply the policy
 
-To see Sentinel policy logic in action, run an `apply` with the `trace` flag in your terminal.
+Run an `apply` with the `trace` flag in your terminal.
 
 ```
 sentinel apply -trace restrict-s3-buckets.sentinel
@@ -53,10 +56,9 @@ Review the trace information. You will find that this policy passed because the 
 
 ## Create a failing policy
 
-To see the failure behavior of your Sentinel policy, change the `bucket_tags` rule to a `null` statement.
+To test the failure behavior of your Sentinel policy, change the `bucket_tags` rule to a `null` statement.
 
-<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is not null">
-	buckets.change.after.tags is null</pre>
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is not null">buckets.change.after.tags is null</pre>
 
 Run an apply in the Sentinel CLI again and evaluate the output. Your policy will fail.
 
@@ -66,7 +68,6 @@ sentinel apply -trace restrict-s3-buckets.sentinel
 
 After reviewing the failing output, change the `bucket_tags` rule to evaluate correctly.
 
-<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is null">
-	buckets.change.after.tags is not null</pre>
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="buckets.change.after.tags is null">buckets.change.after.tags is not null</pre>
 
 In the next step, you will build on this policy with more specific and restrictive policy information.

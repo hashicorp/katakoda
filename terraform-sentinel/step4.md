@@ -5,7 +5,7 @@ In this step, you will create testing files and run them in the Sentinel CLI. Se
 
 Open `terraform-sentinel/test/restrict-s3-buckets/fail.json`{{open}} to add a path to the failing mock data.
 
-Edit the failing mock data in your test file relative to your `fail.json` file, in this case, two directories above the current folder in `mock-data`.
+Edit the failing mock data path in your test file relative to your `fail.json` file, in this case, two directories above the current folder in `mock-data`.
 
 <pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/fail.json" data-target="insert" data-marker="<relative_path_to_failing_mock>">../../mock-data/mock-tfplan-fail-v2.sentinel</pre>
 
@@ -15,15 +15,15 @@ Review the rest of the test file. This test ensures the main rule will evalute t
 
 Open `terraform-sentinel/test/restrict-s3-buckets/pass.json`{{open}} and add a path to the passing mock data that has already been provided for you.
 
-Copy and paste the passing mock data in your test file relative to your `pass.json` file, in this case, two directories above the current folder in `mock-data`.
+Edit the passing mock data path in your test file relative to your `pass.json` file, in this case, two directories above the current folder in `mock-data`.
 
 <pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/pass.json" data-target="insert" data-marker="<relative_path_to_passing_mock>">../../mock-data/mock-tfplan-pass-v2.sentinel</pre>
 
-Review the rest of the test file. This test ensures the main rule will evalute to true.
+Review the rest of the test file. This test ensures the main rule will evaluate to true.
 
 ## Run a test in the Sentinel CLI
 
-You now have an automated process for creating a failing scenario for your policies. Run a Sentinel test, which evalutes the test data you provided in both your passing and failing cases.
+You now have an automated process for creating a failing scenario for your policies. Run a Sentinel test, which evaluates the test data you provided in both your passing and failing cases.
 
 In your terminal, run a test with the `verbose` flag to get the most detailed output of your test scenarios, rather than just "PASS".
 
