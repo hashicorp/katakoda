@@ -115,7 +115,6 @@ log Starting Applications and configuring service mesh
 # Start applications
 docker exec backend-main env LISTEN_ADDR=:9091 NAME=main fake-service > /tmp/service.log 2>&1 &
 docker exec backend-clone env LISTEN_ADDR=:9092 NAME=clone fake-service > /tmp/service.log 2>&1 &
-# # docker exec client 
 
 # Start sidecar proxies
 docker exec backend-main consul connect envoy -proxy-id backend-main-sidecar-proxy > /tmp/proxy.log 2>&1 &
@@ -123,8 +122,13 @@ docker exec backend-clone consul connect envoy -admin-bind=localhost:19001 -prox
 docker exec client consul connect envoy -admin-bind=localhost:19002 -proxy-id client-sidecar-proxy > /tmp/proxy.log 2>&1 &
 
 # Configure and start ingress gateway
+docker exec server consul config write /etc/consul.d/default.hcl
 docker exec server consul config write /etc/consul.d/igw-backend.hcl
 docker exec ingress-gw consul connect envoy -gateway=ingress -register -service ingress-service -address '{{ GetInterfaceIP "eth0" }}:8888' > /tmp/proxy.log 2>&1 &
+
+# Configure hosts to resolv backend.ingress.consul
+IGW_IP=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ingress-gw`
+echo "${IGW_IP} backend.ingress.consul" >> /etc/hosts
 
 finish
 
