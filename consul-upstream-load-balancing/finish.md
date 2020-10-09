@@ -4,9 +4,9 @@ In this hands-on lab, you will operated a Consul datacenter, deployed using Dock
 
 Specifically, you:
 - Inspected the environment
-- Verified the default _random_ load balancing policy
+- Verified the default *round_robin* load balancing policy
 - Used centralized configuration to set service defaults
-- Used _maglev_ policy to configure sticky session for load balancing
+- Used the _maglev_ policy to configure load balancing with sticky session
 - Verified the new configuration
 - Uses the *least_request* load balancing policy
 - Verified the new configuration

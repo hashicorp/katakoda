@@ -1,8 +1,8 @@
-Once verified you can access the _backend_ service and that the _random_ policy is applied you can apply new policies for the load balancing and verify how these affect the requests' resolution.
+Once verified you can access the _backend_ service and that the *round_robin* policy is applied you can apply new policies for the load balancing and verify how these affect the requests' resolution.
 
 ### Configure service defaults
 
-In order to enable service resolution and apply load balancer policies you need to define the service protocol as a `service-defaults` entry.
+In order to enable service resolution and apply load balancer policies you need to define the service protocol in a `service-defaults` configuration entry.
 
 The lab provides a configuration file for this, `default.hcl`{{open}} that you can use to apply the configuration.
 
@@ -20,7 +20,7 @@ Example output:
 Config entry written: service-defaults/backend
 ```
 
-### Configure a sticky session for service resolution
+### Configure service resolution with sticky sessions
 
 A common requirements for many applications is to have the possibility to redirect all the requests from a specific client to the same server.
 
@@ -109,4 +109,3 @@ backend
     "ModifyIndex": 662
 }
 ```
-

@@ -4,9 +4,9 @@ In this hands-on lab, you will operate a Consul datacenter, deployed using Docke
 
 Specifically, you will:
 - Inspect the environment
-- Verify default _random_ load balancing policy
+- Verify default *least_request* load balancing policy
 - Use centralized configuration to set service defaults
-- Use _maglev_ policy to configure sticky session for load balancing
+- Used the _maglev_ policy to configure load balancing with sticky session
 - Verify the new configuration
 - Use *least_request* load balancing policy
 - Verify the new configuration

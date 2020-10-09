@@ -7,5 +7,5 @@ LoadBalancer = {
       Field = "header"
       FieldValue = "x-user-id"
     }
-    ]
+  ]
 }

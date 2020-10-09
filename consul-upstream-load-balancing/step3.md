@@ -2,7 +2,7 @@ The default load balancing policy, _random_, is usually the best approach in sce
 
 In scenarios where the different instances might be subject to substantial differences in terms of workload there are better approaches.
 
-Using the *least_request* policy permits Consul to resolve requests using information on instance load level and select the one with the lowest load.
+Using the *least_request* policy permits Envoy to resolve requests using information on instance load level and select the one with the lowest load.
 
 ### Configure least_request load balancing policy
 

@@ -51,6 +51,6 @@ Example output:
 
 ## Default load balancing policy
 
-By default Consul balances traffic across instances of the same service using the `random` policy.
+By default Consul balances traffic across instances of the same service using the `round_robin` policy.
 
 You can verify the balancing by issuing the `curl` command multiple times. 

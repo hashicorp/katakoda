@@ -38,8 +38,8 @@ While you wait for the environment to complete deploy you can review the files y
 
 | File                              | Description |
 |-----------------------------------|-------------|
-| `server.hcl`              | Server configuration file |
-| `agent.hcl`               | Client configuration file|
+| `server.hcl`              | Server agent configuration file |
+| `agent.hcl`               | Client agent configuration file|
 | `default.hcl`             | Service defaults configuration |
 | `hash-resolver.hcl`       | Maglev load balancing policy definition |
 | `igw-backend.hcl`         | Ingress Gateway central configuration | 
