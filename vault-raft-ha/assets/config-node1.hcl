@@ -1,5 +1,5 @@
 storage "file" {
-    path = "/home/scrapbook/tutorial/vault-storage-file"
+    path = "/root/vault-storage-file"
 }
 
 listener "tcp" {

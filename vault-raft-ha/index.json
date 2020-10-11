@@ -30,10 +30,10 @@
       "credits": "https://learn.hashicorp.com/vault"
     },
     "assets": {
-      "client": [
-        { "file": "config-node1.hcl", "target": "~/" },
-        { "file": "config-node2.hcl", "target": "~/" },
-        { "file": "config-node3.hcl", "target": "~/" }
+      "host01": [
+        { "file": "config-node1.hcl", "target": "/root" },
+        { "file": "config-node2.hcl", "target": "/root" },
+        { "file": "config-node3.hcl", "target": "/root" }
       ]
     },
     "finish": {
@@ -45,10 +45,11 @@
       "showdashboard": true,
       "uilayout": "editor-terminal",
       "hideHiddenFiles": true,
+      "exclusionPatterns": ["./Desktop", "./Desktop"],
       "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "ubuntu:1804"
   },
   "private": true
 }

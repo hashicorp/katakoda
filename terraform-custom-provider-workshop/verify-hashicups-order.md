@@ -4,13 +4,13 @@ Navigate to the `examples` directory. This contains a sample Terraform configura
 
 `cd ~/terraform-provider-hashicups/examples/`{{execute T2}}
 
-Initialize your Terraform workspace. This downloads all providers listed in the `required_providers` argument in `examples/terraform.tf`{{open}}.
+Initialize your Terraform workspace. Terraform will find the provider that you installed into `~/.terraform.d/plugins` with the `make install` command in the previous step.
 
 `terraform init`{{execute T2}}
 
 ### Create order
 
-Now that you have initialized your Terraform workspace, create an order using the provider. The `order.tf` file should already contain an example configuration to create a new order.
+Now that you have initialized your Terraform workspace, create an order using the provider. The `order.tf`{{open}} file will already contain an example configuration to create a new order.
 
 `terraform apply`{{execute T2}}
 
@@ -18,7 +18,7 @@ Notice how the execution plan shows a proposed order, with additional informatio
 
 Remember to confirm the apply step with a `yes`.
 
-Once the apply completes, the provider saves the resource's state. If you're running Terraform locally, your `terraform.tfstate` file contains this state. You can also view the state by running `terraform state show <resource_name>`.
+Once the apply completes, the provider saves the resource's state. When you run Terraform locally, the `terraform.tfstate` file contains this state. You can also view the state by running `terraform state show <resource_name>`.
 
 Retrieve the order's state.
 
@@ -64,7 +64,7 @@ The response will look similar to the following.
 }
 ```
 
-The order's properties should be the same as that of your `hashicups_order.edu` resource.
+The order's properties will be the same as those of your `hashicups_order.edu` resource.
 
 ## Update order
 
@@ -143,7 +143,7 @@ The response will look similar to the following.
 }
 ```
 
-The order's properties should be the same as that of your updated `hashicups_order.edu` resource. There should be `3` Nomadicano and `1` Vaulatte.
+The order's properties will be the same as that of your updated `hashicups_order.edu` resource. There will be `3` Nomadicano and `1` Vaulatte.
 
 ## Delete order
 
