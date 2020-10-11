@@ -35,9 +35,22 @@ consul tls cert create -domain=nomad -dc=global -client
 
 You will receive the following output.
 
-
 ```screenshot
 ==> Using nomad-agent-ca.pem and nomad-agent-ca-key.pem
 ==> Saved global-client-nomad-0.pem
 ==> Saved global-client-nomad-0-key.pem
+```
+
+Create a CLI role certificates
+
+```
+consul tls cert create -domain=nomad -dc=global -cli
+```{{execute}}
+
+You will receive the following output.
+
+```screenshot
+==> Using nomad-agent-ca.pem and nomad-agent-ca-key.pem
+==> Saved global-cli-nomad-0.pem
+==> Saved global-clt-nomad-0-key.pem
 ```

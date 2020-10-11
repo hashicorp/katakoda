@@ -11,7 +11,7 @@ export NOMAD_TOKEN=$(awk '/Secret/ {print $4}' ~/bootstrap.token)
 ```{{execute}}
 
 
-Upload the "Application Developer policy".
+### Upload the Application Developer policy
 
 ```
 nomad acl policy apply \
@@ -28,7 +28,7 @@ $ nomad acl policy apply \
 Successfully wrote "app-dev" ACL policy!
 ```
 
-Upload the "Production Operations policy".
+### Upload the Production Operations policy
 
 ```
 nomad acl policy apply \

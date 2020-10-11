@@ -3,10 +3,14 @@
 ## Borrowed with many thanks from Ciro S. Costa
 ## "Using network namespaces and a virtual switch to isolate servers"
 ## https://ops.tips/blog/using-network-namespaces-and-bridge-to-isolate-servers/
+sysctl -w net.ipv4.ip_forward=1
 
 ip link add name br1 type bridge
 ip link set br1 up
 ip addr add 192.168.1.10/24 brd + dev br1
+iptables -A FORWARD -i ens3 -o br1 -j ACCEPT
+iptables -A FORWARD -o ens3 -i br1 -j ACCEPT
+iptables -A FORWARD -o br1 -i br1 -j ACCEPT
 iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -j MASQUERADE
 
 mkdir -p $dir/opt/nomad/server{1,2,3}/{data,logs}

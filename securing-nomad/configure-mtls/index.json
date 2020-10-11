@@ -13,27 +13,27 @@
       },
       {
         "title": "Create CA path",
-        "text": "step1.md"
+        "text": "step02.md"
       },
       {
         "title": "Initialize CA and generate certificates",
-        "text": "step2.md"
+        "text": "step03.md"
       },
       {
         "title": "Deploy certificates",
-        "text": "step3.md"
+        "text": "step04.md"
       },
       {
         "title": "Configure server nodes",
-        "text": "step4.md"
+        "text": "step05.md"
       },
       {
         "title": "Configure client nodes",
-        "text": "step5.md"
+        "text": "step06.md"
       },
       {
         "title": "Restart nodes and test TLS",
-        "text": "step6.md"
+        "text": "step07.md"
       }
     ],
     "intro": {
@@ -70,6 +70,6 @@
     "exclusionPatterns": ["Desktop"]
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu:2004"
   }
 }
