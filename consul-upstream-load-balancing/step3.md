@@ -1,4 +1,4 @@
-The default load balancing policy, _random_, is usually the best approach in scenarios where requests are homogeneous and the system is over-provisioned.
+The default load balancing policy, *round_robin*, is usually the best approach in scenarios where requests are homogeneous and the system is over-provisioned.
 
 In scenarios where the different instances might be subject to substantial differences in terms of workload there are better approaches.
 

@@ -82,6 +82,10 @@ Execute the curl command multiple times, you will always be redirected to the sa
 
 `docker exec client curl -s localhost:9192 -H "x-user-id: 12345"`{{execute}}
 
+<div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px; margin:24px 0;">
+  <p><strong>Note:</strong> sticky sessions are consistent given a stable service configuration. If the number of backend hosts changes, a fraction of the sessions will be routed to a new host after the change.
+</p></div>
+
 ### Check configuration
 
 Another way to verify the policy applied to services is to use the `consul config` command to list and inspect the configuration entries in your Consul datacenter.
