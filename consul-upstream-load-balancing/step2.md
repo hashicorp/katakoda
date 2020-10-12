@@ -1,8 +1,8 @@
-Once verified you can access the _backend_ service and that the *round_robin* policy is applied you can apply new policies for the load balancing and verify how these affect the requests' resolution.
+Once verified, you can access the _backend_ service and that the *round_robin* policy is applied you can apply new policies for the load balancing and verify how these affect the requests' resolution.
 
 ### Configure service defaults
 
-In order to enable service resolution and apply load balancer policies you need to define the service protocol in a `service-defaults` configuration entry.
+In order to enable service resolution and apply load balancer policies, you need to define the service protocol in a `service-defaults` configuration entry.
 
 The lab provides a configuration file for this, `default.hcl`{{open}} that you can use to apply the configuration.
 
@@ -56,7 +56,7 @@ Config entry written: service-resolver/backend
 
 ### Verify the policy is applied
 
-Once the policy is in place you can test it using the `curl` command and applying the `x-user-id` header to the request:
+Once the policy is in place, you can test it using the `curl` command and applying the `x-user-id` header to the request:
 
 `docker exec client curl -s localhost:9192 -H "x-user-id: 12345"`{{execute}}
 
@@ -78,7 +78,9 @@ Example output:
 }
 ```
 
-If you execute the previous command multiple times you will always be redirected to the same instance of the _backend_ service.
+Execute the curl command multiple times, you will always be redirected to the same instance of the _backend_ service.
+
+`docker exec client curl -s localhost:9192 -H "x-user-id: 12345"`{{execute}}
 
 ### Check configuration
 

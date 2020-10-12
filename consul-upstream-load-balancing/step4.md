@@ -1,5 +1,5 @@
 
-The load balancing policy for the datacenter applies also to the service resolution performed by ingress gateways. So, once you configured the policies for the services and tested it internally using the client service, you can introduce an ingress gateway in your configuration and the same policies will be now respected by external requests being served by your Consul datacenter.
+The load balancing policy for the service sidecar proxies also applies to the service resolution performed by ingress gateways. Once you configured the policies for the services and tested it internally using the client service, you can introduce an ingress gateway in your configuration and the same policies will be now respected by external requests being served by your Consul datacenter.
 
 <!--Arch diagram-->
 ![Consul service mesh load balancing with ingress gateway](./assets/consul-lb-envoy-ingress-gw.png)
@@ -44,4 +44,6 @@ Example output:
 }
 ```
 
-If you execute the previous command multiple times you will always be redirected to the same instance of the _backend_ service.
+Execute the curl command multiple times you, will always be redirected to the same instance of the _backend_ service.
+
+`curl -s backend.ingress.consul:8080 -H "x-user-id: 12345"`{{execute}}

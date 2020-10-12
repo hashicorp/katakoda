@@ -1,14 +1,14 @@
 ## Review
 
-In this hands-on lab, you will operated a Consul datacenter, deployed using Docker, to configure load balancing policies on Envoy sidecar proxies.
+In this hands-on lab, you operated a Consul datacenter that was deployed using Docker and configured load balancing policies on the service sidecar proxies.
 
 Specifically, you:
-- Inspected the environment
+- Inspected the environment with the Consul CLI
 - Verified the default *round_robin* load balancing policy
 - Used centralized configuration to set service defaults
 - Used the _maglev_ policy to configure load balancing with sticky session
 - Verified the new configuration
-- Uses the *least_request* load balancing policy
+- Used the *least_request* load balancing policy
 - Verified the new configuration
 - Used the ingress gateway to access the service
 

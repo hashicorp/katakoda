@@ -1,4 +1,6 @@
-You can check the environment using `docker ps`:
+Before updating the load balancing policy, you can check that the environment has five Consul agents, two backend services, and that the load balancing policy is the default `round_robin`.  
+
+First, use `docker ps`:
 
 `docker ps --format "{{.ID}}: {{.Names}}  \t {{.Ports}}"`{{execute}}
 

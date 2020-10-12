@@ -2,7 +2,7 @@ The default load balancing policy, _random_, is usually the best approach in sce
 
 In scenarios where the different instances might be subject to substantial differences in terms of workload there are better approaches.
 
-Using the *least_request* policy permits Envoy to resolve requests using information on instance load level and select the one with the lowest load.
+Using the *least_request* policy permits Envoy sidecar proxies to resolve requests using information on instance load level and select the one with the lowest load.
 
 ### Configure least_request load balancing policy
 
@@ -19,7 +19,7 @@ LoadBalancer = {
 }
 ```
 
-This configuration creates a `service-resolver` configuration, for the service `backend` that for every request picks 2 (as expressed by `ChoiceCount`) random instances of the service and resolves to the one with the least amount of load.
+This configuration creates a `service-resolver` load balancing policy, for every request to the `backend` service 2 (as expressed by `ChoiceCount`) random instances of that service are selected and the traffic is routed to the one with the least amount of load.
 
 You can apply the policy using the `consul config` command.
 
@@ -33,7 +33,7 @@ Config entry written: service-resolver/backend
 
 ### Verify the policy is applied
 
-Once the policy is in place you can test it using the `curl` command and applying the `x-user-id` header to the request:
+Once the policy is in place, you can test it using the `curl` command and applying the `x-user-id` header to the request:
 
 `docker exec client curl -s localhost:9192 -H "x-user-id: 12345"`{{execute}}
 
@@ -55,7 +55,9 @@ Example output:
 }
 ```
 
-Executing the command multiple times you can verify that, despite you are still applying the header that was used by the previous policy the request gets served by different instances of the service.
+Execute the command multiple times to verify that, despite the user id in the header, the request gets served by different instances of the service.
+
+`docker exec client curl -s localhost:9192 -H "x-user-id: 12345"`{{execute}}
 
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info:</strong><br>

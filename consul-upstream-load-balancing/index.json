@@ -6,14 +6,14 @@
     "details": {
         "steps": [
             {
-                "title": "Provisioning Lab Infrastructure",
+                "title": "Lab Infrastructure Provisioning",
                 "text": "provision.md",
                 "courseData": "provision.courseData.sh",
                 "code": "provision.code.sh",
                 "verify": "provision.verify.sh"
             },
             {
-                "title": "Test environment and default load balancing policy",
+                "title": "Verify the environment and load balancing policy",
                 "code": "set-env.sh",
                 "text": "step1.md"
             },
