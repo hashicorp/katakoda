@@ -9,11 +9,6 @@
       "code": "courseBase.sh",
       "credits": "https://learn.hashicorp.com/terraform"
     },
-    "assets": {
-      "host01": [
-        { "file": "restrict-s3-buckets.sentinel", "target": "~/" }
-      ]
-    },
     "steps": [
         {
           "title": "Write your first Sentinel policy",
