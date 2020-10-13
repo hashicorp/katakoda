@@ -4,10 +4,10 @@ Generate the CA's private key and certificate.
 consul tls ca create -domain=nomad
 ```{{execute}}
 
-The CA key (nomad-agent-ca-key) will be used to sign certificates for Nomad nodes
-and must be kept private. The CA certificate (nomad-ca.pem) contains the public
-key necessary to validate Nomad certificates and therefore must be distributed
-to every node that requires access.
+The CA key (nomad-agent-ca-key.pem) will be used to sign certificates for Nomad
+nodes and must be kept private. The CA certificate (nomad-agent-ca.pem) contains
+the public key necessary to validate Nomad certificates and therefore must be
+distributed to every node that requires access.
 
 Create the server-role certificates
 

@@ -105,4 +105,4 @@ Add all of these policy elements to your `prod-ops_policy.hcl` file.
 
 </details>
 
-[`namespace` rules]: /nomad/acls/policies#namespace-rules
+[`namespace` rules]: https://learn.hashicorp.com/tutorials/nomad/access-control-policies#namespace-rules

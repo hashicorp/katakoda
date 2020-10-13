@@ -1,8 +1,9 @@
-Add the `tls` stanza to each of your server configurations.
+At the top level of each of your server configurations, add a `tls` stanza with
+the appropriate configurations. You can append it to the bottom of the file
+yourself, or you can use the Katacoda helpers to open each files and append the
+stanza as you go.
 
-Start by opening `server1.hcl`{{open}} in the editor.
-
-Add the TLS stanza.
+Start by opening `server1.hcl`{{open}} in the editor. Add the tls stanza.
 
 <pre class="file" data-filename="server1.hcl" data-target="append">
 tls {
@@ -17,7 +18,6 @@ tls {
   verify_https_client    = true
 }
 </pre>
-
 
 You will need to do this for server2.hcl and server3.hcl.
 
