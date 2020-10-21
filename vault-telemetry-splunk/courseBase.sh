@@ -35,7 +35,8 @@ variable "docker_host" {
 }
 
 variable "splunk_version" {
-  default = "8.0.4.1"
+  # default = "8.0.4.1"
+  default = "8.1"
 }
 
 variable "telegraf_version" {
@@ -321,12 +322,6 @@ splunk:
           http:
             disabled: 0
             enableSSL: 0
-    - key: web
-      value:
-        directory: /opt/splunk/etc/system/local
-        content:
-          settings:
-            verifyCookiesWorkDuringLogin: false
     - key: authorize
       value:
         directory: /opt/splunk/etc/system/local/
@@ -388,6 +383,12 @@ splunk:
             indexes: vault-audit
             token: 12b8a76f-3fa8-4d17-b67f-78d794f042fb
             sourcetype: hashicorp_vault_audit_log
+    - key: web
+      value:
+        directory: /opt/splunk/etc/system/local
+        content:
+          settings:
+            verifyCookiesWorkDuringLogin: false
   home: /opt/splunk
   http_enableSSL: false
   http_enableSSL_cert: null
