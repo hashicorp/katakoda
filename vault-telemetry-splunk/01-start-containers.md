@@ -16,7 +16,7 @@ Begin by initializing the Terraform configuration.
 terraform init
 ```{{execute T1}}
 
-Successful output includes the message "**Terraform has been successfully initialized!**". If instead you encounter an error about terraform missing, try the command once again.
+Successful output includes the message "**Terraform has been successfully initialized!**". If instead you encounter an error about terraform missing or a message like "Terraform initialized in an empty directory!", try the command once again.
 
 Next, define a plan that will be written to the file `vault-metrics-lab.plan`.
 
