@@ -24,7 +24,7 @@ variable "telegraf_version" {
 }
 
 variable "vault_version" {
-  default = "1.4.3"
+  default = "1.5.4"
 }
 
 variable "fluentd_splunk_hec_version" {
