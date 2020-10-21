@@ -325,7 +325,8 @@ splunk:
       value:
         directory: /opt/splunk/etc/system/local
         content:
-          verifyCookiesWorkDuringLogin: false
+          settings:
+            verifyCookiesWorkDuringLogin: false
     - key: authorize
       value:
         directory: /opt/splunk/etc/system/local/
