@@ -389,6 +389,9 @@ splunk:
         content:
           settings:
             verifyCookiesWorkDuringLogin: false
+            enableSplunkWebSSL: true
+            tools.sessions.secure: false
+            tools.sessions.forceSecure: false
   home: /opt/splunk
   http_enableSSL: false
   http_enableSSL_cert: null
