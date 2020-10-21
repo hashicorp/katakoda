@@ -388,6 +388,7 @@ splunk:
   http_enableSSL_privKey: null
   http_enableSSL_privKey_password: null
   http_port: 8000
+  verify_cookies_work_during_login: false
   idxc:
     discoveryPass4SymmKey: P2sCPCanaj49BMRK5oC0dGXGd+YejlMD
     label: idxc_label
