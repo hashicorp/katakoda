@@ -56,7 +56,7 @@
     "dashboards": [
       {
         "name": "Splunk Web",
-        "href": "http://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
+        "href": "https://[[HOST_SUBDOMAIN]]-8000-[[KATACODA_HOST]].environments.katacoda.com"
       }
     ]
   },
