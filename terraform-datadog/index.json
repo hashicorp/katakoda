@@ -47,5 +47,6 @@
    },
    "backend":{
       "imageid":"kubernetes-cluster-running"
-   }
+   },
+   "private": true
 }
