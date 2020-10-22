@@ -14,18 +14,24 @@
          "code": "step2.sh"
        },
        {
-         "title": "Create a synthetic alert with the Datadog provider",
+         "title": "Create a metrics monitor with the Datadog provider",
          "text": "step3.md",
          "code": "step3.sh"
        },
        {
-         "title": "Create a Datadog dashboard with the Datadog provider",
+         "title": "Create a synthetic monitor with the Datadog provider",
          "text": "step4.md",
          "code": "step4.sh"
        },
        {
+         "title": "Create a Datadog dashboard with the Datadog provider",
+         "text": "step5.md",
+         "code": "step5.sh"
+       },
+       {
          "title": "Clean up your resources",
-         "text": "step6.md"       }
+         "text": "step6.md"       
+       }
       ],
       "intro":{
          "code":"courseBase.sh",
@@ -42,11 +48,12 @@
       "hideintro":false,
       "hideHiddenFiles":true,
       "showdashboard":true,
+      "exclusionPatterns":["/root/Desktop", "/root/go"]
       "uilayout":"editor-terminal",
       "uieditorpath":"/root/"
    },
    "backend":{
-      "imageid":"kubernetes-cluster-running"
+      "imageid":"kubernetes-cluster-running:1.18"
    },
-   "private": true
+   "private":true
 }
