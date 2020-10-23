@@ -1,31 +1,71 @@
-Waypoint tutorial.
+In this tutorial, you'll run a Waypoint server in Docker and then deploy an application.
 
-## Example code
+## Install Waypoint
+
+Install the `waypoint` binary. The environment has already been configured with the official HashiCorp repository.
 
 `sudo apt-get update && sudo apt-get install waypoint`{{execute}}
 
+Clone a copy of the example source code.
+
 `git clone https://github.com/hashicorp/waypoint-examples.git`{{execute}}
+
+Navigate to the example code for the Ruby application. The `docker` directory also includes code for other languages.
 
 `cd waypoint-examples/docker/ruby`{{execute}}
 
+## Install Waypoint server
+
+Install the Waypoint server to the local Docker instance. To ensure that you have the most recent version, `pull` it with Docker.
+
 `docker pull hashicorp/waypoint:latest`{{execute}}
+
+Install the Waypoint server.
 
 `waypoint install -platform=docker -accept-tos`{{execute}}
 
-`waypoint.hcl`{{open}}
+## Initialize application
+
+We've created a `waypoint.hcl` configuration file for you. View it by clicking this link.
+
+`waypoint-examples/docker/ruby/waypoint.hcl`{{open}}
+
+Now, initialize the application by typing `init`. This will validate the configuration.
 
 `waypoint init`{{execute}}
 
+## Run `waypoint up`
+
+To deploy, run `up`. This will take 5 or more minutes while it downloads the Docker image, builds the Ruby application, and deploys it to the local Docker.
+
 `waypoint up`{{execute}}
 
-`waypoint exec /bin/bash`{{execute}}
+A URL will be displayed in the output. Visit the URL to see your application running with Waypoint.
 
-Try `ps aux` or `ls`
+## Explore and Debug
+
+Waypoint includes commands for debugging and monitoring. The `logs` command shows the activity in the application.
 
 `waypoint logs`{{execute}}
 
+Press `Ctrl-C` to quit.
+
+The `exec` command opens a session inside the running container.
+
+`waypoint exec /bin/bash`{{execute}}
+
+Try commands like `ps aux` or `ls`. Type `exit` to leave the session.
+
+Visit the Waypoint web UI. Because this session is being run remotely, you must manually generate an authentication token.
+
+**NOTE:** You may need to widen your web browser so the entire token can be displayed.
+
 `waypoint token new`{{execute}}
 
-Display page allowing user to select port: https://[[HOST_SUBDOMAIN]]-9702-[[KATACODA_HOST]].environments.katacoda.com/
+Visit the [Waypoint web UI](https://[[HOST_SUBDOMAIN]]-9702-[[KATACODA_HOST]].environments.katacoda.com/). Click "Authenticate" and enter the token shown on the previous command.
+
+## Destroy
+
+Destroy the application with the `destroy` command.
 
 `waypoint destroy`{{execute}}
