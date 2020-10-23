@@ -1,0 +1,46 @@
+{
+  "title": "Waypoint Tutorial",
+  "description": "A Waypoint on Docker tutorial with just the basics",
+  "time": 15,
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/waypoint"
+    },
+    "steps": [
+      {
+        "title": "Waypoint Tutorial",
+        "text": "step1.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/waypoint"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "main.tf",
+          "target": "~/terraform-docker-demo"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
+    "hideHiddenFiles": true,
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack",
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Waypoint UI",
+        "port": 9702
+      }
+    ]
+  },
+  "private": true
+}
