@@ -1,7 +1,5 @@
 Login with root token.
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault login root
 ```{{execute T1}}
@@ -47,7 +45,7 @@ vault login $(cat ttl_token.txt)
 
 The output displays the **`token_duration`** left with this token in seconds.
 
-> Notice that the policy attached to this token is `root`. When you create a new token without specifying which policies to attach, the created token inherits the policies attached to its parent (the token used to create the new token which is `root` in this case). 
+> Notice that the policy attached to this token is `root`. When you create a new token without specifying which policies to attach, the created token inherits the policies attached to its parent (the token used to create the new token which is `root` in this case).
 
 Wait for a few seconds to let the TTL to be reached, and re-run the login command:
 

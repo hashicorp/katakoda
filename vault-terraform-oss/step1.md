@@ -33,8 +33,6 @@ Following Terraform files are provided:
 
 ## Run Terraform commands
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 Set the `VAULT_TOKEN` environment variable with value, `root`.
 
 ```

@@ -2,8 +2,6 @@ Now that the dev server is up and running, let's get straight to it and read and
 
 Login with root token.
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault login root
 ```{{execute T1}}

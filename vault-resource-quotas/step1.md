@@ -7,8 +7,6 @@
 
 Let's begin!  First, login with root token.
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault login root
 ```{{execute T1}}

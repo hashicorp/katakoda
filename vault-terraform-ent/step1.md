@@ -35,8 +35,6 @@ Following Terraform files are provided:
 
 ## Run Terraform
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 Set the `VAULT_ADDR` environment variable with value.
 
 ```

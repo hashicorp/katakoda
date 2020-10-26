@@ -1,7 +1,5 @@
 Enter the following command to see the Vault server status.  
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault status
 ```{{execute T1}}
@@ -20,7 +18,7 @@ Click on the **Vault UI** tab to launch the Vault UI.
 
 ![](./assets/katacoda-vault-ui.png)
 
-Enter **`root`** in the **Token** text field and then click **Sign In**. 
+Enter **`root`** in the **Token** text field and then click **Sign In**.
 
 <br>
 

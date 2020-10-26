@@ -1,5 +1,16 @@
 > Click the command (`⮐`) to automatically copy it into the terminal and execute it.
 
+Before start, verify that `main.tf` file exists.
+
+```
+ls -al | grep main.tf
+```{{execute T1}}
+
+<div style="background-color:#fbe5e5; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
+<p>
+If `main.tf` does not exist, wait for additional 5~10 seconds and try again. Once the file is copied over, you are ready to start!
+</p></div>
+
 The first step in this lab is to use Terraform to start the containers.
 
 You will do this with 3 `terraform` commands, which accomplish the following tasks:

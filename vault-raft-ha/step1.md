@@ -13,8 +13,6 @@ You have a Vault server which uses filesystem as its storage backend. Since file
 
 ### Start Vault Server 1 (node1)
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 `clear`{{execute T1}}
 
 First review the server configuration file, `config-node1.hcl`{{open}}.
