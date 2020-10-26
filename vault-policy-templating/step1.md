@@ -63,8 +63,6 @@ This policy fulfills the policy requirement 2 and 3.
 
 Login with root token.
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault login root
 ```{{execute T1}}

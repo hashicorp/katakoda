@@ -37,8 +37,6 @@ The `storage` stanza is set to use `raft` which is the integrated storage. The `
 
 Enter the following command to start the `node1` Vault server.  
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 mkdir raft-node1
 vault server -config=config-node1.hcl

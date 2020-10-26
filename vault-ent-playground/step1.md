@@ -1,7 +1,5 @@
 Enter the following command to see the Vault server status.  
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
 ```
 vault status
 ```{{execute T1}}

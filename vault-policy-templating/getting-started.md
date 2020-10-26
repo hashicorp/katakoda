@@ -1,8 +1,5 @@
 Enter the following command to start the Vault server in development mode.  
 
-> Click on the command (`⮐`) will automatically copy it into the terminal and execute it.
-
-
 ```
 vault server -dev -dev-root-token-id="root"
 ```{{execute T1}}
