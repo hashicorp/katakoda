@@ -54,7 +54,9 @@ The `exec` command opens a session inside the running container.
 
 `waypoint exec /bin/bash`{{execute}}
 
-Try commands like `ps aux` or `ls`. Type `exit` to leave the session.
+Try a command like `ls /var/www`. Type `exit` to leave the session.
+
+`exit`{{execute}}
 
 Visit the Waypoint web UI. Because this session is being run remotely, you must manually generate an authentication token.
 
