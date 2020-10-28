@@ -110,3 +110,16 @@ Execute the cURL command using the `-exec` flag.
 boundary connect -exec curl -target-id ttcp_1234567890 \
      -- -vvsL --output /dev/null hashicorp.com
 ```{{execute T2}}
+
+```
+* Rebuilt URL to: hashicorp.com/
+*   Trying 76.76.21.21...
+* TCP_NODELAY set
+* Connected to hashicorp.com (76.76.21.21) port 80 (#0)
+> GET / HTTP/1.1
+> Host: hashicorp.com
+> User-Agent: curl/7.58.0
+> Accept: */*
+
+...snip...
+```
