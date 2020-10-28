@@ -10,11 +10,11 @@ Clone a copy of the example source code.
 
 `git clone https://github.com/hashicorp/waypoint-examples.git`{{execute}}
 
-Navigate to the example code for the Ruby application. The `docker` directory also includes code for other languages.
+Navigate to the example code for the static HTML and CSS application. The `docker` directory also includes code for other languages, but we've chosen the static example because it is the quickest to build.
 
-`cd waypoint-examples/docker/ruby`{{execute}}
+`cd waypoint-examples/docker/static`{{execute}}
 
-## Install Waypoint server
+## Install the Waypoint server
 
 Install the Waypoint server to the local Docker instance. To ensure that you have the most recent version, `pull` it with Docker.
 
@@ -24,11 +24,11 @@ Install the Waypoint server.
 
 `waypoint install -platform=docker -accept-tos`{{execute}}
 
-## Initialize application
+## Initialize the application
 
 We've created a `waypoint.hcl` configuration file for you. View it by clicking this link.
 
-`waypoint-examples/docker/ruby/waypoint.hcl`{{open}}
+`waypoint-examples/docker/static/waypoint.hcl`{{open}}
 
 Now, initialize the application by typing `init`. This will validate the configuration.
 
@@ -36,13 +36,13 @@ Now, initialize the application by typing `init`. This will validate the configu
 
 ## Run `waypoint up`
 
-To deploy, run `up`. This will take 5 or more minutes while it downloads the Docker image, builds the Ruby application, and deploys it to the local Docker.
+To deploy, run `up`. This will take a few minutes while it downloads the Docker image, builds a custom image, and deploys it to the local Docker.
 
 `waypoint up`{{execute}}
 
 A URL will be displayed in the output. Visit the URL to see your application running with Waypoint.
 
-## Explore and Debug
+## Explore and debug
 
 Waypoint includes commands for debugging and monitoring. The `logs` command shows the activity in the application.
 
@@ -64,8 +64,18 @@ Visit the Waypoint web UI. Because this session is being run remotely, you must 
 
 Visit the [Waypoint web UI](https://[[HOST_SUBDOMAIN]]-9702-[[KATACODA_HOST]].environments.katacoda.com/). Click "Authenticate" and enter the token shown on the previous command.
 
+## Change and deploy
+
+Making changes to an application and deploying it again can be done with the same command: `waypoint up`.
+
+Edit the `h1` section in `public/index.html` to say "This static HTML app was deployed today." Then, run `up`.
+
+`waypoint up`{{execute}}
+
+After the command completes, visit the URL displayed in the output.
+
 ## Destroy
 
-Destroy the application with the `destroy` command.
+When you are done, destroy the application with the `destroy` command.
 
 `waypoint destroy`{{execute}}
