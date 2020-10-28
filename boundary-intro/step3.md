@@ -44,6 +44,8 @@ Return to the first **Terminal** to view the Boundary server log.
 [INFO]  controller.worker-handler: connection established: session_id=s_XJmV49qjVM connection_id=sc_6zV0R2LIxq client_tcp_address=127.0.0.1 client_tcp_port=44380 endpoint_tcp_address=::1 endpoint_tcp_port=22
 ```
 
+<br />
+
 Open a **new terminal**, and list current sessions.
 
 ```
@@ -63,6 +65,8 @@ Session information:
     User ID:          u_1234567890
     Target ID:        ttcp_1234567890
 ```
+
+The `ID` should match to what you saw in the Boundary server log (e.g. `session activated: session_id=s_XJmV49qjVM`). 
 
 Return to **Terminal 2** and exit out of the SSH session.
 
