@@ -44,10 +44,11 @@ Return to the first **Terminal** to view the Boundary server log.
 [INFO]  controller.worker-handler: connection established: session_id=s_XJmV49qjVM connection_id=sc_6zV0R2LIxq client_tcp_address=127.0.0.1 client_tcp_port=44380 endpoint_tcp_address=::1 endpoint_tcp_port=22
 ```
 
-Open a new terminal, and list current sessions.
+Open a **new terminal**, and list current sessions.
 
 ```
-boundary sessions list -scope-id=p_1234567890 -token $(cat boundary_token.txt)
+boundary sessions list -scope-id=p_1234567890 \
+    -token $(cat boundary_token.txt)
 ```{{execute T3}}
 
 **Example output:**
@@ -90,6 +91,7 @@ Session information:
     Target ID:        ttcp_1234567890
 ```
 
+<br />
 
 ## Exec command
 

@@ -43,16 +43,7 @@ boundary dev
             Generated Org Scope Id: o_1234567890
         Generated Project Scope Id: p_1234567890
                Generated Target Id: ttcp_1234567890
-                        Listener 1: tcp (addr: "127.0.0.1:9200", max_request_duration: "1m30s", purpose: "api")
-                        Listener 2: tcp (addr: "127.0.0.1:9201", max_request_duration: "1m30s", purpose: "cluster")
-                        Listener 3: tcp (addr: "127.0.0.1:9202", max_request_duration: "1m30s", purpose: "proxy")
-                         Log Level: info
-                             Mlock: supported: true, enabled: false
-                           Version: Boundary v0.1.1
-                       Version Sha: eccd68d73c3edf14863ecfd31f9023063b809d5a
-                Worker Public Addr: 127.0.0.1:9202
-
-==> Boundary server started! Log data will stream in below:
+                              ...snip...
 ```
 
 Notice the following default configurations:
@@ -60,6 +51,8 @@ Notice the following default configurations:
 - Generated Auth Method Id: `ampw_1234567890`
 - Generated Auth Method Login Name: admin
 - Generated Auth Method Password: password
+
+<br />
 
 ## Authenticate with Boundary
 
