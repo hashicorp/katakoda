@@ -1,0 +1,47 @@
+{
+  "pathwayTitle": "Learn HashiCorp Boundary",
+  "title": "Getting Started with Boundary",
+  "description": "Learn how to install, configure, and manage the Boundary server.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Install Boundary",
+        "text": "step1.md"
+      },
+      {
+        "title": "Start a Development Environment",
+        "text": "step2.md"
+      },
+      {
+        "title": "Connect to your first target",
+        "text": "step3.md"
+      },
+      {
+        "title": "Configure Boundary with Terraform",
+        "text": "step4.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/boundary"
+    },
+    "assets": {
+      "host01": [
+        { "file": "main.tf", "target": "~/terraform/" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  }
+}
