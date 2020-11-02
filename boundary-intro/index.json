@@ -41,7 +41,7 @@
     }
   },
   "environment": {
-      "showdashboard": false,
+      "showdashboard": true,
       "dashboards": [
         {
           "name": "Admin Console",
