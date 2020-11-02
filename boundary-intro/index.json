@@ -48,7 +48,7 @@
           "href": "https://[[HOST_SUBDOMAIN]]-9200-[[KATACODA_HOST]].environments.katacoda.com"
         }
       ],
-      "uilayout": "terminal",
+      "uilayout": "terminal-iframe",
       "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
   },
   "backend": {
