@@ -1,4 +1,4 @@
-1. Launch Boundary [Admin Console](https://[[HOST_SUBDOMAIN]]-9200-[[KATACODA_HOST]].environments.katacoda.com).
+1. Click on the **Admin Console** tab to launch the Boundary admin console.
 
 1. Enter `admin` as **Username** and `password` in the **Password** text
 field to sign in.
