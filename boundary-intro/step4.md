@@ -67,6 +67,8 @@ Use the `boundary connect` command to SSH into the `localhost`.
 boundary connect ssh -target-id ttcp_1234567890
 ```{{execute T2}}
 
+At a prompt, "Are you sure you want to continue connecting (yes/no)?", enter `yes` to continue.
+
 Return to the first **Terminal** to view the Boundary server log.
 
 ```
