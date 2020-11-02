@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Boundary",
-  "title": "Test Boundary",
+  "title": "Getting Started with Boundary",
   "description": "Learn how to install, configure, and manage the Boundary server.",
   "difficulty": "beginner",
   "time": "10 minutes",
@@ -15,12 +15,16 @@
         "text": "step2.md"
       },
       {
-        "title": "Connect to your first target",
+        "title": "Admin Console",
         "text": "step3.md"
       },
       {
-        "title": "Configure Boundary with Terraform",
+        "title": "Connect to your first target",
         "text": "step4.md"
+      },
+      {
+        "title": "Configure Boundary with Terraform",
+        "text": "step5.md"
       }
     ],
     "intro": {
@@ -37,7 +41,13 @@
     }
   },
   "environment": {
-      "showdashboard": true,
+      "showdashboard": false,
+      "dashboards": [
+        {
+          "name": "Admin Console",
+          "href": "https://[[HOST_SUBDOMAIN]]-9200-[[KATACODA_HOST]].environments.katacoda.com"
+        }
+      ],
       "uilayout": "terminal",
       "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
   },

@@ -53,7 +53,7 @@ When it completes, it displays `Apply complete! Resources: 28 added, 0 changed, 
 You can verify the configurations.
 
 ```
-boudary scopes list
+boundary scopes list
 ```{{execute T2}}
 
 You should see a new scope, `Corp One` listed.
@@ -70,3 +70,7 @@ Scope information:
     Name:         Corp One
     Description:  My first scope!
 ```
+
+Return to the Admin Console, select **Generated org scope > Global** to return to the organization selection page. Select the newly created **Corp One** organization to explore Boundary resources under Corp One.
+
+![](./assets/boundary-ui-new-org.png)

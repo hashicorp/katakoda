@@ -1,129 +1,57 @@
-Read the details about the Generated target by its target ID which is `ttcp_1234567890`.
+1. Launch Boundary [Admin Console](https://[[HOST_SUBDOMAIN]]-9200-[[KATACODA_HOST]].environments.katacoda.com).
 
-```
-boundary targets read -id ttcp_1234567890
-```{{execute T2}}
+1. Enter `admin` as **Username** and `password` in the **Password** text
+field to sign in.
 
-```
-Target information:
-  Created Time:               Wed, 28 Oct 2020 21:29:37 UTC
-  Description:                Provides an initial target in Boundary
-  ID:                         ttcp_1234567890
-  Name:                       Generated target
-  Session Connection Limit:   1
-  Session Max Seconds:        28800
-  Type:                       tcp
-  Updated Time:               Wed, 28 Oct 2020 21:29:37 UTC
-  Version:                    1
+1. Click **Authenticate** to log in.
 
-  Scope:
-    ID:                       p_1234567890
-    Name:                     Generated project scope
-    Parent Scope ID:          o_1234567890
-    Type:                     project
+1. Upon a successful authentication, you are on the **Organizations** page. Click on the **Generated org scope**.
 
-  Host Sets:
-    Host Catalog ID:          hcst_1234567890
-    ID:                       hsst_1234567890
+1. Select **Roles**.
 
-  Attributes:
-    Default Port:             22
-```
+1. Select **Administration** and then click the **Principals** tab.
 
-Use the `boundary connect` command to SSH into the `localhost`.
+  Notice that `admin` user is listed. **User**, **group**, and **project** are a type of principal which can be assigned to roles.
 
-```
-boundary connect ssh -target-id ttcp_1234567890
-```{{execute T2}}
+1. Click on the **Grants** tab to view the permissions allowed on this role.
 
-Return to the first **Terminal** to view the Boundary server log.
+  Grants represent strings of actions on resources: `id=<resource_id>; action=<actions>`
 
-```
-[INFO]  controller.worker-handler: session activated: session_id=s_XJmV49qjVM target_id=ttcp_1234567890 user_id=u_1234567890 host_set_id=hsst_1234567890 host_id=hst_1234567890
-[INFO]  controller.worker-handler: authorized connection: session_id=s_XJmV49qjVM connection_id=sc_6zV0R2LIxq connections_left=0
-[INFO]  controller.worker-handler: connection established: session_id=s_XJmV49qjVM connection_id=sc_6zV0R2LIxq client_tcp_address=127.0.0.1 client_tcp_port=44380 endpoint_tcp_address=::1 endpoint_tcp_port=22
-```
+  The grant for Administration role indicates that all actions (`actions=*`) on all resources (`id=*;type=*`) are permitted. Refer to the
+  [documentation](http://www.boundaryproject.io/docs/concepts/security/permissions#permission-grant-formats) for more details.
 
-<br />
+1. Return to the **Roles** list and select **Login and Default Grants** role.
 
-Open a **new terminal**, and list current sessions.
+1. Click the **Grants** to view its permissions.
 
-```
-boundary sessions list -scope-id=p_1234567890 \
-    -token $(cat boundary_token.txt)
-```{{execute T3}}
+  A role can have multiple grants defined. Those grants are deleted when the role is deleted. A grant is also deleted if its associated resource is deleted.
 
-**Example output:**
+1. Select **Projects** and then **Generated project scope**.
 
-```
-Session information:
-  ID:                 s_XJmV49qjVM
-    Status:           active
-    Created Time:     Wed, 28 Oct 2020 21:31:15 UTC
-    Expiration Time:  Thu, 29 Oct 2020 05:31:15 UTC
-    Updated Time:     Wed, 28 Oct 2020 21:31:15 UTC
-    User ID:          u_1234567890
-    Target ID:        ttcp_1234567890
-```
+  Notice that you can see **Sessions**, **Targets** and **Host Catalogs**.
 
-The `ID` should match to what you saw in the Boundary server log (e.g. `session activated: session_id=s_XJmV49qjVM`). 
+1. Select **Host Catalogs**.
 
-Return to **Terminal 2** and exit out of the SSH session.
+1. Select **Generated host catalog**.
 
-```
-exit
-```{{execute T2}}
+1. Click on the **Host Sets** tab and then **Generated host set** to view its details.
 
-A message, "Connection to 127.0.0.1 closed" displays.
+1. Click on the **Hosts** tab to view attached hosts.
 
-Verify that the session is terminated.
+  Currently, **Generated host** with ID, `hst_1234567890` is the only host attached to this host set. From the **Manage** menu, you can add or delete hosts from the host set.
 
-```
-boundary sessions list -scope-id=p_1234567890
-```{{execute T2}}
+1. Select **Generated host**. Its **Address** is set to `localhost`.
 
-The output should show the session status to be `terminated`.
+1. Select **Targets** from the left-pane.
 
-```
-Session information:
-  ID:                 s_XJmV49qjVM
-    Status:           terminated
-    Created Time:     Wed, 28 Oct 2020 21:31:15 UTC
-    Expiration Time:  Thu, 29 Oct 2020 05:31:15 UTC
-    Updated Time:     Wed, 28 Oct 2020 21:36:51 UTC
-    User ID:          u_1234567890
-    Target ID:        ttcp_1234567890
-```
+1. Select **Generated target**.
 
-<br />
+  The **Generated target** allows TCP connection, and its ID is `ttcp_1234567890`.
 
-## Exec command
+  Using the **Manage** menu, you can add additional host sets to the target, or delete this target.
 
-The `boundary connect` can execute clients even when there is no built-in wrapper subcommand for it using `-exec`. The `-exec` flag is a very powerful tool, allowing you to wrap Boundary TCP sessions in your preferred client. You can use this flag to create an authenticated proxy to almost anything.
+## Boundary Resource Summary
 
+The relationships between hosts, host sets, and targets are as shown in the following diagram:
 
-Let's update the default TCP target (`ttcp_1234567890`) port from `22` to `443` using the `boundary targets update` command.
-
-```
-boundary targets update tcp -default-port 443 -id ttcp_1234567890
-```{{execute T2}}
-
-Execute the cURL command using the `-exec` flag.
-
-```
-boundary connect -exec curl -target-id ttcp_1234567890 \
-     -- -vvsL --output /dev/null hashicorp.com
-```{{execute T2}}
-
-```
-* Rebuilt URL to: hashicorp.com/
-*   Trying 76.76.21.21...
-* TCP_NODELAY set
-* Connected to hashicorp.com (76.76.21.21) port 80 (#0)
-> GET / HTTP/1.1
-> Host: hashicorp.com
-> User-Agent: curl/7.58.0
-> Accept: */*
-
-...snip...
-```
+![Resources](./assets/boundary-resources.png)

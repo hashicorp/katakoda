@@ -1,1 +1,0 @@
-Please visit [Boundary Learn](https://learn.hashicorp.com/collections/boundary/getting-started) and [Boundary documentation](https://www.boundaryproject.io/docs/getting-started/run-and-login) to learn more. 
