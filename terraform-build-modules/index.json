@@ -1,0 +1,49 @@
+{
+  "title": "Build a Module",
+  "description": "Write a local module to create an Amazon S3 bucket hosting a static website. Create a module directory, write the module configuration, variables, and outputs, and call the module from a root configuration.",
+  "time": "30 minutes",
+  "icon": "fa-terraform",
+  "details": {
+    "steps": [
+      {
+        "title": "Explore configuration",
+        "text": "step1.md"
+      },
+      {
+        "title": "Create module",
+        "text": "step2.md"
+      },
+      {
+        "title": "Add module to root configuration",
+        "text": "step3.md"
+      },
+      {
+        "title": "Apply configuration",
+        "text": "step4.md"
+      },
+      {
+        "title": "Clean up your infrastructure",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform"
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/terraform"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+    "uieditorpath": "/root/learn-terraform-code-organization",
+    "hideHiddenFiles": true
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "private": false
+}
