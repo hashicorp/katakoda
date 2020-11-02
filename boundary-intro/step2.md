@@ -16,7 +16,7 @@ boundary dev -h
 There are a number of optional parameters available, but for now, start a dev server with default configurations.
 
 ```
-boundary dev
+boundary dev -api-listen-address=0.0.0.0:9200
 ```{{execute}}
 
 
@@ -51,38 +51,3 @@ Notice the following default configurations:
 - Generated Auth Method Id: `ampw_1234567890`
 - Generated Auth Method Login Name: admin
 - Generated Auth Method Password: password
-
-<br />
-
-## Authenticate with Boundary
-
-Click the **+** next to the opened Terminal, and select **Open New Terminal**.
-
-![New Terminal](./assets/ops-another-terminal.png)
-
-In the **Terminal 2**, view the help message for `boundary authenticate` command.
-
-```
-boundary authenticate help
-```{{execute T2}}
-
-Authenticate with Boundary.
-
-```
-boundary authenticate password -auth-method-id=ampw_1234567890 \
-      -login-name=admin -password=password \
-      -keyring-type=none -format=json | jq -r ".token" > boundary_token.txt
-```{{execute T2}}
-
-The output suggests that token must be provided via `BOUNDARY_TOKEN` env var or `-token` flag.
-
-```
-Error opening keyring: Specified keyring backend not available
-Token must be provided via BOUNDARY_TOKEN env var or -token flag. Reading the token can also be disabled via -keyring-type=none.
-```
-
-Set the `BOUNDARY_TOKEN` environment variable.  
-
-```
-export BOUNDARY_TOKEN=$(cat boundary_token.txt)
-```{{execute T2}}
