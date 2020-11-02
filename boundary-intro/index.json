@@ -45,7 +45,7 @@
       "dashboards": [
         {
           "name": "Admin Console",
-          "href": "https://[[HOST_SUBDOMAIN]]-9200-[[KATACODA_HOST]].environments.katacoda.com"
+          "port": "9200"
         }
       ],
       "uilayout": "terminal-iframe",
