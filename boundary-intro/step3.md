@@ -1,5 +1,10 @@
 1. Click on the **Admin Console** tab to launch the Boundary admin console.
 
+  <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
+  <p>
+  If the admin console does not load for the first time, click the **Try again** link.
+  </p></div>
+
 1. Enter `admin` as **Username** and `password` in the **Password** text
 field to sign in.
 
