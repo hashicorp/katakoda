@@ -57,7 +57,7 @@
       "uieditorpath":"/root/"
    },
    "backend":{
-      "imageid":"kubernetes-cluster-running:1.18"
+      "imageid":"kubernetes-cluster-running"
    },
    "private":true
 }
