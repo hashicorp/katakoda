@@ -44,11 +44,11 @@ consul-template will automatically update the file every time the key is updated
 
 You can test this by generating a new key:
 
-`vault kv put kv-v1/consul/config/encryption key=$(consul keygen) ttl=1s`{{execute T1}}
+`vault kv put kv-v2/consul/config/encryption key=$(consul keygen) ttl=1s`{{execute T1}}
 
 Example output:
 ```
-Success! Data written to: kv-v1/consul/config/encryption
+Success! Data written to: kv-v2/consul/config/encryption
 ```
 
 This will update the file:

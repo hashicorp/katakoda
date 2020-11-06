@@ -1,13 +1,13 @@
 For this lab, you will use the Vault KV secrets engine.
 
-First, enable a new secret engine called `kv` at path `kv-v1`
+First, enable key/value v2 secrets engine (`kv-v2`).
 
-`vault secrets enable -path="kv-v1" kv`{{execute}}
+`vault secrets enable kv-v2`{{execute}}
 
 Example output:
 
 ```
-Success! Enabled the kv secrets engine at: kv-v1/
+Success! Enabled the kv-v2 secrets engine at: kv-v2/
 ```
 
 Once the secret engine is enabled, verify it this using
@@ -21,7 +21,7 @@ Example output:
 Path          Type         Accessor              Description
 ----          ----         --------              -----------
 ...
-kv-v1/        kv           kv_5e0867f7           n/a
+kv-v2/        kv           kv_5e0867f7           n/a
 secret/       kv           kv_b5027aee           key/value secret storage
 ...
 ```
@@ -67,16 +67,21 @@ enter it into Consul's configuration file later.
 
 ### Write encryption key in Vault
 
-`vault kv put kv-v1/consul/config/encryption key=${CONSUL_GOSSIP_KEY} ttl=10s`{{execute}}
+`vault kv put kv-v2/consul/config/encryption key=${CONSUL_GOSSIP_KEY} ttl=10s`{{execute}}
 
 Example output:
+
 ```
-Success! Data written to: kv-v1/consul/config/encryption
+Key              Value
+---              -----
+created_time     2020-11-06T02:04:12.065476985Z
+deletion_time    n/adestroyed        false
+version          1
 ```
 
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info:</strong><br>
-  
+
   Unlike other secrets engines, the KV secrets engine does not enforce TTLs for expiration. Instead, the `lease_duration` is a hint for how often consumers should check back for a new value.
 
   Yuu can change the `ttl` value or not use it in your case but you will need a TTL to integrate with `consul-template` and have it automatically check for new versions of the key.
