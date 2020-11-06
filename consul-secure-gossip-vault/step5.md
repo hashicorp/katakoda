@@ -65,7 +65,7 @@ Now you can restart it using the new configuration file `consul_template_autorot
 
 Now every time you update the key value in Vault, `consul-template` will make sure that the key is installed in Consul too.
 
-`vault kv put kv-v1/consul/config/encryption key=$(consul keygen) ttl=1s`{{execute T1}}
+`vault kv put kv-v2/consul/config/encryption key=$(consul keygen) ttl=1s`{{execute T1}}
 
 The script will pick up the `gossip.key` file containing the new key and use it to rotate the Consul gossip encryption key.
 
