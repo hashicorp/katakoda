@@ -42,6 +42,14 @@ Switch to the **engineering** namespace and verify that `admins` policy exists.
 
 ![Policies](./assets/vault-codify-mgmt-3.png)
 
+Select the `education` namespace and verify that `training` namespace exists.
+
+![Secrets Engine](./assets/vault-codify-mgmt-15.png)
+
+Select the `training` namespace and verify that `vault_cloud` and `boundary` namespaces exist.
+
+![Secrets Engine](./assets/vault-codify-mgmt-16.png)
+
 Switch to the **finance** namespace and verify that `kv-v2` secrets engine is enabled.
 
 ![Secrets Engine](./assets/vault-codify-mgmt-4.png)
