@@ -3,7 +3,7 @@ There is more than one approach to solve the challenge, and this ***sample*** so
 Step 1: Create a `card-count` transformation
 
 ```
-vault write transform/transformation/card-count type=fpe \
+vault write transform/transformations/fpe/card-count \
    template=card-count-tmpl \
    tweak_source=internal allowed_roles=payments
 ```{{execute T1}}

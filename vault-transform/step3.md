@@ -19,7 +19,7 @@ vault write transform/template/uk-passport-tmpl type=regex \
 Create a transformation named "uk-passport" containing the `uk-passport-tmpl` template.
 
 ```
-vault write transform/transformation/uk-passport type=fpe \
+vault write transform/transformations/fpe/uk-passport \
         template=uk-passport-tmpl tweak_source=internal \
         allowed_roles=*
 ```{{execute T1}}

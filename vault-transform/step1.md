@@ -34,7 +34,7 @@ vault list transform/role
 Create a transformation named "card-number" which will be used to transform credit card numbers. This uses the built-in `builtin/creditcardnumber` template to perform format-preserving encryption (FPE). The allowed role to use this transformation is `payments` you just created.
 
 ```
-vault write transform/transformation/card-number type=fpe \
+vault write transform/transformations/fpe/card-number \
         template="builtin/creditcardnumber" \
         tweak_source=internal \
         allowed_roles=payments
@@ -62,5 +62,5 @@ vault list transform/transformation
 To view the details of the newly created `card-number` transformation, execute the following command.
 
 ```
-vault read transform/transformation/card-number
+vault read transform/transformations/fpe/card-number
 ```{{execute T1}}

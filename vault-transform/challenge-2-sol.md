@@ -3,7 +3,7 @@ There is more than one approach to solve the challenge, and this ***sample*** so
 Step 1: Create `swiss-phone` transformation
 
 ```
-vault write transform/transformation/swiss-phone type=masking \
+vault write transform/transformations/masking/swiss-phone \
         template=swiss-phone-tmpl allowed_roles=*
 ```{{execute T1}}
 
