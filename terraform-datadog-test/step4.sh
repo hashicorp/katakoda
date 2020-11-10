@@ -1,0 +1,1 @@
+cp /tmp/repo/datadog_synthetics.tf /root/
