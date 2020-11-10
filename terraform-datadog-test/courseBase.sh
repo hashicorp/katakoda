@@ -1,4 +1,5 @@
 #!/bin/sh
+minikube start
 
 # Check helm and minikube completion
 source <(helm completion bash)
