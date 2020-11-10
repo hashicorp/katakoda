@@ -1,3 +1,6 @@
+# wait for Kubernetes to launch
+launch.sh
+
 # install `unzip`
 apt-get install --quiet --yes "unzip"
 
