@@ -1,4 +1,4 @@
-Open the `/root/helm_datadog.tf`{{open}} file. This file contains the resources and metadata for your nodes to report to Datadog. Review the configuration below.
+Open the `helm_datadog.tf`{{open}} file. This file contains the resources and metadata for your nodes to report to Datadog. Review the configuration below.
 
 This Helm configuration requires your Datadog API and application keys. Set these values as environment variables in the Katacoda terminal.
 
@@ -11,7 +11,7 @@ Repeat this process with the application  key. Replace `<Your-App-Key>` with you
 `export TF_VAR_datadog_app_key="<Your-App-Key>"`{{copy}}
 
 
-Add variables for your Datadog keys to the  `/root/variables.tf`{{open}} file.
+Add variables for your Datadog keys to the  `variables.tf`{{open}} file.
 
 ```
 variable "datadog_api_key" {
