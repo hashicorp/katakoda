@@ -60,5 +60,5 @@
    "backend": {
       "imageid": "minikube-running"
    },
-   "private": false
+   "private": true
 }
