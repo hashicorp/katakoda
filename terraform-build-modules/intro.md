@@ -7,7 +7,5 @@ Terraform Learn tutorial.
 In this scenario, you will create a module to manage AWS S3 buckets used to host static websites.
 
 > This environment has been pre-configured with the Terraform CLI, AWS CLI and 
-[localstack](https://localstack.cloud/), a mocking framework that provides a 
-testing environment on your local machine that provides the same functionality 
-and APIs as the real AWS cloud environment. As a result, you do not need an AWS
-account to complete this scenario.
+[localstack](https://localstack.cloud/), a mocking framework that mocks core 
+AWS APIs locally. As a result, you do not need an AWS account to complete this scenario.

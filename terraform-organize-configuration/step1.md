@@ -13,9 +13,9 @@ provider "aws" {
 ```
 
 This Katacoda scenario uses [localstack](https://localstack.cloud/) to provide a 
-testing environment on your local machine that provides the same functionality 
-and APIs as the real AWS cloud environment. This way you can learn how to organize
-your Terraform configuration without needing an AWS account.
+testing environment with same functionality and APIs as the real AWS cloud 
+environment. This way you can learn how to organize your Terraform configuration 
+without needing an AWS account.
 
 As a result, the AWS provider block will have additional boilerplate which isn't 
 required for a standard Terraform AWS workflow.
