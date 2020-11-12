@@ -27,7 +27,7 @@ helm repo update
 mkdir -p /root/
 mkdir -p /tmp/repo
 
-git clone -b katacoda https://github.com/hashicorp/learn-terraform-datadog.git /tmp/repo
+git clone https://github.com/hashicorp/learn-terraform-datadog.git /tmp/repo
 
 cp /tmp/repo/variables.tf /root/
 cp /tmp/repo/terraform.tf /root/
