@@ -1,5 +1,5 @@
 {
-   "title": "Deploy Datadog monitors with Terraform (test)",
+   "title": "Deploy Datadog monitors with Terraform",
    "description": "Automating Datadog deployments with Terraform",
    "icon": "fa-terraform",
    "difficulty": "Intermediate",
