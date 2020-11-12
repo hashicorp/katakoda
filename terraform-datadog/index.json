@@ -1,63 +1,64 @@
 {
-   "title":"Deploy Datadog monitors with Terraform",
-   "description":"Automating Datadog deployments with Terraform",
-   "icon":"fa-terraform",
-   "difficulty":"Intermediate",
-   "details":{
-      "steps":[
+   "title": "Deploy Datadog monitors with Terraform (test)",
+   "description": "Automating Datadog deployments with Terraform",
+   "icon": "fa-terraform",
+   "difficulty": "Intermediate",
+   "details": {
+      "steps": [
          {
-            "title":"Create your Kubernetes infrastructure",
-            "text":"step1.md"
+            "title": "Create your Kubernetes infrastructure",
+            "text": "step1.md"
          },
          {
-            "title":"Deploy the Datadog Agent to your nodes with Helm",
-            "text":"step2.md",
-            "code":"step2.sh"
+            "title": "Deploy the Datadog Agent to your nodes with Helm",
+            "text": "step2.md",
+            "code": "step2.sh"
          },
          {
-            "title":"Create a metrics monitor with the Datadog provider",
-            "text":"step3.md",
-            "code":"step3.sh"
+            "title": "Create a metrics monitor with the Datadog provider",
+            "text": "step3.md",
+            "code": "step3.sh"
          },
          {
-            "title":"Create a synthetic monitor with the Datadog provider",
-            "text":"step4.md",
-            "code":"step4.sh"
+            "title": "Create a synthetic monitor with the Datadog provider",
+            "text": "step4.md",
+            "code": "step4.sh"
          },
          {
-            "title":"Create a Datadog dashboard with the Datadog provider",
-            "text":"step5.md",
-            "code":"step5.sh"
+            "title": "Create a Datadog dashboard with the Datadog provider",
+            "text": "step5.md",
+            "code": "step5.sh"
          },
          {
-            "title":"Clean up your resources",
-            "text":"step6.md"
+            "title": "Clean up your resources",
+            "text": "step6.md"
          }
       ],
-      "intro":{
-         "code":"courseBase.sh",
-         "text":"intro.md"
+      "intro": {
+         "code": "courseBase.sh",
+         "text": "intro.md"
       }
    },
-   "environment":{
-      "dashboards":[
+   "environment": {
+      "dashboards": [
          {
-            "name":"View Beacon",
-            "href":"https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/"
+            "name": "View Beacon",
+            "port": 30201
          }
       ],
-      "hideintro":false,
-      "hideHiddenFiles":true,
-      "showdashboard":true,
-      "exclusionPatterns":[
-         "/root/Desktop",
-         "/root/go"
+      "hideintro": false,
+      "hideHiddenFiles": true,
+      "showdashboard": true,
+      "exclusionPatterns": [
+         "*/Desktop",
+         "*/Desktop/*",
+         "*/katacoda-finished"
       ],
-      "uilayout":"editor-terminal",
-      "uieditorpath":"/root/"
+      "uilayout": "editor-terminal",
+      "uieditorpath": "/root/"
    },
-   "backend":{
-      "imageid":"kubernetes-cluster-running:1.18"
+   "backend": {
+      "imageid": "minikube-running"
    },
-   "private":true
+   "private": true
 }

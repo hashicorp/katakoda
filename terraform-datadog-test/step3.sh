@@ -1,1 +1,0 @@
-cp /tmp/repo/datadog_metrics.tf /root/
