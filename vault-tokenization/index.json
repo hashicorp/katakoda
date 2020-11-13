@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "[Enterprise] Transform Secrets Engine",
-  "description": "Learn how Transform Secrets Engine works to protect your application data.",
+  "description": "Learn the Tokenization transformation introduced in Vault 1.6",
   "difficulty": "beginner",
   "time": "10 minutes",
   "icon": "fa-vault",

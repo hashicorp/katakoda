@@ -33,7 +33,7 @@ EOF
 
 Now, create a token with `app-policy` attached. Set the time-to-live (TTL) to 10 minutes, and store the generated token in a file named, `app-token.txt`.
 
-``
+```
 vault token create  -policy=app-policy -ttl=10m \
    -format=json | jq -r ".auth.client_token" > app-token.txt
 ```{{execute T1}}
@@ -68,7 +68,11 @@ vault write transform/metadata/mobile-pay \
    transformation=credit-card
 ```{{execute T1}}
 
+<div style="background-color:#fbe5e5; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
+<p>
 Notice that `expiration_time` is displayed. Since you have overwritten the `max_ttl`, the `ttl` is set to 8 hours.
+</p></div>
+
 
 Validate the token value. This determines if the provided tokenized value (`card-encoded.txt`) is valid and unexpired.
 

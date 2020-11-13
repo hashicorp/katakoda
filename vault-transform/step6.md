@@ -5,7 +5,12 @@ When you need to encode more than one secret value, you can send multiple secret
 You received a credit card number, British passport number and a phone number of a customer and wish to transform all these secrets using the `payments` role.
 
 The API request payload can contain all secrets associated with transformations associated with the `payments` role.
-Examine the `input-multiple.json`{{open}} file containing the test data.
+
+Examine the `input-multiple.json` file containing the test data.
+
+```
+cat input-multiple.json
+```{{execute T1}}
 
 Invoke the `transform/encode/payments` endpoint.
 
@@ -23,7 +28,12 @@ An on-prem database stores corporate card numbers and your organization decided 
 
 To encode multiple card numbers at once, set the values as `batch_input`. If the role has more than one transformation associate with it, be sure to specify the name of transformation as well.
 
-The request payload can contain multiple card numbers. Examine the `payload-batch.json`{{open}} file containing the test data.
+The request payload can contain multiple card numbers. Examine the `payload-batch.json` file containing the test data.
+
+```
+cat payload-batch.json
+```{{execute T1}}
+
 
 Execute the `transform/encode/payments` endpoint.
 
