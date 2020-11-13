@@ -68,7 +68,7 @@ vault write transform/metadata/mobile-pay \
    transformation=credit-card
 ```{{execute T1}}
 
-<div style="background-color:#fbe5e5; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
+<div style="background-color:#fbe5e5; color:#fcf6ea; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
 <p>
 Notice that `expiration_time` is displayed. Since you have overwritten the `max_ttl`, the `ttl` is set to 8 hours.
 </p></div>
