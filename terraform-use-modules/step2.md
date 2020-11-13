@@ -59,7 +59,7 @@ counterproductive.
 
 You will need to define these variables in your configuration to use them.
 
-Open `variables.tf`{{open}}. This file contains several variable definition blocks.
+Open `variables.tf`{{open}} and review the variable blocks defined there.
 
 ## Define root output values
 

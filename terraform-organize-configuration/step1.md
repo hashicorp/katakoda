@@ -9,16 +9,15 @@ below.
 ```
 provider "aws" {
   region = var.aws_region
+  # ...
 }
 ```
 
-This Katacoda scenario uses [localstack](https://localstack.cloud/) to provide a 
-testing environment with similar functionality and APIs as the real AWS cloud 
-environment. This way you can learn how to organize your Terraform configuration 
-without needing an AWS account.
-
-As a result, the AWS provider block will have additional boilerplate which isn't 
-required for a standard Terraform AWS workflow.
+It also includes additional settings that allow this scenario to use 
+[localstack](https://localstack.cloud/) to simulate infrastructure, instead of 
+requiring you to have an AWS account. Refer to the code in the 
+[Learn tutorial](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules) 
+to build real infrastructure, which will require you to authenticate with AWS. 
 
 Refer to the [AWS Get Started collection](https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started)
 or the [AWS Provider Registry page](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
