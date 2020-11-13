@@ -20,8 +20,9 @@ your bucket and other resources will be provisioned.
 
 You have now configured and used your own module to create a static website. You
 may want to visit this static website. Right now there is nothing inside your
-bucket, so there would be nothing to see if you were tovisit the bucket's website. 
-In order to see any content, you will need to upload objects to your bucket. 
+bucket, so there would be nothing to return if you were to visit the bucket's website. 
+In order the bucket website to return any content, you will need to upload 
+objects to your bucket. 
 
 The static website files are located in the `/assets/` directory. Upload these
 files to the S3 bucket using the [AWS CLI tool](https://aws.amazon.com/cli/).
@@ -38,6 +39,6 @@ Get the bucket name.
 `terraform output website_bucket_name`{{execute}}
 
 Then, visit the website endpoint in a web browser, replacing `<BUCKET_NAME>` 
-with your bucket name. You should see the website contents.
+with your bucket name. You should find the website contents.
 
 `[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/${module.website_s3_bucket.name}/index.html`

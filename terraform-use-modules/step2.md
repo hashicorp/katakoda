@@ -9,7 +9,7 @@ Aside from meta-arguments such as `source` and `version`, most of the arguments
 to a module block will set variable values.
 
 On the Terraform registry page for the AWS VPC module, you
-will see an `Inputs` tab that describes all of the [input variables](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0?tab=inputs)
+will find an `Inputs` tab that describes all of the [input variables](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0?tab=inputs)
 that module supports.
 
 Some input variables are _required_, meaning that the module doesn't provide a
@@ -69,7 +69,7 @@ Modules also have output values, which are defined within the module with the
 registry](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0?tab=outputs).
 
 Module outputs are usually either passed to other parts of your configuration,
-or defined as outputs in your root module. You will see both uses in this tutorial.
+or defined as outputs in your root module. You will implement both uses in this tutorial.
 
 Open `outputs.tf`{{open}}. This file should contain the following.
 

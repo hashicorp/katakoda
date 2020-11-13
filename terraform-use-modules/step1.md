@@ -27,7 +27,7 @@ provision infrastructure.
 When calling a module, the `source` argument is required. In this example,
 Terraform will search for a module in the Terraform registry that matches the
 given string. You could also use a URL or local file path for the source of your
-modules. See the [Terraform
+modules. Refer to the [Terraform
 documentation](https://www.terraform.io/docs/modules/sources.html) for a list of
 possible module sources.
 
