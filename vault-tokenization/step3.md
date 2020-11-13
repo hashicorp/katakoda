@@ -55,23 +55,27 @@ vault write transform/transformations/tokenization/passport \
     allowed_roles=global-id stores=postgres
 ```{{execute T1}}
 
-Open another terminal and connect to the `postgres` container.
+Click the **+** next to the opened Terminal, and select **Open New Terminal** to start third terminal (**Terminal 3**).
+
+![](./assets/ops-another-terminal-2.png)
+
+Connect to the `postgres` container.
 
 ```
 docker exec -it postgres bash
-```{{execute T1}}
+```{{execute T2}}
 
 Start `psql`.
 
 ```
 psql -U root
-```{{execute T1}}
+```{{execute T2}}
 
 Check to verify that there is no entry.
 
 ```
 select * from tokens;
-```{{execute T1}}
+```{{execute T2}}
 
 The output should display an empty table.
 
