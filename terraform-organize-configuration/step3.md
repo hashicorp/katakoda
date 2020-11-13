@@ -5,7 +5,7 @@ environments with the same set of configuration.
 `main.tf` to ensure the contents of the editor window don't overwrite this file
 as you refactor your configuration.
 
-## Consolidate Configuration
+## Consolidate configuration
 
 Since the configuration found in `dev.tf` and `prod.tf` is almost identical, you
 can consolidate it into one file managed by two workspaces.
@@ -45,7 +45,8 @@ Also replace the contents of `outputs.tf`{{open}} with the following.
 ```
 output "website_endpoint" {
   description = "Website endpoint for this environment"
-  value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
+  value       = "http://localhost:4572/${aws_s3_bucket.web.bucket}/index.html"
+  # value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
 }
 ```{{copy}}
 
@@ -71,8 +72,8 @@ Also update the bucket resource name in the policy document to use the new
 
 ```
         "Resource": [
--           "arn:aws:s3:::hc-digital-${var.dev_prefix}-${random_pet.petname.id}/*"
-+           "arn:aws:s3:::hc-digital-${var.prefix}-${random_pet.petname.id}/*"
+-           "arn:aws:s3:::${var.dev_prefix}-${random_pet.petname.id}/*"
++           "arn:aws:s3:::${var.prefix}-${random_pet.petname.id}/*"
         ]
 ```
 

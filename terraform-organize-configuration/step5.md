@@ -1,10 +1,10 @@
 In this step, you will refactor your configuration to use a module to define
 buckets used to host static websites.
 
-Ensure that you are working in the `learn-terraform` directory before moving on.
+Ensure that you are working in the `learn-terraform-code-organization` directory before moving on.
 
 ```
-cd ~/learn-terraform
+cd ~/learn-terraform-code-organization
 ```{{execute}}
 
 ## Create module template
@@ -62,13 +62,9 @@ resource "aws_s3_bucket" "s3_bucket" {
 }
 EOF
 
-  tags = {
-    Project = "HashiConf-Digital"
-  }
-
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    # error_document = "error.html"
   }
 }
 ```{{copy}}
@@ -104,7 +100,8 @@ output "name" {
 
 output "website_endpoint" {
   description = "Domain name of the S3 bucket"
-  value       = aws_s3_bucket.s3_bucket.website_endpoint
+  value       = "http://localhost:4572/${aws_s3_bucket.s3_bucket.bucket}"
+  # value       = aws_s3_bucket.s3_bucket.website_endpoint
 }
 ```{{copy}}
 
@@ -116,14 +113,14 @@ Open `dev/main.tf`{{open}} and remove the entire bucket resource block.
 
 ```
 resource "aws_s3_bucket" "web" {
-  bucket = "hc-digital-${var.prefix}-${random_pet.petname.id}"
+  bucket = "${var.prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
 # ...
 
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    # error_document = "error.html"
   }
 }
 ```
@@ -134,7 +131,7 @@ Replace it with the following.
 module "website_s3_bucket" {
   source = "../modules/terraform-aws-s3-static-website-bucket"
 
-  bucket_name = "hc-digital-${var.prefix}-${random_pet.petname.id}"
+  bucket_name = "${var.prefix}-${random_pet.petname.id}"
 }
 ```{{copy}}
 
@@ -157,12 +154,14 @@ resource name.
 ```
 output "website_endpoint" {
   description = "Website endpoint for this environment"
-- value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
+- value       = "http://localhost:4572/${aws_s3_bucket.web.bucket}/index.html"
 + value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
+# value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
+# value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
 }
 ```
 
-## Initialize and apply dev Environment
+## Initialize and apply dev environment
 
 Change into the dev directory and re-initialize it.
 
@@ -190,8 +189,3 @@ Now refactor your `prod` configuration to use this module.
 
 The steps to refactor and apply your production configuration are nearly
 identical to the ones for your dev environment.
-
-## Destroy resources
-
-Clean up both environments by running `terraform destroy`{{execute}} in both
-directories.

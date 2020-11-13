@@ -25,7 +25,7 @@ provider "aws" {
 }
 
 resource "random_pet" "petname" {
-  length    = 4
+  length    = 3
   separator = "-"
 }
 ```
@@ -36,14 +36,13 @@ First, remove the bucket resource.
 
 ```
 resource "aws_s3_bucket" "dev" {
-  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  bucket = "${var.dev_prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
 # ...
   website {
     index_document = "index.html"
-    error_document = "error.html"
-
+    # error_document = "error.html"
   }
 }
 ```
@@ -68,19 +67,20 @@ Now do the equivalent for `dev.tf`{{open}}.
 First, remove the `prod` bucket resource.
 ```
 resource "aws_s3_bucket" "prod" {
-  bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
+  bucket = "${var.dev_prefix}-${random_pet.petname.id}"
   acl    = "public-read"
 
 # ...
 
   website {
     index_document = "index.html"
-    error_document = "error.html"
+    # error_document = "error.html"
   }
 }
 ```
 
 Now, remove the `prod` object resource.
+
 ```
 resource "aws_s3_bucket_object" "prod" {
   acl          = "public-read"
@@ -115,8 +115,10 @@ Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-dev_website_endpoint = http://hc-digital-dev-infinitely-vertically-busy-tapir.s3-website-us-west-2.amazonaws.com/index.html
-prod_website_endpoint = http://hc-digital-prod-infinitely-vertically-busy-tapir.s3-website-us-west-2.amazonaws.com/index.html
+bucket_name_dev = dev-truly-dynamic-cobra
+bucket_name_prd = prod-truly-dynamic-cobra
+localstack_dev_website_endpoint = http://localhost:4572/dev-truly-dynamic-cobra/index.html
+localstack_prod_website_endpoint = http://localhost:4572/prod-truly-dynamic-cobra/index.html
 ```
 
 Now your production and development environments are in separate files, but they

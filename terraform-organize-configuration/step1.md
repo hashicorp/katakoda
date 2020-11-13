@@ -1,7 +1,7 @@
 In this step, you will create two S3 buckets configured for static website
 hosting using a monolithic configuration.
 
-## Configure AWS provider
+## Review AWS provider
 
 Open `main.tf`{{open}}. Your configuration begins with the AWS provider block
 below.
@@ -9,22 +9,19 @@ below.
 ```
 provider "aws" {
   region = var.aws_region
+  # ...
 }
-```{{copy}}
-
-Terraform will use IAM credentials to authenticate with your AWS account. To do
-so, you will need to export two environment variables in the terminal window.
-
-```
-$ export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
-$ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 ```
 
-You will need to replace the values for the access key ID and secret access key
-values with credentials configured with the correct IAM policy.
+It also includes additional settings that allow this scenario to use 
+[localstack](https://localstack.cloud/) to simulate infrastructure, instead of 
+requiring you to have an AWS account. Refer to the code in the 
+[Learn tutorial](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules) 
+to build real infrastructure, which will require you to authenticate with AWS. 
 
-You can review `assets/policy.json`{{open}} for an example of an appropriate IAM policy
-for the actions you will take while following this scenario.
+Refer to the [AWS Get Started collection](https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started)
+or the [AWS Provider Registry page](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
+to learn different ways to authenticate the AWS provider.
 
 ## Review monolithic configuration
 
@@ -61,7 +58,7 @@ Respond with `yes`{{execute}} when prompted.
 
 Verify the website endpoint URLs by copying them from the embedded terminal and pasting them into your web browser.
 
-**Note**: If your browser window is wide enough the link may only span one line, in which case it will be clickable from the embedded terminal. 
+> **Note**: If your browser window is wide enough the link may only span one line, in which case it will be clickable from the embedded terminal. 
 
 In the next step, you will begin to organize this configuration by separating
 your development and production configuration.
