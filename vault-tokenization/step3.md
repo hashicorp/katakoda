@@ -2,7 +2,7 @@ Unlike format preserving encryption (FPE) transformation, tokenization is a stat
 
 At scale, this could put a lot of additional load on the Vault's storage backend. To avoid this, you have an option to use external storage to persist data for tokenization transformation.
 
-<div style="background-color:#fbe5e5; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
+<div style="background-color:#fcf6ea; color:#864242; border:1px solid #f8cfcf; padding:1em; border-radius:3px; margin:24px 0;">
 <p>
 **NOTE:** Currently, supported database for external storage is PostgreSQL.
 </p></div>
@@ -55,9 +55,9 @@ vault write transform/transformations/tokenization/passport \
     allowed_roles=global-id stores=postgres
 ```{{execute T1}}
 
-Click the **+** next to the opened Terminal, and select **Open New Terminal** to start third terminal (**Terminal 3**).
+Click the **+** next to the opened Terminal, and select **Open New Terminal** to start third terminal (**Terminal 2**).
 
-![](./assets/ops-another-terminal-2.png)
+![](./assets/ops-another-terminal.png)
 
 Connect to the `postgres` container.
 
@@ -96,6 +96,6 @@ Return to the postgres container, and check the data entry.
 
 ```
 select * from tokens;
-```{{execute T1}}
+```{{execute T2}}
 
 As you encode more data, the table entry grows.
