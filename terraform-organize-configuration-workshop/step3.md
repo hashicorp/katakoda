@@ -56,12 +56,12 @@ argument to use the new `var.prefix` variable.
 
 ```
 - resource "aws_s3_bucket" "dev" {
-- bucket = "hc-digital-${var.dev_prefix}-${random_pet.petname.id}"
-+ resource "aws_s3_bucket" "web" {
-+ bucket = "hc-digital-${var.prefix}-${random_pet.petname.id}"
-  acl    = "public-read"
+-   bucket = ${var.dev_prefix}-${random_pet.petname.id}"
++   resource "aws_s3_bucket" "web" {
++   bucket = ${var.prefix}-${random_pet.petname.id}"
+    acl    = "public-read"
 
-  force_destroy = true
+    force_destroy = true
 
 # ...
 ```
@@ -92,7 +92,7 @@ for the bucket resource.
 }
 ```
 
-## Create Variable Definition Files
+## Create variable definition files
 
 Each workspace will use a different set of variable definitions.
 
@@ -111,7 +111,7 @@ aws_region = "us-west-2"
 prefix     = "prod"
 ```{{copy}}
 
-## Create Dev Workspace
+## Create dev workspace
 
 Now your configuration supports either a dev or prod environment.
 
@@ -131,7 +131,7 @@ terraform apply -var-file=dev.tfvars
 Enter `yes`{{execute}} at the prompt, and open the website endpoint in your web
 browser to verify that your infrastructure was deployed successfully.
 
-## Create Prod Workspace
+## Create prod workspace
 
 Now create and switch to a production workspace.
 
@@ -152,7 +152,7 @@ definitions), but can be inflexible if you need different configuration between
 environments, or need to manage the resources separately. You also need to
 ensure that all commands are run in the correct workspace.
 
-## Destroy Resources
+## Destroy resources
 
 Before moving on, destroy the resources you've created so far.
 

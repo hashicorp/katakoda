@@ -1,7 +1,7 @@
 In this step, you will create two S3 buckets configured for static website
 hosting using a monolithic configuration.
 
-## Review AWS Provider
+## Review AWS provider
 
 Open `main.tf`{{open}}. Your configuration begins with the AWS provider block
 below.
@@ -13,7 +13,7 @@ provider "aws" {
 ```
 
 This Katacoda scenario uses [localstack](https://localstack.cloud/) to provide a 
-testing environment with same functionality and APIs as the real AWS cloud 
+testing environment with similar functionality and APIs as the real AWS cloud 
 environment. This way you can learn how to organize your Terraform configuration 
 without needing an AWS account.
 
@@ -22,12 +22,12 @@ required for a standard Terraform AWS workflow.
 
 Refer to the [AWS Get Started collection](https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started)
 or the [AWS Provider Registry page](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
-to learn different ways  to authenticate the AWS provider.
+to learn different ways to authenticate the AWS provider.
 
-## Review Monolithic Configuration
+## Review monolithic configuration
 
 Now that you have configured the AWS provider, review the rest of the
-configuration found in `main.tf`{{open}}. This configuration will create two s3
+configuration found in `main.tf`{{open}}. This configuration will create two S3
 buckets, each configured to host a static website, and each containing a single
 `index.html`. One bucket will be for your `dev` environment, and the other for
 `prod`.
@@ -38,7 +38,7 @@ Now open `outputs.tf`{{open}}, which will output the website endpoints for the t
 buckets once Terraform creates them. Later you will use these values to visit the website and verify that your
 configuration was successfully deployed.
 
-## Apply Configuration
+## Apply configuration
 
 Initialize your Terraform workspace.
 
@@ -46,7 +46,7 @@ Initialize your Terraform workspace.
 terraform init
 ```{{execute}}
 
-Terraform with install two providers - one for AWS, and one for the `random_pet`
+Terraform will install two providers - one for AWS, and one for the `random_pet`
 resource.
 
 Now apply this configuration.

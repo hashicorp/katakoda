@@ -59,7 +59,7 @@ limitations under the License.
 
 ## Add module configuration
 
-Add the following to the `main.tf` inside the `modules/aws-s3-static-website-bucket` directory. This configuration creates a public S3 bucket hosing a website with an index page and an error page.
+Add the following to the `main.tf` inside the `modules/aws-s3-static-website-bucket` directory. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
 
 `touch modules/aws-s3-static-website-bucket/main.tf`{{execute}}
 
@@ -106,7 +106,7 @@ variables.
 
 ### Create variables file
 
-Define the following variables in `variables.tf` inside the
+Define the following variables in the `variables.tf` file inside the
 `modules/aws-s3-static-website-bucket` directory.
 
 `touch modules/aws-s3-static-website-bucket/variables.tf`{{execute}}
@@ -137,7 +137,7 @@ so must be set whenever the module is used.
 When creating a module, consider which resource arguments to expose to module
 end users as input variables. For example, you might decide to expose the index
 and error documents to end users of this module as variables, but not define a
-variable to set the ACL , since to host a website your bucket will need the ACL
+variable to set the ACL, since to host a website your bucket will need the ACL
 to be set to "public-read".
 
 You should also consider which values to add as outputs, since outputs are the

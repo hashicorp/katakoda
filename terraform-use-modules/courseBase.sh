@@ -6,7 +6,7 @@ unzip terraform_0.13.5_linux_amd64.zip -d /usr/local/bin/
 
 # Clone GitHub repo
 git clone -b localstack https://github.com/hashicorp/learn-terraform-modules
-cd ~/website-complete-example-localstack
+cd ~/learn-terraform-modules
 
 # Run Docker Compose up (daemon)
 # docker-compose up -d

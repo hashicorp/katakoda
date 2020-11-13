@@ -1,7 +1,7 @@
 In this step, you will create two S3 buckets configured for static website
 hosting using a monolithic configuration.
 
-## Configure AWS Provider
+## Configure AWS provider
 
 Open `main.tf`{{open}}. Your configuration begins with the AWS provider block
 below.
@@ -26,10 +26,10 @@ values with credentials configured with the correct IAM policy.
 You can review `assets/policy.json`{{open}} for an example of an appropriate IAM policy
 for the actions you will take while following this scenario.
 
-## Review Monolithic Configuration
+## Review monolithic configuration
 
 Now that you have configured the AWS provider, review the rest of the
-configuration found in `main.tf`{{open}}. This configuration will create two s3
+configuration found in `main.tf`{{open}}. This configuration will create two S3
 buckets, each configured to host a static website, and each containing a single
 `index.html`. One bucket will be for your `dev` environment, and the other for
 `prod`.
@@ -40,7 +40,7 @@ Now open `outputs.tf`{{open}}, which will output the website endpoints for the t
 buckets once Terraform creates them. Later you will use these values to visit the website and verify that your
 configuration was successfully deployed.
 
-## Apply Configuration
+## Apply configuration
 
 Initialize your Terraform workspace.
 
@@ -48,7 +48,7 @@ Initialize your Terraform workspace.
 terraform init
 ```{{execute}}
 
-Terraform with install two providers - one for AWS, and one for the `random_pet`
+Terraform will install two providers - one for AWS, and one for the `random_pet`
 resource.
 
 Now apply this configuration.

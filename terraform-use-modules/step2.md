@@ -5,8 +5,8 @@ In this step, you will set and define the module input variables.
 In order to use most modules, you will need to pass input variables to the
 module configuration. The configuration that calls a module is responsible for
 setting its input values, which are passed as arguments in the module block.
-Aside from `source` and `version`, most of the arguments to a module block will
-set variable values.
+Aside from meta-arguments such as `source` and `version`, most of the arguments 
+to a module block will set variable values.
 
 On the Terraform registry page for the AWS VPC module, you
 will see an `Inputs` tab that describes all of the [input variables](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0?tab=inputs)
@@ -18,7 +18,7 @@ run correctly.
 
 ### Review VPC module variables
 
-Within the `"vpc" module` block, review the input variables. You
+Within the `module "vpc"` block, review the input variables. You
 can find each of these input variables documented [in the Terraform
 registry](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0?tab=inputs)
 
@@ -36,7 +36,7 @@ registry](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.
 
 ### Review EC2 instance module variables
 
-Next, review the arguments for the `"ec2_instances" module` block by
+Next, review the arguments for the `module "ec2_instances"` block by
 comparing them to [the module
 documentation](https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/2.12.0?tab=inputs).
 
@@ -59,56 +59,7 @@ counterproductive.
 
 You will need to define these variables in your configuration to use them.
 
-Open `variables.tf`{{open}}. This file should contain the following.
-
-```hcl
-# Input variable definitions
-
-variable "vpc_name" {
-  description = "Name of VPC"
-  type        = string
-  default     = "example-vpc"
-}
-
-variable "vpc_cidr" {
-  description = "CIDR block for VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "vpc_azs" {
-  description = "Availability zones for VPC"
-  type        = list
-  default     = ["us-west-2a", "us-west-2b", "us-west-2c"]
-}
-
-variable "vpc_private_subnets" {
-  description = "Private subnets for VPC"
-  type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
-}
-
-variable "vpc_public_subnets" {
-  description = "Public subnets for VPC"
-  type        = list(string)
-  default     = ["10.0.101.0/24", "10.0.102.0/24"]
-}
-
-variable "vpc_enable_nat_gateway" {
-  description = "Enable NAT gateway for VPC"
-  type    = bool
-  default = true
-}
-
-variable "vpc_tags" {
-  description = "Tags to apply to resources created by VPC module"
-  type        = map(string)
-  default     = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
-}
-```
+Open `variables.tf`{{open}}. This file contains several variable definition blocks.
 
 ## Define root output values
 
@@ -121,18 +72,6 @@ Module outputs are usually either passed to other parts of your configuration,
 or defined as outputs in your root module. You will see both uses in this tutorial.
 
 Open `outputs.tf`{{open}}. This file should contain the following.
-
-```hcl
-output "vpc_public_subnets" {
-  description = "IDs of the VPC's public subnets"
-  value       = module.vpc.public_subnets
-}
-
-output "ec2_instance_public_ips" {
-  description = "Public IP addresses of EC2 instances"
-  value       = module.ec2_instances.public_ip
-}
-```
 
 In this example, the value of the `vpc_public_subnets` will come from the
 `public_subnets` output from the module named `vpc`, and

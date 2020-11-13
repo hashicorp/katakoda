@@ -8,7 +8,7 @@ moving on.
 cd ~/learn-terraform
 ```{{execute}}
 
-## Create Directories
+## Create directories
 
 Create directories for your environments.
 
@@ -16,7 +16,7 @@ Create directories for your environments.
 mkdir prod && mkdir dev
 ```{{execute}}
 
-## Copy Configuration
+## Copy configuration
 
 Copy your configuration and "assets/index.html" into the dev directory.
 
@@ -35,7 +35,7 @@ mv prod.tfvars prod/terraform.tfvars
 mv assets prod/
 ```{{execute}}
 
-## Initialize and Apply Configuration
+## Initialize and apply configuration
 
 Now, your configuration is located in two separate directories, and can be
 managed independently. Initialize and apply each one.
@@ -60,7 +60,7 @@ terraform apply
 
 Again, respond to the confirmation prompt with `yes`{{execute}}.
 
-## Destroy Resources
+## Destroy resources
 
 After verifying that the infrastructure works as expected, destroy it before
 moving on.

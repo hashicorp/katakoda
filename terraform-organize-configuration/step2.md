@@ -2,7 +2,7 @@ Now that you have a monolithic configuration to work with, in this step you will
 separate the configuration into two files, one for your "dev" environment, and
 one for "prod".
 
-## Separate Configuration Files
+## Separate configuration files
 
 First, copy `main.tf` to `dev.tf`.
 
@@ -17,7 +17,7 @@ mv main.tf prod.tf
 ```{{execute}}
 
 Your configuration only needs one instance of the provider and random_pet
-blocks, remove these lines from `prod.tf`{{open}}.
+blocks, so remove these lines from `prod.tf`{{open}}.
 
 ```
 provider "aws" {
@@ -96,7 +96,7 @@ Be sure to leave the `aws` provider and `random_pet` resource blocks in `dev.tf`
 You will now have two resource blocks in `dev.tf`: One for the bucket, and one for
 the bucket object.
 
-## Apply Configuration
+## Apply configuration
 
 Since Terraform loads all `.tf` files in the current directory when it runs,
 your configuration hasn't changed, so applying it will show no changes.
@@ -126,7 +126,7 @@ are managed by the same Terraform workspace, and share both configuration and
 state. Because of this, a change that you intend to make in one environment can
 affect the other.
 
-## Trigger a Hidden Dependency
+## Trigger a hidden dependency
 
 Update the random_pet resource in `dev.tf`{{open}}, changing value of the
 `length` argument to "5".
@@ -149,7 +149,7 @@ Respond with `yes`{{execute}} to apply the changes.
 
 Terraform destroyed and recreated all the resources because the development and production environments share configuration and state. Even though the `random_pet` resource is in the development configuration file, changes to it still impact the production configuration. 
 
-## Destroy Resources
+## Destroy resources
 
 Before moving on, destroy the resources you've created so far.
 

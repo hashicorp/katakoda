@@ -7,7 +7,7 @@ Ensure that you are working in the `learn-terraform-code-organization` directory
 cd ~/learn-terraform-code-organization
 ```{{execute}}
 
-## Create Module Template
+## Create module template
 
 Now create a directory with empty files to define your module.
 
@@ -31,7 +31,7 @@ Add the following to
 This Terraform module provisions AWS S3 buckets configured for static website hosting.
 ```{{copy}}
 
-## Create Module Configuration
+## Create module configuration
 
 Add the following configuration to
 `modules/terraform-aws-s3-static-website-bucket/main.tf`{{open}}.
@@ -105,7 +105,7 @@ output "website_endpoint" {
 }
 ```{{copy}}
 
-## Refactor Dev Configuration
+## Refactor dev configuration
 
 Now refactor your "dev" configuration to use this module.
 
@@ -161,7 +161,7 @@ output "website_endpoint" {
 }
 ```
 
-## Initialize and Apply Dev Environment
+## Initialize and apply dev environment
 
 Change into the dev directory and re-initialize it.
 
@@ -183,14 +183,9 @@ terraform apply
 Respond `yes`{{execute}} to the prompt, and once again visit the website
 endpoint in your web browser to verify the website was deployed correctly.
 
-## Practice: Refactor Prod Configuration
+## Practice: Refactor prod configuration
 
 Now refactor your `prod` configuration to use this module.
 
 The steps to refactor and apply your production configuration are nearly
 identical to the ones for your dev environment.
-
-## Destroy Resources
-
-Clean up both environments by running `terraform destroy`{{execute}} in both
-directories.

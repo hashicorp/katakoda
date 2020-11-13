@@ -14,11 +14,11 @@ module "website_s3_bucket" {
 }
 </pre>
 
-AWS S3 Buckets must be globally unique. However, since this scenario uses
+AWS S3 buckets names must be globally unique. However, since this scenario uses
 `localstack` to mock the AWS services, adding this snippet directly into your 
 `main.tf` is ok.
 
-In this example, the `bucket_name` and `tags` arguments will be passed to the
+In this example, the `bucket_name` and `tags` arguments are passed to the
 module, and provide values for the matching variables found in
 `modules/aws-s3-static-website-bucket/variables.tf`.
 
@@ -28,7 +28,7 @@ Earlier, you added several outputs to the `aws-s3-static-website-bucket` module,
 making those values available to your root configuration.
 
 Add these values as outputs to your root module by adding the following to
-`outputs.tf`{{open}} file in your root module directory (not the one in
+the `outputs.tf`{{open}} file in your root module directory (not the one in
 `modules/aws-s3-static-website-bucket`).
 
 <pre class="file" data-target="clipboard">

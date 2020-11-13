@@ -9,7 +9,7 @@ apt-get install awscli -y
 
 # Clone GitHub repo
 git clone -b localstack https://github.com/hashicorp/learn-terraform-modules
-cd ~/ec2-instances-localstack
+cd ~/learn-terraform-modules
 
 # Run Docker Compose up (daemon)
 # docker-compose up -d
@@ -27,6 +27,11 @@ export AWS_SECRET_ACCESS_KEY=test
 
 # Include current dir in prompt
 PS1='\W$ '
+
+# Download assets for S3 bucket
+mkdir assets
+curl -o assets/index.html https://raw.githubusercontent.com/hashicorp/learn-terraform-modules/master/modules/aws-s3-static-website-bucket/www/index.html
+curl -o assets/error.html https://raw.githubusercontent.com/hashicorp/learn-terraform-modules/master/modules/aws-s3-static-website-bucket/www/error.html
 
 clear
 
