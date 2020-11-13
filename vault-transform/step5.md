@@ -8,7 +8,7 @@ The following steps demonstrate the use of masking to obscure your customer's ph
 Create a transformation named "phone-number" containing the `phone-number-tmpl` template and allow all roles to use it.
 
 ```
-vault write transform/transformation/phone-number type=masking \
+vault write transform/transformations/masking/phone-number \
         template=phone-number-tmpl masking_character=# allowed_roles=*
 ```{{execute T1}}
 
