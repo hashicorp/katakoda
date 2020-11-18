@@ -9,7 +9,7 @@ git clone -b katacoda https://github.com/hashicorp/learn-terraform-hashicups-pro
 cd ~/learn-terraform-hashicups-provider/docker_compose
 
 # Install HashiCups provider 
-curl -Lo terraform-provider-hashicups https://github.com/hashicorp/terraform-provider-hashicups/releases/download/v0.2.0/terraform-provider-hashicups_0.2.0_darwin_amd64.zip
+curl -Lo terraform-provider-hashicups https://github.com/hashicorp/terraform-provider-hashicups/releases/download/v0.2.0/terraform-provider-hashicups_v0.2.0_linux_amd64.0
 chmod +x terraform-provider-hashicups
 mkdir -p ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2.0/linux_amd64
 mv terraform-provider-hashicups ~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2.0/linux_amd64
