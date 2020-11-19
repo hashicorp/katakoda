@@ -7,10 +7,6 @@
   "details": {
     "steps": [
       {
-        "title": "Install Boundary",
-        "text": "step1.md"
-      },
-      {
         "title": "Start a Development Environment",
         "text": "step2.md"
       },
@@ -52,6 +48,6 @@
       "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "hashicorp-hashistack"
   }
 }
