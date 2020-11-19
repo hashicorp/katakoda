@@ -48,7 +48,7 @@
           "port": "9200"
         }
       ],
-      "uilayout": "terminal-iframe",
+      "uilayout": "terminal",
       "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
   },
   "backend": {

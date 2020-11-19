@@ -44,7 +44,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
+    "uilayout": "terminal",
     "uimessage1": "\u001b[32mVault Telemetry Lab→ \u001b[m\r\n",
     "hideintro": false,
     "hidefinish": false,
