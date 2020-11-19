@@ -44,7 +44,7 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-iframe",
+    "uilayout": "terminal",
     "showdashboard": true,
     "dashboards": [
       { "name": "Vault UI", "port": 8200 }
