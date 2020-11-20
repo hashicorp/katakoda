@@ -68,7 +68,7 @@ resource "aws_s3_bucket" "s3_bucket" {
   bucket = var.bucket_name
 
   acl    = "public-read"
-  policy = &amp;&amp;EOF
+  policy = &lt;&lt;EOF
 {
     "Version": "2012-10-17",
     "Statement": [
