@@ -16,7 +16,7 @@ apt-get install -y unzip curl jq > /dev/null
 
 log Pulling Docker Image
 
-IMAGE_TAG=v1.9.0-beta1-v1.15.0
+IMAGE_TAG=v1.9.0-v1.16.0
 
 docker pull danielehc/consul-envoy-service:${IMAGE_TAG} > /dev/null
 
