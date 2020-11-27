@@ -18,7 +18,7 @@ log Pulling Docker Image
 
 IMAGE_TAG=v1.9.0-v1.16.0
 
-docker pull danielehc/consul-envoy-service:${IMAGE_TAG} > /dev/null
+docker pull danielehc/consul-learn-image:${IMAGE_TAG} > /dev/null
 
 log Creating Docker volumes
 
@@ -59,7 +59,7 @@ docker run \
   -p 8500:8500 \
   -p 53:8600/udp \
   --name=server \
-  danielehc/consul-envoy-service:${IMAGE_TAG} \
+  danielehc/consul-learn-image:${IMAGE_TAG} \
   consul agent -server -ui \
     -node=server-1 \
     -bootstrap-expect=1 \
@@ -87,7 +87,7 @@ docker run \
     -v client_config:/etc/consul.d \
     -p 19001:19001 \
     --name=api \
-    danielehc/consul-envoy-service:${IMAGE_TAG} \
+    danielehc/consul-learn-image:${IMAGE_TAG} \
     consul agent \
      -node=service-1 \
      -join=${SERVER_IP} \
@@ -103,7 +103,7 @@ docker run \
     -p 19002:19001 \
     -p 9002:9002 \
     --name=web \
-    danielehc/consul-envoy-service:${IMAGE_TAG} \
+    danielehc/consul-learn-image:${IMAGE_TAG} \
     consul agent \
      -node=service-2 \
      -join=${SERVER_IP} \
@@ -121,7 +121,7 @@ docker run \
     -p 8888:8888 \
     -p 8080:8080 \
     --name=ingress-gw \
-    danielehc/consul-envoy-service:${IMAGE_TAG} \
+    danielehc/consul-learn-image:${IMAGE_TAG} \
     consul agent \
      -node=ingress-gw \
      -join=${SERVER_IP} \
