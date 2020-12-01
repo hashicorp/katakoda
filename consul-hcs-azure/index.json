@@ -49,7 +49,7 @@
       "text": "finish.md"
     },
     "assets": {
-			"client": [
+      "client": [
         { "file": "frontend.yaml", "target": "./hashicups" },
         { "file": "ingress-gateway.hcl", "target": "./" },
         { "file": "products-api.yaml", "target": "./hashicups" },
@@ -58,8 +58,8 @@
         { "file": "personalize.sh", "target": "./" },
         { "file": "consul.sh", "target": "./" },
         { "file": "peering.sh", "target": "./" }
-			]
-		}
+      ]
+    }
   },
   "environment": {
     "hideHiddenFiles": true,
@@ -70,5 +70,5 @@
   "backend": {
     "imageid": "hashicorp-hashistack"
   },
-  "private": false
+  "private": true
 }

@@ -41,5 +41,5 @@
   "backend": {
     "imageid": "ubuntu"
   },
-  "private": false
+  "private": true
 }

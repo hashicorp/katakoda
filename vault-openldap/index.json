@@ -62,9 +62,9 @@
         "href": "https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com"
       }
     ]
-
   },
   "backend": {
     "imageid": "hashicorp-hashistack"
-  }
+  },
+  "private": true
 }

@@ -28,26 +28,25 @@
       "credits": "https://learn.hashicorp.com/boundary"
     },
     "assets": {
-      "host01": [
-        { "file": "main.tf", "target": "~/terraform/" }
-      ]
+      "host01": [{ "file": "main.tf", "target": "~/terraform/" }]
     },
     "finish": {
       "text": "finish.md"
     }
   },
   "environment": {
-      "showdashboard": true,
-      "dashboards": [
-        {
-          "name": "Admin Console",
-          "port": "9200"
-        }
-      ],
-      "uilayout": "terminal",
-      "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
+    "showdashboard": true,
+    "dashboards": [
+      {
+        "name": "Admin Console",
+        "port": "9200"
+      }
+    ],
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mCommand Terminal\u001b[m\r\n"
   },
   "backend": {
     "imageid": "hashicorp-hashistack"
-  }
+  },
+  "private": true
 }

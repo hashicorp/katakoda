@@ -33,11 +33,10 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n",
     "hideHiddenFiles": true,
     "uieditorpath": "/root/learn-state-migration",
-    "exclusionPatterns": [
-      "./terraform/*"
-    ]
+    "exclusionPatterns": ["./terraform/*"]
   },
   "backend": {
     "imageid": "hashicorp-hashistack"
-  }
+  },
+  "private": true
 }
