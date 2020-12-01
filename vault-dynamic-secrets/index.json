@@ -37,8 +37,12 @@
         "text": "step4.md"
       },
       {
-        "title": "Manage Leases",
+        "title": "Manage leases",
         "text": "step5.md"
+      },
+      {
+        "title": "Define a password policy",
+        "text": "step6.md"
       }
     ],
     "finish": {
