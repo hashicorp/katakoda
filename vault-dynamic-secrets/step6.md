@@ -1,5 +1,5 @@
 The database secret engines generate passwords that adhere to a default pattern
-that may be overriden with a new password policy. A policy defines the rules and
+that may be overridden with a new password policy. A policy defines the rules and
 requirements that the password must adhere to and can provide that password
 directly through a new endpoint or within secrets engines.
 
