@@ -26,3 +26,8 @@ path "sys/policies/acl/*" {
 path "auth/token/create" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
+
+# Create a password policy
+path "sys/policies/password/*" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
