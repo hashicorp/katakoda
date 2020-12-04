@@ -32,29 +32,34 @@
       }
     ],
     "assets": {
-      "client": [{
-        "file": "launch.sh",
-        "target": "/home/scrapbook",
-        "chmod": "+x"
-      }],
-      "host01": [{
-        "file": "install.sh",
-        "target": "/root",
-        "chmod": "+x"
-      }]
+      "client": [
+        {
+          "file": "launch.sh",
+          "target": "/home/scrapbook",
+          "chmod": "+x"
+        }
+      ],
+      "host01": [
+        {
+          "file": "install.sh",
+          "target": "/root",
+          "chmod": "+x"
+        }
+      ]
     }
   },
   "environment": {
     "uilayout": "terminal",
     "showdashboard": true,
     "dashboards": [
-      {"name": "Nomad", "port": 4646},
-      {"name": "OpenFaaS", "port": 8080}
+      { "name": "Nomad", "port": 4646 },
+      { "name": "OpenFaaS", "port": 8080 }
     ],
     "uimessage1": "\u001b[32mInstalling and configuring OpenFaaS...\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "docker",
+    "lifetime": 30
   },
   "private": true
 }

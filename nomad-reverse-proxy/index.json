@@ -67,7 +67,8 @@
     ]
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu",
+    "lifetime": 30
   },
   "private": true
 }

@@ -10,27 +10,27 @@
       "credits": "https://learn.hashicorp.com/terraform"
     },
     "steps": [
-        {
-          "title": "Write your first Sentinel policy",
-          "text": "step1.md"
-        },
-        {
-          "title": "Add additional policy requirements",
-          "text": "step2.md"
-        },
-        {
-          "title": "Edit mock data to simulate failure scenarios",
-          "text": "step3.md"
-        },
-        {
-          "title": "Write passing and failing tests",
-          "text": "step4.md"
-        },
-        {
-          "title": "Refactor your policy into a module",
-          "text": "extracredit.md"
-        }
-      ],
+      {
+        "title": "Write your first Sentinel policy",
+        "text": "step1.md"
+      },
+      {
+        "title": "Add additional policy requirements",
+        "text": "step2.md"
+      },
+      {
+        "title": "Edit mock data to simulate failure scenarios",
+        "text": "step3.md"
+      },
+      {
+        "title": "Write passing and failing tests",
+        "text": "step4.md"
+      },
+      {
+        "title": "Refactor your policy into a module",
+        "text": "extracredit.md"
+      }
+    ],
     "finish": {
       "text": "finish.md",
       "credits": "https://learn.hashicorp.com/terraform"
@@ -43,7 +43,8 @@
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
   },
   "private": true
 }

@@ -36,7 +36,8 @@
     "exclusionPatterns": ["./terraform/*"]
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
   },
   "private": true
 }

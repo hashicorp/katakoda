@@ -52,13 +52,12 @@
   "environment": {
     "showdashboard": true,
     "uilayout": "terminal",
-    "dashboards": [
-      { "name": "Vault UI", "port": 8200 }
-    ],
+    "dashboards": [{ "name": "Vault UI", "port": 8200 }],
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack-ent"
+    "imageid": "hashicorp-hashistack-ent",
+    "lifetime": 30
   },
   "private": true
 }
