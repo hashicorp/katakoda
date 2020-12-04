@@ -43,11 +43,11 @@
     ],
     "intro": {
       "text": "intro.md",
-       "credits": "https://learn.hashicorp.com/consul"
+      "credits": "https://learn.hashicorp.com/consul"
     },
     "finish": {
       "text": "finish.md",
-       "credits": "https://learn.hashicorp.com/consul"
+      "credits": "https://learn.hashicorp.com/consul"
     }
   },
   "environment": {
@@ -56,22 +56,23 @@
     "uieditorpath": "/root/consul-k8s-prometheus-grafana-hashicups-demoapp",
     "showdashboard": true,
     "dashboards": [
-        {
-          "name": "HashiCups UI",
-          "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
-        },
-        {
-          "name": "Grafana UI",
-          "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"
-        },
-        {
-          "name": "Consul UI",
-          "href": "https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"
-        }
-      ]
+      {
+        "name": "HashiCups UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "Grafana UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-3000-[[KATACODA_HOST]].environments.katacoda.com"
+      },
+      {
+        "name": "Consul UI",
+        "href": "https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com"
+      }
+    ]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
+    "imageid": "ubuntu:1804",
+    "lifetime": 30
   },
   "private": true
 }

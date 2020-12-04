@@ -1,7 +1,6 @@
 {
   "title": "Organize Terraform Configuration",
-  "description":
-    "Learn to organize Terraform configuration.",
+  "description": "Learn to organize Terraform configuration.",
   "time": "30 minutes",
   "icon": "fa-terraform",
   "details": {
@@ -63,13 +62,13 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
-    "uimessage1":
-      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
     "uieditorpath": "/root/learn-terraform",
     "hideHiddenFiles": true
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
   },
   "private": true
 }

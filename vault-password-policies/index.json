@@ -29,9 +29,7 @@
       "credits": "https://learn.hashicorp.com/vault"
     },
     "assets": {
-      "host01": [
-        { "file": "example_policy.hcl", "target": "~/" }
-      ]
+      "host01": [{ "file": "example_policy.hcl", "target": "~/" }]
     },
     "finish": {
       "text": "finish.md",
@@ -39,11 +37,12 @@
     }
   },
   "environment": {
-      "uilayout": "editor-terminal",
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
   },
   "private": true
 }

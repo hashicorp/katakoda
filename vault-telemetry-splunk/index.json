@@ -49,9 +49,7 @@
     "hideintro": false,
     "hidefinish": false,
     "hideHiddenFiles": true,
-    "exclusionPatterns": [
-      "/root/vtl/.terraform/*"
-    ],
+    "exclusionPatterns": ["/root/vtl/.terraform/*"],
     "showdashboard": false,
     "dashboards": [
       {
@@ -61,7 +59,8 @@
     ]
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
   },
   "finish": {
     "text": "finish.md",

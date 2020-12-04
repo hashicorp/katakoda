@@ -1,43 +1,42 @@
 {
-    "backend": {
-        "imageid": "hashicorp-hashistack"
+  "backend": {
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
+  },
+  "description": "Run a Sentinel policy for a Terraform Cloud workspace",
+  "details": {
+    "assets": {
+      "host01": [
+        {
+          "file": "restrict-s3-buckets.sentinel",
+          "target": "~/terraform-sentinel"
+        }
+      ]
     },
-    "description": "Run a Sentinel policy for a Terraform Cloud workspace",
-    "details": {
-        "assets": {
-            "host01": [
-                {
-                    "file": "restrict-s3-buckets.sentinel",
-                    "target": "~/terraform-sentinel"
-                }
-            ]
-        },
-        "finish": {
-            "credits": "https://learn.hashicorp.com/terraform",
-            "text": "finish.md"
-        },
-        "intro": {
-            "code": "courseBase.sh",
-            "credits": "https://learn.hashicorp.com/terraform",
-            "text": "intro.md"
-        },
-        "steps": [
-            {
-                "text": "step1.md",
-                "title": "Run a Sentinel policy"
-            }
-        ]
+    "finish": {
+      "credits": "https://learn.hashicorp.com/terraform",
+      "text": "finish.md"
     },
-    "environment": {
-        "exclusionPatterns": [
-            "Desktop"
-        ],
-        "hideHiddenFiles": true,
-        "uilayout": "editor-terminal",
-        "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+    "intro": {
+      "code": "courseBase.sh",
+      "credits": "https://learn.hashicorp.com/terraform",
+      "text": "intro.md"
     },
-    "icon": "fa-terraform",
-    "time": "5 minutes",
-    "title": "Sentinel Introduction",
-    "private": true
+    "steps": [
+      {
+        "text": "step1.md",
+        "title": "Run a Sentinel policy"
+      }
+    ]
+  },
+  "environment": {
+    "exclusionPatterns": ["Desktop"],
+    "hideHiddenFiles": true,
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+  },
+  "icon": "fa-terraform",
+  "time": "5 minutes",
+  "title": "Sentinel Introduction",
+  "private": true
 }

@@ -38,7 +38,8 @@
     "uilayout": "terminal-terminal"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack-cluster"
+    "imageid": "hashicorp-hashistack-cluster",
+    "lifetime": 30
   },
   "private": true
 }

@@ -40,13 +40,14 @@
     }
   },
   "environment": {
-      "showdashboard": true,
-      "uilayout": "terminal",
-      "hideHiddenFiles": true,
-      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+    "showdashboard": true,
+    "uilayout": "terminal",
+    "hideHiddenFiles": true,
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "hashicorp-hashistack-ent"
+    "imageid": "hashicorp-hashistack-ent",
+    "lifetime": 30
   },
   "private": true
 }

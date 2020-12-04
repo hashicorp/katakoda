@@ -81,7 +81,8 @@
     "terminals": [{ "name": "tty2", "target": "host01" }]
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu",
+    "lifetime": 30
   },
   "private": true
 }

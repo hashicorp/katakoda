@@ -1,7 +1,6 @@
 {
   "title": "Consul Connect Service Mesh",
-  "description":
-    "Securely connect two services with Consul service mesh",
+  "description": "Securely connect two services with Consul service mesh",
   "time": "15 minutes",
   "icon": "fa-consul",
   "details": {
@@ -39,11 +38,11 @@
   },
   "environment": {
     "uilayout": "terminal",
-    "uimessage1":
-      "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands version 0.1.\u001b[m\r\n"
   },
   "backend": {
     "imageid": "hashicorp-hashistack",
+    "lifetime": 30,
     "showdashboard": true,
     "dashboards": [
       { "name": "Counting", "port": 9003 },
