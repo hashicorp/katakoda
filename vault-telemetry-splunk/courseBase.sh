@@ -44,7 +44,7 @@ variable "telegraf_version" {
 }
 
 variable "vault_version" {
-  default = "1.5.4"
+  default = "1.6.0"
 }
 
 variable "fluentd_splunk_hec_version" {
@@ -217,7 +217,7 @@ cat > /root/versions.tf << EOF
 terraform {
   required_providers {
     docker = {
-      source = "terraform-providers/docker"
+      source = "kreuzwerker/docker"
     }
     template = {
       source = "hashicorp/template"
