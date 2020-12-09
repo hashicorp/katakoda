@@ -1,0 +1,59 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Integrated Storage",
+  "description": "Learn how to configure a Highly Available (HA) cluster backed by integrated storage.",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "steps": [
+      {
+        "title": "Scenario Introduction",
+        "text": "step1.md"
+      },
+      {
+        "title": "Setup a Cluster Member",
+        "text": "step2.md"
+      },
+      {
+        "title": "Configure Retry Join",
+        "text": "step3.md"
+      },
+      {
+        "title": "Taking a Data Snapshot",
+        "text": "step4.md"
+      },
+      {
+        "title": "Manage the Cluster Members",
+        "text": "step5.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        { "file": "config-node1.hcl", "target": "/root" },
+        { "file": "config-node2.hcl", "target": "/root" },
+        { "file": "config-node3.hcl", "target": "/root" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+    "showdashboard": true,
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["./Desktop", "./Desktop/*"],
+    "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack",
+    "lifetime": 30
+  },
+  "private": true
+}
