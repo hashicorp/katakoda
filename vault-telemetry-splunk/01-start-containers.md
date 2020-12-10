@@ -52,7 +52,7 @@ terraform apply vault-metrics-lab.plan
 If all goes according to plan, you should observe an "Apply complete!" message like this in the output.
 
 ```shell
-Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
 ```
 
 Although Terraform has succeeded in deploying the infrastructure, the vtl-splunk container will still be provisioning and that takes additional time. To wait for Splunk to become fully ready with a **healthy** status, use this command.
