@@ -6,7 +6,7 @@ In this scenario, you will use a Terraform provider to interact with a fictional
 1. Read coffee ingredients (data source)
 1. Delete a HashiCups order
 
-This scenario includes a pre-installed Terraform 0.13, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running locally.
+This scenario includes a pre-installed Terraform 0.14, a pre-installed Terraform HashiCups provider and an instance of the HashiCups API running locally.
 
 Do not stop the HashiCups API running in the first terminal. You will reference these logs to verify the endpoints the HashiCups provider calls.
 
@@ -72,4 +72,4 @@ Navigate to the `learn-terraform-hashicups-provider` directory and initialize yo
 
 `terraform init`{{execute T2}}
 
-This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. This lab's initialization script downloaded the HashiCups provider installed to the following directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64`
+This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. This lab's initialization script downloaded the HashiCups provider installed to the following directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.3.1/linux_amd64`

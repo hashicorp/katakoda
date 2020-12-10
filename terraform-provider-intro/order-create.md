@@ -1,13 +1,3 @@
-Navigate to the `learn-terraform-hashicups-provider` directory and initialize your Terraform workspace.
-
-`cd learn-terraform-hashicups-provider`{{execute T2}}
-
-`terraform init`{{execute T2}}
-
-This downloads all providers listed in the `required_providers` argument in `main.tf`{{open}}. This lab's initialization script downloaded the HashiCups provider installed to the following directory: `~/.terraform.d/plugins/hashicorp.com/edu/hashicups/0.2/linux_amd64`
-
-### Create order
-
 Now that you have initialized your Terraform workspace, you will create the order using Terraform.
 
 Add the following to your `main.tf`{{open}} file.
