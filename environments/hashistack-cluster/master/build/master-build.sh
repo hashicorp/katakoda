@@ -22,7 +22,7 @@ install_zip "nomad" "https://releases.hashicorp.com/nomad/0.11.2/nomad_0.11.2_li
 
 install_zip "terraform" "https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip"
 
-install_zip "vault" "https://releases.hashicorp.com/vault/1.5.0/vault_1.5.0_linux_amd64.zip"
+install_zip "vault" "https://releases.hashicorp.com/vault/1.6.1/vault_1.6.1_linux_amd64.zip"
 
 install_zip "consul-template" "https://releases.hashicorp.com/consul-template/0.25.0/consul-template_0.25.0_linux_amd64.zip"
 
