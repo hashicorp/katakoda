@@ -27,7 +27,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo systemctl enable docker
 }
 
-if [[ "${FROMDOCKER}" == "1" ]]
+if [ "${FROMDOCKER}" == "1" ]
 then
   install_docker
 fi

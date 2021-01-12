@@ -7,7 +7,7 @@ log "Running ${0}"
 # Handle 
 fix_docker() {
   mkdir -p /etc/consul.d
-  if [[ "${FROMDOCKER}" != "1" ]]
+  if [ "${FROMDOCKER}" != "1" ]
   then
     log "Running Docker Fixups"
     rm /etc/consul.d/network.hcl
