@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV container docker
 ENV SHELL /bin/bash
@@ -12,16 +12,16 @@ RUN find /etc/systemd/system \
     -not -name '*systemd-user-sessions*' \
     -exec rm \{} \;
 
-RUN apt-get update
-RUN apt-get install -y dbus systemd software-properties-common sudo && \
+RUN echo 'APT::Periodic::Update-Package-Lists "0";' > /etc/apt/apt.conf.d/20auto-upgrades && \
+    echo 'APT::Periodic::Unattended-Upgrade "0";' >> /etc/apt/apt.conf.d/20auto-upgrades
+
+RUN apt-get update && \
+    apt-get install -y dbus systemd software-properties-common sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo 'APT::Periodic::Update-Package-Lists "0";' > /etc/apt/apt.conf.d/20auto-upgrades
-RUN echo 'APT::Periodic::Unattended-Upgrade "0";' >> /etc/apt/apt.conf.d/20auto-upgrades
-
-RUN systemctl set-default multi-user.target
-RUN systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
+RUN systemctl set-default multi-user.target && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
 
 RUN  mkdir -p /stack
 COPY . /stack

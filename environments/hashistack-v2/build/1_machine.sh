@@ -24,8 +24,6 @@ install_apt_deps() {
     ca-certificates \
     curl \
     lsb-release \
-    python3 \
-    python3-pip \
     software-properties-common \
     sudo \
     unzip \
@@ -34,11 +32,5 @@ install_apt_deps() {
     zip
 }
 
-install_pyhcl() {
-  log "Installing pyhcl"
-  pip3 install -qqq pyhcl
-}
-
 fix_journal
 install_apt_deps
-install_pyhcl

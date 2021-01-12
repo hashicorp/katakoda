@@ -1,6 +1,7 @@
 # Running Stack in Docker
 
-The Dockerfile will build a ubuntu 16.0.4 image using the build scripts in this directory.
+The Dockerfile will build a ubuntu 18.0.4 image using the build scripts in this
+directory.
 
 ## Quickstart 
 

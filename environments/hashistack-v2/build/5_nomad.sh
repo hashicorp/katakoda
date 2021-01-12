@@ -4,9 +4,9 @@ log() {
 }
 log "Running ${0}"
 
-raw_exec_nomad()
-{
-echo '
+raw_exec_nomad() {
+  mkdir -p /etc/nomad.d
+  echo '
 plugin "raw_exec" {
   config {
     enabled = true
