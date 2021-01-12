@@ -16,3 +16,5 @@ plugin "raw_exec" {
 }
 
 raw_exec_nomad
+systemctl enable nomad
+systemctl start nomad
