@@ -1,1 +1,1 @@
-../../encrypt-gossip/assets/provision.sh
+../../nomad-encrypt-gossip/assets/provision.sh

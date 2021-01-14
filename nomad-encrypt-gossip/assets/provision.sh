@@ -73,8 +73,8 @@ fix_journal
 install_apt_deps
 install_pyhcl
 
-install_zip "consul" "https://releases.hashicorp.com/consul/1.7.4/consul_1.7.4_linux_amd64.zip"
-install_zip "nomad" "https://releases.hashicorp.com/nomad/0.11.3/nomad_0.11.3_linux_amd64.zip"
+install_zip "consul" "https://releases.hashicorp.com/consul/1.9.1/consul_1.9.1_linux_amd64.zip"
+install_zip "nomad" "https://releases.hashicorp.com/nomad/1.0.1/nomad_1.0.1_linux_amd64.zip"
 
 mkdir -p /etc/nomad.d
 mkdir -p /opt/nomad/data
