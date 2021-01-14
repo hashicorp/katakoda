@@ -1,4 +1,5 @@
 {
+  "private": true,
   "title": "Best Practices: Securing Nomad",
   "description": "Scenarios that explore transport encryption and access control necessary to transition to a production Nomad configuration",
   "courses": [
