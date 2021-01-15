@@ -39,6 +39,10 @@
       {
         "title": "Manage leases",
         "text": "step5.md"
+      },
+      {
+        "title": "Clean up",
+        "text": "step-cleanup.md"
       }
     ],
     "finish": {
