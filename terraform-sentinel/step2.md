@@ -32,9 +32,7 @@ Remove the print statement from your policy once you have reviewed the output.
 
 ## Create a required tags variable
 
-Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again.
-
-Copy and paste the `required_tags` variable above the `bucket_tags` rule in `terraform-sentinel/restrict-s3-policies.sentinel`{{open}}. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
+Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again, and paste the below `required_tags` variable into the file above the `bucket_tags` rule. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
 
 ```
 required_tags = [
