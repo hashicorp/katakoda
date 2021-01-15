@@ -1,0 +1,80 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Vault Azure Secrets Engine",
+  "description": "Generate Azure service principal for applications to use.",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Prerequisites",
+        "text": "step-prereq.md"
+      },
+      {
+        "title": "Connect to Vault",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Enable the Azure secrets engine",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure the Azure secrets engine",
+        "text": "step2.md"
+      },
+      {
+        "title": "Create a role",
+        "text": "step3.md"
+      },
+      {
+        "title": "Request Azure credentials",
+        "text": "step4.md"
+      },
+      {
+        "title": "Manage leases",
+        "text": "step5.md"
+      },
+      {
+        "title": "Clean up",
+        "text": "step-cleanup.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "admin-policy.hcl",
+          "target": "~/"
+        },
+        {
+          "file": "apps-policy.hcl",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+      "dashboards": [
+        {
+          "name": "Azure Portal",
+          "href": "https://portal.azure.com/"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  },
+  "private": true
+}
