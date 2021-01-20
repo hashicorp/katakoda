@@ -8,10 +8,10 @@ Create variables to store your Azure credentials.
 
 ```shell
 read -d "\n" SUBSCRIPTION_ID CLIENT_ID CLIENT_SECRET TENANT_ID <<<$(echo "
-$SUBSCRIPTION_ID
-$CLIENT_ID
-$CLIENT_SECRET
-<Tenant_id_OR_Directory_id>
+<Subscription_id>
+<Client_id>
+<Client_secret>
+<Tenant_id>
 ")
 ```{{execute}}
 
@@ -35,4 +35,3 @@ vault write azure/config \
         client_secret=$CLIENT_SECRET \
         tenant_id=$TENANT_ID
 ```{{execute}}
-
