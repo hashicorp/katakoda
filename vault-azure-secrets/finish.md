@@ -1,0 +1,3 @@
+You enabled and configured the Azure secrets engine. Learn more by exploring the [documentation](https://www.vaultproject.io/docs/secrets/azure/index.html) or [API documentation](https://www.vaultproject.io/api/secret/azure/index.html).
+
+Azure Key Vault can auto-unseal the Vault server. Learn this through this [Azure Key Vault Auto-unseal & Dynamic Secrets with HashiCorp Vault](https://www.hashicorp.com/resources/azure-friday-azure-key-vault-auto-unseal-and-dynamic) demonstation.
