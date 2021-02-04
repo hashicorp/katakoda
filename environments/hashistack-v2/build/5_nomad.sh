@@ -15,6 +15,19 @@ plugin "raw_exec" {
 ' | sudo tee /etc/nomad.d/raw_exec.hcl
 }
 
+telemetry_nomad() {
+  mkdir -p /etc/nomad.d
+  echo '
+telemetry {
+  publish_allocation_metrics = true
+  publish_node_metrics       = true
+  prometheus_metrics         = true
+}
+' | sudo tee /etc/nomad.d/telemetry.hcl
+}
+
 raw_exec_nomad
+telemetry_nomad
+
 systemctl enable nomad
 systemctl start nomad
