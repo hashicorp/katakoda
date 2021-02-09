@@ -1,26 +1,22 @@
 {
   "pathwayTitle": "Learn HashiCorp Boundary",
-  "title": "Getting Started with Boundary",
-  "description": "Learn how to install, configure, and manage the Boundary server.",
+  "title": "Start a Boundary Development Environment",
+  "description": "Start and authenticate to a local Boundary dev environment.",
   "difficulty": "beginner",
   "time": "10 minutes",
   "details": {
     "steps": [
       {
-        "title": "Start a Development Environment",
+        "title": "Start a development environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Login to the admin console (UI)",
         "text": "step2.md"
       },
       {
-        "title": "Admin Console",
+        "title": "Login with CLI",
         "text": "step3.md"
-      },
-      {
-        "title": "Connect to your first target",
-        "text": "step4.md"
-      },
-      {
-        "title": "Configure Boundary with Terraform",
-        "text": "step5.md"
       }
     ],
     "intro": {
