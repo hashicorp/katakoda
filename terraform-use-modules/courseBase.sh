@@ -19,8 +19,8 @@ localstack start &>localstack-output.log &
 alias yes=""
 
 # Adds mock AWS Credentials to environment variables
-export AWS_ACCESS_KEY_ID=test
-export AWS_SECRET_ACCESS_KEY=test
+export AWS_ACCESS_KEY_ID=anaccesskey
+export AWS_SECRET_ACCESS_KEY=asecretkey
 
 # Include current dir in prompt
 PS1='\W$ '
