@@ -17,7 +17,7 @@ Open the [Terraform Registry page for the VPC
 module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0)
 in a new browser tab or window.
 
-![Terraform Registry Details Page](./img/tfr-module-details-top.png)
+![Terraform Registry Details Page](./assets/tfr-module-details-top.png)
 
 It provides information about the module, as well as a link to the source
 repository. On the right side of the page, you will find a dropdown interface to

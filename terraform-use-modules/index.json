@@ -1,7 +1,7 @@
 {
   "title": "Use Modules from the Registry",
   "description": "Use modules from the public Terraform Registry to define an Amazon VPC containing two EC2 instances. Select module and root input and output variables, install the modules, and apply the configuration.",
-  "time": "30 minutes",
+  "time": "10 minutes",
   "icon": "fa-terraform",
   "details": {
     "steps": [
