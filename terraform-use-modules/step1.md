@@ -2,7 +2,7 @@ Open `main.tf`{{open}}.
 
 This configuration includes three blocks:
 
-- The `provider "aws"` block defines your defines your provider and region. It 
+- The `provider "aws"` block defines your provider and region. It 
 also includes additional settings that allow this scenario to use 
 [localstack](https://localstack.cloud/) to simulate infrastructure, instead of 
 requiring you to have an AWS account. Refer to the code in the 
@@ -17,7 +17,7 @@ Open the [Terraform Registry page for the VPC
 module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.21.0)
 in a new browser tab or window.
 
-![Terraform Registry Details Page](./img/tfr-module-details-top.png)
+![Terraform Registry Details Page](./assets/tfr-module-details-top.png)
 
 It provides information about the module, as well as a link to the source
 repository. On the right side of the page, you will find a dropdown interface to
