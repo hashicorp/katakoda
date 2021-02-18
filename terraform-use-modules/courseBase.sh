@@ -1,11 +1,11 @@
 # Install Terraform and init config
 
-# Installs Terraform 0.13.5
-curl -O https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip
-unzip terraform_0.13.5_linux_amd64.zip -d /usr/local/bin/
+# Installs Terraform 0.14.6
+curl -O https://releases.hashicorp.com/terraform/0.14.6/terraform_0.14.6_linux_amd64.zip
+unzip terraform_0.14.6_linux_amd64.zip -d /usr/local/bin/
 
 # Clone GitHub repo
-git clone -b localstack https://github.com/hashicorp/learn-terraform-modules
+git clone -b ec2-instances-localstack https://github.com/hashicorp/learn-terraform-modules
 cd ~/learn-terraform-modules
 
 # Run Docker Compose up (daemon)

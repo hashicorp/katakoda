@@ -5,7 +5,7 @@ This Katacoda scenario is meant to serve as a companion piece for the
 Terraform Learn tutorial.
 
 In this scenario, you will use modules from the Terraform Registry to provision 
-an example environment on AWS. The concepts you use in this scenarios will apply 
+an example environment on AWS. The concepts you use in this scenario will apply 
 to any modules from any source.
 
 > This environment has been pre-configured with the Terraform CLI and 

@@ -2,7 +2,7 @@ Open `main.tf`{{open}}.
 
 This configuration includes three blocks:
 
-- The `provider "aws"` block defines your defines your provider and region. It 
+- The `provider "aws"` block defines your provider and region. It 
 also includes additional settings that allow this scenario to use 
 [localstack](https://localstack.cloud/) to simulate infrastructure, instead of 
 requiring you to have an AWS account. Refer to the code in the 
