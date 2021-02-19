@@ -71,7 +71,7 @@ registry](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/2.
 Module outputs are usually either passed to other parts of your configuration,
 or defined as outputs in your root module. You will implement both uses in this tutorial.
 
-Open `outputs.tf`{{open}} and review the output variables defined.
+Open `outputs.tf`{{open}} and review the outputs defined in it.
 
 In this example, the value of the `vpc_public_subnets` will come from the
 `public_subnets` output from the module named `vpc`, and
