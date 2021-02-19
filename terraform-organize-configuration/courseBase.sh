@@ -1,8 +1,8 @@
 # Install Terraform and init config
 
-# Installs Terraform 0.13.5
-curl -O https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip
-unzip terraform_0.13.5_linux_amd64.zip -d /usr/local/bin/
+# Installs Terraform 0.14.6
+curl -O https://releases.hashicorp.com/terraform/0.14.6/terraform_0.14.6_linux_amd64.zip
+unzip terraform_0.14.6_linux_amd64.zip -d /usr/local/bin/
 
 # Installs awscli
 apt-get install awscli -y

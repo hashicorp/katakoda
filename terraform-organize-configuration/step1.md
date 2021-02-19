@@ -8,34 +8,39 @@ below.
 
 ```
 provider "aws" {
-  region = var.aws_region
+  region = "us-west-2"
   # ...
 }
 ```
 
-It also includes additional settings that allow this scenario to use 
-[localstack](https://localstack.cloud/) to simulate infrastructure, instead of 
-requiring you to have an AWS account. Refer to the code in the 
-[Learn tutorial](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules) 
+It also includes settings that allow this scenario to use
+[localstack](https://localstack.cloud/) to simulate infrastructure, instead of
+requiring an AWS account. Refer to the code in the [Learn
+tutorial](https://learn.hashicorp.com/tutorials/terraform/module-use?in=terraform/modules)
 to build real infrastructure, which will require you to authenticate with AWS. 
 
-Refer to the [AWS Get Started collection](https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started)
-or the [AWS Provider Registry page](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
+Refer to the [AWS Get Started
+collection](https://learn.hashicorp.com/tutorials/terraform/aws-build?in=terraform/aws-get-started)
+or the [AWS Provider Registry
+page](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication)
 to learn different ways to authenticate the AWS provider.
 
 ## Review monolithic configuration
 
-Now that you have configured the AWS provider, review the rest of the
-configuration found in `main.tf`{{open}}. This configuration will create two S3
+Now that you have reviewed the AWS provider configuration, review the rest of the
+configuration found in `main.tf`{{open}}. This configuration creates two S3
 buckets, each configured to host a static website, and each containing a single
 `index.html`. One bucket will be for your `dev` environment, and the other for
 `prod`.
 
-Notice the three variables used in your configuration. Open `variables.tf`{{open}} and notice how these variables are declared with default values.
+Notice the three variables used in your configuration. Open
+`variables.tf`{{open}} and note how these variables are declared with default
+values.
 
-Now open `outputs.tf`{{open}}, which will output the website endpoints for the two
-buckets once Terraform creates them. Later you will use these values to visit the website and verify that your
-configuration was successfully deployed.
+Now open `outputs.tf`{{open}}, which will defines outputs for the website
+endpoints for the two buckets once Terraform creates them. Later you will use
+these values to visit the website and verify that your configuration was
+successfully deployed.
 
 ## Apply configuration
 
