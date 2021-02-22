@@ -14,8 +14,6 @@ should look like the following.
 ├── modules
 │   └── aws-s3-static-website-bucket
 ├── outputs.tf
-├── terraform.tfstate
-├── terraform.tfstate.backup
 └── variables.tf
 ```
 
