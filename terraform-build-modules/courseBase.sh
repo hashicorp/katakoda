@@ -8,7 +8,7 @@ unzip terraform_0.14.6_linux_amd64.zip -d /usr/local/bin/
 apt-get install awscli -y
 
 # Clone GitHub repo
-git clone -b localstack https://github.com/hashicorp/learn-terraform-modules
+git clone -b localstack https://github.com/ritsok/learn-terraform-modules
 cd ~/learn-terraform-modules
 
 # Run Docker Compose up (daemon)
