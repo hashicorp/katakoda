@@ -4,9 +4,6 @@
 curl -O https://releases.hashicorp.com/terraform/0.14.6/terraform_0.14.6_linux_amd64.zip
 unzip terraform_0.14.6_linux_amd64.zip -d /usr/local/bin/
 
-# Installs awscli
-apt-get install awscli -y
-
 # Clone GitHub repo
 git clone -b localstack https://github.com/ritsok/learn-terraform-modules
 cd ~/learn-terraform-modules
@@ -15,7 +12,7 @@ cd ~/learn-terraform-modules
 # docker-compose up -d
 
 # Install localstack (don't run dockerfile on katacoda)
-pip3 install localstack
+pip3 install localstack awscli
 localstack start &>localstack-output.log &
 
 # Prevent `yes` command from accidentally being run
