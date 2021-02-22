@@ -46,7 +46,6 @@ Also replace the contents of `outputs.tf`{{open}} with the following.
 output "website_endpoint" {
   description = "Website endpoint for this environment"
   value       = "http://localhost:4572/${aws_s3_bucket.web.bucket}/index.html"
-  # value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
 }
 ```{{copy}}
 
@@ -71,10 +70,10 @@ Also update the bucket resource name in the policy document to use the new
 `var.prefix` variable.
 
 ```
-        "Resource": [
--           "arn:aws:s3:::${var.dev_prefix}-${random_pet.petname.id}/*"
-+           "arn:aws:s3:::${var.prefix}-${random_pet.petname.id}/*"
-        ]
+"Resource": [
+-  "arn:aws:s3:::${var.dev_prefix}-${random_pet.petname.id}/*"
++  "arn:aws:s3:::${var.prefix}-${random_pet.petname.id}/*"
+]
 ```
 
 And finally update the object resource name to `webapp`, and use the new name
