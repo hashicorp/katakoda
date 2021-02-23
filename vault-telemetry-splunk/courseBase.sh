@@ -239,6 +239,13 @@ cat > /root/vtl/config/fluent.conf << 'EOF'
   tag vault_audit
 </source>
 
+<filter vault_audit>
+  @type record_transformer
+  <record>
+    cluster v5
+  </record>
+</filter>
+
 <match vault_audit.**>
   @type splunk_hec
   host 10.42.10.100
