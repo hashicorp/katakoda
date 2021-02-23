@@ -19,10 +19,9 @@ After startup, Consul-Terraform-Sync will:
 1. run Terraform 
 1. create a folder, named `sync-tasks`
  
-The folder will be created inside the `working_directory` defined in the configuration for each task. If no working directory has been configured Terraform will create the 
-folder in the directory where Consul-Terraform-Sync was started.
+The folder will be created in the directory where Consul-Terraform-Sync was started and represents the `working_directory` for Terraform.
 
-Inside the `<working_directory>/sync-tasks` folder Terraform will create a 
+Inside the `sync-tasks` folder Terraform will create a 
 workspace for each task defined in the configuration.
 
 `tree sync-tasks/`{{execute T1}}
@@ -56,4 +55,3 @@ To get the full amount of data Consul-Terraform-Sync collects from the Consul
 catalog you can inspect the `terraform.tfvars` file.
 
 `cat sync-tasks/learn-cts-example/terraform.tfvars`{{execute T1}}
-
