@@ -10,7 +10,7 @@ The health status value is determined by aggregating the success or failure of
 the event of a task detecting changes in Consul services and then updating 
 network infrastructure. 
 
-Currently, only the five most recent events are stored. 
+The five most recent events are stored. 
 
 `curl --silent localhost:8558/v1/status | jq`{{execute T1}}
 
