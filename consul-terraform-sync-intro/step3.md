@@ -1,16 +1,14 @@
-Once the configuration file is complete you can verify the configuration is
-correct by using one of the Consul-Terraform-Sync execution mode, the inspect mode.
+You can verify the configuration is
+correct with Consul-Terraform-Sync's inspect mode. The inspect mode allows you examine the changes that your configuration,
+run once with Terraform, will apply to your infrastructure. 
 
-Inspect mode is designed to help you examine the changes that your configuration,
-once ran via Terraform, will apply to your infrastructure. Running CTS in 
-inspect mode will **apply no changes** to your infrastructure but will exit with
+Inspect mode will **apply no changes** to your infrastructure but will exit with
 a non-zero exit status if any error is encountered.
 
 `consul-terraform-sync -config-file cts-config.hcl -inspect true`{{execute T1}}
 
-This will inspect the configuration for all the tasks in the configuration and
-create the a folder in the current directory, named `/sync-tasks` in which 
-Terraform will create a workspace for each task defined in the configuration.
+This will check the configuration for all the tasks in the and
+then create a folder in the current directory, named `/sync-tasks`. The folder will contain a Terraform workspace for each task.
 
 `tree sync-tasks/`{{execute T1}}
 
@@ -25,8 +23,8 @@ sync-tasks/
 
 ### Terraform installation
 
-From the logs you can confirm that the Consul-Terraform-Sync tools looks for the
-Terraform binary and in case it does not find it installs it in the current path.
+From the logs you can confirm that Consul-Terraform-Sync searches for the
+Terraform binary. If it does not find one, it installs one in the current path.
 
 ```snapshot
 [INFO] (driver.terraform) installing terraform to path '/root'
@@ -34,9 +32,3 @@ Terraform binary and in case it does not find it installs it in the current path
 [INFO] (driver.terraform) successfully installed terraform
 ```
 
-In case Terraform is already present on the system or was installed from a 
-previous run, CTS will be able to detect it and skip the installation.
-
-```snapshot
-[INFO] (driver.terraform) skipping install, terraform 0.14.6 already exists at path /root/terraform
-```
