@@ -1,4 +1,4 @@
-The Consul-Terraform-Sync agent comes packaged as a single binary. For this hands-on lab,
+The Consul-Terraform-Sync daemon comes packaged as a single binary. For this hands-on lab,
 you are going download the tech preview release and move the binary
 into your path.
 

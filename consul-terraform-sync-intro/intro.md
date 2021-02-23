@@ -10,7 +10,7 @@ catalog.
 
 Specifically, you will:
 
-- Deploy a contanierized Consul datacenter with Docker
+- Deploy a containerized Consul datacenter with Docker
 - Check the health of the datacenter nodes and services
 - Install Consul-Terraform-Sync
 - Configure Consul-Terraform-Sync
