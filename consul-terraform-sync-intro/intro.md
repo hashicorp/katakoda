@@ -1,6 +1,6 @@
 # Network Interface Automation with Consul-Terraform-Sync
 
-In this hands-on lab, you will deploy a Consul datacenter using Docker,
+In this hands-on lab, you will deploy a Consul datacenter,
 install Consul-Terraform-Sync, and use it to monitor changes in the service
 catalog.
 
@@ -10,12 +10,13 @@ catalog.
 
 Specifically, you will:
 
-- Check datacenter nodes and services
+- Deploy a contanierized Consul datacenter with Docker
+- Check the health of the datacenter nodes and services
 - Install Consul-Terraform-Sync
 - Configure Consul-Terraform-Sync
-- Inspect Consul-Terraform-Sync configuration
+- Review the Consul-Terraform-Sync configuration
 - Run Consul-Terraform-Sync
-- Verify services data retrieved from Consul catalog
-- Use the `/status` API to get information on task runs
+- Verify services data retrieved from the Consul catalog
+- Use the `/status` API to get information on the task run
 - Change a service definition
 - Verify Consul-Terraform-Sync intercepts the change
