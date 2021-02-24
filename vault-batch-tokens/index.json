@@ -20,10 +20,6 @@
       {
         "title": "Apply Batch Tokens",
         "text": "step3.md"
-      },
-      {
-        "title": "Tune the Default TTLs",
-        "text": "step4.md"
       }
     ],
     "intro": {
@@ -32,7 +28,7 @@
     },
     "assets": {
       "host01": [
-        { "file": "base.hcl", "target": "~/" },
+        { "file": "test.hcl", "target": "~/" },
         { "file": "shipping.hcl", "target": "~/" }
       ]
     },

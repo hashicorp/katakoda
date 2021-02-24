@@ -1,24 +1,3 @@
-Batch tokens are designed to be lightweight with limited flexibility. The
-following table highlights the difference.
-
-|                                                                                                                           |                                          Service Tokens |                                    Batch Tokens |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------: | ----------------------------------------------: |
-| Can be root tokens                                                                                                        |                                                     Yes |                                              No |
-| Can create child tokens                                                                                                   |                                                     Yes |                                              No |
-| Renewable                                                                                                                 |                                                     Yes |                                              No |
-| Can be periodic                                                                                                           |                                                     Yes |                                              No |
-| Can have explicit Max TTL                                                                                                 |                                                     Yes |                    No (always uses a fixed TTL) |
-| Has accessors                                                                                                             |                                                     Yes |                                              No |
-| Has Cubbyhole                                                                                                             |                                                     Yes |                                              No |
-| Revoked with parent (if not orphan)                                                                                       |                                                     Yes |                                   Stops Working |
-| Dynamic secrets lease assignment                                                                                          |                                                    Self |                          Parent (if not orphan) |
-| Can be used across [Performance Replication](https://www.vaultproject.io/docs/enterprise/replication/index.html) clusters |                                                      No |                                             Yes |
-| Creation scales with [performance standby node](/vault/operations/performance-standbys.html) count                        |                                                      No |                                             Yes |
-| Cost                                                                                                                      | Heavyweight; multiple storage writes per token creation | Lightweight; no storage cost for token creation |
-
-
-## Create a batch token
-
 Login with root token.
 
 ```
@@ -45,23 +24,23 @@ Code: 400. Errors:
 Batch tokens **cannot** be root tokens.  `clear`{{execute T1}}
 
 
-Let's create a policy named, `base`.
+Let's create a policy named, `test`.
 
 ```
-vault policy write base base.hcl
+vault policy write test test.hcl
 ```{{execute T1}}
 
 To review the created policy:
 
 ```
-vault policy read base
+vault policy read test
 ```{{execute T1}}
 
 
-Now, create a batch token with a non-root policy attached and save it to `token.txt` file:
+Now, create a batch token with a non-root policy attached and save it to the `token.txt` file:
 
 ```
-vault token create -type=batch -policy=base -format=json \
+vault token create -type=batch -policy=test -ttl=20m \
       | jq -r ".auth.client_token" > token.txt
 ```{{execute T1}}
 
@@ -93,7 +72,7 @@ meta                <nil>
 num_uses            0
 orphan              false
 path                auth/token/create
-policies            [base default]
+policies            [test default]
 renewable           false
 ttl                 767h59m46s
 type                batch
