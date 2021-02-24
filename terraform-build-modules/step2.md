@@ -1,7 +1,7 @@
 Create a directory named `modules`, with a directory called 
 `aws-s3-static-website-bucket` inside of it.
 
-`mkdir -p modules/aws-s3-static-website-bucket`{{execute}}
+`mkdir -p modules/aws-s3-static-website-bucket`{{execute T2}}
 
 After creating these directories, your configuration's directory structure 
 should look like the following.
@@ -26,7 +26,7 @@ shared with others.
 Inside the `aws-s3-static-website-bucket` directory, create a file called
 `README.md` with the following content.
 
-`touch modules/aws-s3-static-website-bucket/README.md`{{execute}}
+`touch modules/aws-s3-static-website-bucket/README.md`{{execute T2}}
 
 Open `modules/aws-s3-static-website-bucket/README.md`{{open}} and paste in
 the contents below.
@@ -42,7 +42,8 @@ tutorial. This tutorial will use the Apache 2.0 open source license.
 
 Create another file called LICENSE.
 
-`touch modules/aws-s3-static-website-bucket/LICENSE`{{execute}}
+`touch modules/aws-s3-static-website-bucket/LICENSE`{{execute T2}}
+
 
 Open `modules/aws-s3-static-website-bucket/LICENSE`{{open}} and paste in
 the contents below.
@@ -65,7 +66,7 @@ limitations under the License.
 
 Create the `main.tf` configuration file for the module. 
 
-`touch modules/aws-s3-static-website-bucket/main.tf`{{execute}}
+`touch modules/aws-s3-static-website-bucket/main.tf`{{execute T2}}
 
 Add the following to `modules/aws-s3-static-website-bucket/LICENSE`{{open}}. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
 
@@ -114,7 +115,7 @@ variables.
 
 Next, create the `variables.tf` file.
 
-`touch modules/aws-s3-static-website-bucket/variables.tf`{{execute}}
+`touch modules/aws-s3-static-website-bucket/variables.tf`{{execute T2}}
 
 Define the following variables in the
 `modules/aws-s3-static-website-bucket/variables.tf`{{open}} file.
@@ -159,7 +160,7 @@ Add outputs to your module in the `outputs.tf` file inside the
 
 Now, create the `outputs.tf` file.
 
-`touch modules/aws-s3-static-website-bucket/outputs.tf`{{execute}}
+`touch modules/aws-s3-static-website-bucket/outputs.tf`{{execute T2}}
 
 Add outputs to your module in
 `modules/aws-s3-static-website-bucket/outputs.tf`{{open}} file.  

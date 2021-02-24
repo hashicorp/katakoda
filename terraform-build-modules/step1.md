@@ -1,7 +1,7 @@
 Be sure to work in Terminal 2 for this scenario for the smoothest experience.
 
 
-Open `main.tf`{{open T2}}. 
+Open `main.tf`{{open}}. 
 
 This configuration includes three blocks:
 
