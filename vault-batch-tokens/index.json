@@ -32,7 +32,7 @@
     },
     "assets": {
       "host01": [
-        { "file": "base.hcl", "target": "~/" },
+        { "file": "test.hcl", "target": "~/" },
         { "file": "shipping.hcl", "target": "~/" }
       ]
     },

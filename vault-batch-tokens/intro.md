@@ -29,6 +29,24 @@ replication process.
 Depending on the use case and the performance requirements, the batch tokens
 might work better than the service tokens or vice versa.
 
+Batch tokens are designed to be lightweight with limited flexibility. The
+following table highlights the difference.
+
+|                                                                                                                           |                                          Service Tokens |                                    Batch Tokens |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------: | ----------------------------------------------: |
+| Can be root tokens                                                                                                        |                                                     Yes |                                              No |
+| Can create child tokens                                                                                                   |                                                     Yes |                                              No |
+| Renewable                                                                                                                 |                                                     Yes |                                              No |
+| Can be periodic                                                                                                           |                                                     Yes |                                              No |
+| Can have explicit Max TTL                                                                                                 |                                                     Yes |                    No (always uses a fixed TTL) |
+| Has accessors                                                                                                             |                                                     Yes |                                              No |
+| Has Cubbyhole                                                                                                             |                                                     Yes |                                              No |
+| Revoked with parent (if not orphan)                                                                                       |                                                     Yes |                                   Stops Working |
+| Dynamic secrets lease assignment                                                                                          |                                                    Self |                          Parent (if not orphan) |
+| Can be used across [Performance Replication](https://www.vaultproject.io/docs/enterprise/replication/index.html) clusters |                                                      No |                                             Yes |
+| Creation scales with [performance standby node](/vault/operations/performance-standbys.html) count                        |                                                      No |                                             Yes |
+| Cost                                                                                                                      | Heavyweight; multiple storage writes per token creation | Lightweight; no storage cost for token creation |
+
 
 > This tutorial focuses on the **batch tokens**. To learn more about service
 tokens, try [Vault Token
