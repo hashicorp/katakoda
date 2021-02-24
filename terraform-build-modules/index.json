@@ -33,7 +33,7 @@
     }
   },
   "environment": {
-    "terminals": [{"name": "Terminal 1", "target": "host01"}, {"name": "Terminal 2", "command": "export AWS_ACCESS_KEY_ID=test && AWS_SECRET_ACCESS_KEY=test", "target": "host01"}],
+    "terminals": [{"name": "Terminal 2", "target": "host01"}],
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
     "uieditorpath": "/root/learn-terraform-modules",

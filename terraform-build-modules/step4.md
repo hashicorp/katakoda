@@ -24,6 +24,10 @@ bucket, so there would be nothing to return if you were to visit the bucket's we
 In order the bucket website to return any content, you will need to upload 
 objects to your bucket. 
 
+First, export the test AWS credentials as environment variables.
+
+`export AWS_ACCESS_KEY_ID=test && AWS_SECRET_ACCESS_KEY=test`{{execute}}
+
 The static website files are located in the `/assets/` directory. Upload these
 files to the S3 bucket using the [AWS CLI tool](https://aws.amazon.com/cli/).
 
