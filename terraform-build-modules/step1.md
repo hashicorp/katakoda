@@ -1,3 +1,11 @@
+/* This tutorial works best when run in a new tab in this Katacoda scenario.  */
+/*  */
+/* Open a new tab */
+/*  */
+/* Export the test AWS credentials as environment variables. */
+/*  */
+/* `export AWS_ACCESS_KEY_ID=test && AWS_SECRET_ACCESS_KEY=test`{{execute}} */
+
 Open `main.tf`{{open}}. 
 
 This configuration includes three blocks:

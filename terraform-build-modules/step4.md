@@ -27,18 +27,17 @@ objects to your bucket.
 The static website files are located in the `/assets/` directory. Upload these
 files to the S3 bucket using the [AWS CLI tool](https://aws.amazon.com/cli/).
 
-`aws s3 cp assets/ s3://$(terraform output website_bucket_name)/ --recursive`{{execute}}
+`aws --endpoint-url=http://localhost:4566 s3 cp assets/ s3://$(terraform output -raw website_bucket_name)/ --recursive`{{execute}}
+
+Note the usage of the `--endpoint-url` parameter -- this configures the AWS CLI
+to use the localstack instance of AWS. 
 
 ## Verify website endpoint
 
 Verify that the file was uploaded successfully. Because this scenario uses
 localstack, the S3 bucket is hosted locally.
 
-Get the bucket name.
+Visit the website endpoint below in a web browser. You should find the website
+contents, which will be a page that says "Nothing to see here".
 
-`terraform output website_bucket_name`{{execute}}
-
-Then, visit the website endpoint in a web browser, replacing `<BUCKET_NAME>` 
-with your bucket name. You should find the website contents.
-
-`[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/${module.website_s3_bucket.name}/index.html`
+`2886795304-4566-kitek05.environments.katacoda.com/terraform-edu-module/index.html`
