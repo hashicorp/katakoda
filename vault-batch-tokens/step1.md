@@ -40,7 +40,7 @@ vault policy read test
 Now, create a batch token with a non-root policy attached and save it to the `token.txt` file:
 
 ```
-vault token create -type=batch -policy=test -ttl=20m \
+vault token create -type=batch -policy=test -ttl=20m -format=json \
       | jq -r ".auth.client_token" > token.txt
 ```{{execute T1}}
 
