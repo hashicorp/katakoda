@@ -6,7 +6,7 @@ initialize backends and install providers.
 
 Now install the module by running `terraform init`{{execute T2}}.
 
--> **Note**: When installing a remote module, Terraform will download it into
+> **Note**: When installing a remote module, Terraform will download it into
 the `.terraform` directory in your configuration's root directory. When
 installing a local module, Terraform will instead refer directly to the source
 directory. Because of this, Terraform will automatically notice changes to
@@ -45,4 +45,4 @@ localstack, the S3 bucket is hosted locally.
 Visit the website endpoint below in a web browser. You should find the website
 contents.
 
-`[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/terraform-edu-modules/index.html`
+[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/terraform-edu-modules/index.html
