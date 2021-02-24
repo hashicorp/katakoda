@@ -44,7 +44,6 @@ Create another file called LICENSE.
 
 `touch modules/aws-s3-static-website-bucket/LICENSE`{{execute T2}}
 
-
 Open `modules/aws-s3-static-website-bucket/LICENSE`{{open}} and paste in
 the contents below.
 
@@ -68,7 +67,7 @@ Create the `main.tf` configuration file for the module.
 
 `touch modules/aws-s3-static-website-bucket/main.tf`{{execute T2}}
 
-Add the following to `modules/aws-s3-static-website-bucket/LICENSE`{{open}}. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
+Add the following to `modules/aws-s3-static-website-bucket/main.tf`{{open}}. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
 
 <pre class="file" data-target="clipboard">
 resource "aws_s3_bucket" "s3_bucket" {
