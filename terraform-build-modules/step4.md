@@ -24,10 +24,6 @@ bucket, so there would be nothing to return if you were to visit the bucket's we
 In order the bucket website to return any content, you will need to upload 
 objects to your bucket. 
 
-First, export the test AWS credentials as environment variables.
-
-`export AWS_ACCESS_KEY_ID=test && AWS_SECRET_ACCESS_KEY=test`{{execute}}
-
 The static website files are located in the `/assets/` directory. Upload these
 files to the S3 bucket using the [AWS CLI tool](https://aws.amazon.com/cli/).
 
@@ -42,6 +38,6 @@ Verify that the file was uploaded successfully. Because this scenario uses
 localstack, the S3 bucket is hosted locally.
 
 Visit the website endpoint below in a web browser. You should find the website
-contents, which will be a page that says "Nothing to see here".
+contents.
 
-`2886795304-4566-kitek05.environments.katacoda.com/terraform-edu-module/index.html`
+`[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/terraform-edu-module/index.html`
