@@ -33,13 +33,14 @@
     }
   },
   "environment": {
+    "terminals": [{"name": "Terminal 2", "target": "host01"}],
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
     "uieditorpath": "/root/learn-terraform-modules",
     "hideHiddenFiles": true
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu:2004"
   },
   "private": true
 }

@@ -1,6 +1,5 @@
-Now that you have a monolithic configuration to work with, in this step you will
-separate the configuration into two files, one for your "dev" environment, and
-one for "prod".
+In this step you will separate the monolithic Terraform configuration into two
+files, one for your "dev" environment, and one for "prod".
 
 ## Separate configuration files
 
@@ -16,12 +15,13 @@ Next, rename `main.tf` to `prod.tf`.
 mv main.tf prod.tf
 ```{{execute}}
 
-Your configuration only needs one instance of the provider and random_pet
+Your configuration only needs one instance of the AWS provider and random_pet
 blocks, so remove these lines from `prod.tf`{{open}}.
 
 ```
 provider "aws" {
-  region = var.aws_region
+  region = "us-west-2"
+  # ...
 }
 
 resource "random_pet" "petname" {
@@ -30,7 +30,7 @@ resource "random_pet" "petname" {
 }
 ```
 
-Also remove the resource blocks for your `dev` environment from `prod.tf`{{open}}.
+Remove the resource blocks for your `dev` environment from `prod.tf`{{open}} as well.
 
 First, remove the bucket resource.
 
@@ -59,10 +59,10 @@ resource "aws_s3_bucket_object" "dev" {
 }
 ```
 
-Once this is done, you will have two resource blocks in `prod.tf`: One for the
+You should now have two resource blocks in `prod.tf`: one for the
 bucket, and one for the bucket object.
 
-Now do the equivalent for `dev.tf`{{open}}.
+Now remove the `prod` resources from `dev.tf`{{open}}.
 
 First, remove the `prod` bucket resource.
 ```
@@ -93,7 +93,7 @@ resource "aws_s3_bucket_object" "prod" {
 
 Be sure to leave the `aws` provider and `random_pet` resource blocks in `dev.tf`.
 
-You will now have two resource blocks in `dev.tf`: One for the bucket, and one for
+You now have two resource blocks in `dev.tf`: One for the bucket, and one for
 the bucket object.
 
 ## Apply configuration
@@ -147,7 +147,10 @@ terraform apply
 
 Respond with `yes`{{execute}} to apply the changes.
 
-Terraform destroyed and recreated all the resources because the development and production environments share configuration and state. Even though the `random_pet` resource is in the development configuration file, changes to it still impact the production configuration. 
+Terraform destroyed and recreated all the resources because the development and
+production environments share configuration and state. Even though the
+`random_pet` resource is in the development configuration file, changes to it
+still impact the production configuration. 
 
 ## Destroy resources
 
@@ -160,4 +163,4 @@ terraform destroy
 Respond with `yes`{{execute}} when prompted.
 
 In the next step, you will separate your development and production environments into
-different workspaces, so you can manage each separately.
+different workspaces, so you can manage each independently.

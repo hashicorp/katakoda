@@ -1,7 +1,7 @@
 Create a directory named `modules`, with a directory called 
 `aws-s3-static-website-bucket` inside of it.
 
-`mkdir -p modules/aws-s3-static-website-bucket`{{execute}}
+`mkdir -p modules/aws-s3-static-website-bucket`{{execute T2}}
 
 After creating these directories, your configuration's directory structure 
 should look like the following.
@@ -13,9 +13,10 @@ should look like the following.
 ├── main.tf
 ├── modules
 │   └── aws-s3-static-website-bucket
+├── assets
+│   └── index.html
+│   └── error.html
 ├── outputs.tf
-├── terraform.tfstate
-├── terraform.tfstate.backup
 └── variables.tf
 ```
 
@@ -28,7 +29,10 @@ shared with others.
 Inside the `aws-s3-static-website-bucket` directory, create a file called
 `README.md` with the following content.
 
-`touch modules/aws-s3-static-website-bucket/README.md`{{execute}}
+`touch modules/aws-s3-static-website-bucket/README.md`{{execute T2}}
+
+Open `modules/aws-s3-static-website-bucket/README.md`{{open}} and paste in
+the contents below.
 
 <pre class="file" data-target="clipboard">
 # AWS S3 static website bucket
@@ -39,9 +43,12 @@ This module provisions AWS S3 buckets configured for static website hosting.
 Choosing the correct license for your modules is out of the scope of this 
 tutorial. This tutorial will use the Apache 2.0 open source license.
 
-Create another file called LICENSE with the following content.
+Create another file called LICENSE.
 
-`touch modules/aws-s3-static-website-bucket/LICENSE`{{execute}}
+`touch modules/aws-s3-static-website-bucket/LICENSE`{{execute T2}}
+
+Open `modules/aws-s3-static-website-bucket/LICENSE`{{open}} and paste in
+the contents below.
 
 <pre class="file" data-target="clipboard">
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -59,9 +66,11 @@ limitations under the License.
 
 ## Add module configuration
 
-Add the following to the `main.tf` inside the `modules/aws-s3-static-website-bucket` directory. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
+Create the `main.tf` configuration file for the module. 
 
-`touch modules/aws-s3-static-website-bucket/main.tf`{{execute}}
+`touch modules/aws-s3-static-website-bucket/main.tf`{{execute T2}}
+
+Add the following to `modules/aws-s3-static-website-bucket/main.tf`{{open}}. This configuration creates a public S3 bucket hosting a website with an index page and an error page.
 
 <pre class="file" data-target="clipboard">
 resource "aws_s3_bucket" "s3_bucket" {
@@ -106,10 +115,12 @@ variables.
 
 ### Create variables file
 
-Define the following variables in the `variables.tf` file inside the
-`modules/aws-s3-static-website-bucket` directory.
+Next, create the `variables.tf` file.
 
-`touch modules/aws-s3-static-website-bucket/variables.tf`{{execute}}
+`touch modules/aws-s3-static-website-bucket/variables.tf`{{execute T2}}
+
+Define the following variables in the
+`modules/aws-s3-static-website-bucket/variables.tf`{{open}} file.
 
 <pre class="file" data-target="clipboard">
 variable "bucket_name" {
@@ -149,7 +160,12 @@ the module.
 Add outputs to your module in the `outputs.tf` file inside the
 `modules/aws-s3-static-website-bucket` directory.
 
-`touch modules/aws-s3-static-website-bucket/outputs.tf`{{execute}}
+Now, create the `outputs.tf` file.
+
+`touch modules/aws-s3-static-website-bucket/outputs.tf`{{execute T2}}
+
+Add outputs to your module in
+`modules/aws-s3-static-website-bucket/outputs.tf`{{open}} file.  
 
 <pre class="file" data-target="clipboard">
 # Output variable definitions

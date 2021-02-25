@@ -5,8 +5,8 @@ apt-get install -y docker-ce docker-ce-cli containerd.io unzip < "/dev/null"
 # Install unzip - Katacoda docker image doesn't have unzip
 # apt-get install unzip
 cd ..
-curl -O https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
-unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin/
+curl -O https://releases.hashicorp.com/terraform/0.14.6/terraform_0.14.6_linux_amd64.zip
+unzip terraform_0.14.6_linux_amd64.zip -d /usr/local/bin/
 
 # Clone docker compose files
 git clone https://github.com/hashicorp/getting-started-terraform-consul-provider

@@ -156,8 +156,6 @@ output "website_endpoint" {
   description = "Website endpoint for this environment"
 - value       = "http://localhost:4572/${aws_s3_bucket.web.bucket}/index.html"
 + value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
-# value       = "http://${aws_s3_bucket.web.website_endpoint}/index.html"
-# value       = "http://${module.website_s3_bucket.website_endpoint}/index.html"
 }
 ```
 

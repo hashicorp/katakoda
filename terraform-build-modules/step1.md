@@ -1,3 +1,9 @@
+Be sure to work in Terminal 2 for this scenario for the smoothest experience.
+
+Change into the sample code directory.
+
+`cd ~/learn-terraform-modules`{{execute T2}}
+
 Open `main.tf`{{open}}. 
 
 This configuration includes three blocks:
