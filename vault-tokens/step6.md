@@ -5,7 +5,7 @@ Create a token and save its value in a file named, `test_token.txt`.
 ```
 vault token create -ttl=45 -explicit-max-ttl=120 -policy=default -format=json \
     | jq -r ".auth.client_token" > test_token.txt
-```
+```{{execute T1}}
 
 The generated token has a TTL of 45 seconds, and max TTL of 2 minutes (120 seconds).
 
@@ -48,7 +48,7 @@ Create a token and save its value in a file, `revoke_token.txt`.
 ```
 vault token create -ttl=2h -policy=default -format=json \
     | jq -r ".auth.client_token" > revoke_token.txt
-```
+```{{execute T1}}
 
 The generated token has a TTL of 2 hours.
 
