@@ -38,14 +38,15 @@ vault write -f -format=json auth/approle/role/jenkins/secret-id \
 Authenticate with Vault using the generated `role_id` and `secret_id`.
 
 ```
-vault write auth/approle/login role_id=$(cat role_id.txt) \
-     secret_id=$(cat secret_id.txt)
+vault write -format=json auth/approle/login role_id=$(cat role_id.txt) \
+     secret_id=$(cat secret_id.txt) \
+     | jq -r ".auth.client_token" > jenkins-token.txt
 ```{{execute T1}}
 
 View the token details.
 
 ```
-vault token lookup <returned_token>
+vault token lookup $(cat jenkins-token.txt)
 ```{{execute T1}}
 
 The output shows the `period` of 24 hours, and the `jenkins` policy is attached.
