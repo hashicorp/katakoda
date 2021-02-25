@@ -1,44 +1,30 @@
-To limit the number of times that a token can be used, pass the `-use-limit` parameter with desired count.
+Create a new service token with TTL of 60 seconds which means that the token gets automatically revoked after 60 seconds.
+
+Create a token with TTL of 60 seconds and save it in a file named, `short-lived-token.txt`.
 
 ```
-vault token create -use-limit=<integer>
-```
-
-Execute the following command to create a token with use limit of **3**, and save the generated token in a file named, `use_limit_token.txt`.
-
-```
-vault token create -use-limit=3 -policy=base \
-      -format=json | jq -r ".auth.client_token" > use_limit_token.txt
+vault token create -ttl=60s \
+   | jq -r ".auth.client_token" > short-lived-token.txt
 ```{{execute T1}}
 
-Login with the generated token:
+Lookup the token details.
 
 ```
-vault login $(cat use_limit_token.txt)
+vault token lookup $(cat short-lived-token.txt)
 ```{{execute T1}}
 
-Now, test the token with use limit by executing some vault commands:
+<div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
+<p><strong>NOTE: </strong>
+**NOTE:** The `vault token lookup` command returns the token's properties. In this example, it shows that this token has 38 more seconds before it expires.
+</p></div>
+
+When you execute a Vault command using the new token immediately following its creation, it should work. Wait for 60 seconds and try again. It returns **`Code: 403. Errors:`** which indicates a forbidden API call due to expired
+token usage.
 
 ```
-vault token lookup
+vault token lookup $(cat short-lived-token.txt)
 ```{{execute T1}}
 
-Execute the following command to write some secrets at `secret/training_test`:
-
 ```
-vault kv put secret/training_test year="2018"
-```{{execute T1}}
-
-The command should execute successfully.
-
-Now, let's try a negative test. The following command fails since the use limit was reached and no more usage left with this token. Once the use limit was reached, the token gets revoked automatically.
-
-```
-vault kv get secret/training_test
-```{{execute T1}}
-
-Log back in with `root` token:
-
-```
-vault login root
+clear
 ```{{execute T1}}

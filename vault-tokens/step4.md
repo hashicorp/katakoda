@@ -1,47 +1,93 @@
-Although you can renew the expiring token with `renew` command, tokens have ***max TTL*** (the system default max TTL is 32 days).  Once the max TTL is reached, the token will be revoked.
+Before creating an orphan token, let's explore the service token's lifecycle.
 
-In some cases, having a token be revoked would be problematic. For instance, a long-running service needs to maintain its SQL connection pool over a long period of time. In this scenario, a **periodic token** can be used. Periodic tokens have **period** but no max TTL. Therefore, periodic tokens may live for an infinite amount of time, so long as they are renewed within their TTL.
-
-Get help on `auth/token` path:
+Create a token, and save the generated token in a file named, `parent_token.txt`.
 
 ```
-vault path-help auth/token
+vault token create -ttl=120s \
+      -format=json | jq -r ".auth.client_token" > parent_token.txt
+```{{execute T1}}
+
+Now, create a child token with the generated token and save it in a file named, `child_token.txt`:
+
+```
+VAULT_TOKEN=$(cat parent_token.txt) vault token create -ttl=80s \
+      -format=json | jq -r ".auth.client_token" > child_token.txt
+```{{execute T1}}
+
+Try running some commands using this child token.
+
+```
+vault token lookup $(cat child_token.txt)
+```{{execute T1}}
+
+Revoke the parent token.
+
+```
+vault token revoke $(cat parent_token.txt)
+```{{execute T1}}
+
+Now, let's see what happened to the child token. Execute the following command to lookup the child token.
+
+```
+vault token lookup $(cat child_token.txt)
+```{{execute T1}}
+
+The output should look like:
+
+```
+Error looking up token: Error making API request.
+
+URL: POST http://127.0.0.1:8200/v1/auth/token/lookup
+Code: 403. Errors:
+
+* bad token
+```
+
+This is because the child token was revoked when its parent got revoked. When the default behavior is undesirable, you can create an **orphan token** instead.
+
+Repeat the steps to create a token and login with the generated token.
+
+```
+vault token create -ttl=60s \
+      -format=json | jq -r ".auth.client_token" > parent_token.txt
 ```{{execute T1}}
 
 
-> **Root** or **sudo** users have the permission to generate periodic tokens. Periodic tokens have a TTL, but no max TTL; therefore, they may live for an infinite duration of time so long as they are renewed within their TTL. This is useful for long-running services that cannot handle regenerating a token.
+## Create an Orphan Token
 
-To clear the screen: `clear`{{execute T1}}
+Orphan tokens are **not** children of their parent; therefore, orphan tokens do not expire when their parent does.
 
-## Create a Token Role
+> **NOTE:** Orphan tokens still expire when their own max TTL is reached.
 
-The API endpoint to create a token role is `auth/token/roles`.  Execute the following command to create a token role named, `monitor`.  This role has `base` policy attached and token renewal period of 24 hours (86400 seconds).
-
-```
-vault write auth/token/roles/monitor allowed_policies="base" period="24h"
-```{{execute T1}}
-
-Execute the following command to display the role details:
+Create a new parent token.
 
 ```
-vault read auth/token/roles/monitor
+vault token create -ttl=90s \
+      -format=json | jq -r ".auth.client_token" > parent_token.txt
 ```{{execute T1}}
 
-
-Execute the following command to create a token for role, `monitor`, and save the generated token in a file named, `monitor_token.txt`.
+Create an orphan token and save it to a file named, `orphan_token.txt`.
 
 ```
-vault token create -role="monitor" \
-      -format=json | jq -r ".auth.client_token" > monitor_token.txt
+VAULT_TOKEN=$(cat parent_token.txt) vault token create -ttl=180s -orphan \
+      -format=json | jq -r ".auth.client_token" > orphan_token.txt
 ```{{execute T1}}
 
+This child token will continue to be active for 180 seconds even after its parent token gets revoked.
 
-Display the token details:
+
+## Test the Orphan Token
+
+Revoke the parent token.
 
 ```
-vault token lookup $(cat monitor_token.txt)
+vault token revoke $(cat parent_token.txt)
 ```{{execute T1}}
 
-Notice that the **`role`** is set to **`monitor`**.
+Verify that the child token still exists:
 
-This token can be renewed infinite number of times for as long as it hasn't reached its 24-hour TTL.
+```
+vault token lookup $(cat orphan_token.txt)
+```{{execute T1}}
+
+Notice that the **orphan** is set to **true**.

@@ -1,50 +1,29 @@
-First, create a policy named, `base` by executing the following command:
+<div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
+<p><strong>NOTE: </strong>
+**Root** or **sudo** users have the ability to generate **periodic tokens**.
+</p></div>
+
+
+Periodic tokens have a TTL (validity period), but no max TTL; therefore, they may live for an infinite duration of time so long as they are renewed within their TTL. This is useful for long-running services that cannot handle regenerating a token.
+
+> **NOTE:** When you set `period`, it becomes the token renewal period (TTL). When a period and an explicit max TTL were both set on a token, it behaves as a periodic token. However, once the explicit max TTL is reached, the token will be revoked.
+
+
+Create a token with 24 hours period and save it in a file named, `periodic-token.txt`.
 
 ```
-vault policy write base base.hcl
+vault token create -policy="default" -period=24h \
+   | jq -r ".auth.client_token" > periodic-token.txt
 ```{{execute T1}}
 
-To review the created policy:
+Review the token details.
 
 ```
-vault policy read base
+vault token lookup $(cat periodic-token.txt)
 ```{{execute T1}}
 
-Let's create another token with base policy and TTL of 60 seconds, and save the generated token in a file named, `token_60s.txt`.
+You can renew the generated token indefinitely for as long as it does not expire. If you do not renew, the token expires after 24 hours. You will learn how to renew a token later.
 
 ```
-vault token create -ttl 60s -policy=base  \
-     -format=json | jq -r ".auth.client_token" > token_60s.txt
+clear
 ```{{execute T1}}
-
-
-Execute the following command to take a look at the token details:
-
-```
-vault token lookup $(cat token_60s.txt)
-```{{execute T1}}
-
-The output displays the **`ttl`** left with this token in seconds.
-
-<br>
-
-## Renew the Token
-
-Although a token has a short TTL, it can be renewed for as long as it hasn't reached its TTL via `renew` operation.
-
-Execute the following command to renew the token and double its TTL:
-
-```
-vault token renew -increment=120s $(cat token_60s.txt)
-```{{execute T1}}
-
-
-Look up the token details again to verify that is TTL has been updated.
-
-```
-vault token lookup $(cat token_60s.txt)
-```{{execute T1}}
-
-The **`ttl`** should reflect the changes.
-
-To clear the screen: `clear`{{execute T1}}

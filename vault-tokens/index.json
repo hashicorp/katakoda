@@ -12,44 +12,36 @@
     },
     "steps": [
       {
-        "title": "Create Short-Lived Tokens",
+        "title": "Tokens with Use Limit",
         "text": "step1.md",
         "code": "terminal.sh",
         "courseData": "courseBase.sh"
       },
       {
-        "title": "Token Renewal",
+        "title": "Create a Periodic Token",
         "text": "step2.md"
       },
       {
-        "title": "Tokens with Use Limit",
-        "text": "step3.md"
-      },
-      {
-        "title": "Create a Token Role and Periodic Token",
-        "text": "step4.md"
-      },
-      {
-        "title": "Test Token Lifecycle",
-        "text": "step5.md"
+        "title": "Create Short-Lived Tokens",
+        "text": "step3.md",
       },
       {
         "title": "Create an Orphan Token",
+        "text": "step4.md"
+      },
+      {
+        "title": "Create a Token Role",
+        "text": "step5.md"
+      },
+      {
+        "title": "Renew and Revoke Tokens",
         "text": "step6.md"
       },
       {
-        "title": "Get Token Count",
+        "title": "Apply Token Types",
         "text": "step7.md"
       }
     ],
-    "assets": {
-      "host01": [
-        {
-          "file": "base.hcl",
-          "target": "~/"
-        }
-      ]
-    },
     "finish": {
       "text": "finish.md",
       "credits": "https://learn.hashicorp.com/vault"
