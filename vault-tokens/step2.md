@@ -1,3 +1,4 @@
+<br />
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
 <p><strong>NOTE: </strong>
 **Root** or **sudo** users have the ability to generate **periodic tokens**.
@@ -12,7 +13,7 @@ Periodic tokens have a TTL (validity period), but no max TTL; therefore, they ma
 Create a token with 24 hours period and save it in a file named, `periodic-token.txt`.
 
 ```
-vault token create -policy="default" -period=24h \
+vault token create -policy="default" -period=24h -format=json \
    | jq -r ".auth.client_token" > periodic-token.txt
 ```{{execute T1}}
 

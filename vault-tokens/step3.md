@@ -3,7 +3,7 @@ Create a new service token with TTL of 60 seconds which means that the token get
 Create a token with TTL of 60 seconds and save it in a file named, `short-lived-token.txt`.
 
 ```
-vault token create -ttl=60s \
+vault token create -ttl=60s  -format=json \
    | jq -r ".auth.client_token" > short-lived-token.txt
 ```{{execute T1}}
 
