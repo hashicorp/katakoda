@@ -1,3 +1,10 @@
+Login with root token.
+
+```
+vault login root
+```{{execute T1}}
+
+
 When you create tokens or leases with no specific TTL values, the default value applies to them.
 
 ```
