@@ -39,10 +39,8 @@ to use the localstack instance of AWS.
 
 ## Verify website endpoint
 
-Verify that the file was uploaded successfully. Because this scenario uses
+Visit [this
+endpoint](https://[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/terraform-edu-modules/index.html)
+to verify that the files were uploaded successfully. Because this scenario uses
 localstack, the S3 bucket is hosted locally.
 
-Visit the website endpoint below in a web browser. You should find the website
-contents.
-
-[[HOST_SUBDOMAIN]]-4566-[[KATACODA_HOST]].environments.katacoda.com/terraform-edu-modules/index.html

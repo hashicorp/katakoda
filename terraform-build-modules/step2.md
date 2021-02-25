@@ -13,6 +13,9 @@ should look like the following.
 ├── main.tf
 ├── modules
 │   └── aws-s3-static-website-bucket
+├── assets
+│   └── index.html
+│   └── error.html
 ├── outputs.tf
 └── variables.tf
 ```

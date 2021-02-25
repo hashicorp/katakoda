@@ -40,7 +40,7 @@
     "hideHiddenFiles": true
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu:2004"
   },
-  "private": false
+  "private": true
 }
