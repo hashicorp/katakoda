@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault Batch Tokens",
+  "title": "Token Management",
   "description": "Learn how batch tokens work in Vault",
   "difficulty": "beginner",
   "time": "10 minutes",
