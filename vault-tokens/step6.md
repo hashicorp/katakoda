@@ -1,48 +1,78 @@
-When the default behavior is undesirable, you can create an **orphan token** instead.
+You can **renew** the service token's TTL as long as it has not expired.
 
-Repeat the steps to create a token and login with the generated token.
-
-```
-vault token create -ttl=80s \
-      -format=json | jq -r ".auth.client_token" > parent_token.txt
-```{{execute T1}}
+Create a token and save its value in a file named, `test_token.txt`.
 
 ```
-vault login $(cat parent_token.txt)
-```{{execute T1}}
+vault token create -ttl=45 -explicit-max-ttl=120 -policy=default -format=json \
+    | jq -r ".auth.client_token" > test_token.txt
+```
 
-## Create an Orphan Token
+The generated token has a TTL of 45 seconds, and max TTL of 2 minutes (120 seconds).
 
-To create an orphan token, you can simply pass the **`-orphan`** flag when you create a token.
-
-Execute the following command to generate an orphan token and save it to a file named, `orphan_token.txt`.
+Renew the token's TTL before the token expires.
 
 ```
-vault token create -ttl=120s -orphan \
-      -format=json | jq -r ".auth.client_token" > orphan_token.txt
+vault token renew $(cat test_token.txt)
 ```{{execute T1}}
 
-This child token will continue to be active for 120 seconds even after its parent token gets revoked.
-
-
-## Test the Orphan Token
-
-Log back in with `root` token:
+Renew and extend the token's TTL to 60 seconds.
 
 ```
-vault login root
+vault token renew -increment=60 $(cat test_token.txt)
 ```{{execute T1}}
 
-Execute the following command to revoke the parent token:
+Notice that the token TTL (`token_duration`) is now 1 minute instead of 45 seconds.
+
+Because the explicit max TTL is set to 2 minutes, you will not be able to renew the token **after 2 minutes**.
+
+As time passes, Vault returns a message such as `TTL of "26s" exceeded the effective max_ttl of "10s"; TTL value is capped accordingly` to indicate that the token TTL cannot exceed 2 minutes from its creation time.
 
 ```
-vault token revoke $(cat parent_token.txt)
+vault token renew -increment=60 $(cat test_token.txt)
 ```{{execute T1}}
 
-Verify that the child token still exists:
+Eventually, the token expires and Vault automatically revokes it. Once the token expires, the renew command returns `token not found` message.
 
 ```
-vault token lookup $(cat orphan_token.txt)
+vault token renew -increment=60 $(cat test_token.txt)
 ```{{execute T1}}
 
-Notice that the **orphan** is set to **true**.
+
+## Revoke service tokens
+
+If a user or machine needs a temporal access to Vault, you can set a short TTL or a number of uses to a service token so the token is automatically revoked at the end of its life. But if any suspicious activity was detected, Vault has
+built-in support for revocation of service tokens before reaching its TTL.
+
+Create a token and save its value in a file, `revoke_token.txt`.
+
+```
+vault token create -ttl=2h -policy=default -format=json \
+    | jq -r ".auth.client_token" > revoke_token.txt
+```
+
+The generated token has a TTL of 2 hours.
+
+Revoke the generated service token.
+
+```
+vault token revoke $(cat revoke_token.txt)
+```{{execute T1}}
+
+Verify that the token no longer exists by tring to look it up.
+
+```
+vault token lookup $(cat revoke_token.txt)
+```{{execute T1}}
+
+Vault returns an error message.
+
+```
+Error looking up token: Error making API request.
+
+URL: POST http://127.0.0.1:8200/v1/auth/token/lookup
+Code: 403. Errors:
+
+* bad token
+```
+
+Instead of revoking using a token value, you can revoke tokens with a [token accessor](https://www.vaultproject.io/docs/concepts/tokens/#token-accessors) using the `-accessor` flag.
