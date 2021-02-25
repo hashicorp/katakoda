@@ -1,6 +1,6 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
-  "title": "Vault Token Lifecycle",
+  "title": "Vault Token",
   "description": "Learn the lifecycle of Vault client tokens.",
   "difficulty": "beginner",
   "time": "10 minutes",
