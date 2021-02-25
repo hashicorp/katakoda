@@ -12,7 +12,7 @@ vault write auth/token/roles/zabbix \
 Create a token for `zabbix` role and save the generated token in a file named, `zabbix-token.txt`.
 
 ```
-vault token create -role=zabbix \
+vault token create -role=zabbix -format=json \
    | jq -r ".auth.client_token" > zabbix-token.txt
 ```{{execute T1}}
 

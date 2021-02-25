@@ -15,7 +15,7 @@ To limit the number of times that a token can be used, pass the `-use-limit` par
 
 ```
 vault token create -use-limit=<integer>
-```{{execute T1}}
+```
 
 To view optional parameters to create tokens, run the command with `-help` flag.
 
@@ -25,11 +25,15 @@ vault token create -help
 
 There are a number of parameters you can set.
 
+```
+clear
+```{{execute T1}}
+
 Create a token with TTL of 1 hour and a use limit of 2. Attach the `default` policy and save the generated token in a file named, `use-limit-token.txt`.
 
 ```
 vault token create -ttl=1h -use-limit=2 -policy=default \
-   | jq -r ".auth.client_token" > use-limit-token.txt
+   -format=json | jq -r ".auth.client_token" > use-limit-token.txt
 ```{{execute T1}}
 
 
