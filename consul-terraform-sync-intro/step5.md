@@ -17,9 +17,16 @@ The five most recent events are stored.
 ```json
 {
   "task_summary": {
-    "successful": 1,
-    "errored": 0,
-    "critical": 0
+    "status": {
+      "successful": 1,
+      "errored": 0,
+      "critical": 0,
+      "unknown": 0
+    },
+    "enabled": {
+      "true": 1,
+      "false": 0
+    }
   }
 }
 ```
