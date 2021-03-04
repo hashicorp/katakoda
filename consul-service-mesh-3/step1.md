@@ -15,12 +15,12 @@ Open the [Dashboard](https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environme
 
 To create a zero-trust network you will need to manage Consul intentions, which allow or deny service communication. The first step is to connect to the Kubernetes container with the Consul server.
 
-`kubectl exec -it hashicorp-consul-server-0 /bin/sh`{{execute}}
+`kubectl exec -it consul-server-0 /bin/sh`{{execute}}
 
 
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info:</strong>
   
-  Consul intentions can also be managed using the UI or the API interface.
+  Consul intentions can also be managed using the UI, or the API interface.
 
 </p></div>

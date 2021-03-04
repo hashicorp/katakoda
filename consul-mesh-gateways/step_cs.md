@@ -6,7 +6,7 @@
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc1/kubeconfig.yaml`{{execute}}
 
-`helm install -f ./dc1-values.yml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
+`helm install -f ./dc1.yaml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
 
 `kubectl get pods --all-namespaces`{{execute}}
 
@@ -43,19 +43,19 @@ meshGateway:
 
 `kubectl apply -f consul-federation-secret.yaml`{{execute}}
 
-`helm install -f ./dc2-values.yml consul hashicorp/consul --timeout 10m`{{execute}}
+`helm install -f ./dc2.yaml consul hashicorp/consul --timeout 10m`{{execute}}
 
 ### Deploy Service api
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc1/kubeconfig.yaml`{{execute}}
 
-`kubectl apply -f ~/api.yml`{{execute}}
+`kubectl apply -f ~/api.yaml`{{execute}}
 
 ### Deploy Service web
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc2/kubeconfig.yaml`{{execute}}
 
-`kubectl apply -f ~/web.yml`{{execute}}
+`kubectl apply -f ~/web.yaml`{{execute}}
 
 `export IP_ADDR=$(hostname -I | awk '{print $1}')`{{execute}}
 

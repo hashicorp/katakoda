@@ -4,7 +4,7 @@ To test the Consul service mesh you will deploy two simple services, `api` and `
 
 This hands-on lab comes with a prepared configuration for the `api` service.
 
-`api.yml`{{open}}
+`api.yaml`{{open}}
 
 The `"consul.hashicorp.com/connect-inject": "true"` annotation in the configuration ensures a sidecar proxy is automatically added to the `api` pod. This proxy will handle inbound and outbound service connections, automatically wrapping and verifying TLS connections.
 
@@ -12,7 +12,7 @@ The `"consul.hashicorp.com/connect-inject": "true"` annotation in the configurat
 
 You can deploy the `api` service using `kubectl`.
 
-`kubectl apply -f ~/api.yml`{{execute}}
+`kubectl apply -f ~/api.yaml`{{execute}}
 
 #### Check the service is running in Kubernetes
 

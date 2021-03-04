@@ -2,7 +2,7 @@
 
 This hands-on lab comes with a prepared configuration for the `web` service.
 
-`cat web.yml | more`{{execute}}
+`cat web.yaml | more`{{execute}}
 
 In addition to the `"consul.hashicorp.com/connect-inject": "true"` annotation, the
 `web` service defines the `"consul.hashicorp.com/connect-service-upstreams"` annotation. This annotation explicitly declares the upstream for the web service, which is the `api` service you deployed previously. Notice the annotation also contains a ":dc1" segment that indicates which datacenter handles requests for the service.
@@ -15,7 +15,7 @@ First, make sure you set the right context for `kubectl`.
 
 Once the context is set, you can deploy the `web` application using `kubectl`.
 
-`kubectl apply -f ~/web.yml`{{execute}}
+`kubectl apply -f ~/web.yaml`{{execute}}
 
 #### Check the service is running in Kubernetes
 

@@ -50,8 +50,8 @@
     },
     "assets": {
       "client": [
-        { "file": "dc1-values.yml", "target": "./" },
-        { "file": "dc2-values.yml", "target": "./" },
+        { "file": "dc1.yaml", "target": "./" },
+        { "file": "dc2.yaml", "target": "./" },
         {
           "file": "cluster-blueprint/README.md",
           "target": "./cluster-blueprint"
@@ -65,15 +65,15 @@
           "target": "./cluster-blueprint"
         },
         {
-          "file": "cluster-blueprint/k8s-dashboard.yml",
+          "file": "cluster-blueprint/k8s-dashboard.yaml",
           "target": "./cluster-blueprint"
         },
         {
           "file": "cluster-blueprint/network.hcl",
           "target": "./cluster-blueprint"
         },
-        { "file": "api.yml", "target": "./" },
-        { "file": "web.yml", "target": "./" }
+        { "file": "api.yaml", "target": "./" },
+        { "file": "web.yaml", "target": "./" }
       ]
     }
   },

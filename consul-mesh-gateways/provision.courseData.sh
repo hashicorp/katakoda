@@ -59,12 +59,12 @@ shipyard run ./cluster-blueprint/
 # log "Adding lab users"
 
 # useradd dc1 --create-home -G docker -s /bin/bash
-# cp /root/dc1-values.yml /home/dc1
-# chown dc1: /home/dc1/*.yml
+# cp /root/dc1.yaml /home/dc1
+# chown dc1: /home/dc1/*.yaml
 
 # useradd dc2 --create-home -G docker -s /bin/bash
-# cp /root/dc2-values.yml /home/dc2
-# chown dc2: /home/dc2/*.yml
+# cp /root/dc.yaml /home/dc2
+# chown dc2: /home/dc2/*.yaml
 
 # log "Starting first Kubernetes cluster...this might take up to 5 minutes."
 
@@ -82,7 +82,7 @@ shipyard run ./cluster-blueprint/
 
 # # helm repo add hashicorp https://helm.releases.hashicorp.com
 
-# # helm install -f ~/consul-values.yml hashicorp hashicorp/consul --version "0.30.0"
+# # helm install -f ~/config.yaml hashicorp hashicorp/consul --version "0.30.0"
 
 # # log "Waiting for Consul pod to complete configuration."
 # # until [ `kubectl get pods | grep consul-server | grep Running | wc -l` -gt 0 ]
@@ -98,11 +98,11 @@ shipyard run ./cluster-blueprint/
 
 # # log "Deploying api backend."
 
-# # kubectl apply -f ~/api.yml
+# # kubectl apply -f ~/api.yaml
 
 # # log "Deploying web backend"
 
-# # kubectl apply -f ~/web.yml
+# # kubectl apply -f ~/web.yaml
 
 # # log "Waiting for deployment to complete"
 

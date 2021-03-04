@@ -27,7 +27,7 @@ log "Installing Consul service mesh."
 
 helm repo add hashicorp https://helm.releases.hashicorp.com
 
-helm install -f ~/consul-values.yml hashicorp hashicorp/consul
+helm install -f ~/config.yaml consul hashicorp/consul
 
 log "Waiting for Consul pod to complete configuration."
 until [ `kubectl get pods | grep consul-server | grep Running | wc -l` -gt 0 ]
@@ -44,11 +44,11 @@ kubectl port-forward service/hashicorp-consul-ui 80:80 --address ${IP_ADDR} > /t
 
 log "Deploying api backend."
 
-kubectl apply -f ~/api.yml
+kubectl apply -f ~/api.yaml
 
 log "Deploying web backend"
 
-kubectl apply -f ~/web.yml
+kubectl apply -f ~/web.yaml
 
 log "Waiting for deployment to complete"
 

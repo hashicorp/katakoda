@@ -39,9 +39,9 @@
     },
     "assets": {
         "client": [
-          { "file": "consul-values.yml", "target": "~/" },
-          { "file": "api.yml", "target": "~/" },
-          { "file": "web.yml", "target": "~/" }
+          { "file": "config.yaml", "target": "~/" },
+          { "file": "api.yaml", "target": "~/" },
+          { "file": "web.yaml", "target": "~/" }
         ]
     }
     },

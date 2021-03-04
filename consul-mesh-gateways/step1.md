@@ -9,7 +9,7 @@ Add the HashiCorp repository to Helm:
 
 This hands-on lab comes with a prepared configuration.
 
-`cat dc1-values.yml | more`{{execute}}
+`cat dc1.yaml | more`{{execute}}
 
 Note the following settings:
 
@@ -24,9 +24,9 @@ Make sure your kubectl is configured to point to the right Kubernetes cluster:
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc1/kubeconfig.yaml`{{execute}}
 
-You will use `helm install` to deploy Consul using the configuration defined in `dc1-values.yml`. This should only take a few minutes.
+You will use `helm install` to deploy Consul using the configuration defined in `dc1.yaml`. This should only take a few minutes.
 
-`helm install -f ./dc1-values.yml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
+`helm install -f ./dc1.yaml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
 
 #### Verify the Consul deployment
 

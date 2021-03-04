@@ -2,7 +2,7 @@ Next you are going to deploy the frontend service.
 
 This hands-on lab comes with a prepared configuration.
 
-`web.yml`{{open}}
+`web.yaml`{{open}}
 
 In additon to the `"consul.hashicorp.com/connect-inject": "true"` annotation, the
 `web` service defines the `"consul.hashicorp.com/connect-service-upstreams"` annotation. This annotation  explicitly declares the upstream for the web service, which is the `api` service you deployed previously.
@@ -11,7 +11,7 @@ In additon to the `"consul.hashicorp.com/connect-inject": "true"` annotation, th
 
 You can deploy the `web` application using `kubectl`.
 
-`kubectl apply -f ~/web.yml`{{execute}}
+`kubectl apply -f ~/web.yaml`{{execute}}
 
 #### Check the service is running in Kubernetes
 

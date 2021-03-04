@@ -15,7 +15,7 @@ With the primary cluster up and running, and the federation secret imported into
 
 This hands-on lab comes with a prepared configuration.
 
-`cat dc2-values.yml | more`{{execute}}
+`cat dc2.yaml | more`{{execute}}
 
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info: </strong>
@@ -24,7 +24,7 @@ This hands-on lab comes with a prepared configuration.
 
 </p></div>
 
-You will use `helm install` to deploy Consul using the configuration defined in `dc2-values.yml`. This should only take a few minutes.
+You will use `helm install` to deploy Consul using the configuration defined in `dc2.yaml`. This should only take a few minutes.
 
-`helm install -f ./dc2-values.yml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
+`helm install -f ./dc2.yaml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
 

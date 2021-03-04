@@ -26,7 +26,7 @@ k8s_config "dashboard_dc1" {
     cluster = "k8s_cluster.dc1"
 
     paths = [
-        "./k8s-dashboard.yml"
+        "./k8s-dashboard.yaml"
     ]
   
     wait_until_ready = true
@@ -37,7 +37,7 @@ k8s_config "dashboard_dc2" {
     cluster = "k8s_cluster.dc2"
 
     paths = [
-        "./k8s-dashboard.yml"
+        "./k8s-dashboard.yaml"
     ]
   
     wait_until_ready = true
