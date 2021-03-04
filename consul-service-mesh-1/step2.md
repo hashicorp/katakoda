@@ -17,22 +17,22 @@ Example output:
 
 ```
 NAME                    CHART VERSION   APP VERSION     DESCRIPTION
-hashicorp/consul        0.22.0          1.8.0           Official HashiCorp Consul Chart
+hashicorp/consul        0.30.0          1.9.3           Official HashiCorp Consul Chart
 ```
 
 #### Configure Consul service mesh
 
 The Helm chart has no required configuration and will install a Consul datacenter with reasonable defaults out of the box. This is a good way to test the installation on a dev environment but real-life scenarios require customization to adapt the deployment to your needs.
 
-If you want to customize your installation, you can create a `.yaml` file to override the default settings and use it as a parameter for the intallation command. 
+If you want to customize your installation, you can create a `.yaml` file to override the default settings and use it as a parameter for the installation command. 
 
 This hands-on lab comes with a prepared configuration file.
 
-`consul-values.yml`{{open}}
+`config.yaml`{{open}}
 
 Note the following settings:
 
-* The `global` section is used to define settings applying to the entire Consul datacenter. In the example configuration the datacenter name is set to *minidc*. Feel free to change that value before the deploy if you want to change your datacenter name.
+* The `global` section is used to define settings applying to the entire Consul datacenter. In the example configuration the datacenter name is set to *dc1*. Feel free to change that value before the deploy if you want to change your datacenter name.
 * The `server` key contains parameters related to the server pods. The chart is configured to create one Consul server per Kubernetes node.
 * The Consul service mesh is enabled by setting the `connectInject` key to true. When the service mesh connect injector is installed, then a sidecar proxy is automatically added to all pods.
 * The `ui` section enables Consul web UI.
@@ -47,9 +47,9 @@ The example in this lab modifies only a few default settings.  You can learn wha
 
 #### Deploy Consul with Helm
 
-You will use `helm install` to deploy Consul using the configuration defined in `consul-values.yml`. This should only take a few minutes.
+You will use `helm install` to deploy Consul using the configuration defined in `config.yaml`. This should only take a few minutes.
 
-`helm install -f ~/consul-values.yml hashicorp hashicorp/consul`{{execute}}
+`helm install -f ~/config.yaml consul hashicorp/consul --version "0.30.0"`{{execute}}
 
 #### Verify the Consul deployment
 
@@ -61,7 +61,7 @@ Execute `kubectl get services` from the command line to verify the services, inc
 
 You should have the following four Consul services available:
 
-* hashicorp-consul-server
-* hashicorp-consul-connect-injector-svc
-* hashicorp-consul-dns
-* hashicorp-consul-ui
+* consul-server
+* consul-connect-injector-svc
+* consul-dns
+* consul-ui

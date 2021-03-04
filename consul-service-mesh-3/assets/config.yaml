@@ -1,6 +1,6 @@
 # Choose an optional name for the datacenter
 global:
-  datacenter: minidc
+  datacenter: dc1
   
 # Enable the Consul Web UI via a NodePort
 ui:
@@ -13,16 +13,10 @@ ui:
 # Enable Connect for secure communication between nodes
 connectInject:
   enabled: true
-  imageEnvoy: envoyproxy/envoy:v1.13.1
-  
-client:
+
+controller:
   enabled: true
-  grpc: true
   
 # Use only one Consul server for local development
 server:
   replicas: 1
-  bootstrapExpect: 1
-  disruptionBudget:
-    enabled: true
-    maxUnavailable: 0

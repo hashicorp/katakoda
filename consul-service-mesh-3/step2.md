@@ -8,4 +8,4 @@ Using Consul command line from the Consul container you can enable the default-d
 
 ### Verify intention is in place
 
-Open the [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui/minidc/intentions) to verify the intention is correctly configured. Navigate to the "Intentions" menu option in the top navigation, there should only be the one intention you created.  
+Open the [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/intentions) to verify the intention is correctly configured. Navigate to the "Intentions" menu option in the top navigation, there should only be the one intention you created.  

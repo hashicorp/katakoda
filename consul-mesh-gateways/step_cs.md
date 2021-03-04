@@ -6,7 +6,7 @@
 
 `export KUBECONFIG=${HOME}/.shipyard/config/dc1/kubeconfig.yaml`{{execute}}
 
-`helm install -f ./dc1-values.yml consul hashicorp/consul --timeout 10m`{{execute}}
+`helm install -f ./dc1-values.yml consul hashicorp/consul --version "0.30.0" --timeout 10m`{{execute}}
 
 `kubectl get pods --all-namespaces`{{execute}}
 

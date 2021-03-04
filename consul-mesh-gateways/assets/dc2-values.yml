@@ -1,7 +1,5 @@
 global:
   name: consul
-  image: consul:1.8.0-rc1
-  imageK8S: "hashicorp/consul-k8s:0.16.0"
   datacenter: dc2
   tls:
     enabled: true
@@ -33,6 +31,9 @@ global:
 connectInject:
   enabled: true
 
+controller:
+  enabled: true
+
 meshGateway:
   enabled: true
   replicas: 1
@@ -40,11 +41,9 @@ meshGateway:
     enabled: true
     type: 'NodePort'
     nodePort: 30002
-    imageEnvoy: envoyproxy/envoy-alpine:v1.13.1
 
 server:
   replicas: 1
-  bootstrapExpect: 1
   # Here we're including the server config exported from the primary
   # via the federation secret. This config includes the addresses of
   # the primary datacenter's mesh gateways so Consul can begin federation.

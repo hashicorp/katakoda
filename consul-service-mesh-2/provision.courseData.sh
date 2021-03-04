@@ -27,7 +27,7 @@ log "Installing Consul service mesh."
 
 helm repo add hashicorp https://helm.releases.hashicorp.com
 
-helm install -f ~/consul-values.yml hashicorp hashicorp/consul
+helm install -f ~/config.yaml consul hashicorp/consul --version "0.30.0"
 
 log "Waiting for Consul pod to complete configuration."
 until [ `kubectl get pods | grep consul-server | grep Running | wc -l` -gt 0 ]
@@ -37,7 +37,7 @@ done
 
 export IP_ADDR=$(hostname -I | awk '{print $1}')
 
-kubectl port-forward service/hashicorp-consul-ui 80:80 --address ${IP_ADDR} > /tmp/forward_consul_ui.log 2>&1 &
+kubectl port-forward service/consul-ui 80:80 --address ${IP_ADDR} > /tmp/forward_consul_ui.log 2>&1 &
 
 finish
 

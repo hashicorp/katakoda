@@ -82,7 +82,7 @@ shipyard run ./cluster-blueprint/
 
 # # helm repo add hashicorp https://helm.releases.hashicorp.com
 
-# # helm install -f ~/consul-values.yml hashicorp hashicorp/consul
+# # helm install -f ~/consul-values.yml hashicorp hashicorp/consul --version "0.30.0"
 
 # # log "Waiting for Consul pod to complete configuration."
 # # until [ `kubectl get pods | grep consul-server | grep Running | wc -l` -gt 0 ]

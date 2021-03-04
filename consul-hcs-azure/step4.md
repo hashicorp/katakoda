@@ -14,7 +14,7 @@ Review the `config.yaml`{{open}} file.
 
 Deploy Consul to AKS using the `config.yaml`.
 
-`helm install hcs hashicorp/consul -f config.yaml --wait`{{execute T1}}
+`helm install hcs hashicorp/consul -f config.yaml --version "0.30.0" --wait`{{execute T1}}
 
 Example output:
 

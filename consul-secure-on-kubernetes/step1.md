@@ -12,7 +12,7 @@ Review the `dc1.yaml`{{open}} file. The chart will start the consul clients
 and servers and provision a persistent disk. The install may take a minute
 or two to complete.
 
-`helm install -f ./dc1.yaml katacoda hashicorp/consul --version "0.23.1" --wait`{{execute T1}}
+`helm install -f ./dc1.yaml katacoda hashicorp/consul --version "0.30.0" --wait`{{execute T1}}
 
 You should receive output similar to the following:
 

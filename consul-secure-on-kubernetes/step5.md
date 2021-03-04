@@ -3,7 +3,7 @@ Next, set configuration options that are required now that TLS is enabled.
 ### TLS Configuration
 
 First, in **Terminal 3**, forward port 8501 from the Consul server running in
-Kubernetes so that you can interract with the Consul CLI from the development host.
+Kubernetes so that you can interact with the Consul CLI from the development host.
 
 Note that with TLS enabled, Consul uses port 8501 instead of 8500 by default.
 

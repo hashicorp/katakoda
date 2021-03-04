@@ -22,9 +22,9 @@ apt-get install -y unzip curl > /dev/null
 ## ================================
 log "Installing Consul ${APP_VERSION}"
 
-# Retrieves lates version from checkpoint
+# Retrieves latest version from checkpoint
 # Substitute this with APP_VERSION=x.y.z to configure a specific version.
-APP_VERSION=1.8.0
+APP_VERSION=1.9.3
 
 curl -s https://releases.hashicorp.com/consul/${APP_VERSION}/consul_${APP_VERSION}_linux_amd64.zip -o consul_${APP_VERSION}_linux_amd64.zip
 unzip consul_${APP_VERSION}_linux_amd64.zip > /dev/null

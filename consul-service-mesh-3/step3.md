@@ -14,4 +14,4 @@ Now, you will need to create a Consul intention to allow communication between t
 
 Refresh the [Dashboard](https://[[HOST_SUBDOMAIN]]-9090-[[KATACODA_HOST]].environments.katacoda.com/ui) tab to verify the connectivity is now permitted.
 
-The [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui/minidc/intentions) should now show two different intentions.
+The [Consul UI](https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/ui/dc1/intentions) should now show two different intentions.

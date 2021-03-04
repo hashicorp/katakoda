@@ -21,11 +21,13 @@ global:
 # the Kube cluster.
 server:
   replicas: 1
-  bootstrapExpect: 1 # Should <= replicas count
 
 # ConnectInject will enable the automatic Connect sidecar injector.
 connectInject:
   # True if you want to enable connect injection. Set to "-" to inherit from
   # global.enabled.
   # Requires consul-k8s >= 0.10.1.
+  enabled: true
+
+controller:
   enabled: true

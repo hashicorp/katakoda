@@ -1,15 +1,19 @@
 First, install Consul service mesh in a Kubernetes cluster.
 Click the box below to download the Helm repo:
 
-`git clone https://github.com/hashicorp/consul-k8s-prometheus-grafana-hashicups-demoapp.git`{{execute T1}}
+`git clone https://github.com/hashicorp/learn-consul-kubernetes.git`{{execute T1}}
+
+Checkout the tagged version of the repository known to work with this lab.
+
+`git checkout tags/v0.0.7`{{execute T1}}
 
 Now, change directories into the downloaded repository.
 
-`cd consul-k8s-prometheus-grafana-hashicups-demoapp`{{execute T1}}
+`learn-consul-kubernetes/layer7-observability`{{execute T1}}
 
-Review the `helm/consul-values.yaml`{{open}} file. Note the `proxyDefaults` entry. Consul uses that setting to configure where Envoy will publish Prometheus metrics.
+Review the `helm/consul-values.yaml`{{open}} file.
 
-`helm install -f helm/consul-values.yaml consul hashicorp/consul --version "0.23.1" --wait`{{execute T1}}
+`helm install -f helm/consul-values.yaml consul hashicorp/consul --version "0.30.0" --wait`{{execute T1}}
 
 You should receive output similar to the following:
 
@@ -31,4 +35,16 @@ NAME                                                 READY   STATUS    RESTARTS 
 consul-7d4h2                                         1/1     Running   0          82s
 consul-connect-injector-webhook-deployment           1/1     Running   0          94s
 consul-server-0                                      1/1     Running   0          93s
+```
+
+Note the `proxy-defaults.yaml` file. Consul uses a `proxy-defaults` config entry to
+configure where Envoy will publish Prometheus metrics. Apply this file to your cluster
+using `kubectl`.
+
+`kubectl apply -f helm/proxy-defaults.yaml`{{execute T1}}
+
+You should receive output similar to the following:
+
+```plaintext
+proxydefaults.consul.hashicorp.com created
 ```

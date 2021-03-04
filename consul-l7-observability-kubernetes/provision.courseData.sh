@@ -47,7 +47,9 @@ sudo cp linux-amd64/helm /usr/local/bin/
 ## ================================
 log "Downloading Helm repositories"
 
-helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add kube-state-metrics https://kubernetes.github.io/kube-state-metrics
+helm repo add grafana https://grafana.github.io/helm-charts
 helm repo add hashicorp https://helm.releases.hashicorp.com
 helm repo update
 
