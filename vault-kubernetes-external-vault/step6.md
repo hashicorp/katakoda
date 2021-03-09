@@ -42,7 +42,7 @@ on the `devwebapp` pod.
 
 ```shell
 kubectl exec \
-  $(kubectl get pod -l app=webapp -o jsonpath="{.items[0].metadata.name}") \
+  $(kubectl get pod -l app=devwebapp -o jsonpath="{.items[0].metadata.name}") \
   -c app -- curl http://localhost:8080
 ```{{execute}}
 
