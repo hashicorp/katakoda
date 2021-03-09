@@ -1,8 +1,8 @@
 # Install Terraform and init config
 
-# Installs Terraform 0.13
-curl -O https://releases.hashicorp.com/terraform/0.13.2/terraform_0.13.2_linux_amd64.zip
-unzip terraform_0.13.2_linux_amd64.zip -d /usr/local/bin/
++# Installs Terraform 0.14
++curl -O https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip
++unzip terraform_0.14.7_linux_amd64.zip -d /usr/local/bin/
 
 # Clone docker compose files
 git clone -b hashiconf-2020 https://github.com/hashicorp/terraform-provider-hashicups
