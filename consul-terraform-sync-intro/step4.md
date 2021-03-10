@@ -29,7 +29,6 @@ workspace for each task defined in the configuration.
 ```snapshot
 sync-tasks/
 └── learn-cts-example
-    ├── addresses.txt
     ├── main.tf
     ├── terraform.tfvars
     ├── terraform.tfvars.tmpl
