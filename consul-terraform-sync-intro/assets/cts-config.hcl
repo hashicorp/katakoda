@@ -38,7 +38,7 @@ service {
 task {
  name        = "learn-cts-example"
  description = "Example task with two services"
- source      = "findkim/print/c"
- version     = "0.0.0-alpha"
+ source      = "findkim/print/cts"
+ version     = "0.1.0"
  services    = ["web", "api"]
 }
