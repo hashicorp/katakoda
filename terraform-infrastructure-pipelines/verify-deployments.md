@@ -29,7 +29,7 @@ This will establish a connection to your Kubernetes workspace.
 <pre class="file" data-filename="main.tf" data-target="replace">
 terraform {
   backend "remote" {
-    organization = "hashicorp-learn"
+    organization = "<ORG_NAME>"
 
     workspaces {
       name = "learn-terraform-pipelines-k8s"
@@ -38,13 +38,15 @@ terraform {
 }
 </pre>
 
+Replace `<ORG_NAME>` with your Terraform Cloud organization name.
+
 Then, initialize your Terraform workspace.
 
 `terraform init`{{execute T1}} 
 
 Save your Kubernetes workspace's `kubeconfig` output value into a file named `kubeconfig`. This will allow you to connect to your cluster.
 
-`terraform output kubeconfig > kubeconfig`{{execute T1}} 
+`terraform output -raw kubeconfig > kubeconfig`{{execute T1}}
 
 Check the number of nodes in your Kubernetes deployment.
 
