@@ -39,7 +39,7 @@ log "Adding port forward for Consul UI"
 
 export IP_ADDR=$(hostname -I | awk '{print $1}')
 
-kubectl port-forward service/hashicorp-consul-ui 80:80 --address ${IP_ADDR} > /tmp/forward_consul_ui.log 2>&1 &
+kubectl port-forward service/consul-ui 80:80 --address ${IP_ADDR} > /tmp/forward_consul_ui.log 2>&1 &
 
 
 log "Deploying api backend."
