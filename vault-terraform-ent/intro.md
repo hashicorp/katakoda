@@ -14,5 +14,3 @@ This tutorial focuses on codifying the Vault server configuration using Terrafor
 
 
 This scenario runs Vault Enterprise version.
-
-> **Important Note:** Without a license, Vault Enterprise server will be sealed after ***30 minutes***. In other words, you have 30 free minutes to explorer the Enterprise features. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).

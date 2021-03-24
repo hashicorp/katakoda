@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "Learn HashiCorp Vault",
   "title": "[Enterprise] Vault Enterprise Playground",
-  "description": "HashiCorp Vault environment to explore the Vault Enterprise features for 30 minutes.",
+  "description": "HashiCorp Vault environment to explore the Vault Enterprise features for 6 hours.",
   "difficulty": "beginner",
   "time": "30 minutes",
   "icon": "fa-vault",

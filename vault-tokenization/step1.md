@@ -1,7 +1,7 @@
 <br />
 <div style="background-color:#fcf6ea; color:#866d42; border:1px solid #f8ebcf; padding:1em; border-radius:3px;">
 <p><strong>NOTE: </strong>
-**Important Note:** Without a valid license, Vault Enterprise server will be sealed after ***30 minutes***. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).
+**Important Note:** Without a valid license, Vault Enterprise server will be sealed after ***6 hours***. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).
 </p></div>
 
 <br />

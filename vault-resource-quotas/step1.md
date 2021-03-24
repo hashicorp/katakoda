@@ -1,6 +1,6 @@
 **Rate Limit Quotas** is available to all Vault versions, and **Lease Count Quotas** requires Vault Enterprise Platform.
 
-> **Important Note:** Without a valid license, Vault Enterprise server will be sealed after ***30 minutes***. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).
+> **Important Note:** Without a valid license, Vault Enterprise server will be sealed after ***6 hours***. To explore Vault Enterprise further, you can [sign up for a free 30-day trial](https://www.hashicorp.com/products/vault/trial).
 
 
 <br />
