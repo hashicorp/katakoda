@@ -30,7 +30,7 @@ install_from_apt() {
     sudo echo "deb [arch=amd64] https://apt.releases.hashicorp.com ${CLI_REPO} main" \
         > /etc/apt/sources.list.d/hashicorp.list
     sudo apt-get update
-    sudo apt-get install -y terraform=0.13.3 vault=1.6.2 consul=1.8.4 nomad=0.12.4 packer=1.6.2 waypoint=0.2.0 boundary=0.1.7
+    sudo apt-get install -y terraform=0.13.3 vault=1.7.0 consul=1.8.4 nomad=0.12.4 packer=1.6.2 waypoint=0.2.0 boundary=0.1.8
 }
 
 install_consul_service_binaries() {
