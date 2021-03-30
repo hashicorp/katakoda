@@ -4,7 +4,7 @@ into your path.
 
 First, download the binary from the HashiCorp's [release website](https://releases.hashicorp.com).
 
-`curl --silent https://releases.hashicorp.com/consul-terraform-sync/0.1.0-beta/consul-terraform-sync_0.1.0-beta_linux_amd64.zip -o consul-terraform-sync.zip`{{execute T1}}
+`curl --silent https://releases.hashicorp.com/consul-terraform-sync/0.1.0/consul-terraform-sync_0.1.0_linux_amd64.zip -o consul-terraform-sync.zip`{{execute T1}}
 
 Then, unzip the package.
 
