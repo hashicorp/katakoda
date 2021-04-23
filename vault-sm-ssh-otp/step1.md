@@ -1,7 +1,7 @@
 Start the Vault server.
 
 ```shell-session
-/usr/bin/vault server -dev -dev-root-token-id=root -dev-listen-address=0.0.0.0:8200 &
+vault server -dev -dev-root-token-id=root -dev-listen-address=0.0.0.0:8200 &
 ```{{execute HOST1}}
 
 Export an environment variable for the `vault` CLI to address the Vault server.
