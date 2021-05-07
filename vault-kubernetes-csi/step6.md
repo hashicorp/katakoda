@@ -1,40 +1,33 @@
-The Secrets Store CSI driver enables extension through providers. A provider
-is launched as a Kubernetes DaemonSet alongside of Secrets Store CSI driver
-DaemonSet.
+The Kubernetes-Secrets-Store-CSI-Driver Helm chart creates a definition for a
+*SecretProviderClass* resource. This resource describes the parameters that are
+given to the `provider-vault` executable. To configure it requires the IP
+address of the Vault server, the name of the Vault Kubernetes authentication
+role, and the secrets.
 
-Open the definition of the DaemonSet `daemon-set-provider-vault.yml`{{open}}.
-
-This DaemonSet launches its own provider pod and mounts the executable in the
-existing csi-secrets-store-csi-driver pod.
-
-Apply the DaemonSet to install the `provider-vault` executable for the
-Kubernetes-Secrets-Store-CSI-Driver.
+View the definition of the SecretProviderClass
+`secret-provider-class-vault-database.yml`.
 
 ```shell
-kubectl apply --filename daemon-set-provider-vault.yml
-```{{execute}}
+cat secret-provider-class-vault-database.yml
+```{{execute}}.
 
-This DaemonSet launches its own provider pod with the name prefixed with
-`csi-secrets-store-provider-vault` and mounts the executable in the existing
-csi-secrets-store-csi-driver pod.
+The `vault-database` SecretProviderClass describes one secret object:
 
-Get all the pods within the default namespace.
+- `objectName` is a symbolic name for that secret, and the file name to write to.
+- `secretPath` is the path to the secret defined in Vault.
+- `secretKey` is a key name within that secret.
 
-```shell
-kubectl get pods
-```{{execute}}
-
-Wait until `csi-secrets-store-provider-vault` pod is running and ready (`1/1`).
-
-Verify that the `provider-vault` executable is present on the `secrets-store`
-container in the `csi-secrets-store-csi-driver` pod.
+Create a SecretProviderClass named `vault-database`.
 
 ```shell
-kubectl exec \
-  $(kubectl get pod -l app=secrets-store-csi-driver -o jsonpath="{.items[0].metadata.name}") \
-  -c secrets-store -- \
-  stat /etc/kubernetes/secrets-store-csi-providers/vault/provider-vault
+kubectl apply --filename secret-provider-class-vault-database.yml
 ```{{execute}}
 
-The executable enables the vault provider when you define a
-*SecretProviderClass*.
+Verify that the SecretProviderClass, named `vault-database` has been defined
+in the default namespace.
+
+```shell
+kubectl describe SecretProviderClass vault-database
+```{{execute}}
+
+This resource is ready to be mounted as a volume on a pod.

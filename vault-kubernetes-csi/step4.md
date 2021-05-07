@@ -20,22 +20,21 @@ token, the location of the Kubernetes host, and its certificate.
 
 ```shell
 vault write auth/kubernetes/config \
-  token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
-  kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
-  kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
+    issuer="https://kubernetes.default.svc.cluster.local" \
+    token_reviewer_jwt="$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" \
+    kubernetes_host="https://$KUBERNETES_PORT_443_TCP_ADDR:443" \
+    kubernetes_ca_cert=@/var/run/secrets/kubernetes.io/serviceaccount/ca.crt
 ```{{execute}}
 
-For the Kubernetes-Secrets-Store-CSI-Driver to read the secrets requires that it
-has read permissions of all mounts and access to the secret itself.
+The data of
+[kv-v2](https://www.vaultproject.io/api-docs/secret/kv/kv-v2) requires that
+an additional path element of `data` is included after its mount path (in this
+case, `secret/`).
 
-Write out the policy named `internal-app-csi`.
+Write out the policy named `internal-app`.
 
 ```shell
-vault policy write internal-app-csi - <<EOF
-path "sys/mounts" {
-  capabilities = ["read"]
-}
-
+vault policy write internal-app - <<EOF
 path "secret/data/db-pass" {
   capabilities = ["read"]
 }
@@ -46,15 +45,16 @@ Create a Kubernetes authentication role named `database`.
 
 ```shell
 vault write auth/kubernetes/role/database \
-    bound_service_account_names=secrets-store-csi-driver \
+    bound_service_account_names=webapp-sa \
     bound_service_account_namespaces=default \
-    policies=internal-app-csi \
+    policies=internal-app \
     ttl=20m
 ```{{execute}}
 
-The role connects the Kubernetes service account, `secrets-store-csi-driver`,
-and namespace, `default`, with the Vault policy, `internal-app-csi`. The tokens
-returned after authentication are valid for 20 minutes.
+The role connects the Kubernetes service account, `webapp-sa`, in
+the namespace, `default`, with the Vault policy, `internal-app`. The tokens
+returned after authentication are valid for 20 minutes. This Kubernetes service
+account name, `webapp-sa`, will be created below.
 
 Exit the `vault-0` pod.
 

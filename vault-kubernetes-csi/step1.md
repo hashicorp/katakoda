@@ -12,7 +12,11 @@ Wait until the `minikube version` command returns a value.
 Start the Minikube cluster.
 
 ```shell
-minikube start --vm-driver none --bootstrapper kubeadm
+minikube start \
+    --vm-driver none \
+    --bootstrapper kubeadm \
+    --extra-config=apiserver.service-account-signing-key-file=/var/lib/minikube/certs/sa.key \
+    --extra-config=apiserver.service-account-issuer=https://kubernetes.default.svc.cluster.local
 ```{{execute}}
 
 Verify the status of the Minikube cluster.

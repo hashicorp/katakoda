@@ -29,16 +29,12 @@
         "text": "step5.md"
       },
       {
-        "title": "Install the provider-vault executable",
+        "title": "Define a SecretProviderClass resource",
         "text": "step6.md"
       },
       {
-        "title": "Define a SecretProviderClass resource",
-        "text": "step7.md"
-      },
-      {
         "title": "Create a pod with secret mounted",
-        "text": "step8.md"
+        "text": "step7.md"
       }
     ],
     "intro": {
@@ -47,7 +43,6 @@
     },
     "assets": {
       "host01": [
-        { "file": "daemon-set-provider-vault.yml", "target": "~/" },
         { "file": "pod-webapp.yml", "target": "~/" },
         { "file": "secret-provider-class-vault-database.yml", "target": "~/" }
       ]
@@ -58,7 +53,7 @@
     }
   },
   "environment": {
-    "uilayout": "editor-terminal",
+    "uilayout": "terminal",
     "hideHiddenFiles": true,
     "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n"
   },
