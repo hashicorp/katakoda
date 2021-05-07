@@ -1,31 +1,48 @@
-The Kubernetes-Secrets-Store-CSI-Driver Helm chart creates a definition for a
-*SecretProviderClass* resource. This resource describes the parameters that are
-given to the `provider-vault` executable. To configure it requires the IP
-address of the Vault server, the name of the Vault Kubernetes authentication
-role, and the secrets.
+With the secret stored in Vault, the authentication configured and role created,
+the `provider-vault` extension installed and the *SecretProviderClass* defined
+it is finally time to create a pod that mounts the desired secret.
 
-Open the definition of the SecretProviderClass
-`secret-provider-class-vault-database.yml`{{open}}.
-
-The `vault-database` SecretProviderClass describes one secret object:
-
-- `objectPath` is the path to the secret defined in Vault. Prefaced with a
-  forward-slash.
-- `objectName` a key name within that secret
-- `objectVersion` - the version of the secret. When none is specified the latest
-  is retrieved.
-
-Create a SecretProviderClass named `vault-database`.
+Create the `webapp-sa` service account.
 
 ```shell
-kubectl apply --filename secret-provider-class-vault-database.yml
+cat <<EOF | kubectl apply -f -
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: webapp-sa
+EOF
 ```{{execute}}
 
-Verify that the SecretProviderClass, named `vault-database` has been defined
-in the default namespace.
+View the definition of the pod in `pod-webapp.yml`.
 
 ```shell
-kubectl describe SecretProviderClass vault-database
+cat pod-webapp.yml
+```{{execute}}.
+
+The `webapp` pod defines and mounts a read-only volume to `/mnt/secrets-store`.
+The object defined in the `vault-database` *SecretProviderClass* is written as a
+file within that path.
+
+Apply a pod named `webapp`.
+
+```shell
+kubectl apply --filename pod-webapp.yml
 ```{{execute}}
 
-This resource is ready to be mounted as a volume on a pod.
+Get all the pods within the default namespace.
+
+```shell
+kubectl get pods
+```{{execute}}
+
+Wait until the `webapp` pod is running and ready (`1/1`).
+
+Display the password secret written to the file system at
+`/mnt/secrets-store/db-password` on the `webapp` pod.
+
+```shell
+kubectl exec webapp -- cat /mnt/secrets-store/db-password ; echo
+```{{execute}}
+
+The value displayed matches the `password` value for the secret
+`secret/db-pass`.

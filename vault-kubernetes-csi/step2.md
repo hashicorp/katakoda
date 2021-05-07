@@ -16,12 +16,14 @@ the injector service disabled.
 ```shell
 helm install vault hashicorp/vault \
     --set "server.dev.enabled=true" \
-    --set "injector.enabled=false"
+    --set "injector.enabled=false" \
+    --set "csi.enabled=true"
 ```{{execute}}
 
 The Vault server runs in development mode on a single pod
-`server.dev.enabled=true`. By default the Helm chart starts a Vault Agent
-Injector pod but that is disabled `injector.enabled=false`.
+`server.dev.enabled=true`. The Vault Agent Injector pod is disabled
+`injector.enabled=false` and the Vault CSI Provider pod `csi.enabled=true` is
+enabled.
 
 Display all the pods within the default namespace.
 
@@ -29,5 +31,5 @@ Display all the pods within the default namespace.
 kubectl get pods
 ```{{execute}}
 
-Wait until the `vault-0` pod is running and ready (`1/1`).
-
+Wait until the `vault-0` pod and `vault-csi-provider` is running and ready
+(`1/1`).
