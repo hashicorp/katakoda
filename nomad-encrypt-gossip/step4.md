@@ -1,9 +1,8 @@
-You can verify encryption by performing the same tcpdump
-command that you used in the beginning of this scenario
+# Verify encryption
 
-```
-tcpdump 'udp port 4648' -A
-```{{execute}}
+You can verify encryption by performing the same `tcpdump` command that you used
+in the beginning of this scenario
 
-Observe that the traffic. Note that cleartext no longer
-appears in the output.
+`tcpdump 'udp port 4648' -A`{{execute}}
+
+Observe the traffic and note that cleartext no longer appears in the output.

@@ -1,3 +1,4 @@
+# Update configuration
 Add the token to the top of the server stanza to each of your server
 configurations.
 
@@ -10,7 +11,7 @@ Add the TLS stanza to the top of the server stanza.
 <pre class="file" data-filename="server1.hcl" data-target="insert" data-marker="server {">
 server {
   # Encrypt gossip communication
-  encrypt = "cg8StVXbQJ0gPvMd9o7yrg=="
+  encrypt = "J30JTrPTqAKZfYLJcvQfu/iLM4VgTFSIGNmeaeulwjI="
 </pre>
 
 **server2**
@@ -22,7 +23,7 @@ Add the TLS stanza to the top of the server stanza.
 <pre class="file" data-filename="server2.hcl" data-target="insert" data-marker="server {">
 server {
   # Encrypt gossip communication
-  encrypt = "cg8StVXbQJ0gPvMd9o7yrg=="
+  encrypt = "J30JTrPTqAKZfYLJcvQfu/iLM4VgTFSIGNmeaeulwjI="
 </pre>
 
 **server3**
@@ -34,5 +35,5 @@ Add the TLS stanza to the top of the server stanza.
 <pre class="file" data-filename="server3.hcl" data-target="insert" data-marker="server {">
 server {
   # Encrypt gossip communication
-  encrypt = "cg8StVXbQJ0gPvMd9o7yrg=="
+  encrypt = "J30JTrPTqAKZfYLJcvQfu/iLM4VgTFSIGNmeaeulwjI="
 </pre>

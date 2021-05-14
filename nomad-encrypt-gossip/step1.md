@@ -1,4 +1,7 @@
-The Nomad CLI includes a operator keygen command for generating a new secure gossip encryption key.
+# Generate a key
+
+The Nomad command-line tool includes the `nomad operator keygen` command for
+generating a new secure gossip encryption key.
 
 ```shell
 nomad operator keygen
@@ -6,18 +9,14 @@ nomad operator keygen
 
 ```screenshot
 nomad operator keygen
-cg8StVXbQJ0gPvMd9o7yrg==
+J30JTrPTqAKZfYLJcvQfu/iLM4VgTFSIGNmeaeulwjI=
 ```
 
-Alternatively, you can use any method that can create 16 random bytes encoded in base64.
+You can use any method that can create 32 random bytes encoded in base64.
 
-```shell
-openssl rand -base64 16
-```{{execute}}
+`openssl rand -base64 32`{{execute}}
 
-```shell
-dd if=/dev/urandom bs=16 count=1 status=none | base64
-```{{execute}}
+`dd if=/dev/urandom bs=32 count=1 2>\dev\null | base64`{{execute}}
 
-This guide will use the token `cg8StVXbQJ0gPvMd9o7yrg==` for the remainder of
-the commands.
+This guide will use the token `J30JTrPTqAKZfYLJcvQfu/iLM4VgTFSIGNmeaeulwjI=` for
+the rest of the lab.

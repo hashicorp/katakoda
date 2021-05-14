@@ -1,8 +1,10 @@
-There are a few components that need to be added to the environment. We are
-adding them now. Please wait for the complete message and then move to the
+# Provisioning environment
+
+There are a few components that need to be added to the environment, which are
+being added now. Please wait for the complete message and then move to the
 next step.
 
-**Example Output**
+## Example output
 
 ```screenshot
 - Fixing Journal
@@ -11,7 +13,7 @@ next step.
 
 and concluding with
 
-```
+```screenshot
 - Complete! Move on to the next step.
 ```
 

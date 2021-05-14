@@ -67,7 +67,7 @@
     "exclusionPatterns": ["Desktop"]
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "ubuntu:2004"
   },
   "private": true
 }
