@@ -13,9 +13,14 @@
     },
     "steps": [
       {
+        "title": "Provisioning Extra Course Components",
+        "text": "provision.md",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
         "title": "Getting started",
         "text": "1_start.md",
-        "courseData": "courseBase.sh",
         "code": "terminal.sh"
       },
       {
@@ -32,17 +37,25 @@
       }
     ],
     "assets": {
+      "host01": [
+        {
+          "file": "nomad.hcl",
+          "target": "/etc/nomad.d/"
+        },
+        {
+          "file": "*.service",
+          "target": "/lib/systemd/system"
+        },
+        {
+          "file": "*.sh",
+          "target": "/usr/local/bin",
+          "chmod": "+x"
+        }
+      ],
       "client": [
         {
           "file": "launch.sh",
           "target": "/home/scrapbook",
-          "chmod": "+x"
-        }
-      ],
-      "host01": [
-        {
-          "file": "install.sh",
-          "target": "/root",
           "chmod": "+x"
         }
       ]
