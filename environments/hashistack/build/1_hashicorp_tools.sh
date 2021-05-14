@@ -58,7 +58,7 @@ install_from_apt
 
 install_from_zip "consul-template" "https://releases.hashicorp.com/consul-template/0.25.2/consul-template_0.25.2_linux_amd64.zip"
 install_from_zip "envconsul" "https://releases.hashicorp.com/envconsul/0.9.3/envconsul_0.9.3_linux_amd64.zip"
-install_from_zip "sentinel" "https://releases.hashicorp.com/sentinel/0.15.5/sentinel_0.15.5_linux_amd64.zip"
+install_from_zip "sentinel" "https://releases.hashicorp.com/sentinel/0.18.1/sentinel_0.18.1_linux_amd64.zip"
 
 install_consul_service_binaries
 create_user_account_for "consul"
