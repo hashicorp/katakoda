@@ -13,7 +13,7 @@ Authenticate with Boundary.
 ```
 boundary authenticate password -auth-method-id=ampw_1234567890 \
       -login-name=admin -password=password \
-      -keyring-type=none -format=json | jq -r ".token" > boundary_token.txt
+      -keyring-type=none -format=json | jq -r ".item.attributes.token" > boundary_token.txt
 ```{{execute T2}}
 
 The output suggests that token must be provided via `BOUNDARY_TOKEN` env var or `-token` flag.
