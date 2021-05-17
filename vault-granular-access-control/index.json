@@ -1,0 +1,92 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Granular Access Control with Vault Policies",
+  "description": "Teaches you how to create policies that are secure, flexible, and reusable for your team.",
+  "difficulty": "beginner",
+  "time": "20 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Your new Vault server",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "The app client",
+        "text": "step-app-intro.md"
+      },
+      {
+        "title": "App requirement #1",
+        "text": "step-app-1.md"
+      },
+      {
+        "title": "App answer #1",
+        "text": "step-app-1-answer.md"
+      },
+      {
+        "title": "App requirement #2",
+        "text": "step-app-2.md"
+      },
+      {
+        "title": "App answer #2",
+        "text": "step-app-2-answer.md"
+      },
+      {
+        "title": "App requirement #3",
+        "text": "step-app-3.md"
+      },
+      {
+        "title": "App answer #3",
+        "text": "step-app-3-answer.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "admin-policy.hcl",
+          "target": "~/"
+        },
+        {
+          "file": "readonly.sql",
+          "target": "~/"
+        },
+        {
+          "file": "apps-policy.hcl",
+          "target": "~/"
+        }
+      ]
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+      "hideHiddenFiles": true,
+      "dashboards": [
+        {
+          "name": "KV-V2 API",
+          "href": "https://www.vaultproject.io/api-docs/secret/kv/kv-v2"
+        },
+        {
+          "name": "Database API",
+          "href": "https://www.vaultproject.io/api-docs/secret/databases"
+        },
+        {
+          "name": "Transit API",
+          "href": "https://www.vaultproject.io/api-docs/secret/transit"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack"
+  }
+}
