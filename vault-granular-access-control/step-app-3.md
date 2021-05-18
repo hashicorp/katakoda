@@ -8,7 +8,7 @@
     [=======]  ()
 ```
 
-The web application needs access to the transit encryption key
+The web application needs access to the transit encryption key.
 
 Login with the `apps` user.
 
