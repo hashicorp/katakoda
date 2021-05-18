@@ -20,7 +20,7 @@ vault login -method=userpass \
 
 ## Perform action
 
-Attempt to encrypt content with transit key
+Attempt to encrypt content with transit key.
 
 ```shell
 vault write transit/encrypt/webapp-auth plaintext=$(base64 <<< "my secret data")
