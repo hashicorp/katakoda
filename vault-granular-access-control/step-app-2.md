@@ -8,7 +8,7 @@
     [=======]  ()
 ```
 
-The web application needs access to database
+The web application needs access to a database.
 
 Login with the `apps` user.
 
