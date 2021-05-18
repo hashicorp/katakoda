@@ -99,7 +99,7 @@ version](https://www.vaultproject.io/api-docs/secret/kv/kv-v2#read-secret-versio
 operation describes the capability and the path. The operation requires the
 `GET` HTTP verb which translates to the `read` capability. The templatized path
 `/secret/data/:path` becomes `/socials/data/twitter` when the path element
-provided by the secret.
+is provided by the secret.
 
 ## Enact the policy
 
