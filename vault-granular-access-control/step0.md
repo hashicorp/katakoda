@@ -16,7 +16,7 @@ Display the status of the target Vault server.
 vault status
 ```{{execute}}
 
-The response shows that the Vautl server is initialized and unsealed.
+The response shows that the Vault server is initialized and unsealed.
 
 The server writes its operation logs and audit log to the file system.
 
