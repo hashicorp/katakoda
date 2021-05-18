@@ -12,7 +12,7 @@
     },
     "steps": [
       {
-        "title": "Your new Vault server",
+        "title": "Your environment",
         "text": "step0.md",
         "courseData": "step0.setup.sh"
       },

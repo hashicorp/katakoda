@@ -1,10 +1,10 @@
 ## Enact the policy
 
-The app requires ...
+The app requires the `read` capability for the path `database/creds/readonly`.
 
 ```hcl
-path "" {
-  capabilities = [ "" ]
+path "database/creds/readonly" {
+  capabilities = [ "read" ]
 }
 ```
 
@@ -12,6 +12,9 @@ Append the policy definition to the local policy file.
 
 ```shell
 echo "
+path \"database/creds/readonly\" {
+  capabilities = [ \"read\" ]
+}
 " >> apps-policy.hcl
 ```{{execute}}
 
@@ -34,7 +37,7 @@ vault login -method=userpass \
 Get the secret.
 
 ```shell
-vault ...
+vault read database/creds/readonly
 ```{{execute}}
 
-The policy enables the `apps` user to get the secret.
+The policy enables the `apps` user to get the database credentials.

@@ -1,6 +1,12 @@
+The Postgres database is started in a Docker container.
 
+```shell
+docker ps --filter name=postgres
+```{{execute}}
 
-This server is running locally in development mode.
+Wait until this command displays a running `postgres` container.
+
+The Vault server is running locally in development mode.
 
 Export an environment variable for the `vault` CLI to address the target Vault
 server.
@@ -15,6 +21,8 @@ Display the status of the target Vault server.
 ```shell
 vault status
 ```{{execute}}
+
+Wait until this command displays a running Vault server.
 
 The response shows that the Vault server is initialized and unsealed.
 

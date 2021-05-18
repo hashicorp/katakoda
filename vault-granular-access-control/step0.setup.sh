@@ -10,12 +10,16 @@ docker run \
       --publish 5432:5432 \
       postgres
 
-docker exec -it postgres psql -c "CREATE ROLE ro NOINHERIT;"
-docker exec -it postgres psql -c "GRANT SELECT ON ALL TABLES IN SCHEMA public TO "ro";"
+sleep 5
+
+docker exec -i postgres psql <<EOF
+CREATE ROLE ro NOINHERIT;
+GRANT SELECT ON ALL TABLES IN SCHEMA public TO "ro";
+EOF
 
 # Start the Vault server in the background
 mkdir -p ~/log
-nohup sh -c "vault server -dev -dev-root-token-id="root" -dev-listen-address=0.0.0.0:8200 -log-level=debug >~/log/vault.log 2>&1" > ~/log/nohup.log &
+nohup sh -c "vault server -dev -dev-root-token-id="root" -dev-listen-address=0.0.0.0:8200 -log-level=trace >~/log/vault.log 2>&1" > ~/log/nohup.log &
 
 sleep 5
 
@@ -46,8 +50,8 @@ vault write auth/userpass/users/apps \
 
 # Create KV-V2 secrets engine
 
-vault secrets enable -path=socials kv-v2
-vault kv put socials/twitter api_key=MQfS4XAJXYE3SxTna6Yzrw api_secret_key=uXZ4VHykCrYKP64wSQ72SRM10WZwirnXq5rmyiLnVk
+vault secrets enable -path=external-apis kv-v2
+vault kv put external-apis/socials/twitter api_key=MQfS4XAJXYE3SxTna6Yzrw api_secret_key=uXZ4VHykCrYKP64wSQ72SRM10WZwirnXq5rmyiLnVk
 
 # Create database secrets engine
 
@@ -69,4 +73,4 @@ vault write database/roles/readonly \
 # Create transit secrets engine
 
 vault secrets enable -path=transit transit
-vault write -f transit/keys/webapp-auth
+vault write -f transit/keys/app-auth

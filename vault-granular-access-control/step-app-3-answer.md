@@ -1,10 +1,10 @@
 ## Enact the policy
 
-The app requires ...
+The app requires the `update` capability for the path `transit/encrypt/app-auth`.
 
 ```hcl
-path "" {
-  capabilities = [ "" ]
+path "transit/encrypt/app-auth" {
+  capabilities = [ "update" ]
 }
 ```
 
@@ -12,6 +12,9 @@ Append the policy definition to the local policy file.
 
 ```shell
 echo "
+path \"transit/encrypt/webapp-auth\" {
+  capabilities = [ \"update\" ]
+}
 " >> apps-policy.hcl
 ```{{execute}}
 
@@ -37,4 +40,4 @@ Get the secret.
 vault ...
 ```{{execute}}
 
-The policy enables the `apps` user to get the secret.
+The policy enables the `apps` user to encrypt with the transit key.
