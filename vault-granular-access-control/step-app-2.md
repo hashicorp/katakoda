@@ -20,7 +20,7 @@ vault login -method=userpass \
 
 ## Perform action
 
-Attempt to read credentials from the database role
+Attempt to read credentials from the database role.
 
 ```shell
 vault read database/creds/readonly
