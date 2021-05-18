@@ -37,7 +37,7 @@ vault login -method=userpass \
 Get the secret.
 
 ```shell
-vault ...
+vault write transit/encrypt/app-auth plaintext=$(base64 <<< "my secret data")
 ```{{execute}}
 
-The policy enables the `apps` user to encrypt with the transit key.
+Wait until the `apps` user is able to perform every operation successfully.

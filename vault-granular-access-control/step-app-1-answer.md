@@ -40,4 +40,5 @@ Get the secret.
 vault kv get external-apis/socials/twitter
 ```{{execute}}
 
-The policy enables the `apps` user to get the secret.
+
+Wait until the `apps` user is able to perform every operation successfully.

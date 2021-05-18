@@ -40,4 +40,4 @@ Get the secret.
 vault read database/creds/readonly
 ```{{execute}}
 
-The policy enables the `apps` user to get the database credentials.
+Wait until the `apps` user is able to perform every operation successfully.

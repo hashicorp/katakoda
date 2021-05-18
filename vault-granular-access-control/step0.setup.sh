@@ -27,26 +27,13 @@ ufw allow 8200/tcp
 
 export VAULT_ADDR=http://0.0.0.0:8200
 
-# Login as root and create a userauth endpoint for the admin and apps of the
-# scenario.
-
 vault login root
 
 vault audit enable file file_path=/root/log/vault_audit.log -log_raw=true
 
-vault policy write admin-policy admin-policy.hcl
+# Used by personas in scenario
 
 vault auth enable userpass
-
-vault write auth/userpass/users/admin \
-  password=admin-password \
-  policies=admin-policy
-
-vault policy write apps-policy apps-policy.hcl
-
-vault write auth/userpass/users/apps \
-  password=apps-password \
-  policies=apps-policy
 
 # Create KV-V2 secrets engine
 

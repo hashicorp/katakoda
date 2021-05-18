@@ -8,8 +8,8 @@
     [=======]  ()
 ```
 
-The appliation, or app, is a non-human client that requires secrets like API
-keys, database credentials, or encryption-as-a-service. Web applications
+The application, or app, is a non-human client that requires secrets like API
+keys, database credentials, or encryption-as-a-service. Web Applications
 typically authenticate through an *approle*. To make exploration easier
 *userpass* is enabled and a user names `apps` was created.
 

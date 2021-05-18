@@ -18,7 +18,8 @@
       },
       {
         "title": "The app client",
-        "text": "step-app-intro.md"
+        "text": "step-app-intro.md",
+        "courseData": "step-app-intro.sh"
       },
       {
         "title": "App requirement #1",
@@ -43,6 +44,19 @@
       {
         "title": "App answer #3",
         "text": "step-app-3-answer.md"
+      },
+      {
+        "title": "The admin client",
+        "text": "step-admin-intro.md",
+        "courseData": "step-admin-intro.sh"
+      },
+      {
+        "title": "Admin requirement #1",
+        "text": "step-admin-1.md"
+      },
+      {
+        "title": "Admin answer #1",
+        "text": "step-admin-1-answer.md"
       }
     ],
     "finish": {
@@ -52,7 +66,7 @@
     "assets": {
       "host01": [
         {
-          "file": "admin-policy.hcl",
+          "file": "admins-policy.hcl",
           "target": "~/"
         },
         {
