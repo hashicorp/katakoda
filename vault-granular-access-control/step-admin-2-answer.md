@@ -4,6 +4,14 @@ The admin requires the `create`, `read`, `update`, `delete`, `list`, `sudo`
 capability for the path `sys/leases/+/database/creds/readonly`.
 
 ```hcl
+path "database/creds/readonly" {
+  capabilities = [ "read" ]
+}
+
+path "sys/leases/+/database/creds/readonly/+" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
 path "sys/leases/+/database/creds/readonly" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
@@ -12,6 +20,14 @@ path "sys/leases/+/database/creds/readonly" {
 Open the `admins-policy.hcl`{{open}} and append the following policies.
 
 <pre class="file" data-filename="admins-policy.hcl" data-target="append">
+path "database/creds/readonly" {
+  capabilities = [ "read" ]
+}
+
+path "sys/leases/+/database/creds/readonly/+" {
+  capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
+}
+
 path "sys/leases/+/database/creds/readonly" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]
 }
@@ -31,6 +47,12 @@ Login with the `admins` user.
 vault login -method=userpass \
   username=admins \
   password=admins-password
+```{{execute}}
+
+Get the database credentials from the database role.
+
+```shell
+vault read database/creds/readonly
 ```{{execute}}
 
 List the existing leases.

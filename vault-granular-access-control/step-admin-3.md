@@ -51,8 +51,6 @@ Set the minimum decryption version to **2**.
 vault write transit/keys/app-auth/config min_decryption_version=2
 ```{{execute}}
 
-TODO rewrap
-
 ## Discover the policy change required
 
 #### 1️⃣ with the CLI flags
@@ -63,8 +61,7 @@ The `vault` CLI communicates direclty with Vault. It can optionally output a
 #### 2️⃣ with the audit logs
 
 The audit log maintains a list of all requests handled by Vault. The last
-command executed is recorded as the last object `cat log/vault_audit.log | jq -s
-".[-1].request.path,.[-1].request.operation"`.
+command executed is recorded as the last object `cat log/vault_audit.log | jq -s ".[-1].request.path,.[-1].request.operation"`.
 
 ### 3️⃣ with the API docs
 

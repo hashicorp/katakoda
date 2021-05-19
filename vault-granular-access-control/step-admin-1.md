@@ -74,8 +74,7 @@ The `vault` CLI communicates direclty with Vault. It can optionally output a
 #### 2️⃣ with the audit logs
 
 The audit log maintains a list of all requests handled by Vault. The last
-command executed is recorded as the last object `cat log/vault_audit.log | jq -s
-".[-1].request.path,.[-1].request.operation"`.
+command executed is recorded as the last object `cat log/vault_audit.log | jq -s ".[-1].request.path,.[-1].request.operation"`.
 
 ### 3️⃣ with the API docs
 

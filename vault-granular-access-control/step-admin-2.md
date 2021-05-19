@@ -34,6 +34,12 @@ Login with the `root` user.
 vault login root
 ```{{execute}}
 
+Get the database credentials from the database role.
+
+```shell
+vault read database/creds/readonly
+```{{execute}}
+
 List the existing leases.
 
 ```shell
@@ -74,13 +80,15 @@ The `vault` CLI communicates direclty with Vault. It can optionally output a
 #### 2️⃣ with the audit logs
 
 The audit log maintains a list of all requests handled by Vault. The last
-command executed is recorded as the last object `cat log/vault_audit.log | jq -s
-".[-1].request.path,.[-1].request.operation"`.
+command executed is recorded as the last object `cat log/vault_audit.log | jq -s ".[-1].request.path,.[-1].request.operation"`.
 
 ### 3️⃣ with the API docs
 
 Select the Database API tab to view the [Database API
 documentation](https://www.vaultproject.io/api-docs/secret/databases).
+
+View the [Leases API
+documentation](https://www.vaultproject.io/api-docs/system/leases)
 
 ## Enact the policy
 
