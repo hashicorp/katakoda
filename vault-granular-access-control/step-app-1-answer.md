@@ -8,15 +8,13 @@ path "external-apis/data/socials/twitter" {
 }
 ```
 
-Append the policy definition to the local policy file.
+Open the `apps-policy.hcl`{{open}} and append the following policies.
 
-```shell
-echo "
-path \"external-apis/data/socials/twitter\" {
-  capabilities = [ \"read\" ]
+<pre class="file" data-filename="apps-policy.hcl" data-target="append">
+path "external-apis/data/socials/twitter" {
+  capabilities = [ "read" ]
 }
-" >> apps-policy.hcl
-```{{execute}}
+</pre>
 
 Update the policy named `apps-policy`.
 

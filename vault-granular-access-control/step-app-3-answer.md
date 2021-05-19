@@ -8,15 +8,13 @@ path "transit/encrypt/app-auth" {
 }
 ```
 
-Append the policy definition to the local policy file.
+Open the `apps-policy.hcl`{{open}} and append the following policies.
 
-```shell
-echo "
-path \"transit/encrypt/webapp-auth\" {
-  capabilities = [ \"update\" ]
+<pre class="file" data-filename="apps-policy.hcl" data-target="append">
+path "transit/encrypt/app-auth" {
+  capabilities = [ "update" ]
 }
-" >> apps-policy.hcl
-```{{execute}}
+</pre>
 
 Update the policy named `apps-policy`.
 

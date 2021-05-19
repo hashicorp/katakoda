@@ -8,15 +8,13 @@ path "database/creds/readonly" {
 }
 ```
 
-Append the policy definition to the local policy file.
+Open the `apps-policy.hcl`{{open}} and append the following policies.
 
-```shell
-echo "
-path \"database/creds/readonly\" {
-  capabilities = [ \"read\" ]
+<pre class="file" data-filename="apps-policy.hcl" data-target="append">
+path "database/creds/readonly" {
+  capabilities = [ "read" ]
 }
-" >> apps-policy.hcl
-```{{execute}}
+</pre>
 
 Update the policy named `apps-policy`.
 

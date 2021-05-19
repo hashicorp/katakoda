@@ -16,8 +16,6 @@ path "external-apis/undelete/socials/+" {
 }
 ```
 
-Append the policy definition to the local policy file.
-
 Open the `admins-policy.hcl`{{open}} and append the following policies.
 
 <pre class="file" data-filename="admins-policy.hcl" data-target="append">
