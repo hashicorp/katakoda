@@ -79,4 +79,4 @@ What policy is required to meet this requirement?
 
 1. Define the policy in the local file.
 2. Update the policy named `apps-policy`.
-3. Test the policy with  the `apps` user.
+3. Test the policy with the `apps` user.

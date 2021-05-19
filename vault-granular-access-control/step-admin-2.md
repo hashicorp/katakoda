@@ -96,4 +96,4 @@ What policy is required to meet this requirement?
 
 1. Define the policy in the local file.
 2. Update the policy named `admins-policy`.
-3. Test the policy with  the `admins` user.
+3. Test the policy with the `admins` user.

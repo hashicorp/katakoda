@@ -46,6 +46,14 @@
         "text": "step-app-3-answer.md"
       },
       {
+        "title": "App requirement #4",
+        "text": "step-app-4.md"
+      },
+      {
+        "title": "App answer #4",
+        "text": "step-app-4-answer.md"
+      },
+      {
         "title": "The admin client",
         "text": "step-admin-intro.md",
         "courseData": "step-admin-intro.sh"
