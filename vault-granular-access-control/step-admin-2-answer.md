@@ -1,7 +1,10 @@
 ## Enact the policy
 
-The admin requires the `create`, `read`, `update`, `delete`, `list`, `sudo`
-capability for the path `sys/leases/+/database/creds/readonly`.
+The admin requires the ability to `read` credentials from the
+`database/creds/readonly` path. To manage the lease of credentials requires
+`sys/leases/+/database/creds/readonly/+` path with several capabilities. Lastly,
+to revoke all the leases requires `sys/leases/+/database/creds/readonly` path
+with several capabilities.
 
 ```hcl
 path "database/creds/readonly" {
