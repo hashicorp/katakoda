@@ -18,21 +18,19 @@ path "external-apis/undelete/socials/+" {
 
 Append the policy definition to the local policy file.
 
-```shell
-echo "
-path \"external-apis/data/socials/twitter\" {
-  capabilities = [ \"create\", \"read\", \"update\", \"delete\" ]
-}
+Open the `admins-policy.hcl`{{open}} and append the following policies.
 
-path \"external-apis/data/socials/+\" {
-  capabilities = [ \"create\", \"read\", \"update\", \"delete\" ]
+<pre class="file" data-filename="admins-policy.hcl" data-target="append">
+path "external-apis/data/socials/twitter" {
+  capabilities = [ "create", "read", "update", "delete" ]
 }
-
-path \"external-apis/undelete/socials/+\" {
-  capabilities = [ \"update\" ]
+path "external-apis/data/socials/+" {
+  capabilities = [ "create", "read", "update", "delete" ]
 }
-" >> admins-policy.hcl
-```{{execute}}
+path "external-apis/undelete/socials/+" {
+  capabilities = [ "update" ]
+}
+</pre>
 
 Update the policy named `admins-policy`.
 
