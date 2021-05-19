@@ -8,7 +8,9 @@
     [=======]  ()
 ```
 
-The application requires access to Vault's transit encryption service. This encryption service is maintained in a transit secrets engine enabled at the path `transit` with a key named `app-auth`.
+The application requires access to Vault's transit encryption service. This
+encryption service is maintained in a transit secrets engine enabled at the path
+`transit` with a key named `app-auth`.
 
 Login with the `root` user.
 
@@ -21,7 +23,6 @@ Encrypt the plaintext with the transit key.
 ```shell
 vault write transit/encrypt/app-auth plaintext=$(base64 <<< "my secret data")
 ```{{execute}}
-
 
 ## As the application
 

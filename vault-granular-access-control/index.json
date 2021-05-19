@@ -57,6 +57,22 @@
       {
         "title": "Admin answer #1",
         "text": "step-admin-1-answer.md"
+      },
+      {
+        "title": "Admin requirement #2",
+        "text": "step-admin-2.md"
+      },
+      {
+        "title": "Admin answer #2",
+        "text": "step-admin-2-answer.md"
+      },
+      {
+        "title": "Admin requirement #3",
+        "text": "step-admin-3.md"
+      },
+      {
+        "title": "Admin answer #3",
+        "text": "step-admin-3-answer.md"
       }
     ],
     "finish": {
