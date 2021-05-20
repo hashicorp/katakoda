@@ -3,7 +3,7 @@
   "title": "Testing Policy with Sentinel Simulator",
   "description": "Teaches you how to test Sentinel policies with the Sentinel Simulator.",
   "difficulty": "beginner",
-  "time": "20 minutes",
+  "time": "15 minutes",
   "icon": "fa-vault",
   "details": {
     "intro": {
@@ -18,8 +18,7 @@
       },
       {
         "title": "Run tests",
-        "text": "step-1.md",
-        "courseData": ""
+        "text": "step-1.md"
       },
       {
         "title": "Troubleshoot tests",
@@ -33,22 +32,6 @@
     "finish": {
       "text": "finish.md",
       "credits": "Learn more at https://learn.hashicorp.com/vault"
-    },
-    "assets": {
-      "host01": [
-        {
-          "file": "admins-policy.hcl",
-          "target": "~/"
-        },
-        {
-          "file": "readonly.sql",
-          "target": "~/"
-        },
-        {
-          "file": "apps-policy.hcl",
-          "target": "~/"
-        }
-      ]
     }
   },
   "environment": {
@@ -59,16 +42,16 @@
       "exclusionPatterns": ["Desktop"],
       "dashboards": [
         {
-          "name": "KV-V2 API",
-          "href": "https://www.vaultproject.io/api-docs/secret/kv/kv-v2"
+          "name": "Sentinel Testing",
+          "href": "https://docs.hashicorp.com/sentinel/intro/getting-started/testing"
         },
         {
-          "name": "Database API",
-          "href": "https://www.vaultproject.io/api-docs/secret/databases"
+          "name": "Sentinel Vault",
+          "href": "https://www.vaultproject.io/docs/enterprise/sentinel"
         },
         {
-          "name": "Transit API",
-          "href": "https://www.vaultproject.io/api-docs/secret/transit"
+          "name": "Sentinel Policies",
+          "href": "https://learn.hashicorp.com/tutorials/vault/sentinel"
         }
       ]
   },
