@@ -1,4 +1,4 @@
-Confirm that the Sentinel simulator is available and at version 0.18.2.
+Confirm that the Sentinel simulator is available.
 
 ```shell
 which sentinel && sentinel version
@@ -10,4 +10,4 @@ The example CIDR check EGP from the presentation along with a set of tests is av
 tree workshop-one
 ```{{execute}}
 
-If everything is present, proceed to step 1.
+If everything is present, proceed to step 1 otherwise try the command again and proceed only when the files are present.
