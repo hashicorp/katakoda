@@ -106,7 +106,7 @@ install_apt_deps
 install_go
 
 install_zip "consul" "https://releases.hashicorp.com/consul/1.9.1/consul_1.9.5_linux_amd64.zip"
-install_zip "nomad" "https://releases.hashicorp.com/nomad/1.0.1/nomad_1.0.4_linux_amd64.zip"
+install_zip "nomad" "https://releases.hashicorp.com/nomad/1.1.0/nomad_1.1.0_linux_amd64.zip"
 
 mkdir -p /etc/nomad.d
 mkdir -p /opt/nomad/data

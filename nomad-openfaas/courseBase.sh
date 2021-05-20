@@ -10,32 +10,8 @@ echo "$all_commands"
 
 ssh root@host01 "$all_commands"
 
-curl -L http://assets.joinscrapbook.com/unzip -o ~/.bin/unzip
-chmod +x ~/.bin/unzip
 
-curl -L -o ~/consul.zip https://releases.hashicorp.com/consul/1.9.5/consul_1.9.5_linux_amd64.zip
-unzip -d  ~/.bin/ ~/consul.zip
-chmod +x ~/.bin/consul
 
-curl -L -o ~/nomad.zip https://releases.hashicorp.com/nomad/1.0.4/nomad_1.0.4_linux_amd64.zip
-unzip -d  ~/.bin/ ~/nomad.zip
-chmod +x  ~/.bin/nomad
-
-curl -L -o ~/terraform.zip https://releases.hashicorp.com/terraform/0.15.3/terraform_0.15.3_linux_amd64.zip
-unzip -d ~/.bin ~/terraform.zip
-chmod +x ~/.bin/terraform
-
-curl -L -o ~/.bin/faas-cli https://github.com/openfaas/faas-cli/releases/download/0.9.3/faas-cli
-chmod +x ~/.bin/faas-cli
-
-rm ~/nomad.zip ~/consul.zip ~/terraform.zip
-
-# Install additional packages
-apt-get install -y tree
-
-curl -L -o go1.16.1.linux-amd64.tar.gz https://dl.google.com/go/go1.16.1.linux-amd64.tar.gz
-tar -C /usr/local -xzf go1.16.1.linux-amd64.tar.gz
-rm go1.16.1.linux-amd64.tar.gz
 
 GOPATH=/home/scrapbook/go /usr/local/go/bin/go get -u github.com/golang/dep/cmd/dep
 mkdir -p /home/scrapbook/go/src/functions

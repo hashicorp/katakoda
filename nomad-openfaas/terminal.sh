@@ -9,12 +9,6 @@ export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 mkdir -p /home/scrapbook/go/src/functions
 cd /home/scrapbook/go/src/functions
 
-# Start Nomad
-sleep 1; ~/launch.sh;
-#clear
-
-#clear; sleep 1
-
 # Echo status
 : The local Docker Registry is [[HOST_SUBDOMAIN]]-5000-[[KATACODA_HOST]].environments.katacoda.com
 : The OpenFaaS Gateway is https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com
