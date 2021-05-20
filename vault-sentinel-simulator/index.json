@@ -56,6 +56,6 @@
       ]
   },
   "backend": {
-    "imageid": "hashicorp-hashistack"
+    "imageid": "hashicorp-hashistack-ent"
   }
 }
