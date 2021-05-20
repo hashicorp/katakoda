@@ -1,6 +1,6 @@
-The `request.operation` in the EGP requires that the path operation be one of "create", "update", or "delete".
+The `request.operation` in the EGP requires that the path to be `kv/orders`.
 
-The `success.json` test erroneously sets the request to "read".
+The `success.json` test erroneously sets the path to `secret/orders`.
 
 ```json
 {
@@ -10,13 +10,13 @@ The `success.json` test erroneously sets the request to "read".
         "remote_addr": "122.22.3.4"
       },
       "operation": "read",
-      "path": "secret/orders"
+      "path": "kv/orders"
     }
   }
 }
 ```
 
-To fix the test so that it passes, replace the "read" operation with either "create", "update", or "delete".
+To fix the test so that it passes, correct the path to `secret/orders`.
 
 ```json
 {
@@ -26,7 +26,7 @@ To fix the test so that it passes, replace the "read" operation with either "cre
         "remote_addr": "122.22.3.4"
       },
       "operation": "create",
-      "path": "secret/orders"
+      "path": "kv/orders"
     }
   }
 }
