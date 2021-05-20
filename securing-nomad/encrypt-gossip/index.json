@@ -3,6 +3,7 @@
   "description": "Learn how to encrypt Nomad's gossip protocol with a symmetric key.",
   "difficulty": "Beginner",
   "time": "15 minutes",
+  "icon": "fa-nomad",
   "details": {
     "steps": [
       {

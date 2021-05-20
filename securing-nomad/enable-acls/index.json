@@ -3,6 +3,7 @@
   "description": "Nomad provides an access control system which allows you to customize access to your cluster using tokens, policies, rules, and capabilities.",
   "difficulty": "Beginner",
   "time": "30 minutes",
+  "icon": "fa-nomad",
   "details": {
     "steps": [
       {
