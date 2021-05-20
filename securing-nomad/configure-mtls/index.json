@@ -1,4 +1,5 @@
 {
+  "private": true,
   "title": "Encrypt API/RPC Traffic with mTLS",
   "description": "Nomad can use mutual TLS(mTLS) to validate nodes are trusted and performing their expected roles.",
   "difficulty": "Beginner",
@@ -71,7 +72,6 @@
     "exclusionPatterns": ["Desktop"]
   },
   "backend": {
-    "imageid": "ubuntu:1804"
-  },
-  "private": true
+    "imageid": "ubuntu:2004"
+  }
 }
