@@ -10,13 +10,13 @@ The `success.json` test erroneously sets the path to `secret/orders`.
         "remote_addr": "122.22.3.4"
       },
       "operation": "read",
-      "path": "kv/orders"
+      "path": "secret/orders"
     }
   }
 }
 ```
 
-To fix the test so that it passes, correct the path to `secret/orders`.
+To fix the test so that it passes, correct the path to `kv/orders`.
 
 ```json
 {
