@@ -56,7 +56,7 @@
     },
     "backend": {
         "port": 8080,
-        "imageid": "docker"
+        "imageid": "ubuntu:1804"
     },
     "private": true
 }
