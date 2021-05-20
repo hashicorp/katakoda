@@ -18,7 +18,7 @@ install_apt_deps() {
   log "Installing OS dependencies"
   export DEBIAN_FRONTEND=noninteractive
   apt-get -y update >> /var/log/provision.log 2>&1
-  apt-get -y install sudo unzip python3 python3-pip >> /var/log/provision.log 2>&1 
+  apt-get -y install sudo unzip >> /var/log/provision.log 2>&1 
   unset DEBIAN_FRONTEND
 }
 
@@ -37,6 +37,7 @@ install_zip() {
 
 install_pyhcl() {
   log "Installing pyhcl"
+  apt-get -y install python3 python3-pip >> /var/log/provision.log 2>&1 
   pip install -qqq pyhcl
 }
 
@@ -84,9 +85,9 @@ maybe_provision_base() {
   then
     fix_journal
     install_apt_deps
-    install_pyhcl
-    install_zip "consul" "https://releases.hashicorp.com/consul/1.8.4/consul_1.8.4_linux_amd64.zip"
-    install_zip "nomad" "https://releases.hashicorp.com/nomad/0.12.5/nomad_0.12.5_linux_amd64.zip"
+#    install_pyhcl
+    install_zip "consul" "https://releases.hashicorp.com/consul/1.9.5/consul_1.9.5_linux_amd64.zip"
+    install_zip "nomad" "https://releases.hashicorp.com/nomad/1.1.0/nomad_1.1.0_linux_amd64.zip"
     touch /provision/provision_base_done
   fi
 }
