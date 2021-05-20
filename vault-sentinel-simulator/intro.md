@@ -1,7 +1,7 @@
-Developing policies that express capabilities with the least privilege
-enforcement requires developing an investigative practice. With resources like
-reading the API documentation and running a Vault server for local development.
+Developing Sentinel policies that express capabilities with the least privilege
+enforcement requires testing the policies. The Sentinel Simulator allows you to
+test EGPs and RGPs offline without a Vault server.
 
-In this scenario, you are given a preconfigured Vault server and a database.
-Clients will express new requirements. To satisy each requirement, requires you
-to make a change to their policies.
+In this scenario, you are given an environment consisting of the Sentinel
+Simulator and an example EGP with tests. The tests contain a flaw and it is
+your job to identify and correct the flaw so that all tests pass.
