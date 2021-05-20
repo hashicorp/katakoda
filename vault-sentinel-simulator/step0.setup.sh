@@ -60,7 +60,7 @@ cat > workshop-one/test/cidr-check/success.json << EOF
       "connection": {
         "remote_addr": "122.22.3.4"
       },
-      "operation": "read",
+      "operation": "create",
       "path": "secret/orders"
     }
   }
@@ -75,7 +75,7 @@ cat > workshop-one/test/cidr-check/fail.json << EOF
         "remote_addr": "122.22.3.10"
       },
       "operation": "create",
-      "path": "kvt/orders"
+      "path": "kv/orders"
     }
   },
   "test": {
