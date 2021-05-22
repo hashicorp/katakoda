@@ -1,9 +1,16 @@
 First, setup the environment by executing the `setup.sh` script.
 
 ```
+chmod +x setup.sh
 ./setup.sh
 ```{{execute}}
 
+
+Change the working directory to `sentinel`.
+
+```
+cd sentinel
+```{{execute}}
 
 The`cidr-check.sentinel`{{open}} file and its test cases are provided.
 

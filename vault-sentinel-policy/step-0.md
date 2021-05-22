@@ -7,20 +7,22 @@ which sentinel && sentinel version
 The example CIDR check EGP from the presentation along with a set of tests is available in the `workshop-one` directory.
 
 ```shell
-tree workshop-one
+tree
 ```{{execute}}
 
-The output should list 2 directories and 3 files. 
+The output should include the `sentinel` directory:
 
 ```
-workshop-one
-├── cidr-check.sentinel
-└── test
-    └── cidr-check
-        ├── fail.json
-        └── success.json
+.
+├── sentinel
+│   ├── cidr-check.sentinel
+│   └── test
+│       └── cidr-check
+│           ├── fail.json
+│           └── success.json
+├── setup.sh
 
-2 directories, 3 files
+3 directories, 4 files
 ```
 
-If everything is present, proceed to step 1 otherwise try the command again and proceed only when there are 2 directories and 3 files present.
+If everything is present, proceed to the next step; otherwise, try the command again and proceed only files are loaded.
