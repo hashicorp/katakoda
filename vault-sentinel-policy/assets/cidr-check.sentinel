@@ -1,0 +1,18 @@
+import "sockaddr"
+import "strings"
+
+# Only evaluated for create, update, and delete operations against kv/ path
+precond = rule {
+    request.operation in ["create", "update", "delete"] and
+    strings.has_prefix(request.path, "kv/")
+}
+
+# Requests must originate from our private IP range
+cidrcheck = rule {
+    sockaddr.is_contained(request.connection.remote_addr, "122.22.3.4/32")
+}
+
+# Check the precondition before executing the cidrcheck
+main = rule when precond {
+    cidrcheck
+}
