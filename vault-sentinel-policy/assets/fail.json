@@ -1,0 +1,15 @@
+{
+  "global": {
+    "request": {
+      "connection": {
+        "remote_addr": "122.22.3.10"
+      },
+      "operation": "create",
+      "path": "kv/orders"
+    }
+  },
+  "test": {
+    "precond": true,
+    "main": false
+  }
+}
