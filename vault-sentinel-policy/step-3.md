@@ -34,7 +34,6 @@ vault token create -policy="base" \
     -format=json | jq -r ".auth.client_token" > token.txt
 ```{{execute}}
 
-Copy the generated token value.
 
 Try and see what happens if you attempt to write some data at `secret/accounting/test` path using the generated token.
 
