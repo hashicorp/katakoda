@@ -5,7 +5,7 @@
         "remote_addr": "122.22.3.4"
       },
       "operation": "create",
-      "path": "secret/orders"
+      "path": "kv/orders"
     }
   }
 }

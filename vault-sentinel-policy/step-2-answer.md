@@ -18,7 +18,7 @@ The `success.json` test erroneously sets the path to `secret/orders`.
 
 To fix the test so that it passes, correct the path to `kv/orders`.
 
-<pre class="file" data-filename="workshop-one/test/cidr-check/success.json" data-target="append">
+<pre class="file" data-filename="test/cidr-check/success.json" data-target="override">
 {
   "global": {
     "request": {

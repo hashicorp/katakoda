@@ -5,7 +5,7 @@ addressed that are not within the range of the specified CIDR.
 ```
 vault write sys/policies/egp/cidr-check \
         policy=@cidr-check.sentinel \
-        paths="secret/data/accounting/*" \
+        paths="kv/*" \
         enforcement_level="soft-mandatory"
 ```{{execute}}
 
@@ -21,7 +21,7 @@ First, create a `base` policy.
 
 ```
 vault policy write base -<<EOF
-path "secret/*" {
+path "kv/*" {
    capabilities = ["create", "update", "list"]
 }
 EOF
@@ -41,17 +41,39 @@ Try and see what happens if you attempt to write some data at
 
 
 ```
-VAULT_TOKEN=$(cat token.txt) vault kv put secret/accounting/test ID="12345678"
+VAULT_TOKEN=$(cat token.txt) vault kv put kv/accounting/test ID="12345678"
 ```{{execute}}
 
 ```
-Error writing data to secret/data/accounting/test: Error making API request.
+Error writing data to kv/accounting/test: Error making API request.
 
-URL: PUT http://127.0.0.1:8200/v1/secret/data/accounting/test
+URL: PUT http://127.0.0.1:8200/v1/kv/accounting/test
 Code: 403. Errors:
 
-* 1 error occurred:
-	* permission denied
+* 2 errors occurred:
+        * egp standard policy "root/cidr-check" evaluation resulted in denial.
+
+The specific error was:
+<nil>
+
+A trace of the execution for policy "root/cidr-check" is available:
+
+Result: false
+
+Description: Check the precondition before executing the cidrcheck
+
+Rule "main" (byte offset 442) = false
+  false (offset 312): sockaddr.is_contained(request.connection.remote_addr, "122.22.3.4/32")
+
+Rule "cidrcheck" (byte offset 289) = false
+
+Rule "precond" (byte offset 113) = true
+  true (offset 134): request.operation in ["create", "update", "delete"]
+  true (offset 194): strings.has_prefix(request.path, "kv/")
+
+
+Note: specifying an override of the operation would have succeeded.
+        * permission denied
 ```
 
 This is because the `base` policy does **NOT** permit any operations against the

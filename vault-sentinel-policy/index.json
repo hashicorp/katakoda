@@ -31,9 +31,9 @@
     ],
     "assets": {
       "host01": [
-        { "file": "fail.json", "target": "/root/sentinel/test/cidr-check" },
-        { "file": "success.json", "target": "/root/sentinel/test/cidr-check" },
-        { "file": "cidr-check.sentinel", "target": "/root/sentinel" },
+        { "file": "fail.json", "target": "/root/test/cidr-check" },
+        { "file": "success.json", "target": "/root/test/cidr-check" },
+        { "file": "cidr-check.sentinel", "target": "/root" },
         { "file": "setup.sh", "target": "/root" }
       ]
     },
