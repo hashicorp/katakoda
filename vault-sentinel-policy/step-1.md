@@ -5,18 +5,18 @@ chmod +x setup.sh
 ./setup.sh
 ```{{execute}}
 
-
 Change the working directory to `sentinel`.
 
 ```
 cd sentinel
 ```{{execute}}
 
-The`cidr-check.sentinel`{{open}} file and its test cases are provided.
+The`sentinel/cidr-check.sentinel`{{open}} file and its test cases are provided.
 
 Run the tests.
 
 ```shell
+clear
 sentinel test
 ```{{execute}}
 
@@ -41,9 +41,9 @@ The failure case defined in `fail.json` is passing, but the success case is not.
 
 ## Troubleshoot the test
 
-Open `cidr-check.sentinel`{{open}} in the editor to examine the code.
+Open `sentinel/cidr-check.sentinel`{{open}} in the editor to examine the code.
 
-Also, open `test/cidr-check/success.json`{{open}} and compare with policy.
+Also, open `sentinel/test/cidr-check/success.json`{{open}} and compare with policy.
 
 
 Make necessary updates, and run the test again.

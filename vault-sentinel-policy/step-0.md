@@ -20,9 +20,9 @@ The output should include the `sentinel` directory:
 │       └── cidr-check
 │           ├── fail.json
 │           └── success.json
-├── setup.sh
+└── setup.sh
 
-3 directories, 4 files
+4 directories, 5 files
 ```
 
-If everything is present, proceed to the next step; otherwise, try the command again and proceed only files are loaded.
+If the directory exists, proceed to the next step; otherwise, try the command again and proceed only files are loaded.
