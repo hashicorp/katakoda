@@ -5,6 +5,12 @@ chmod +x setup.sh
 ./setup.sh
 ```{{execute}}
 
+Change the working directory to `sentinel`.
+
+```
+cd sentinel
+```{{execute}}
+
 The`sentinel/cidr-check.sentinel`{{open}} file and its test cases are provided.
 
 Run the tests.
