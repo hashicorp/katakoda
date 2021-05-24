@@ -10,12 +10,10 @@ The example CIDR check EGP from the presentation along with a set of tests is av
 tree
 ```{{execute}}
 
-The output should include the `sentinel` directory.
+The output should include the `sentinel` directory:
 
 ```
 .
-├── Desktop
-│   └── code.desktop
 ├── sentinel
 │   ├── cidr-check.sentinel
 │   └── test

@@ -36,9 +36,7 @@ vault token create -policy="base" \
 
 Copy the generated token value.
 
-Try and see what happens if you attempt to write some data at
-`secret/accounting/test` path using the token you created at _Step 3.3.6_.
-
+Try and see what happens if you attempt to write some data at `secret/accounting/test` path using the generated token.
 
 ```
 VAULT_TOKEN=$(cat token.txt) vault kv put kv/accounting/test ID="12345678"
@@ -76,6 +74,4 @@ Note: specifying an override of the operation would have succeeded.
         * permission denied
 ```
 
-This is because the `base` policy does **NOT** permit any operations against the
-`secret/data/accounting/*` path. In other words, the Vault's policy engine first
-evaluates the **ACL policies** attached to the token.
+Access to the `kv/*` path is protected by the `cidr-check` EGP regardless of the ACL policies.
