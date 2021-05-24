@@ -22,11 +22,11 @@
       },
       {
         "title": "Troubleshoot tests answer",
-        "text": "step-2-answer.md"
+        "text": "step-1-answer.md"
       },
       {
         "title": "Deploy a sentinel policy",
-        "text": "step-3.md"
+        "text": "step-2.md"
       }
     ],
     "assets": {

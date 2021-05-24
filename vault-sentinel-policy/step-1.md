@@ -1,6 +1,7 @@
 First, setup the environment by executing the `setup.sh` script.
 
 ```
+clear
 chmod +x setup.sh
 ./setup.sh
 ```{{execute}}
@@ -31,7 +32,8 @@ FAIL - cidr-check.sentinel
     trace:
 
       FALSE - cidr-check.sentinel:5:1 - Rule "precond"
-        FALSE - cidr-check.sentinel:6:5 - request.operation in ["create", "update", "delete"]
+        TRUE - cidr-check.sentinel:6:5 - request.operation in ["create", "update", "delete"]
+        FALSE - cidr-check.sentinel:7:5 - strings.has_prefix(request.path, "kv/")
 ```
 
 The failure case defined in `fail.json` is passing, but the success case is not.
