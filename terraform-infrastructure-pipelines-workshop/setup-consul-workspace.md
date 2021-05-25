@@ -47,6 +47,9 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
     GitHub repositories, but not all of your repositories, the Consul
     repository may not appear on this list. If so, follow the instructions under
     "Grant access to specific GitHub repositories" below.
+1. Set the "VCS branch" to be `hashiconf-workshop`.
+1. Select "Include submodules on clone" to include the GitHub submodule for Helm included in the repository.
+  ![Include submodules interface](./assets/include-submodules.png)
 1. Click "Update VCS settings" to connect this workspace to your forked GitHub
    repository.
 
@@ -79,9 +82,6 @@ follow these steps to grant Terraform Cloud access to the repository.<br/>
 
 The Consul repository uses a GitHub submodule for Helm. In addition to the steps
 above, configure Terraform Cloud to load this submodule.
-
-1. Select "Include submodules on clone", and then click "Update VCS settings". 
-  ![Include submodules interface](./assets/include-submodules.png)
 
 ### Share remote state
 

@@ -72,8 +72,9 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
     GitHub repositories, but not all of your repositories, the Kubernetes
     repository may not appear on this list. If so, follow the instructions under
     "Grant access to specific GitHub repositories" below.
-1. Click "Update VCS settings" to connect this workspace to your forked GitHub
-   repository.
+1. Set the "VCS branch" to be `hashiconf-workshop`.
+  ![VCS branch configured to "hashiconf-workshop"](./assets/vcs-branch.png).
+1. Click "Update VCS settings" to connect this workspace to your forked GitHub repository.
 
 <details style="padding-bottom: 1em;">
 <summary>Grant access to specific GitHub repositories</summary>
