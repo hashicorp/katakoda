@@ -102,6 +102,19 @@ follow these steps to grant Terraform Cloud access to the repository.<br/>
 </ol>
 </details>
 
+### Share remote state
+
+Share your Kubernetes workspace's state with your other two workspaces. This
+will allow them to access output values from your Kubernetes workspace.
+
+1. Within the workspace UI, click on "Settings" and then "General".
+1. Scroll down to "Remote state sharing".
+1. Select your Vault (eg, "john-d-vault") and Consul ("john-d-consul") workspaces.
+1. Click "Save settings" to share your Kubernetes workspace's state, including
+   output values, with the other two.
+
+![Terraform Cloud Remote state sharing setting](./assets/tfc-remote-state-k8s.png)
+
 ### Verify variables
 
 Next, click on "Variables" in the workspace UI. Both the Terraform Variables and
@@ -142,7 +155,7 @@ with the Google Cloud API.
 
 ## Deploy the Kubernetes cluster
 
-Use the `Queue Plan` interface in Terraform Cloud to queue a plan for your
+Use the `Queue plan manually` interface in Terraform Cloud to queue a plan for your
 workspace.
 
 ![Queue plan interface](./assets/queue-plan.png)

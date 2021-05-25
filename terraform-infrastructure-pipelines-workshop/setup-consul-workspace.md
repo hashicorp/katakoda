@@ -83,6 +83,19 @@ above, configure Terraform Cloud to load this submodule.
 1. Select "Include submodules on clone", and then click "Update VCS settings". 
   ![Include submodules interface](./assets/include-submodules.png)
 
+### Share remote state
+
+Share your Consul workspace's state with your Vault workspace. This will allow
+it to access output values from your Consul workspace.
+
+1. Within the workspace UI, click on "Settings" and then "General".
+1. Scroll down to "Remote state sharing".
+1. Select your Vault (eg, "john-d-vault") workspace.
+1. Click "Save settings" to share your Consul workspace's state, including
+   output values, with your Vault workspace.
+
+![Terraform Cloud Remote state sharing setting](./assets/tfc-remote-state-consul.png)
+
 ### Verify variables
 
 Next, click on "Variables". Your Terraform Variables will already be set for
