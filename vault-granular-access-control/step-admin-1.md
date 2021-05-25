@@ -64,7 +64,13 @@ Undelete a secret.
 vault kv undelete -versions=1 external-apis/socials/instagram
 ```{{execute}}
 
-## Discover the policy change required
+## Enact the policy
+
+What policy is required to meet this requirement?
+
+1. Define the policy in the local file.
+2. Update the policy named `admins-policy`.
+3. Test the policy with the `admins` user.
 
 #### 1️⃣ with the CLI flags
 
@@ -78,13 +84,6 @@ command executed is recorded as the last object `cat log/vault_audit.log | jq -s
 
 ### 3️⃣ with the API docs
 
-Select the KV-V2 API tab to view the [KV-V2 API
+Select the KV-V2 API tab to read the [KV-V2 API
 documentation](https://www.vaultproject.io/api-docs/secret/kv/kv-v2).
 
-## Enact the policy
-
-What policy is required to meet this requirement?
-
-1. Define the policy in the local file.
-2. Update the policy named `admins-policy`.
-3. Test the policy with the `admins` user.

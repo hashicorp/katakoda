@@ -70,7 +70,13 @@ Revoke all the leases with the prefix `database/creds/readonly`.
 vault lease revoke -prefix database/creds/readonly
 ```{{execute}}
 
-## Discover the policy change required
+## Enact the policy
+
+What policy is required to meet this requirement?
+
+1. Define the policy in the local file.
+2. Update the policy named `admins-policy`.
+3. Test the policy with the `admins` user.
 
 #### 1️⃣ with the CLI flags
 
@@ -84,16 +90,9 @@ command executed is recorded as the last object `cat log/vault_audit.log | jq -s
 
 ### 3️⃣ with the API docs
 
-Select the Database API tab to view the [Database API
+Select the Database API tab to read the [Database API
 documentation](https://www.vaultproject.io/api-docs/secret/databases).
 
-View the [Leases API
+Read the [Leases API
 documentation](https://www.vaultproject.io/api-docs/system/leases)
 
-## Enact the policy
-
-What policy is required to meet this requirement?
-
-1. Define the policy in the local file.
-2. Update the policy named `admins-policy`.
-3. Test the policy with the `admins` user.

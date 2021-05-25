@@ -51,7 +51,13 @@ Set the minimum decryption version to **2**.
 vault write transit/keys/app-auth/config min_decryption_version=2
 ```{{execute}}
 
-## Discover the policy change required
+## Enact the policy
+
+What policy is required to meet this requirement?
+
+1. Define the policy in the local file.
+2. Update the policy named `admins-policy`.
+3. Test the policy with the `admins` user.
 
 #### 1️⃣ with the CLI flags
 
@@ -65,13 +71,6 @@ command executed is recorded as the last object `cat log/vault_audit.log | jq -s
 
 ### 3️⃣ with the API docs
 
-Select the Transit API tab to view the [Transit API
+Select the Transit API tab to read the [Transit API
 documentation](https://www.vaultproject.io/api-docs/secret/transit).
 
-## Enact the policy
-
-What policy is required to meet this requirement?
-
-1. Define the policy in the local file.
-2. Update the policy named `admins-policy`.
-3. Test the policy with the `admins` user.
