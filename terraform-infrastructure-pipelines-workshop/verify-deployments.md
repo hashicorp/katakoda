@@ -72,21 +72,22 @@ Save your Kubernetes workspace's `kubeconfig` output value into a file named
 
 Check the number of nodes in your Kubernetes deployment.
 
-`kubectl --kubeconfig=kubeconfig get nodes`{{execute T1}} 
+`kubectl --kubeconfig=kubeconfig --token $(terraform output -raw access_token) get nodes`{{execute T1}}
 
 Since Vault and Consul are enabled, you will see 5 nodes.
 
 Check the Kubernetes cluster pods. You will see pods for both Consul and
 Vault.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn get pods`{{execute T1}} 
+`kubectl --kubeconfig=kubeconfig --token $(terraform output -raw access_token) -n hashicorp-learn get pods`{{execute T1}}
+
 
 ## Access Consul UI
 
 Forward port :8500 (Consul UI) on your Consul server to port :8500 in your
 Katacoda environment, allowing you to access it from within Katacoda.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn port-forward --address 0.0.0.0 consul-server-0 8500:8500`{{execute T1}} 
+`kubectl --kubeconfig=kubeconfig --token $(terraform output -raw access_token) -n hashicorp-learn port-forward --address 0.0.0.0 consul-server-0 8500:8500`{{execute T1}}
 
 Click on the "Consul UI" tab in your terminal pane or visit
 `https://[[HOST_SUBDOMAIN]]-8500-[[KATACODA_HOST]].environments.katacoda.com` in
@@ -105,7 +106,7 @@ In this new tab, forward port :8200 (Vault UI) on your Vault server to port
 :8200 in your Katacoda environment, allowing you to access it from withing
 Katacoda.
 
-`kubectl --kubeconfig=kubeconfig -n hashicorp-learn port-forward --address 0.0.0.0 hashicorp-learn-vault-0 8200:8200`{{execute T2}}
+`kubectl --kubeconfig=kubeconfig --token $(terraform output -raw access_token) -n hashicorp-learn port-forward --address 0.0.0.0 hashicorp-learn-vault-0 8200:8200`{{execute T2}}
 
 Click on the "Vault UI" tab in the Katacoda terminal pane or visit
 `https://[[HOST_SUBDOMAIN]]-8200-[[KATACODA_HOST]].environments.katacoda.com` in

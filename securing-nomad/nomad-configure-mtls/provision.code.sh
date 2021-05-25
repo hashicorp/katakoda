@@ -1,0 +1,1 @@
+../nomad-encrypt-gossip/provision.code.sh

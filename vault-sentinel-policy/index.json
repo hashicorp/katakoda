@@ -1,0 +1,70 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "[HashiConf EU] Sentinel Policy",
+  "description": "Teaches you how to test Sentinel policies with the Sentinel Simulator.",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Your environment",
+        "text": "step-0.md",
+        "code": "terminal.sh"
+      },
+      {
+        "title": "Run Sentinel Simulator",
+        "text": "step-1.md"
+      },
+      {
+        "title": "Troubleshoot tests answer",
+        "text": "step-1-answer.md"
+      },
+      {
+        "title": "Deploy a sentinel policy",
+        "text": "step-2.md"
+      }
+    ],
+    "assets": {
+      "host01": [
+        { "file": "fail.json", "target": "/root/sentinel/test/cidr-check" },
+        { "file": "success.json", "target": "/root/sentinel/test/cidr-check" },
+        { "file": "cidr-check.sentinel", "target": "/root/sentinel" },
+        { "file": "setup.sh", "target": "/root" }
+      ]
+    },
+    "finish": {
+      "text": "finish.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+      "hideHiddenFiles": true,
+      "exclusionPatterns": ["Desktop"],
+      "dashboards": [
+        {
+          "name": "Sentinel Testing",
+          "href": "https://docs.hashicorp.com/sentinel/intro/getting-started/testing"
+        },
+        {
+          "name": "Sentinel Vault",
+          "href": "https://www.vaultproject.io/docs/enterprise/sentinel"
+        },
+        {
+          "name": "Sentinel Policies",
+          "href": "https://learn.hashicorp.com/tutorials/vault/sentinel"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack-ent"
+  },
+  "private": true
+}

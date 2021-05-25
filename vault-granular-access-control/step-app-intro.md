@@ -32,7 +32,11 @@ The policy contains comments about future application requirements.
 As the Vault server only maintains the latest version of the policy. A local
 copy of the policy is maintained on this workstation.
 
+<<<<<<< HEAD
 Open the `apps-policy.hcl`{{open}} file.
+=======
+Open the `apps-policy.hcl`{{open}} file in the editor.
+>>>>>>> origin/master
 
 This file matches the contents defined on the Vault server.
 

@@ -1,1 +1,0 @@
-../../nomad-encrypt-gossip/assets/nomad.hcl

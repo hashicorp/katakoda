@@ -8,7 +8,7 @@ path "external-apis/data/socials/twitter" {
 }
 ```
 
-Open the `apps-policy.hcl`{{open}} and append the following policies.
+Open the `apps-policy.hcl`{{open}} if it is not already opened, and append the following policies.
 
 <pre class="file" data-filename="apps-policy.hcl" data-target="append">
 path "external-apis/data/socials/twitter" {

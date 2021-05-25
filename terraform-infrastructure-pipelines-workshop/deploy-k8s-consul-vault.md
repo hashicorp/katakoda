@@ -22,9 +22,9 @@ and then set the Terraform variable `enable_consul_and_vault` to `true`.
 1. Change the Value to "true".
 1. Click "Save variable".
 
-Use the "Queue plan" interface to queue another plan step. In the plan output
-UI, note that the "node_count" will scale from 3 to 5 nodes. Use the "Confirm &
-Apply" interface to apply the plan and scale your Kubernetes cluster.
+Use the "Queue plan manually" interface to queue another plan step. In the plan
+output UI, note that the "node_count" will scale from 3 to 5 nodes. Use the
+"Confirm & Apply" interface to apply the plan and scale your Kubernetes cluster.
 
 This process should take about 5 minutes to complete.
 

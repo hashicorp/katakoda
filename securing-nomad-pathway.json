@@ -1,22 +1,23 @@
 {
   "private": true,
+  "icon": "fa-nomad",
   "title": "Best Practices: Securing Nomad",
   "description": "Scenarios that explore transport encryption and access control necessary to transition to a production Nomad configuration",
   "courses": [
     {
-      "course_id": "encrypt-gossip",
+      "course_id": "nomad-encrypt-gossip",
       "title": "Encrypt Nomad Gossip Traffic",
       "description": "Encrypt Nomad's gossip protocol, which communicates membership and liveliness information between servers."
     },
     {
-      "course_id": "configure-mtls",
+      "course_id": "nomad-configure-mtls",
       "title": "Encrypt API/RPC Traffic with mTLS",
       "description": "Encrypt API and RPC traffic using mutual TLS (mTLS) to validate node roles and prevent traffic manipulation in your Nomad cluster."
     },
     {
-      "course_id": "enable-acls",
-      "title": "Configure a Nomad cluster for ACLs, bootstrap the ACL system, author your first policy, and grant a token based on it.",
-      "description": ""
+      "course_id": "nomad-enable-acls",
+      "title": "Bootstrap & Configure ACLs",
+      "description": "Configure a Nomad cluster for ACLs, bootstrap the ACL system, author your first policy, and grant a token based on it."
     }
   ]
 }

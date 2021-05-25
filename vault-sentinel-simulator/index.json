@@ -1,0 +1,62 @@
+{
+  "pathwayTitle": "Learn HashiCorp Vault",
+  "title": "Testing Policy with Sentinel Simulator",
+  "description": "Teaches you how to test Sentinel policies with the Sentinel Simulator.",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "icon": "fa-vault",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    },
+    "steps": [
+      {
+        "title": "Your environment",
+        "text": "step0.md",
+        "courseData": "step0.setup.sh"
+      },
+      {
+        "title": "Run tests",
+        "text": "step-1.md"
+      },
+      {
+        "title": "Troubleshoot tests",
+        "text": "step-2.md"
+      },
+      {
+        "title": "Troubleshoot tests answer",
+        "text": "step-2-answer.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md",
+      "credits": "Learn more at https://learn.hashicorp.com/vault"
+    }
+  },
+  "environment": {
+      "showdashboard": true,
+      "uilayout": "editor-terminal",
+      "uimessage1": "\u001b[32mYour Interactive Bash Terminal. A safe place to learn and execute commands.\u001b[m\r\n",
+      "hideHiddenFiles": true,
+      "exclusionPatterns": ["Desktop"],
+      "dashboards": [
+        {
+          "name": "Sentinel Testing",
+          "href": "https://docs.hashicorp.com/sentinel/intro/getting-started/testing"
+        },
+        {
+          "name": "Sentinel Vault",
+          "href": "https://www.vaultproject.io/docs/enterprise/sentinel"
+        },
+        {
+          "name": "Sentinel Policies",
+          "href": "https://learn.hashicorp.com/tutorials/vault/sentinel"
+        }
+      ]
+  },
+  "backend": {
+    "imageid": "hashicorp-hashistack-ent"
+  },
+  "private": true
+}

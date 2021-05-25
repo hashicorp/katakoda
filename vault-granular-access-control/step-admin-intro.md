@@ -31,6 +31,7 @@ exploration easier *userpass* is enabled and a user names `admin` was created.
 Show the `admin` user.
 
 ```shell
+clear
 vault read auth/userpass/users/admins
 ```{{execute}}
 
@@ -47,7 +48,7 @@ The policy contains comments about future application requirements.
 As the Vault server only maintains the latest version of the policy. A local
 copy of the policy is maintained on this workstation.
 
-Open the `admins-policy.hcl`{{open}} file.
+Open the `admins-policy.hcl`{{open}} policy file in the editor.
 
 This file matches the contents defined on the Vault server.
 

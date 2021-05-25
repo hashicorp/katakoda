@@ -1,0 +1,15 @@
+{
+    "default": true,
+    "header-style": { "style": "atx" },
+    "ul-style": { "style": "dash" },
+    "ul-indent": { "indent": 2 },
+    "line-length": { "line_length": 80, "code_blocks": false, "stern": true},
+    "commands-show-output": false,
+    "ol-prefix": { "style": "one" },
+    "no-inline-html": true,
+    "first-line-h1": false,
+    "no-hard-tabs": true,
+    "no-trailing-spaces": true,
+    "code-block-style": { "style": "fenced" },
+    "code-fence-style": { "style": "backtick" }
+  }

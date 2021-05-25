@@ -1,1 +1,0 @@
-../encrypt-gossip/provision.md

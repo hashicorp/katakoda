@@ -1,0 +1,77 @@
+{
+  "private": true,
+  "title": "Encrypt API/RPC Traffic with mTLS",
+  "description": "Nomad can use mutual TLS(mTLS) to validate nodes are trusted and performing their expected roles.",
+  "difficulty": "Beginner",
+  "time": "30 minutes",
+  "icon": "fa-nomad",
+  "details": {
+    "steps": [
+      {
+        "title": "Provisioning Extra Course Components",
+        "text": "provision.md",
+        "code": "provision.code.sh",
+        "verify": "provision.verify.sh"
+      },
+      {
+        "title": "Create CA path",
+        "text": "step02.md"
+      },
+      {
+        "title": "Initialize CA and generate certificates",
+        "text": "step03.md"
+      },
+      {
+        "title": "Deploy certificates",
+        "text": "step04.md"
+      },
+      {
+        "title": "Configure server nodes",
+        "text": "step05.md"
+      },
+      {
+        "title": "Configure client nodes",
+        "text": "step06.md"
+      },
+      {
+        "title": "Restart nodes and test TLS",
+        "text": "step07.md"
+      }
+    ],
+    "intro": {
+      "text": "intro.md"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "*.template",
+          "target": "/tmp"
+        },
+        {
+          "file": "nomad.hcl",
+          "target": "/etc/nomad.d/"
+        },
+        {
+          "file": "*.service",
+          "target": "/lib/systemd/system"
+        },
+        {
+          "file": "*.sh",
+          "target": "/usr/local/bin",
+          "chmod": "+x"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "hideHiddenFiles": true,
+    "exclusionPatterns": ["Desktop"]
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  }
+}
