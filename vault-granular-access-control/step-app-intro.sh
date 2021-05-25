@@ -4,7 +4,6 @@ vault login root
 
 vault policy write apps-policy apps-policy.hcl
 
-<<<<<<< HEAD
 USERPASS_ACCESSOR=$(vault auth list -format=json | jq -r '.["userpass/"].accessor')
 
 vault write auth/userpass/users/apps \
@@ -56,8 +55,3 @@ vault write identity/entity-alias \
   name="app2" \
   canonical_id=$APP2_CAN_ID \
   mount_accessor=$USERPASS_ACCESSOR
-=======
-vault write auth/userpass/users/apps \
-  password=apps-password \
-  policies=apps-policy
->>>>>>> origin/master
