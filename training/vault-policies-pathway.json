@@ -1,0 +1,20 @@
+{
+  "title": "Granular Access Control with Vault Policies",
+  "description": "[Vault] HashiConf EU Digital Workshop 2021",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Vault ACL Policies",
+      "id": "vault-granular-access-control",
+      "course_id": "vault-granular-access-control",
+      "description": "Teaches you how to create policies that are secure, flexible, and reusable for your team."
+    },
+    {
+      "pathway_id": "hashicorp",
+      "title": "Sentinel Policy",
+      "id": "vault-sentinel-policy",
+      "course_id": "vault-sentinel-policy",
+      "description": "Teaches you how to test Sentinel policies with the Sentinel Simulator."
+    }
+  ]
+}
