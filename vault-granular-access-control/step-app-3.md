@@ -63,7 +63,11 @@ command executed is recorded as the last object `cat log/vault_audit.log | jq -s
 
 ### 3️⃣ with the API docs
 
+<<<<<<< HEAD
+Select the Transit API tab to read the [Transit API
+=======
 Select the Transit API tab to view the [Transit API
+>>>>>>> origin/master
 documentation](https://www.vaultproject.io/api-docs/secret/transit).
 
 The [encrypt

@@ -31,11 +31,24 @@ Get the second secret.
 vault kv get external-apis/socials/instagram
 ```{{execute}}
 
+<<<<<<< HEAD
+## Enact the policy
+=======
 ## Discover the policy change required
+>>>>>>> origin/master
 
 The policies defined for `apps` grants it the capability to perform the first
 but not the second operation.
 
+<<<<<<< HEAD
+What policy is required to meet this requirement?
+
+1. Define the policy in the local file.
+2. Update the policy named `apps-policy` to use `+` or `*` operator.
+3. Test the policy with the `apps` user.
+
+=======
+>>>>>>> origin/master
 #### 1️⃣ with the CLI flags
 
 The `vault` CLI communicates direclty with Vault. It can optionally output a
@@ -48,11 +61,17 @@ command executed is recorded as the last object `cat log/vault_audit.log | jq -s
 
 ### 3️⃣ with the API docs
 
+<<<<<<< HEAD
+Select the KV-V2 API tab to read the [KV-V2 API
+=======
 Select the KV-V2 API tab to view the [KV-V2 API
+>>>>>>> origin/master
 documentation](https://www.vaultproject.io/api-docs/secret/kv/kv-v2).
 
 The HTTP verb by default is `GET` which translates to the `read` capability. The
 requested URL displays the path `/external-apis/data/socials/twitter`.
+<<<<<<< HEAD
+=======
 
 ## Enact the policy
 
@@ -62,3 +81,4 @@ What policy is required to meet this requirement?
 2. Update the policy named `apps-policy`.
 3. Test the policy with the `apps` user.
 4. Refactor the policy to use `+` or `*` operator.
+>>>>>>> origin/master

@@ -50,7 +50,6 @@ copy of the policy is maintained on this workstation.
 
 Open the `admins-policy.hcl`{{open}} policy file in the editor.
 
-
 This file matches the contents defined on the Vault server.
 
 You are ready to implement the application's requirements.
