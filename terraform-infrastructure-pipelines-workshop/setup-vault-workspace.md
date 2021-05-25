@@ -48,8 +48,7 @@ UI](https://app.terraform.io/app/infrastructure-pipelines-workshop).
     GitHub repositories, but not all of your repositories, the Vault
     repository may not appear on this list. If so, follow the instructions under
     "Grant access to specific GitHub repositories" below.
-1. Click "Update VCS settings" to connect this workspace to your forked GitHub
-   repository.
+1. Set the "VCS branch" to be `hashiconf-workshop`.
 1. Just as you did for the Consult workspace, select "Include submodules on
    clone", and then click on "Update VCS settings". 
   ![Include submodules interface](./assets/include-submodules.png)
