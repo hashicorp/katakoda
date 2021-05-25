@@ -18,6 +18,8 @@ Login with the `root` user.
 vault login root
 ```{{execute}}
 
+You can clear the terminal before resume: `clear`{{execute}}
+
 Get the secret.
 
 ```shell
