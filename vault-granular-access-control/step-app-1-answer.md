@@ -1,6 +1,7 @@
 ## Enact the policy
 
-The app requires the `read` capability for the path `external-apis/data/socials/twitter`.
+The app requires the `read` capability for the path
+`external-apis/data/socials/twitter`.
 
 ```hcl
 path "external-apis/data/socials/twitter" {
@@ -8,7 +9,8 @@ path "external-apis/data/socials/twitter" {
 }
 ```
 
-Open the `apps-policy.hcl`{{open}} if it is not already opened, and append the following policies.
+Open the `apps-policy.hcl`{{open}} if it is not already opened, and append the
+following policies.
 
 <pre class="file" data-filename="apps-policy.hcl" data-target="append">
 path "external-apis/data/socials/twitter" {
@@ -27,6 +29,7 @@ vault policy write apps-policy apps-policy.hcl
 Login with the `apps` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=apps \
   password=apps-password

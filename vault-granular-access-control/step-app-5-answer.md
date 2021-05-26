@@ -31,6 +31,7 @@ vault policy write apps-policy apps-policy.hcl
 Login with the `app1` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=app1 \
   password=app1-password
@@ -69,4 +70,4 @@ vault kv get external-apis/app2/socials/twitter
 ```{{execute}}
 
 
-Wait until the users are able to perform every operation successfully.
+Wait until the users are able to perform every operation as expected.

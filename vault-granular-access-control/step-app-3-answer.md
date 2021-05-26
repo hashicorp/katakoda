@@ -1,6 +1,7 @@
 ## Enact the policy
 
-The app requires the `update` capability for the path `transit/encrypt/app-auth`.
+The app requires the `update` capability for the path
+`transit/encrypt/app-auth`.
 
 ```hcl
 path "transit/encrypt/app-auth" {
@@ -27,6 +28,7 @@ vault policy write apps-policy apps-policy.hcl
 Login with the `apps` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=apps \
   password=apps-password
