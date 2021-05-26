@@ -4,7 +4,13 @@ The Postgres database is started in a Docker container.
 docker ps --filter name=postgres
 ```{{execute}}
 
-Wait until this command displays a running `postgres` container.
+**NOTE:** Wait until this command displays a running `postgres` container.
+
+```
+CONTAINER ID        IMAGE               ...           NAMES
+8c7d79aea265        postgres            ...           postgres
+```
+
 
 The Vault server is running locally in development mode.
 
@@ -22,13 +28,13 @@ Display the status of the target Vault server.
 vault status
 ```{{execute}}
 
-Wait until this command displays a running Vault server.
+Wait until this command displays a running Vault server. The response shows that the Vault server is initialized and unsealed.
 
-The response shows that the Vault server is initialized and unsealed.
+The server writes its operation logs and audit log to the file system. View the audit logs stored in `log/vault_audit.log`.
 
-The server writes its operation logs and audit log to the file system.
-
-Open the audit logs stored in `log/vault_audit.log`{{open}}.
+```shell
+cat ~/log/vault_audit.log | jq
+```{{execute}}
 
 The file audit log writes JSON objects to the log file. The `jq` command parses,
-filters and presents that data to you in a more digestable way.
+filters and presents that data to you in a more digestible way.

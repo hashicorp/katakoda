@@ -78,6 +78,8 @@ What policy is required to meet this requirement?
 2. Update the policy named `admins-policy`.
 3. Test the policy with the `admins` user.
 
+<br />
+
 #### 1️⃣ with the CLI flags
 
 The `vault` CLI communicates direclty with Vault. It can optionally output a
@@ -95,4 +97,3 @@ documentation](https://www.vaultproject.io/api-docs/secret/databases).
 
 Read the [Leases API
 documentation](https://www.vaultproject.io/api-docs/system/leases)
-

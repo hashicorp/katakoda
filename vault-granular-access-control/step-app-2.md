@@ -80,7 +80,7 @@ Show the request of the last logged object.
 cat log/vault_audit.log | jq -s ".[-1].request"
 ```{{execute}}
 
-The request describes the operation that was performed on the path.
+The request describes the **operation** that was performed on the **path**.
 
 Show the request's path and the request's operation.
 
