@@ -27,6 +27,7 @@ vault policy write apps-policy apps-policy.hcl
 Login with the `apps` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=apps \
   password=apps-password

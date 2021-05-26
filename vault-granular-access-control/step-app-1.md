@@ -28,7 +28,7 @@ vault kv get external-apis/socials/twitter
 
 ## As the application
 
-The policies defined for `apps` do not grant it the capability to perform this
+The policies defined for `apps` does not grant it the capability to perform this
 operation.
 
 Login with the `apps` user.
@@ -57,7 +57,7 @@ vault login root
 
 #### 1️⃣ with the CLI flags
 
-The `vault` CLI communicates direclty with Vault. It can optionally output a
+The `vault` CLI communicates directly with Vault. It can optionally output a
 `curl` command equivalent of its operation. This command contains the HTTP verb
 and path requested.
 

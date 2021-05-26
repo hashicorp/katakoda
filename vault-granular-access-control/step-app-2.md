@@ -8,8 +8,8 @@
     [=======]  ()
 ```
 
-The application requires access to a database. These credentials
-are managed by the database secrets engine at the path `database` in a role named `readonly`.
+The application requires access to a database. These credentials are managed by
+the database secrets engine at the path `database` in a role named `readonly`.
 
 Login with the `root` user.
 
@@ -25,7 +25,7 @@ vault read database/creds/readonly
 
 ## As the application
 
-The policies defined for `apps` do not grant it the capability to perform this
+The policies defined for `apps` does not grant it the capability to perform this
 operation.
 
 Login with the `apps` user.
@@ -52,8 +52,7 @@ vault login root
 
 #### 1️⃣ with the CLI flags
 
-The `vault` CLI communicates direclty with Vault. It can optionally output a
-`curl` command equivalent of its operation with `-output-curl-string`.
+Run the command with the `-output-curl-string` flag.
 
 #### 2️⃣ with the audit logs
 

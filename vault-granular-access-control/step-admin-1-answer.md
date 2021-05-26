@@ -1,6 +1,9 @@
 ## Enact the policy
 
-The admin requires the `create`, `read`, `update` and `delete` capability for the path `external-apis/data/socials/twitter`. They also require similar access to keys within the `socials/` path prefix. Lastly, the ability to `undelete` is found at a different path `external-apis/undelete/socials/+`.
+The admin requires the `create`, `read`, `update` and `delete` capability for
+the path `external-apis/data/socials/twitter`. They also require similar access
+to keys within the `socials/` path prefix. Lastly, the ability to `undelete` is
+found at a different path `external-apis/undelete/socials/+`.
 
 ```hcl
 path "external-apis/data/socials/+" {
@@ -35,6 +38,7 @@ vault policy write admins-policy admins-policy.hcl
 Login with the `admins` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=admins \
   password=admins-password

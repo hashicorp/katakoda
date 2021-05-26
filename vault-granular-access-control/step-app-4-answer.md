@@ -1,6 +1,8 @@
 ## Enact the policy
 
-The app requires the `read` capability for the path `external-apis/data/socials/twitter` and the path `external-apis/data/socials/instagram`.
+The app requires the `read` capability for the path
+`external-apis/data/socials/twitter` and the path
+`external-apis/data/socials/instagram`.
 
 ```hcl
 path "external-apis/data/socials/twitter" {
@@ -12,7 +14,8 @@ path "external-apis/data/socials/instagram" {
 }
 ```
 
-The `+` operator can be used to denote any number of characters bounded within a single path segment.
+The `+` operator can be used to denote any number of characters bounded within a
+single path segment.
 
 ```hcl
 path "external-apis/data/socials/+" {
@@ -39,6 +42,7 @@ vault policy write apps-policy apps-policy.hcl
 Login with the `apps` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=apps \
   password=apps-password

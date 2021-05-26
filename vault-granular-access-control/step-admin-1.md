@@ -74,16 +74,15 @@ What policy is required to meet this requirement?
 
 #### 1️⃣ with the CLI flags
 
-The `vault` CLI communicates direclty with Vault. It can optionally output a
-`curl` command equivalent of its operation with `-output-curl-string`.
+Run the command with the `-output-curl-string` flag.
 
 #### 2️⃣ with the audit logs
 
-The audit log maintains a list of all requests handled by Vault. The last
-command executed is recorded as the last object `cat log/vault_audit.log | jq -s ".[-1].request.path,.[-1].request.operation"`.
+The last command executed is recorded as the last object:
+
+`cat log/vault_audit.log | jq -s ".[-1].request.path,.[-1].request.operation"`.
 
 ### 3️⃣ with the API docs
 
 Select the KV-V2 API tab to read the [KV-V2 API
 documentation](https://www.vaultproject.io/api-docs/secret/kv/kv-v2).
-

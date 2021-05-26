@@ -23,10 +23,10 @@
 (________mrf\____.dBBBb.________)____)
 ```
 
-The administrator is often a human client that requires the ability to manage
-secrets stored, revoking database credentials, or key rotations. Admins
-typically authenticate through an identity provider like GitHub. To make
-exploration easier *userpass* is enabled and a user names `admin` was created.
+The administrator is a human client that requires the ability to manage secrets
+stored, revoking database credentials, and key rotations. Admins typically
+authenticate through an identity provider like *GitHub*. To make exploration
+easier *userpass* is enabled and a the user name `admin` was created.
 
 Show the `admin` user.
 
@@ -35,7 +35,7 @@ clear
 vault read auth/userpass/users/admins
 ```{{execute}}
 
-The `admin` user is assigned the `admins-policy` policy.
+The `admins` user is assigned the `admins-policy` policy.
 
 Show the `admins-policy` policy.
 
@@ -43,7 +43,7 @@ Show the `admins-policy` policy.
 vault policy read admins-policy
 ```{{execute}}
 
-The policy contains comments about future application requirements.
+The policy contains comments about future admin requirements.
 
 As the Vault server only maintains the latest version of the policy. A local
 copy of the policy is maintained on this workstation.
@@ -52,4 +52,4 @@ Open the `admins-policy.hcl`{{open}} policy file in the editor.
 
 This file matches the contents defined on the Vault server.
 
-You are ready to implement the application's requirements.
+You are ready to implement the admin's requirements.

@@ -47,6 +47,7 @@ vault policy write admins-policy admins-policy.hcl
 Login with the `admins` user.
 
 ```shell
+clear
 vault login -method=userpass \
   username=admins \
   password=admins-password
