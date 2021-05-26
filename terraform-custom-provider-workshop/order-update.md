@@ -9,7 +9,7 @@ The update function:
 1. invokes the `UpdateOrder` function on the HashiCups client
 1. maps response (hc.Order) to order schema.Resource (similar to resourceOrderRead)
 
-The update function is named `resourceOrderUpdate` and starts on line 143 in `hashicups/resource_order.go`{{open}}. Most of these steps have been implemented, you will only map the order `schema.Resource` to `[]hc.OrderItems{}`.
+The update function is named `resourceOrderUpdate` and starts on line 141 in `hashicups/resource_order.go`{{open}}. Most of these steps have been implemented, you will only map the order `schema.Resource` to `[]hc.OrderItems{}`.
 
 ## Explore the `resourceOrderUpdate` function
 
@@ -49,7 +49,7 @@ if d.HasChange("items") {
 
 > Interactive Code Portion
 
-Add the following code to the `resourceOrderUpdate` function inside the if statement (line 156). This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
+Add the following code to the `resourceOrderUpdate` function inside the if statement (line 153). This loops through the order items defined in the schema and maps it to a `[]hc.OrderItems{}` type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map the order schema.Resource to []hc.OrderItems{}">
 // ** | Map the order schema.Resource to []hc.OrderItems{}
@@ -75,7 +75,7 @@ To format your code, run `go fmt ./...`{{execute}} then close and reopen your fi
 
 Next, the update function invokes the `UpdateOrder` function with the order ID and `ois`, the mapped `[]hc.OrderItems{}`, as arguments. If the `UpdateOrder` function fails, the update function returns the error.
 
-This can be found on line 172.
+This can be found on line 170.
 
 ```
 _, err := c.UpdateOrder(orderID, ois)

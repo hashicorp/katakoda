@@ -1,6 +1,6 @@
 In this workshop, you will add functionality to create, read, update and delete a HashiCups order using a Terraform provider.
 
-This workspace is an Ubuntu image with Terraform 0.13, Go, and a custom environment containing code for the HashiCups provider.
+This workspace is an Ubuntu image with Terraform 0.15, Go, and a custom environment containing code for the HashiCups provider.
 
 ## Explore your development environment
 

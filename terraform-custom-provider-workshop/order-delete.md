@@ -7,7 +7,7 @@ The delete function:
 
 The delete function retrieves the order ID using `d.ID()` and deletes the order.
 
-The delete function is named `resourceOrderDelete` and starts on line 183 in `hashicups/resource_order.go`{{open}}. This function has been implemented for you.
+The delete function is named `resourceOrderDelete` and starts on line 181 in `hashicups/resource_order.go`{{open}}. This function has been implemented for you.
 
 ## Explore the `resourceOrderDelete` function
 
