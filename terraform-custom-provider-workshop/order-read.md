@@ -55,7 +55,7 @@ The first flattening function has been implemented for you. You will implement `
 
 ### Explore the `flattenOrderItems` function 
 
-You can find the  `flattenOrderItems` function on line 206 of the `hashicups/resource_order.go`{{open}} file. 
+You can find the  `flattenOrderItems` function on line 190 of the `hashicups/resource_order.go`{{open}} file.
 
 This function takes a list of OrderItems (`*[]hc.OrderItem`) from the HashiCups API Client and returns a flattened list of order items in the same structure as defined in the resourceOrder schema (`[]interface{}`).
 
@@ -82,7 +82,7 @@ func flattenOrderItems(orderItems *[]hc.OrderItem) []interface{} {
 
 ### Implement the `flattenCoffee` function 
 
-The second flattening function, `flattenCoffee`, is declared on line 230 of the `hashicups/resource_order.go`{{open}} file. 
+The second flattening function, `flattenCoffee`, is declared on line 214 of the `hashicups/resource_order.go`{{open}} file.
 
 The `flattenCoffee` function is called in the first flattening function. This function takes a coffee (`hc.Coffee`) and turns returns a flattened list of coffee attributes (`[]interface{}{c}`). Notice how this mirrors the coffee schema — a `schema.TypeList` with a maximum of one item.
 
@@ -95,7 +95,7 @@ The coffee object has the following attributes: `ID`, `Name`, `Teaser`, `Descrip
 <details style="padding-bottom: 1em;">
 <summary>Hint</summary>
 
-Add the following code snippet to line 234. This maps `coffee` to the `c` interface type.
+Add the following code snippet to line 217. This maps `coffee` to the `c` interface type.
 
 <pre class="file" data-filename="hashicups/resource_order.go" data-target="insert" data-marker="// ** | Map Coffee attributes">
 ```
