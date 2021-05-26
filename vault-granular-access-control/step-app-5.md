@@ -44,6 +44,8 @@ What policy is required to meet this requirement?
 2. Update the policy named `apps-policy` with an identity template.
 3. Test the policy with the `app1` and `app2` users.
 
+<br />
+
 #### 1️⃣ with the CLI flags
 
 The `vault` CLI communicates direclty with Vault. It can optionally output a

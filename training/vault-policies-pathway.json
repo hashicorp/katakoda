@@ -1,6 +1,6 @@
 {
   "title": "Granular Access Control with Vault Policies",
-  "description": "[Vault] HashiConf EU Digital Workshop 2021",
+  "description": "HashiConf EU Digital Workshop 2021",
   "courses": [
     {
       "pathway_id": "hashicorp",
