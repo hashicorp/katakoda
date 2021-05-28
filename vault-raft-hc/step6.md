@@ -35,22 +35,31 @@ Verify the configuration change. `clear`{{execute T4}}
 vault operator raft autopilot get-config
 ```{{execute T4}}
 
+## Add a new node
 
-Add `node4` to the cluster.
+Start a new Vault server, `node4`.
 
 ```
 mkdir raft-node4
-vault server -config=config-node4.hcl
+vault server -config=config-node1.hcl > raft-node1/node1.log 2>&1 &
+```{{execute T4}}
+
+Check the server status.
+
+```
+VAULT_ADDR='http://127.0.0.1:4200' vault status
 ```{{execute T4}}
 
 Unseal the server.
 
 ```
 VAULT_ADDR='http://127.0.0.1:4200' vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
-```{{execute T6}}
+```{{execute T4}}
 
 Now, check the cluster state.
 
 ```
 vault operator raft autopilot state
 ```{{execute T4}}
+
+Initially, `node4` is added to the cluster as a `non-voter`, and then eventually, it becomes a `voter`.
