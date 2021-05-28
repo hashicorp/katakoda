@@ -53,6 +53,12 @@ Check the server status.
 VAULT_ADDR='http://127.0.0.1:4200' vault status
 ```{{execute T4}}
 
+**NOTE:** Before unsealing `node4`, check the server log (`raft-node4/node4.log`{{open}}) to ensure that `node4` has join the cluster.
+
+```
+[INFO]  core: successfully joined the raft cluster: leader_addr=http://127.0.0.1:8200
+```
+
 Unseal the server.
 
 ```

@@ -1,12 +1,12 @@
 {
   "title": "HA Cluster with Integrated Storage",
-  "description": "[Vault] HashiConf US Digital Workshop 2020",
+  "description": "[Vault] HashiConf EU Digital Workshop 2021",
   "courses": [
     {
       "pathway_id": "hashicorp",
       "title": "Integrated Storage",
-      "id": "vault-raft",
-      "course_id": "vault-raft",
+      "id": "vault-raft-hc",
+      "course_id": "vault-raft-hc",
       "description": "Use raft storage with Vault."
     }
   ]

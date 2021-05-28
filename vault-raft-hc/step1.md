@@ -138,6 +138,7 @@ vault login $(grep 'Initial Root Token:' key.txt | awk '{print $NF}')
 Execute the following command to view the node1's Raft cluster configuration.
 
 ```
+clear
 vault operator raft list-peers
 ```{{execute T2}}
 
