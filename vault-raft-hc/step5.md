@@ -22,26 +22,3 @@ node1    127.0.0.1:8201    follower    true
 node2    127.0.0.1:2201    leader      true
 node3    127.0.0.1:3201    follower    true
 ```
-
-<br />
-
-## Leave the Cluster
-
-If you ever need to remove a node from a cluster, invoke the following command.
-
-```
-vault operator raft remove-peer node3
-```{{execute T2}}
-
-Verify the Raft cluster configuration.
-
-```
-vault operator raft list-peers
-```{{execute T2}}
-
-```
-Node     Address           State       Voter
-----     -------           -----       -----
-node1    127.0.0.1:8201    follower    true
-node2    127.0.0.1:2201    leader      true
-```
