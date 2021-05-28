@@ -35,32 +35,10 @@ Servers:
       Last Index:      51
 ```
 
-Check the current autopilot configuration.
-
-```
-vault operator raft autopilot get-config
-```{{execute T4}}
-
-The **Cleanup Dead Servers** parameter is set to `false`.
-
-Update the autopilot configuration to enable the dead server cleanup. For demonstration, set the **Dead Server Last Contact Threshold** to 10 seconds, and the **Server Stabilization Time** to 30 seconds.
-
-```
-vault operator raft autopilot set-config \
-    -dead-server-last-contact-threshold=10 \
-    -server-stabilization-time=30 \
-    -cleanup-dead-servers=true \
-    -min-quorum=2
-```{{execute T4}}
-
-Verify the configuration change. `clear`{{execute T4}}
-
-```
-vault operator raft autopilot get-config
-```{{execute T4}}
-
-Now, check to see what happened to `node3`.
+Wait for a few more seconds and check the cluster state again.
 
 ```
 vault operator raft autopilot state
 ```{{execute T4}}
+
+Now the cluster should be healthy with fault tolerance of `1`.
