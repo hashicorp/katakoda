@@ -20,20 +20,23 @@ Leader:                       node2
 Voters:
    node2
    node1
+   node4
    node3
 Servers:
-   node1
       ...snip...
    node3
       Name:            node3
       Address:         127.0.0.1:3201
       Status:          voter
-      Node Status:     alive
+      Node Status:     left
       Healthy:         false
-      Last Contact:    1m46.742599633s
+      Last Contact:    16.726313767s
       Last Term:       4
-      Last Index:      51
+      Last Index:      63
+    ...snip...
 ```
+
+The health status of `node3` is `false` and the **Node Status** is `left`.
 
 Wait for a few more seconds and check the cluster state again.
 
@@ -42,3 +45,20 @@ vault operator raft autopilot state
 ```{{execute T4}}
 
 Now the cluster should be healthy with fault tolerance of `1`.
+
+```
+Healthy:                      true
+Failure Tolerance:            1
+Leader:                       node2
+Voters:
+   node2
+   node1
+   node4
+Servers:
+   node1
+      Name:            node1
+      Address:         127.0.0.1:8201
+      ...snip...
+```
+
+Now, `node3` is no longer listed under the **Voters** list.

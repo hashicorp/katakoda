@@ -11,9 +11,12 @@ Display the current cluster status.
 vault operator raft autopilot state
 ```{{execute T4}}
 
+## Autopilot Configuration
+
 Now, check the current autopilot configuration.
 
 ```
+clear
 vault operator raft autopilot get-config
 ```{{execute T4}}
 
@@ -41,7 +44,7 @@ Start a new Vault server, `node4`.
 
 ```
 mkdir raft-node4
-vault server -config=config-node1.hcl > raft-node1/node1.log 2>&1 &
+vault server -config=config-node4.hcl > raft-node4/node4.log 2>&1 &
 ```{{execute T4}}
 
 Check the server status.
@@ -59,7 +62,20 @@ VAULT_ADDR='http://127.0.0.1:4200' vault operator unseal $(grep 'Key 1:' key.txt
 Now, check the cluster state.
 
 ```
+clear
 vault operator raft autopilot state
 ```{{execute T4}}
 
 Initially, `node4` is added to the cluster as a `non-voter`, and then eventually, it becomes a `voter`.
+
+```
+Healthy:                      true
+Failure Tolerance:            1
+Leader:                       node2
+Voters:
+   node2
+   node1
+   node3
+   node4
+...snip...
+```
