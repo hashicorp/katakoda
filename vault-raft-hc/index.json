@@ -44,7 +44,8 @@
       "host01": [
         { "file": "config-node1.hcl", "target": "/root" },
         { "file": "config-node2.hcl", "target": "/root" },
-        { "file": "config-node3.hcl", "target": "/root" }
+        { "file": "config-node3.hcl", "target": "/root" },
+        { "file": "config-node4.hcl", "target": "/root" }
       ]
     },
     "finish": {
