@@ -12,7 +12,7 @@ First review the server configuration file, `config-node1.hcl`{{open}}.
 
 ```
 storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node1/"
+  path    = "/root/raft-node1/"
   node_id = "node1"
 }
 
