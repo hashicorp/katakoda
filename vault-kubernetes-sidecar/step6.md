@@ -13,7 +13,7 @@ Apply the deployment defined in `deployment-orgchart.yml`.
 kubectl apply --filename deployment-orgchart.yml
 ```{{execute}}
 
-Get all the pods within the default namespace.
+Get all the pods in the default namespace.
 
 ```shell
 kubectl get pods
@@ -21,7 +21,7 @@ kubectl get pods
 
 Wait until the `orgchart` pod reports that it is running and ready (`1/1`).
 
-Verify that no secrets are written to the `orgchart` container in the pod.
+Verify that **no secrets** are written to the `orgchart` container in the pod.
 
 ```shell
 kubectl exec $(kubectl get pod -l app=orgchart -o jsonpath="{.items[0].metadata.name}") --container orgchart -- ls /vault/secrets

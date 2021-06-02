@@ -2,20 +2,25 @@ Pods run with a Kubernetes service account other than the ones defined in the
 Vault Kubernetes authentication role are **NOT** able to access the secrets
 defined at that path.
 
-Open the deployment and service account definitions in
-`deployment-website.yml`{{open}}.
+Open the deployment definition in `deployment-website.yml`{{open}}.
 
-This file defines a new deployment named `website` that the new `website`
-service account but relies on the same Vault Kubernetes role in the injector
-annotations.
+This file defines a new deployment named `website` that is run with the
+`website` service account. The deployment relies on the `internal-app` Vault
+Kubernetes role in the injector annotations.
 
-Apply the deployment and service account.
+Create the `website` service account.
+
+```shelll
+kubectl create sa website
+```{{execute}}
+
+Apply the deployment.
 
 ```shell
 kubectl apply --filename deployment-website.yml
 ```{{execute}}
 
-Get all the pods within the default namespace.
+Get all the pods in the default namespace.
 
 ```shell
 kubectl get pods
@@ -30,9 +35,9 @@ kubectl logs $(kubectl get pod -l app=website -o jsonpath="{.items[0].metadata.n
 ```{{execute}}
 
 The initialization process failed because the service account name is not
-authorized. The service account, `website` is not assigned to any Vault
-Kubernetes authentication role. This failure to authenticate causes the
-deployment to fail initialization.
+authorized. The service account, `website` is not assigned to the
+`internal-app` Kubernetes authentication role. This failure to authenticate
+causes the deployment to fail initialization.
 
 Open the deployment patch `patch-website.yml`{{open}}.
 
@@ -46,7 +51,7 @@ Patch the `website` deployment.
 kubectl patch deployment website --patch "$(cat patch-website.yml)"
 ```{{execute}}
 
-Get all the pods within the default namespace.
+Get all the pods in the default namespace.
 
 ```shell
 kubectl get pods
@@ -63,9 +68,8 @@ kubectl exec \
     --container website -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The secrets are rendered in a PostgreSQL connection string is present on the
-container.
+The secrets are rendered in a PostgreSQL connection string.
 
-> Alternatively, you could have defined a new Vault Kubernetes role, that
-> enables the `website` service account and then patched the `website`
-> deployment annotations to use this new role.
+> Alternatively, you could define a new Vault Kubernetes role, that enables the
+> `website` service account and then patched the `website` deployment
+> annotations to use this new role.

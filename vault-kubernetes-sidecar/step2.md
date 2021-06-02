@@ -1,6 +1,5 @@
-The recommended way to run Vault on Kubernetes is via the Helm chart. Helm is a
-package manager that installs and configures all the necessary components to run
-Vault in several different modes.
+Helm is a package manager that installs and configures all the necessary
+components to run Vault in several different modes.
 
 Add the Hashicorp helm repository.
 
@@ -16,7 +15,7 @@ helm install vault hashicorp/vault --set "server.dev.enabled=true"
 
 The Vault pod and Vault Agent Injector pod are deployed in the default namespace.
 
-Display all the pods within the default namespace.
+Display all the pods in the default namespace.
 
 ```shell
 kubectl get pods

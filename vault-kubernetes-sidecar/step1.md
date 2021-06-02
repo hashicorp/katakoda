@@ -7,7 +7,7 @@ Verify the `minikube` CLI is installed.
 minikube version
 ```{{execute}}
 
-Wait until the `minikube version` command returns a value.
+Wait until the `minikube version` command returns the version `v1.12.0`.
 
 Start the Minikube cluster.
 

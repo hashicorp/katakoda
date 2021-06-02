@@ -1,23 +1,18 @@
 The Vault Kubernetes authentication role defined a Kubernetes service account
-named `internal-app`. This service account does not yet exist.
+named `internal-app`.
 
-Verify that the Kubernetes service account named `internal-app` does not exist.
+Get all the service accounts in the default namespace.
 
 ```shell
 kubectl get serviceaccounts
 ```{{execute}}
 
-This account does not exist within the list of service accounts.
+The `internal-app` service account does not exist.
 
-View the service account defined in `service-account-internal-app.yml`{{open}}.
-
-This definition of the service account creates the account with the name
-`internal-app`.
-
-Create the service account.
+Create the `internal-app` service account.
 
 ```shell
-kubectl apply --filename service-account-internal-app.yml
+kubectl create sa internal-app
 ```{{execute}}
 
 Get all the service accounts within the default namespace.
@@ -26,5 +21,4 @@ Get all the service accounts within the default namespace.
 kubectl get serviceaccounts
 ```{{execute}}
 
-The name of the service account here aligns with the name assigned to the
-`bound_service_account_names` field when the `internal-app` role was created.
+The `internal-app` service account is created.

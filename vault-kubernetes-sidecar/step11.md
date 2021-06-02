@@ -13,15 +13,17 @@ Set the current context to the offsite namespace.
 kubectl config set-context --current --namespace offsite
 ```{{execute}}
 
-Apply the `internal-app` service account to create it within the offsite
-namespace.
+Create an `internal-app` service account in the offsite namespace.
 
 ```shell
-kubectl apply --filename service-account-internal-app.yml
+kubectl create sa internal-app
 ```{{execute}}
 
 Open the deployment for the `issues` application in
 `deployment-issues.yml`{{open}}.
+
+This file defines a new deployment named `issues` that relies on the
+`internal-app` Vault Kubernetes role.
 
 Apply the deployment.
 
@@ -29,7 +31,7 @@ Apply the deployment.
 kubectl apply --filename deployment-issues.yml
 ```{{execute}}
 
-Get all the pods within the offsite namespace.
+Get all the pods in the offsite namespace.
 
 ```shell
 kubectl get pods
@@ -90,7 +92,7 @@ kubectl patch deployment issues --patch "$(cat patch-issues.yml)"
 A new `issues` pod starts alongside the existing pod. When it is ready the
 original terminates and removes itself from the list of active pods.
 
-Get all the pods within the offsite namespace.
+Get all the pods in the offsite namespace.
 
 ```shell
 kubectl get pods
@@ -106,5 +108,4 @@ kubectl exec \
     --container issues -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The secrets are rendered in a PostgreSQL connection string is present on the
-container.
+The secrets are rendered in a PostgreSQL connection string.

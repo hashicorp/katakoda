@@ -27,5 +27,4 @@ Display the secret written to the `payroll` container.
 kubectl exec payroll --container payroll -- cat /vault/secrets/database-config.txt
 ```{{execute}}
 
-The secrets are rendered in a PostgreSQL connection string is present on the
-container.
+The secrets are rendered in a PostgreSQL connection string.
