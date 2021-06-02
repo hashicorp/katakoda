@@ -3,21 +3,21 @@ In this step, you will create testing files and run them in the Sentinel CLI. Se
 
 ## Create a failing test file
 
-Open `terraform-sentinel/test/restrict-s3-buckets/fail.json`{{open}} to add a path to the failing mock data.
+Open `terraform-sentinel/test/restrict-s3-buckets/fail.hcl`{{open}} to add a path to the failing mock data.
 
-Edit the failing mock data path in your test file relative to your `fail.json` file, in this case, two directories above the current folder in `mock-data`.
+Update the failing mock data path by clicking "Copy to Editor." This updates your test file relative to your `fail.hcl` file, in this case, two directories above the current folder in `mock-data`.
 
-<pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/fail.json" data-target="insert" data-marker="<relative_path_to_failing_mock>">../../mock-data/mock-tfplan-fail-v2.sentinel</pre>
+<pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/fail.hcl" data-target="insert" data-marker="<relative_path_to_failing_mock>">../../mock-data/mock-tfplan-fail-v2.sentinel</pre>
 
 Review the rest of the test file. This test ensures the main rule will evalute to false.
 
 ## Create a passing test file
 
-Open `terraform-sentinel/test/restrict-s3-buckets/pass.json`{{open}} and add a path to the passing mock data that has already been provided for you.
+Open `terraform-sentinel/test/restrict-s3-buckets/pass.hcl`{{open}} and add a path to the passing mock data that has already been provided for you.
 
-Edit the passing mock data path in your test file relative to your `pass.json` file, in this case, two directories above the current folder in `mock-data`.
+Update the passing mock data path by clicking "Copy to Editor."
 
-<pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/pass.json" data-target="insert" data-marker="<relative_path_to_passing_mock>">../../mock-data/mock-tfplan-pass-v2.sentinel</pre>
+<pre class="file" data-filename="terraform-sentinel/test/restrict-s3-buckets/pass.hcl" data-target="insert" data-marker="<relative_path_to_passing_mock>">../../mock-data/mock-tfplan-pass-v2.sentinel</pre>
 
 Review the rest of the test file. This test ensures the main rule will evaluate to true.
 

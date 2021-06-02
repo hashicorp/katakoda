@@ -8,7 +8,7 @@ Open `terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel`{{open}} and edi
 
 Your mock data contains the ACL for the configuration in the `resource_changes` collection. Instead of `public-read`, which is allowed in your policy, change this to `public-read-write` to create a failing scenario for your `acl_allowed` rule.
 
-Scroll to line 122 and update the value.
+Scroll to line 122 and update the value by clicking "Copy to Editor."
 
 <pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#ACL">public-read-write</pre>
 
@@ -16,11 +16,11 @@ Scroll to line 122 and update the value.
 
 To create a failing scenario for your `bucket_tags` rule, replace the tag identifiers in the `resource_changes` collection with different values. These tag identifiers search for an exact match so any additional text will cause a failure.
 
-Scroll to line 133 and edit the `Name` tag key to `Organization`.
+Scroll to line 133 and edit the `Name` tag key to `Organization` by clicking the "Copy to Editor" button.
 
 <pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#Name">Organization</pre>
 
-On line 134, edit the `Environment` tag key to `Workspace`.
+On line 134, edit the `Environment` tag key to `Workspace` by clicking the "Copy to Editor" button.
 
 <pre class="file" data-filename="terraform-sentinel/mock-data/mock-tfplan-fail-v2.sentinel" data-target="insert" data-marker="#Environment">Workspace</pre>
 

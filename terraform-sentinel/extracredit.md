@@ -18,47 +18,32 @@ Remove the `main` rule.
 
 ## Update your module path
 
-You created a new directory for your policy modules. Sentinel requires the path to this directory in `sentinel.json` to access it as an import.
+You created a new directory for your policy modules. Sentinel requires the path to this directory in `sentinel.hcl` to access it as an import.
 
-Open `terraform-sentinel/sentinel.json`{{open}} and add the `modules` path to your new module under the `mock` paths. Replace the contents of this file with the complete file below.
+Open `terraform-sentinel/sentinel.hcl`{{open}} and add the `modules` path to your new module under the `mock` paths. Replace the contents of this file with the complete file below by clicking "Copy to Editor."
 
-```
-{
-  "mock": {
-    "tfconfig": "mock-data/mock-tfconfig.sentinel",
-    "tfconfig/v1": "mock-data/mock-tfconfig.sentinel",
-    "tfconfig/v2": "mock-data/mock-tfconfig-v2.sentinel",
-    "tfplan": "mock-data/mock-tfplan.sentinel",
-    "tfplan/v1": "mock-data/mock-tfplan.sentinel",
-    "tfplan/v2": "mock-data/mock-tfplan-v2.sentinel",
-    "tfrun": "mock-data/mock-tfrun.sentinel",
-    "tfstate": "mock-data/mock-tfstate.sentinel",
-    "tfstate/v1": "mock-data/mock-tfstate.sentinel",
-    "tfstate/v2": "mock-data/mock-tfstate-v2.sentinel"
-  },
-  "modules": {
-    "restrict": {
-      "path": "modules/restrict.sentinel"
-    }
+<pre class="file" data-filename="terraform-sentinel/sentinel.hcl" data-target="replace" >mock "tfplan/v2" {
+  module {
+    source = "mock-data/mock-tfplan-v2.sentinel"
   }
 }
-```{{copy}}
+
+module "restrict" {
+  source = "./modules/restrict.sentinel"
+}</pre>
+
 
 ## Create a new root policy
 
-Create a new policy file `terraform-sentinel/root.sentinel`{{open}} and add the module as an `import` statement.
+Create a new policy file `terraform-sentinel/root.sentinel`{{open}} and add the module as an `import` statement by clicking "Copy to Editor."
 
-```
-import "restrict"
-```{{copy}}
+<pre class="file" data-filename="terraform-sentinel/root.sentinel" data-target="append" >import "restrict"</pre>
 
-Create a new main rule that accesses this module as an import.
+Create a new main rule that accesses this module as an import by clicking "Copy to Editor."
 
-```
-main = rule {
+<pre class="file" data-filename="terraform-sentinel/root.sentinel" data-target="append" >main = rule {
     (restrict.acl_allowed and restrict.bucket_tags) else false
-}
-```{{copy}}
+}</pre>
 
 Run your Sentinel `apply` with the new `root.sentinel` file as the target policy.
 
@@ -75,10 +60,9 @@ Instead of hard-coding a specific resource, you will create a function to find r
 
 The function you will create in this section will replace the `s3_buckets` filter with a function to search for any resource you define and then call that function in other policies.
 
-Create a new file `terraform-sentinel/modules/find_resources.sentinel`{{open}}. Paste the function below.
+Create a new file `terraform-sentinel/modules/find_resources.sentinel`{{open}}. Add the function below by clicking "Copy to Editor."
 
-```
-import "tfplan/v2" as tfplan
+<pre class="file" data-filename="terraform-sentinel/find_resources.sentinel" data-target="append" >import "tfplan/v2" as tfplan
 
 find_resources = func(type) {
   resources = filter tfplan.resource_changes as _, rc {
@@ -87,7 +71,8 @@ find_resources = func(type) {
   	(rc.change.actions contains "create" or rc.change.actions contains "update")
   }
   return resources
-}```{{copy}}
+}</pre>
+
 
 This function iterates over a filter, but takes a `type` argument that you can access from another module.
 
@@ -95,10 +80,9 @@ This function iterates over a filter, but takes a `type` argument that you can a
 
 This function is not accessed anywhere yet. Instead of hard-coding the resource type into your policy, create a new module.
 
-Open `terraform-sentinel/modules/buckets.sentinel`{{open}} and paste the module below.
+Open `terraform-sentinel/modules/buckets.sentinel`{{open}} and add the module below by clicking "Copy to Editor."
 
-```
-import "find_resources"
+<pre class="file" data-filename="terraform-sentinel/buckets.sentinel" data-target="append" >import "find_resources"
 
 found_buckets = find_resources.find_resources("aws_s3_bucket")
 
@@ -124,7 +108,8 @@ acl_allowed = rule {
     all found_buckets as _, buckets {
     buckets.change.after.acl in allowed_acls
     }
-}```{{copy}}
+}</pre>
+
 
 This module does several things:
 
@@ -134,46 +119,37 @@ This module does several things:
 
 ## Update your configuration file
 
-Open `terraform-sentinel/sentinel.json`{{open}} to add the paths for your new files.
+Open `terraform-sentinel/sentinel.hcl`{{open}} to add the paths for your new files.
 
-Replace the contents of this file with the paths below.
+Replace the contents of this file with the paths below by clicking "Copy to Editor."
 
-```
-{
-  "mock": {
-    "tfconfig": "mock-data/mock-tfconfig.sentinel",
-    "tfconfig/v1": "mock-data/mock-tfconfig.sentinel",
-    "tfconfig/v2": "mock-data/mock-tfconfig-v2.sentinel",
-    "tfplan": "mock-data/mock-tfplan.sentinel",
-    "tfplan/v1": "mock-data/mock-tfplan.sentinel",
-    "tfplan/v2": "mock-data/mock-tfplan-v2.sentinel",
-    "tfrun": "mock-data/mock-tfrun.sentinel",
-    "tfstate": "mock-data/mock-tfstate.sentinel",
-    "tfstate/v1": "mock-data/mock-tfstate.sentinel",
-    "tfstate/v2": "mock-data/mock-tfstate-v2.sentinel"
-  },
-  "modules": {
-    "find_resources": {
-      "path": "modules/find_resources.sentinel"
-    },
-    "buckets": {
-      "path": "modules/buckets.sentinel"
-    }
+<pre class="file" data-filename="terraform-sentinel/sentinel.hcl" data-target="replace" >mock "tfplan/v2" {
+  module {
+    source = "mock-data/mock-tfplan-v2.sentinel"
   }
-}```{{copy}}
+}
+
+module "find_resources" {
+  source = "./modules/find_resources.sentinel"
+}
+
+
+module "buckets" {
+  source = "./modules/buckets.sentinel"
+}</pre>
 
 You have two module paths for Sentinel to access now.
 
 ## Update your root rule
 
-Open `terraform-sentinel/root.sentinel`{{open}} and replace the contents with the information below.
+Open `terraform-sentinel/root.sentinel`{{open}} and replace the contents with the information below by clicking "Copy to Editor."
 
-```
-import "buckets"
+<pre class="file" data-filename="terraform-sentinel/root.sentinel" data-target="replace" >import "buckets"
 
 main = rule {
     (buckets.acl_allowed and buckets.bucket_tags) else false
-}```{{copy}}
+}</pre>
+
 
 You have one import statement to access the `buckets` module and your main rule references that import to give your policy its central logic.
 

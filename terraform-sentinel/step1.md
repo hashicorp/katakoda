@@ -10,39 +10,39 @@ For your first policy, create a resource filter for your S3 buckets and a rule t
 
 Open the stub of this policy in `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}.
 
-Create a filter for the s3_bucket resources in the Terraform Cloud plan. Copy and paste the filter block below the commented line `# Filter S3 buckets`.
+Create a filter for the s3_bucket resources in the Terraform Cloud plan. Click the "Copy to Editor" button to add this filter to your policy.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Filter S3 buckets">
+# Filter S3 buckets
 s3_buckets = filter tfplan.resource_changes as _, rc {
 	rc.type is "aws_s3_bucket" and
 	(rc.change.actions contains "create" or rc.change.actions is ["update"])
-}
-```{{copy}}
-
+}</pre>
 
 ## Create the bucket rule
 
-Add a rule to evaluate mock data. Copy and paste the `bucket_tags` rule below the commented line `# Rule to require at least one tag`.
+Add a rule to evaluate mock data. Click "Copy to Editor" to add the `bucket_tags` rule to your policy.
 
-```
+
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Rule to require at least one tag">
+# Rule to require at least one tag
 bucket_tags = rule {
 	all s3_buckets as _, buckets {
 	buckets.change.after.tags is not null
 	}
-}
-```{{copy}}
+}</pre>
 
 
 ## Create main rule
 
-Your filter and bucket rule will be evaluated in the main rule. Copy and paste the main rule below the commented line `# Main rule`
+Your filter and bucket rule will be evaluated in the main rule. Click the "Copy to Editor" button to add the main rule to your policy.
 
-
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Main rule that requires other rules to be true">
+# Main rule that requires other rules to be true
 main = rule {
     bucket_tags else false
-}
-```{{copy}}
+}</pre>
+
 
 ## Apply the policy
 

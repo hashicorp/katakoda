@@ -1,14 +1,13 @@
 Now that you have created a policy, you will add some additional restrictions.
 
-Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}}, and add a print statement.
-
 ## Create a print statement for debugging
 
-The print statement is a helpful tool for debugging and discovery when you are writing policies, so create one here after the closing bracket of your `s3_buckets` filter.
+The print statement is a helpful tool for debugging and discovery when you are writing policies. Click "Copy to Editor" to add the print statement to your policy.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="append">
+
 print(s3_buckets)
-```{{copy}}
+</pre>
 
 Run your Sentinel CLI apply again to return the filter data in your terminal.
 
@@ -32,62 +31,87 @@ Remove the print statement from your policy once you have reviewed the output.
 
 ## Create a required tags variable
 
-Open the policy file `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} again, and paste the below `required_tags` variable into the file above the `bucket_tags` rule. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
+You will add a new variable to your `terraform-sentinel/restrict-s3-buckets.sentinel`{{open}} policy. Click the "Copy to Editor" button to add the `required_tags` variable into your policy. You are creating a list of variables that must be returned from the data you just generated in the previous print statement.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Rule to require at least one tag">
+
+# Rule to require specific tags
+
 required_tags = [
     "Name",
     "Environment",
 ]
-```{{copy}}
+
+</pre>
+
 
 ## Create a rule for your required tags
 
-Replace the `bucket_tags` rule with a new requirement to compare to your `require_tags` variable.
+Click the "Copy to Editor" button to update your `bucket-tags` rule with the `required_tags` parameter.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="
+bucket_tags = rule {
+    all s3_buckets as _, buckets {
+    buckets.change.after.tags is not null
+    }
+}
+">
 bucket_tags = rule {
 all s3_buckets as _, buckets {
-	all required_tags as rt {
-		buckets.change.after.tags contains rt
-		}
-	}
+    all required_tags as rt {
+        buckets.change.after.tags contains rt
+        }
+    }
 }
-```{{copy}}
+
+# ACL restriction
+</pre>
+
 
 ## Add an ACL restriction
 
-Copy this list of allowed ACLs for your S3 bucket and paste it below your `bucket_tags` rule
+Click the "Copy to Editor" button to add a list of allowed ACLs to your policy.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# ACL restriction
+"># ACL restriction
+
 allowed_acls = [
 	"public-read",
 	"private",
 ]
-```{{copy}}
+
+# ACL restriction rule
+
+</pre>
 
 ## Add a rule for your ACLs
 
-Copy and paste your ACL rule below your `allowed_acls` to evalute the ACL data in your plan.
+Click the "Copy to Editor" button to add an `allowed_acls` rule to evalute the ACL data in your plan.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# ACL restriction rule">
+
+# ACL restriction rule
+
 acl_allowed = rule {
 	all s3_buckets as _, buckets {
 	buckets.change.after.acl in allowed_acls
 	}
-}
-```{{copy}}
+}</pre>
 
 
 ## Edit the main rule to evaluate both rules
 
-Your main rule must evaluate both the `acl_allowed` and `bucket_tags` rule. Edit your main rule with these new requirements.
+Your main rule must evaluate both the `acl_allowed` and `bucket_tags` rule. Click the "Copy to Editor" button to update your main rule with these restrictions.
 
-```
+<pre class="file" data-filename="terraform-sentinel/restrict-s3-buckets.sentinel" data-target="insert" data-marker="# Main rule that requires other rules to be true
+main = rule {
+    bucket_tags else false
+}
+"># Main rule that requires other rules to be true
 main = rule {
     (acl_allowed and bucket_tags) else false
 }
-```{{copy}}
+</pre>
 
 ## Format and apply the policy
 
