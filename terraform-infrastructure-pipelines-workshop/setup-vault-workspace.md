@@ -6,7 +6,9 @@ previous two workspaces.
 1. Fork the [Learn Terraform Pipelines Vault
    repository](https://github.com/hashicorp/learn-terraform-pipelines-vault)
    into your own GitHub account using the `fork` interface in GitHub.
-1. In your forked repository, navigate to `main.tf`.
+1. In your forked repository, switch to the `hashiconf-workshop` branch.
+  ![Switch to the "hashiconf-workshop" branch](./assets/github-branch.png)
+1. In the `hashiconf-workshop` branch, navigate to `main.tf`.
 1. Use the "pencil"/edit button to edit the file.
 1. Replace the `organization` and `workspaces` values with the organization set
    up for this workshop ("infrastructure-pipelines-workshop"), and your unique
