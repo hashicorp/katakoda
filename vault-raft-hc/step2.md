@@ -6,7 +6,7 @@ Open the `node2` server configuration file, `config-node2.hcl`{{open}}.
 
 ```
 storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node2/"
+  path    = "/root/raft-node2/"
   node_id = "node2"
 }
 

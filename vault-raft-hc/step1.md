@@ -46,12 +46,14 @@ Scroll up the Terminal to locate the following output:
              Api Address: http://127.0.0.1:8200
                      Cgo: disabled
          Cluster Address: https://127.0.0.1:8201
+              Go Version: go1.15.11
               Listener 1: tcp (addr: "127.0.0.1:8200", cluster address: "127.0.0.1:8201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
                Log Level: info
                    Mlock: supported: true, enabled: false
            Recovery Mode: false
                  Storage: raft (HA available)
-                 Version: Vault v1.4.3
+                 Version: Vault v1.7.1
+             Version Sha: 917142287996a005cb1ed9d96d00d06a0590e44e
 
 ==> Vault server started! Log data will stream in below:
 ```
