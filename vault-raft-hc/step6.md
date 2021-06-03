@@ -3,13 +3,13 @@ View the help message for the `vault operator raft autopilot` command.
 ```
 clear
 vault operator raft autopilot -help
-```{{execute T6}}
+```{{execute T2}}
 
 Display the current cluster status.
 
 ```
 vault operator raft autopilot state
-```{{execute T6}}
+```{{execute T2}}
 
 ## Autopilot Configuration
 
@@ -18,7 +18,7 @@ Now, check the current autopilot configuration.
 ```
 clear
 vault operator raft autopilot get-config
-```{{execute T6}}
+```{{execute T2}}
 
 The **Cleanup Dead Servers** parameter is set to `false`.
 
@@ -30,13 +30,13 @@ vault operator raft autopilot set-config \
     -server-stabilization-time=30 \
     -cleanup-dead-servers=true \
     -min-quorum=3
-```{{execute T6}}
+```{{execute T2}}
 
 Verify the configuration change. `clear`{{execute T4}}
 
 ```
 vault operator raft autopilot get-config
-```{{execute T6}}
+```{{execute T2}}
 
 <br />
 

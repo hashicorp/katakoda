@@ -3,7 +3,6 @@ Currently, `node1` is the active (leader) node. Let's see what happens when `nod
 From **Terminal2** and execute the following code against the `node1`.
 
 ```
-clear
 vault operator step-down
 ```{{execute T2}}
 
