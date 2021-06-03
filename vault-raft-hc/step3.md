@@ -4,7 +4,7 @@ Open the `node3` server configuration file, `config-node3.hcl`{{open}}.
 
 ```
 storage "raft" {
-  path    = "/home/scrapbook/tutorial/raft-node3/"
+  path    = "/root/raft-node3/"
   node_id = "node3"
 
   retry_join {
@@ -37,14 +37,8 @@ vault server -config=config-node3.hcl -log-level=debug
              Api Address: http://127.0.0.1:3200
                      Cgo: disabled
          Cluster Address: https://127.0.0.1:3201
-              Listener 1: tcp (addr: "127.0.0.1:3200", cluster address: "127.0.0.1:3201", max_request_duration: "1m30s", max_request_size: "33554432", tls: "disabled")
-               Log Level: info
-                   Mlock: supported: true, enabled: false
-           Recovery Mode: false
-                 Storage: raft (HA available)
-                 Version: Vault v1.5.3
-
-==> Vault server started! Log data will stream in below:
+              Listener 1: tcp (addr: "127.0.0.1:3200", cluster address: "127.0.0.1:3201",
+              ...snip...
 ```
 
 You can verify that the **Api Address** is `http://127.0.0.1:3200`.  
