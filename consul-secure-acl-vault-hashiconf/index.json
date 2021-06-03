@@ -1,0 +1,94 @@
+{
+    "pathwayTitle": "Generate Consul Tokens with HashiCorp Vault",
+    "difficulty": "Intermediate",
+    "icon": "fa-consul",
+    "time": "20 minutes",
+    "title": "Generate Consul Tokens with HashiCorp Vault",
+    "description": "Generate Consul Tokens with HashiCorp Vault",
+    "details": {
+        "steps": [
+            {
+                "title": "Provisioning Lab Infrastructure",
+                "text": "provision.md",
+                "courseData": "provision.courseData.sh",
+                "code": "provision.code.sh",
+                "verify": "provision.verify.sh"
+            },
+            {
+                "title": "Examine environment",
+                "code": "set-env.sh",
+                "text": "step0.md"
+            },
+            {
+                "title": "Configure Consul secrets engine in Vault",
+                "code": "set-env.sh",
+                "text": "step1.md"
+            },
+            {
+                "title": "Create Consul server policy",
+                "code": "set-env.sh",
+                "text": "step2.md"
+            },
+            {
+                "title": "Create Vault server role",
+                "code": "set-env.sh",
+                "text": "step3.md"
+            },
+            {
+                "title": "Obtain and test Consul token",
+                "code": "set-env.sh",
+                "text": "step4.md"
+            },
+            {
+                "title": "Apply token to remaining servers",
+                "code": "set-env.sh",
+                "text": "step5.md"
+            },
+            {
+                "title": "Generate short lived tokens",
+                "code": "set-env.sh",
+                "text": "step6.md"
+            }
+            
+        ],
+    "intro": {
+        "text": "intro.md",
+        "code": "courseBase.sh",
+        "credits": "https://learn.hashicorp.com/consul"
+        },
+    "finish": {
+        "text": "finish.md",
+        "credits": "https://learn.hashicorp.com/consul"
+    },
+    "assets": {
+        "client": [
+            { "file": "acl-policy-dns.hcl", "target": "./assets" },
+            { "file": "acl-policy-server-node.hcl", "target": "./assets" },
+            { "file": "acl-policy-service.hcl", "target": "./assets" },
+            { "file": "acl-policy-service-node.hcl", "target": "./assets" },
+            { "file": "agent-client-secure.hcl", "target": "./assets" },
+            { "file": "agent-client-connect.hcl", "target": "./assets" },
+            { "file": "agent-server-secure.hcl", "target": "./assets" },
+            { "file": "agent-server-connect.hcl", "target": "./assets" },
+            { "file": "svc-api-no-check.hcl", "target": "./assets/svc-api.hcl" },
+            { "file": "svc-web-no-check.hcl", "target": "./assets/svc-web.hcl" }
+        ]
+    }
+    },
+    "environment": {
+        "showdashboard": true,
+        "dashboard": "Dashboard",
+        "uilayout": "editor-terminal",
+        "hideHiddenFiles": true,
+        "uimessage1": "\u001b[32mOperator node terminal.\u001b[m\r\n",
+        "dashboards": [
+            {"name": "Consul UI", "port": 1443},
+            {"name": "Vault UI", "port": 8200}
+        ],
+        "terminals": []
+    },
+    "backend": {
+        "imageid": "ubuntu:2004"
+    },
+  "private": true
+}
