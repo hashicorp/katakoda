@@ -2,14 +2,14 @@ Stop `node3` to mimic a node failure.
 
 ```
 ps aux | grep "node3" | grep -v grep | awk '{print $2}' | xargs kill
-```{{execute T4}}
+```{{execute T6}}
 
 Display the current cluster status.
 
 ```
 clear
 vault operator raft autopilot state
-```{{execute T4}}
+```{{execute T6}}
 
 The **Healthy** parameter is now `false`; however, `node3` is still listed as a voter.
 
@@ -42,7 +42,7 @@ Wait for a few more seconds and check the cluster state again.
 
 ```
 vault operator raft autopilot state
-```{{execute T4}}
+```{{execute T6}}
 
 Now the cluster should be healthy with fault tolerance of `1`.
 
