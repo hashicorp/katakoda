@@ -3,12 +3,17 @@ The environment consists of a Vault server and three Consul servers.
 The agents are running as Docker containers but you can consider them as Virtual
 Machines each containing all the binaries necessary for the environment setup.
 
-The startup should end with a list of environment variables that will help you
-setup your terminal environment.
+The provision will output a list of environment variables in your terminal that 
+will help you setup your terminal environment.
 
-First configure the environment:
+The same variables are also stored into `.conf` files that can be used to 
+configure the environment.
+
+Configure the terminal to connect to Consul:
 
 `source ./assets/secrets/consul_env.conf`{{execute T1}}
+
+Configure the terminal to connect to Vault:
 
 `source ./assets/secrets/vault_env.conf`{{execute T1}}
 

@@ -9,7 +9,8 @@ In the logs you should get some warning lines similar to the following:
 [WARN]  agent: Node info update blocked by ACLs: node=6e24f8cd-33b5-645a-a2b3-b332e59e9f84 accessorID=00000000-0000-0000-0000-000000000002
 ```
 
-These warnings signal that Consul started properly but it cannot communicate with the rest of the datacenter because of ACL restrictions.
+These warnings signal that Consul started properly but it cannot communicate 
+with the rest of the datacenter because of ACL restrictions.
 
 ### Create a token for the server node
 
@@ -35,10 +36,14 @@ Example output:
 }
 ```
 
+Verify that the token is created correctly in Consul by
+looking it up by its accessor.
+
+First store the token's accessor ID into an environment variable:
+
 `export CONSUL_SERVER_ACCESSOR=$( cat ./assets/secrets/acl-vault-consul_server.json | jq -r ".data.accessor")`{{execute T1}}
 
-Verify that the token is created correctly in Consul by
-looking it up by its accessor:
+Then query Consul for a token with that accessor ID:
 
 `consul acl token read -id ${CONSUL_SERVER_ACCESSOR}`{{execute T1}}
 
@@ -59,10 +64,9 @@ thus centralizing the access to Consul tokens.
 <div style="background-color:#eff5ff; color:#416f8c; border:1px solid #d0e0ff; padding:1em; border-radius:3px; margin:24px 0;">
   <p><strong>Info: </strong>
 
-<!-- Suggestion
-I think it would be good to note in this step the relation between accessorId/secretID/token for Consul and Vault. Do they map to each other? Also we should note that the secretID for Consul is how you refer to the token on the cli/api and in files.
--->
-The way Vault and Consul refer to tokens in the command output is slightly different. The following table expresses the relations between the two outputs:
+
+The way Vault and Consul refer to tokens in the command output is slightly 
+different. The following table expresses the relations between the two outputs:
 <br/>
 
 <table style="width:auto">

@@ -1,5 +1,5 @@
 
-The Consul secrets engine generates Consul API tokens dynamically based on 
+Vault's Consul secrets engine generates Consul ACL tokens dynamically based on 
 Consul ACL policies, and must be enabled before it can perform its functions.
 
 `vault secrets enable consul`{{execute T1}}
@@ -12,7 +12,8 @@ Success! Enabled the consul secrets engine at: consul/
 
 ### Configure Vault to connect and authenticate to Consul
 
-The secrets engine requires a management token, with unrestricted privileges, to interact with Consul.
+The Consul secrets engine requires a management token, with unrestricted 
+privileges, to interact with Consul.
 
 First, create a management token in Consul:
 
@@ -24,8 +25,7 @@ Export the management token as an environment variable:
 
 `export CONSUL_MGMT_TOKEN=$(cat ./assets/secrets/acl_management.json | jq -r ".SecretID")`{{execute T1}}
 
-Once you have the Consul secret backend enabled,
-configure access with Consul's address and management token:
+Configure the engine with Consul's address, management token, and CA certificate:
 
 `vault write consul/config/access \
     address=https://server.dc1.consul:443 \

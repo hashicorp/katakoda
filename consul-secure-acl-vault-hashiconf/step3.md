@@ -1,15 +1,19 @@
 ### Create a role to map names in Vault to a Consul ACL policy
 
-In the previous step you created a policy, `consul-servers`, to define servers' permissions.
+In the previous step you created a policy, `consul-servers`, to define servers' 
+permissions.
 
 You are going to use that policy when creating tokens for Consul servers.
 
-A recommended approach to generate tokens for identical policies is to associate the policy to a role.
+A recommended approach to generate tokens for identical policies is to associate 
+the policy to a role.
 
-Roles allow for the grouping of a set of policies and service identities into a reusable higher-level entity that can be applied to many tokens.
+Roles allow for the grouping of a set of policies and service identities into a 
+reusable higher-level entity that can be applied to many tokens.
 
-For this lab, you are going to configure a role that maps a name
-in Vault to a set of Consul ACL policies. When users generate credentials, if they are generated against this role they will automatically get associated to the policies of that role.
+Configure a role that maps a role in Vault to a set of Consul ACL policies. 
+This will cause the tokens assigned this role to automatically get associated to 
+the policies of that role.
 
 `vault write consul/roles/consul-server-role policies=consul-servers`{{execute T1}}
 
