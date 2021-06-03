@@ -1,15 +1,17 @@
+Click the **+** next to the opened Terminal, and select **Open New Terminal** to start a new terminal (**Terminal 6**).
+
 View the help message for the `vault operator raft autopilot` command.
 
 ```
 clear
 vault operator raft autopilot -help
-```{{execute T4}}
+```{{execute T6}}
 
 Display the current cluster status.
 
 ```
 vault operator raft autopilot state
-```{{execute T4}}
+```{{execute T6}}
 
 ## Autopilot Configuration
 
@@ -18,7 +20,7 @@ Now, check the current autopilot configuration.
 ```
 clear
 vault operator raft autopilot get-config
-```{{execute T4}}
+```{{execute T6}}
 
 The **Cleanup Dead Servers** parameter is set to `false`.
 
@@ -30,13 +32,13 @@ vault operator raft autopilot set-config \
     -server-stabilization-time=30 \
     -cleanup-dead-servers=true \
     -min-quorum=3
-```{{execute T4}}
+```{{execute T6}}
 
 Verify the configuration change. `clear`{{execute T4}}
 
 ```
 vault operator raft autopilot get-config
-```{{execute T4}}
+```{{execute T6}}
 
 ## Add a new node
 
@@ -45,13 +47,13 @@ Start a new Vault server, `node4`.
 ```
 mkdir raft-node4
 vault server -config=config-node4.hcl > raft-node4/node4.log 2>&1 &
-```{{execute T4}}
+```{{execute T6}}
 
 Check the server status.
 
 ```
 VAULT_ADDR='http://127.0.0.1:4200' vault status
-```{{execute T4}}
+```{{execute T6}}
 
 **NOTE:** Before unsealing `node4`, check the server log (`raft-node4/node4.log`{{open}}) to ensure that `node4` has join the cluster.
 
@@ -63,14 +65,14 @@ Unseal the server.
 
 ```
 VAULT_ADDR='http://127.0.0.1:4200' vault operator unseal $(grep 'Key 1:' key.txt | awk '{print $NF}')
-```{{execute T4}}
+```{{execute T6}}
 
 Now, check the cluster state.
 
 ```
 clear
 vault operator raft autopilot state
-```{{execute T4}}
+```{{execute T6}}
 
 Initially, `node4` is added to the cluster as a `non-voter`, and then eventually, it becomes a `voter`.
 

@@ -1,0 +1,13 @@
+{
+  "title": "Granular Access Control with Vault Policies #2",
+  "description": "HashiConf EU Digital Workshop 2021",
+  "courses": [
+    {
+      "pathway_id": "hashicorp",
+      "title": "Sentinel Policy",
+      "id": "vault-sentinel-policy",
+      "course_id": "vault-sentinel-policy",
+      "description": "Teaches you how to test Sentinel policies with the Sentinel Simulator."
+    }
+  ]
+}
