@@ -21,4 +21,4 @@ The Consul datacenter is configured in a secure fashion with:
 * ACLs enabled and bootstrapped
 
 At the end of the provision you can examine the commands issued for the 
-configuration by viewing the `./logs/provision.log`{{open}}
+configuration by viewing `./logs/provision.log`{{open}}

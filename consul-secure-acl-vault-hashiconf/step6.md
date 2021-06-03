@@ -10,7 +10,7 @@ snapshots or configuration changes.
 In those cases you will probably create a token that uses the `global-management` 
 policy and distribute it to the nodes or users that need to perform the operation.
 
-To make sure those tokes have a shorter lifespan you can configure the `ttl` 
+To make sure those tokens have a shorter lifespan you can configure the `ttl` 
 value when creating the role in Vault.
 
 `vault write consul/roles/global-management policies=global-management ttl=120s`{{execute T1}}
@@ -82,7 +82,7 @@ Saved and verified snapshot to index 191
 
 ### Verify token expiration
 
-TO verify the token TTL is respected, wait for two minutes and try to perform 
+To verify the token TTL is respected, wait for two minutes and try to perform 
 another snapshot:
 
 `consul snapshot save consul.snap`{{execute T1}}
