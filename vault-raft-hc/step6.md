@@ -83,7 +83,28 @@ clear
 vault operator raft autopilot state
 ```{{execute T7}}
 
-Initially, `node4` is added to the cluster as a `non-voter`, and then eventually, it becomes a `voter`.
+Initially, `node4` is added to the cluster as a `non-voter`.
+
+```
+Healthy:                      true
+Failure Tolerance:            1
+Leader:                       node2
+Voters:
+   node2
+   node1
+   node3
+Servers:
+   ...snip...
+   node4
+      Name:            node4
+      Address:         127.0.0.1:4201
+      Status:          non-voter
+      Node Status:     alive
+      Healthy:         true
+      ...snip...
+```
+
+Then, it becomes a `voter`.
 
 ```
 Healthy:                      true
