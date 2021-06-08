@@ -4,23 +4,9 @@
     "courses": [
       {
         "pathway_id": "hashicorp",
-        "title": "Use HashiCorp Vault to store Consul gossip key",
-        "id": "consul-secure-gossip-vault",
-        "course_id": "consul-secure-gossip-vault",
-        "description": "Use HashiCorp Vault to store Consul gossip key"
-      },
-      {
-        "pathway_id": "hashicorp",
-        "title": "Generate Certificates with Vault's PKI Secrets Engine for Consul TLS Encryption",
-        "id": "consul-secure-tls-vault",
-        "course_id": "consul-secure-tls-vault",
-        "description": "Deploy a Consul datacenter that uses Vault's PKI secrets engine to generate and manage certificates to secure agent communication"
-      },
-      {
-        "pathway_id": "hashicorp",
         "title": "Generate Consul Tokens with HashiCorp Vault",
-        "id": "consul-secure-acl-vault",
-        "course_id": "consul-secure-acl-vault",
+        "id": "consul-secure-acl-vault-hashiconf",
+        "course_id": "consul-secure-acl-vault-hashiconf",
         "description": "Use Vault's Consul secrets engine to generate Consul ACL tokens"
       }
     ]
