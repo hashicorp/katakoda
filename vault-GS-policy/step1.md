@@ -63,7 +63,7 @@ vault login $(cat token.txt)
 
 Verify that you can write any data to `secret/data/`.
 
-> **NOTE:** When you access the [KV v2 secrets engine](https://www.vaultproject.io/docs/secrets/kv/kv-v2/) using the `vault kv` CLI commands, you can omit `/data` in the secret path.
+> **NOTE:** When you access the [KV v2 secrets engine](https://www.vaultproject.io/docs/secrets/kv/kv-v2/) using the `vault kv` CLI commands, `/data` will be automatically appended to the secret path, so you should omit it.
 
 ```
 vault kv put secret/creds password="my-long-password"
