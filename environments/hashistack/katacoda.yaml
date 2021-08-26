@@ -1,1 +1,1 @@
-base: 'ubuntu:2004'
+base: 'ubuntu2004'
