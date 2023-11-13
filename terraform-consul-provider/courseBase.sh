@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Install Terraform and init config
 # Install docker, unzip - Ubuntu doesn't have docker, pipe to null so future commands work
 apt-get install -y docker-ce docker-ce-cli containerd.io unzip < "/dev/null"

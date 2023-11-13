@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Set the `CONSUL_HTTP_ADDR` environment variable.
 export CONSUL_HTTP_ADDR=$(az hcs show \
                         --name $HCS_MANAGED_APP \

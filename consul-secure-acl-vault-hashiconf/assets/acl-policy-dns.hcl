@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 ## dns-request-policy.hcl
 node_prefix "" {
   policy = "read"

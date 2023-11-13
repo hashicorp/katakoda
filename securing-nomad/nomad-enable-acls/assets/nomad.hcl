@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 ## This configuration enables someone to run a "single-node cluster" easily
 ## using the systemd unit.
 

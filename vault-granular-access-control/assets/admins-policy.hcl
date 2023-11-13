@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # 1. KV-V2 secrets engine enabled at the path `external-apis` update secrets at
 #      `socials/twitter` and create new secrets in `socials/`.
 # 2. Database secrets engine enabled at the path `database` management of all

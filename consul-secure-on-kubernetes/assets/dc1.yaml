@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # global holds values that affect multiple components of the chart.
 global:
   # name sets the prefix used for all resources in the helm chart.

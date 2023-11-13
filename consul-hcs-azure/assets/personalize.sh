@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 export UNAME=<your-user-name>
 export SECRET=<your-secret>
 export TENANT_ID=<your-tenant-id>

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 ingress "dashboard_dc1" {
     target = "k8s_cluster.dc1"
     service = "svc/kubernetes-dashboard"

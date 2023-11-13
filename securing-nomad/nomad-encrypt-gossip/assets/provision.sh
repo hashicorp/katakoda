@@ -1,4 +1,7 @@
 #! /bin/bash
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 log() {
   echo $(date) - ${1} | tee -a /var/log/provision.log

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 k8s_cluster "dc1" {
   driver  = "k3s" // default
   version = "v1.0.1"

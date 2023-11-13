@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Enable secrets engine
 path "sys/mounts/*" {
   capabilities = [ "create", "read", "update", "delete", "list" ]

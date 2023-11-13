@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 mkdir -p learn-terraform/assets
 
 cd learn-terraform

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 export VAULT_ADDR=http://0.0.0.0:8200
 
 vault login root
