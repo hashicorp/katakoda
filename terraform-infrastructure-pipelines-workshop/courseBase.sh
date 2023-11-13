@@ -1,4 +1,7 @@
 #!/bin/sh
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 KUBECTL_RELEASE=v1.21.0
 TERRAFORM_RELEASE=0.15.4

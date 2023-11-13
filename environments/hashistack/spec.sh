@@ -1,4 +1,7 @@
 #!/bin/bash -x
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 export SCRIPT_DIR="${0%/*}"
 export TARGET="katacoda"

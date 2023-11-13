@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 data_dir = "/opt/consul/data",
 log_level = "INFO",
 node_name = "server1",

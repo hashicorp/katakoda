@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # This denotes the start of the configuration section for Vault. All values
 # contained in this section pertain to Vault.
 vault {

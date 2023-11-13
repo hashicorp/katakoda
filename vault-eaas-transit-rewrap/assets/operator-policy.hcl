@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Manage the transit secrets engine
 path "transit/keys/*" {
   capabilities = [ "create", "read", "update", "delete", "list", "sudo" ]

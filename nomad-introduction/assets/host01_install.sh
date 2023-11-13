@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 curl -L http://assets.joinscrapbook.com/unzip -o /usr/bin/unzip
 chmod +x /usr/bin/unzip

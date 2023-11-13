@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 control 'nomad' do
   impact 0.6
   title 'Nomad should be installed'

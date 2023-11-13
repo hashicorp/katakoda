@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Remove the existing minikube
 sudo minikube delete
 rm /usr/local/bin/minikube

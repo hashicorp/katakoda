@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Components like `k8s_cluster` and `ingress` need a `network` parameter to be defined
 # You can use this file to define netwokrs in your k8s cluster.
 

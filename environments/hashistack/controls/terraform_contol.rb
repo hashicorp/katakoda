@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 control 'terraform' do
   impact 0.6
   title 'Terraform should be installed'

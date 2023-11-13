@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 #-----------------------------------------------------------------------------------
 # To configure Transform secrets engine, you need vault provider v2.12.0 or later
 #-----------------------------------------------------------------------------------

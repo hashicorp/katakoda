@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Configure peering from HCS on Azure to AKS
 az network vnet peering create \
   -g dwcc-$UNAME-hcs-managed-rg \

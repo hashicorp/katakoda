@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 control 'packer' do
   impact 0.6
   title 'Packer should be installed'

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 control 'Consul' do
   impact 0.6
   title 'Consul should be installed'

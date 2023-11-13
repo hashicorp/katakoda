@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # Install Terraform and init config
 
 TERRAFORM_RELEASE=0.15.4

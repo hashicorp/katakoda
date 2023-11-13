@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 # consul-server-policy.hcl
 node_prefix "server-" {
   policy = "write"

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 host01_commands=(
 "curl -o ./install.sh https://raw.githubusercontent.com/hashicorp/katakoda/master/nomad-openfaas/assets/install.sh"
 "chmod +x install.sh"

@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 ha_storage "raft" {
   path    = "/root/raft-node2/"
   node_id = "node2"
