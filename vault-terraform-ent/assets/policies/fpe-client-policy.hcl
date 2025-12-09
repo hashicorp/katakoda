@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2017, 2023
 # SPDX-License-Identifier: MPL-2.0
 
 # To request data encoding using any of the roles

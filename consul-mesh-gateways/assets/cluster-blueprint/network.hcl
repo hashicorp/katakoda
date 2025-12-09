@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2017, 2023
 # SPDX-License-Identifier: MPL-2.0
 
 # Components like `k8s_cluster` and `ingress` need a `network` parameter to be defined
