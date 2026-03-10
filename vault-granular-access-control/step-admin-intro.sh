@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2017, 2023
 # SPDX-License-Identifier: MPL-2.0
 
 export VAULT_ADDR=http://0.0.0.0:8200

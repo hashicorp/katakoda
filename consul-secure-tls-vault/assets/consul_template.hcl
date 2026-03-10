@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2017, 2023
 # SPDX-License-Identifier: MPL-2.0
 
 # This denotes the start of the configuration section for Vault. All values
