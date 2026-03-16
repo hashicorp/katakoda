@@ -46,7 +46,7 @@ metadata:
   namespace: default
 spec:
   vault:
-    server: http://vault.default
+    server: http://vault.default:8200
     path: pki/sign/example-dot-com
     auth:
       kubernetes:

@@ -39,7 +39,7 @@ helm repo update
 
 The results show that the `jetstack` chart repository has retrieved an update.
 
-Install the cert-manager chart version 0.11 in the `cert-manager` namespace.
+Install the cert-manager chart version 0.14.3 in the `cert-manager` namespace.
 
 ```shell
 helm install cert-manager \
