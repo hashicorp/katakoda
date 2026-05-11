@@ -1,4 +1,4 @@
-# Copyright IBM Corp. 2017, 2023
+# Copyright IBM Corp. 2017, 2026
 # SPDX-License-Identifier: MPL-2.0
 
 export NOMAD_ADDR=https://[[HOST_SUBDOMAIN]]-4646-[[KATACODA_HOST]].environments.katacoda.com

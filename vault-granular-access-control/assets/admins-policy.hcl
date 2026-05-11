@@ -1,4 +1,4 @@
-# Copyright IBM Corp. 2017, 2023
+# Copyright IBM Corp. 2017, 2026
 # SPDX-License-Identifier: MPL-2.0
 
 # 1. KV-V2 secrets engine enabled at the path `external-apis` update secrets at
