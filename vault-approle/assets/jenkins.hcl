@@ -1,4 +1,4 @@
-# Copyright IBM Corp. 2017, 2023
+# Copyright IBM Corp. 2017, 2026
 # SPDX-License-Identifier: MPL-2.0
 
 # Read-only permission on 'secret/data/myapp/*' path
